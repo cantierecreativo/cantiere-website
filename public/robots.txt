@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /server
+
+# Host
+Host: https://www.xxx.it/
+
+# Sitemaps
+Sitemap: https://www.xxx.it/sitemap.xml

@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Lato:wght@300;400;700&family=Oswald:wght@300&display=swap");
+
+@font-face {
+  font-family: "Buch";
+  src: url("/fonts/buch.woff2") format("woff2");
+  font-style: normal;
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Leicht";
+  src: url("/fonts/leicht.woff2") format("woff2");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@layer base {
+  html {
+    @apply !scroll-smooth;
+  }
+  @media (prefers-reduced-motion) {
+    html {
+      @apply !scroll-auto;
+    }
+  }
+  body {
+    @apply font-sans m-0 p-0 text-black text-base;
+  }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .formatted-text ul {
+    @apply my-2 pl-4;
+  }
+
+  .formatted-text ol {
+    @apply my-2;
+    counter-reset: my-awesome-counter;
+  }
+
+  .formatted-text ul li {
+    @apply relative py-[3px] after:absolute after:top-[15px] after:-left-4 after:h-[7px] after:w-[7px] after:rotate-45 after:rounded-full after:bg-black;
+  }
+
+  .formatted-text ol li {
+    @apply relative py-[3px] before:pr-1 before:font-bold before:text-black flex;
+    counter-increment: my-awesome-counter;
+  }
+
+  .formatted-text ol li:before {
+    content: counter(my-awesome-counter) ". ";
+  }
+
+  .triangle {
+    @apply w-0 h-0;
+  }
+
+  .container-fluid {
+    @apply px-6 md:px-10 lg:px-6 xl:px-10 max-w-[1920px] mx-auto;
+  }
+
+  .container {
+    @apply xl:max-w-[1110px] 3xl:max-w-[1430px];
+  }
+
+  .border-logo {
+    @apply border-l border-dashed border-gray border-t even:border-r md:even:border-r-0;
+  }
+
+  .border-logo:nth-child(4n + 4) {
+    @apply md:border-r md:border-dashed md:border-gray;
+  }
+
+  .vertical-spaces {
+    @apply grid gap-16 py-20 lg:py-28 xl:py-32 xl:gap-20 2xl:gap-28 2xl:py-44 z-10 relative;
+  }
+}
+
+.padding-left-container {
+  @apply pl-6 md:pl-[calc(((100vw-780px)/2)+2.5rem)] lg:pl-[calc(((100vw-885px)/2)+2.5rem)] xl:pl-[calc(((100vw-1040px)/2)+2.5rem)] 3xl:pl-[calc(((100vw-1305px)/2)+2.5rem)];
+}
+
+.triangle {
+  border-width: 5px 4.5px 0 4.5px;
+  border-color: white transparent transparent transparent;
+  border-style: solid;
+}
+
+.fill-gradient-red {
+  fill: linear-gradient(270deg, #ff6d91 32.23%, #ff916e 97.94%);
+}
+
+.triangle-black {
+  border-width: 5px 4.5px 0 4.5px;
+  border-color: black transparent transparent transparent;
+  border-style: solid;
+}
+
+@media (prefers-reduced-motion) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@media (min-width: 767px) {
+  .unwrapped {
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+  }
+}
+
+.unwrapped-on-right {
+  margin-right: calc(-50vw + 50%);
+}
