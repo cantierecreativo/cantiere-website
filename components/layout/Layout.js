@@ -13,6 +13,7 @@ function Layout({
   ancestor,
   grandParent,
   parent,
+  headerTxt = "black",
 }) {
   useEffect(() => {
     if (locale) {
@@ -34,6 +35,7 @@ function Layout({
         ancestor={ancestor}
         grandParent={grandParent}
         parent={parent}
+        headerTxt={headerTxt}
       />
       <main id="content">{children}</main>
       <Footer id="footer" site={site} locale={locale} />

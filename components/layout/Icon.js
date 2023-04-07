@@ -157,6 +157,19 @@ export default function Icon({ name, size = 30, fill, className = "" }) {
           <path d="M538.248 508.351V.001C240.937 0 0 241.745 0 539.927s240.936 539.932 538.248 539.932v-508.21C554.548 855.153 788.815 1080 1075.52 1080V0C788.815 0 554.548 224.876 538.248 508.351Z" />
         </svg>
       );
+    case "shapeStar":
+      return (
+        <svg
+          className={className}
+          viewBox="0 0 1076 1080"
+          fill={fill}
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden={true}
+          focusable={false}
+        >
+          <path d="M538.002 1080c0-298.231 240.766-540 537.758-540-296.992 0-537.758-241.769-537.758-540 0 298.231-240.767 540-537.76 540 296.993 0 537.76 241.769 537.76 540Z" />
+        </svg>
+      );
     case "arrow":
       return (
         <svg
@@ -185,8 +198,8 @@ export default function Icon({ name, size = 30, fill, className = "" }) {
           focusable={false}
         >
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M380.012 384.712C590.634 384.712 761.384 556.537 761.384 768.48V0.943811C761.384 212.893 590.634 384.712 380.012 384.712ZM0.622314 384.683C0.622314 596.953 170.424 769 379.862 769V0.423279C170.424 0.423279 0.622314 172.47 0.622314 384.683Z"
             fill="url(#paint0_linear_517_95)"
           />
@@ -199,8 +212,8 @@ export default function Icon({ name, size = 30, fill, className = "" }) {
               y2="1082.98"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#FF6D91" />
-              <stop offset="1" stop-color="#FF916E" />
+              <stop stopColor="#FF6D91" />
+              <stop offset="1" stopColor="#FF916E" />
             </linearGradient>
           </defs>
         </svg>

@@ -33,10 +33,15 @@
     "slug_about": "chi-siamo",
     "slug_portfolio": "portfolio",
     "slug_services_index": "servizi",
+    "solutions": "Soluzioni",
+    "services": "Servizi",
+    "technologies": "Tecnologie",
+    "methods": "Metodi",
     "slug_tag": "blog/tags",
     "close": "Chiudi",
     "contact-us-url": "/contatti#form",
-    "contact-us-label": "Contattaci"
+    "contact-us-label": "Contattaci",
+    "contacts": "Contatti"
   },
   "en": {
     "it": "Italian",
@@ -72,9 +77,14 @@
     "slug_about": "about",
     "slug_portfolio": "portfolio",
     "slug_services_index": "services",
+    "solutions": "Solutions",
+    "services": "Services",
+    "technologies": "Technologies",
+    "methods": "Methods",
     "slug_tag": "blog/tags",
     "close": "Close",
     "contact-us-url": "/en/contact#form",
-    "contact-us-label": "Contact us"
+    "contact-us-label": "Contact us",
+    "contacts": "Contacts"
   }
 }

@@ -14,12 +14,7 @@ export default function IndexBlog({ locale, site, page, tags }) {
           ELENCO tag
           {tags.map((c) => (
             <li key={c.id}>
-              <Link
-                href={resolveLink(c, locale)}
-                title=""
-                className=""
-                legacyBehavior
-              >
+              <Link href={resolveLink(c, locale)} title="" className="">
                 {c.title}
               </Link>
             </li>

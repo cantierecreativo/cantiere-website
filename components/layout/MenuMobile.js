@@ -44,7 +44,6 @@ function RenderMobileNavItem(item, locale) {
                       href={resolveLink(item.link, locale)}
                       title={item.link.title}
                       onClick={() => close()}
-                      legacyBehavior
                       className={`${
                         IsActive(item, locale) == true ? classNameActive : ""
                       } ${classNameItem}`}
@@ -66,7 +65,6 @@ function RenderMobileNavItem(item, locale) {
       href={resolveLink(item, locale)}
       title={item.title}
       className="group"
-      legacyBehavior
     >
       <span
         className={`${

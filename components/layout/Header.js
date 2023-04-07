@@ -4,12 +4,11 @@ import { Popover, Transition } from "@headlessui/react";
 import MenuMobile from "components/layout/MenuMobile";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { resolveLink, IsActive } from "lib/utils";
-import Breadcrumbs from "./Breadcrumbs";
 import Image from "next/image";
 import t from "lib/locales";
 import { useState, useEffect } from "react";
 
-function RenderNavItem(item, locale, scroll) {
+function RenderNavItem(item, locale, scroll, setTriangle) {
   const classNameActive = "underline";
   const classNameItem = scroll
     ? "font-bold group gap-2 inline-flex items-center text-sm xl:text-base duration-200 hover:text-orange focus:ring-orange"
@@ -29,9 +28,7 @@ function RenderNavItem(item, locale, scroll) {
             >
               <span>{item.mainLabel}</span>
               <div
-                className={`${
-                  scroll ? "triangle-black" : "triangle"
-                } translate-y-[2px] duration-200`}
+                className={`${setTriangle} translate-y-[2px] duration-200`}
               />
             </Popover.Button>
 
@@ -47,7 +44,7 @@ function RenderNavItem(item, locale, scroll) {
               <Popover.Panel className="absolute z-10 -ml-4 mt-6 w-auto max-w-md transform px-2 sm:px-0 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2">
                 <div className="triangle absolute left-1/2 -top-1 scale-150 rotate-180" />
                 <div className="overflow-hidden rounded-lg">
-                  <div className="relative grid bg-white text-lg py-4">
+                  <div className="relative grid bg-white text-lg py-4 text-black">
                     {item.menuItems.map((item) => (
                       <Link
                         key={item.id}
@@ -82,7 +79,6 @@ function RenderNavItem(item, locale, scroll) {
           className={`${
             IsActive(item, locale) == true ? classNameActive : ""
           } ${classNameItem}`}
-          legacyBehavior
         >
           {item.label}
         </span>
@@ -92,7 +88,7 @@ function RenderNavItem(item, locale, scroll) {
 }
 
 function Header(props) {
-  const { locale, site, page, ancestor, grandParent, parent } = props;
+  const { locale, site, page, headerTxt } = props;
   const navNewsCategories = site.allNewsCategories;
   const navItems = site.menu.menuFirstLevels;
   const prefix = locale === "it" ? "/" : "/en";
@@ -104,9 +100,31 @@ function Header(props) {
     });
   }, []);
 
-  const headerClass = scroll
-    ? "bg-white text-black py-2 drop-shadow-md"
-    : "bg-transparent text-white py-5";
+  let logoSrc = "";
+  let headerClass = "";
+  let setTriangle = "";
+  let setBorder = "";
+
+  if (headerTxt === "white") {
+    logoSrc = scroll ? "/logos/color.svg" : "/logos/white.svg";
+  } else logoSrc = "/logos/color.svg";
+
+  if (headerTxt === "white") {
+    setTriangle = scroll ? "triangle-black" : "triangle";
+  } else setTriangle = "triangle-black";
+
+  if (headerTxt === "white") {
+    setBorder = scroll ? "border-black" : "border-white";
+  } else setBorder = "border-black";
+
+  if (headerTxt === "white") {
+    headerClass = scroll
+      ? "bg-white text-black py-2 drop-shadow-md"
+      : "bg-transparent text-white py-5";
+  } else
+    headerClass = scroll
+      ? "py-2 bg-white drop-shadow-md"
+      : "py-5 bg-transparent text-black ";
 
   return (
     <header
@@ -121,12 +139,11 @@ function Header(props) {
                 key="homepage"
                 title="Homepage"
                 className="flex items-center"
-                legacyBehavior
               >
                 <div className="relative h-5 w-[90px] lg:h-12 lg:w-[130px] flex-none">
                   <Image
                     priority
-                    src={`${scroll ? "/logos/color.svg" : "/logos/white.svg"}`}
+                    src={logoSrc}
                     alt="Logo Cantiere Creativo"
                     layout="fill"
                   />
@@ -134,11 +151,7 @@ function Header(props) {
               </Link>
               <div className="flex items-center lg:hidden">
                 <Popover.Button className="inline-flex items-center justify-center">
-                  <div
-                    className={`${
-                      scroll ? "border-black" : ""
-                    } border-b-2 pb-1`}
-                  >
+                  <div className={`${setBorder} border-b-2 pb-1`}>
                     <div className="">Menù</div>
                   </div>
                 </Popover.Button>
@@ -150,7 +163,7 @@ function Header(props) {
                 <div className="flex gap-4 items-center justify-between xl:gap-6">
                   {navItems.map((item) => (
                     <div key={item.id}>
-                      {RenderNavItem(item, locale, scroll)}
+                      {RenderNavItem(item, locale, scroll, setTriangle)}
                     </div>
                   ))}
                 </div>
@@ -173,23 +186,8 @@ function Header(props) {
             </div>
           </div>
         </div>
-        <MenuMobile
-          site={site}
-          page={page}
-          locale={locale}
-          navItems={navItems}
-          navNewsCategories={navNewsCategories}
-        />
+        <MenuMobile site={site} page={page} locale={locale} />
       </Popover>
-      {page.model !== "homepage" && (
-        <Breadcrumbs
-          page={page}
-          ancestor={ancestor}
-          grandParent={grandParent}
-          parent={parent}
-          locale={locale}
-        />
-      )}
     </header>
   );
 }

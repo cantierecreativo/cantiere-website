@@ -13,7 +13,7 @@ import BannerBlock from "components/blocks/BannerBlock";
 export default function Home({ locale, site, page, lastNews }) {
   const { mainBlocks, blueBlocks, orangeBlocks, highlightProject } = page;
   return (
-    <Layout site={site} locale={locale} page={page}>
+    <Layout site={site} locale={locale} page={page} headerTxt="white">
       <HeroHp page={page} locale={locale} />
       <div
         aria-hidden="true"

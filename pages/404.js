@@ -32,7 +32,7 @@ function Template404({ site }) {
               <div className="">{t("404title", locale)}</div>
             </div>
             <h1 className="">{t("404text", locale)}</h1>
-            <Link href="/" legacyBehavior>
+            <Link href="/">
               <span className="">{t("404cta", locale)}</span>
             </Link>
           </div>
