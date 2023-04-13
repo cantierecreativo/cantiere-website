@@ -4,19 +4,14 @@ import fetchData from "lib/dato";
 import ModularTmp from "components/templates/ModularTmp";
 import PostContent from "components/PostContent";
 
-export default function News({ locale, site, page }) {
+export default function Work({ locale, site, page }) {
   const { blocks } = page;
   return (
     <Layout site={site} locale={locale} page={page} parent={site.newsIndex}>
       <ModularTmp locale={locale} page={page}>
         <div className="formatted-text vertical-spaces">
           {blocks.map((b) => (
-            <PostContent
-              key={b.id}
-              record={b}
-              locale={locale}
-              page={"homepage"}
-            />
+            <PostContent key={b.id} record={b} locale={locale} />
           ))}
         </div>
       </ModularTmp>
