@@ -3,7 +3,7 @@ import { Image as DatoImage } from "react-datocms";
 export default function ImageBlock({ record }) {
   return (
     <>
-      <div className="py-6">
+      <div className="container">
         <DatoImage
           className=""
           data={record.image.responsiveImage}

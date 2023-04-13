@@ -13,7 +13,11 @@ export default function Footer({ locale, site }) {
   const info = ["©" + year + " Cantiere Creativo Srl", "P.Iva 05210970488"];
   return (
     <>
-      <footer id="footer" data-datocms-noindex className="container py-6 pt-8 ">
+      <footer
+        id="footer"
+        data-datocms-noindex
+        className="container py-6 pt-8 xl:pt-16"
+      >
         <nav className="grid grid-cols-2 md:flex md:gap-4 gap-2 gap-y-8 justify-between pb-6 border-gray border-dashed border-b xl:grid xl:grid-cols-6">
           {menu.menuFirstLevels.map((item) => (
             <>

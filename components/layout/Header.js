@@ -169,9 +169,7 @@ function Header(props) {
                 </div>
                 <div className="hidden items-center space-x-3 lg:flex xl:space-x-6">
                   <div
-                    className={`${
-                      scroll ? "border-black" : "border-white"
-                    } border-b-2 pb-1 text-sm xl:text-base translate-y-[3px]`}
+                    className={`${setBorder} border-b-2 pb-1 text-sm xl:text-base translate-y-[3px]`}
                   >
                     <Link
                       href={t("contact-us-url", locale)}

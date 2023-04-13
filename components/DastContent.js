@@ -11,9 +11,12 @@ import {
 
 import Icon from "./layout/Icon";
 import ImageBlock from "components/blocks/ImageBlock";
-import VideoBlock from "components/blocks/VideoBlock";
-import FaqBlock from "components/blocks/FaqBlock";
+import BannerBlock from "components/blocks/BannerBlock";
+import AttachmentsBlock from "components/blocks/AttachmentsBlock";
 import InternalLink from "./links/InternalLink";
+import Gallery from "components/blocks/Gallery";
+import ExternalVideo from "components/video/VideoEmbedded";
+import CardImageBlock from "components/blocks/CardImageBlock";
 
 export default function DastContent({ content, locale, page }) {
   return (
@@ -23,10 +26,21 @@ export default function DastContent({ content, locale, page }) {
         switch (record.model) {
           case "image_block":
             return <ImageBlock record={record} locale={locale} />;
-          case "video_block":
-            return <VideoBlock record={record} locale={locale} />;
-          case "faq_block":
-            return <FaqBlock record={record} locale={locale} />;
+          case "article_link_block":
+            return <ArticleLinkBlock record={record} locale={locale} />;
+          case "article_text_block":
+            return <ArticleTextBlock record={record} locale={locale} />;
+          case "article_video_block":
+            return null;
+            return <ExternalVideo record={record} locale={locale} />;
+          case "attachments_block":
+            return <AttachmentsBlock record={record} locale={locale} />;
+          case "banner_block":
+            return <BannerBlock record={record} locale={locale} />;
+          case "card_image_block":
+            return <CardImageBlock record={record} locale={locale} />;
+          case "gallery":
+            return <Gallery record={record} locale={locale} />;
           default:
             return null;
         }

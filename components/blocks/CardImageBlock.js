@@ -41,15 +41,17 @@ export default function CardImageBlock({ locale, record }) {
                     </div>
                   </InternalLink>
                 </div>
-                <div className="lg:col-span-5 lg:col-start-6">
-                  <DatoImage
-                    className="rounded-full my-2 mb-4 lg:m-0"
-                    data={c.cover.responsiveImage}
-                    alt={c.cover.responsiveImage.alt}
-                    title={c.cover.responsiveImage.title}
-                    layout=""
-                  />
-                </div>
+                {c.cover && (
+                  <div className="lg:col-span-5 lg:col-start-6">
+                    <DatoImage
+                      className="rounded-full my-2 mb-4 lg:m-0"
+                      data={c.cover.responsiveImage}
+                      alt={c.cover.responsiveImage.alt}
+                      title={c.cover.responsiveImage.title}
+                      layout=""
+                    />
+                  </div>
+                )}
               </div>
             ))}
           </div>

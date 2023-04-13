@@ -4,7 +4,7 @@ import VideoEmbedded from "components/video/VideoEmbedded";
 export default function VideoBlock({ locale, record }) {
   return (
     <>
-      <div className="aspect-video">
+      <div className="aspect-video container">
         {record.externalVideo?.url && (
           <VideoEmbedded record={record} video={record.externalVideo} />
         )}

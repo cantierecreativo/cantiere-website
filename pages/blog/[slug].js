@@ -1,6 +1,8 @@
 import Layout from "components/layout/Layout";
 import * as queries from "lib/queries";
 import fetchData from "lib/dato";
+import EditorialTmp from "components/templates/EditorialTmp";
+import DastContent from "components/DastContent";
 
 function Article({ locale, site, page }) {
   return (
@@ -9,6 +11,11 @@ function Article({ locale, site, page }) {
         <p>Title: {page.title}</p>
         <p>Model: {page.model}</p>
       </div>
+      <EditorialTmp locale={locale} page={page}>
+        <div className="formatted-text vertical-spaces">
+          <DastContent content={page.body} locale={locale} site={site} />
+        </div>
+      </EditorialTmp>
     </Layout>
   );
 }
