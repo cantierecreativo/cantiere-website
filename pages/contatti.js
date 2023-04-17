@@ -2,15 +2,19 @@ import Layout from "components/layout/Layout";
 import * as queries from "lib/queries";
 import fetchData from "lib/dato";
 import FormBlock from "components/blocks/FormBlock";
+import ContactTmp from "components/templates/ContactTmp";
+import PostContent from "components/PostContent";
 
 export default function Contact({ locale, site, page }) {
   return (
-    <Layout site={site} locale={locale} page={page}>
-      <div className="container py-20 text-5xl border-t">
-        <p>{page.title}</p>
-        <p>{page.model}</p>
-      </div>
-      <FormBlock locale={locale} />
+    <Layout site={site} locale={locale} page={page} parent={site.newsIndex}>
+      <ContactTmp locale={locale} page={page}>
+        <div className="formatted-text vertical-spaces">
+          {page.blocks.map((b) => (
+            <PostContent key={b.id} record={b} locale={locale} />
+          ))}
+        </div>
+      </ContactTmp>
     </Layout>
   );
 }

@@ -11,8 +11,10 @@ import SpacingBlock from "components/blocks/SpacingBlock";
 import TitleTextBlock from "components/blocks/TitleTextBlock";
 import ImageDoubleBlock from "components/blocks/ImageDoubleBlock";
 import NumbersBlock from "components/blocks/NumbersBlock";
+import TextForm from "components/blocks/TextForm";
 
 export default function PostContent({ record, locale, page = null }) {
+  // return <div>{record.model}</div>;
   switch (record.model) {
     case "image_block":
       return <ImageBlock record={record} locale={locale} />;
@@ -44,5 +46,7 @@ export default function PostContent({ record, locale, page = null }) {
       return <ImageDoubleBlock record={record} locale={locale} />;
     case "numbers_block":
       return <NumbersBlock record={record} locale={locale} />;
+    case "text_form_block":
+      return <TextForm record={record} locale={locale} />;
   }
 }
