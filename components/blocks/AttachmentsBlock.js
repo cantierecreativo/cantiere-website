@@ -8,21 +8,21 @@ export default function AttachmentsBlock({ locale, record }) {
     <>
       <section className="container">
         <div className="grid gap-4 md:gap-6 lg:grid-cols-12 lg:gap-x-0">
-          <div className="lg:col-span-10 lg:col-start-2 grid gap-6">
-            <h2 className="text-3xl max-w-prose">{title}</h2>
-            <div className="text-lg max-w-prose pb-8">{renderHTML(text)}</div>
-            <div className="border-b-2 border-dashed">
+          <div className="lg:col-span-10  grid gap-6">
+            <h2 className="text-3xl md:col-start-5 max-w-prose">{title}</h2>
+            <div className="text-lg md:col-start-5 max-w-prose pb-6">{renderHTML(text)}</div>
+            <div className="border-t border-dashed md:col-start-5">
               {attachments && attachments.map(({ id, file, title }) => (
-                <div key={id} className="border-t-2 border-dashed py-6 flow-root">
+                <div key={id} className="border-b border-dashed py-4 flow-root">
                   <div className="float-left">
-                    <p className="text-violet text-base pb-3">{title}</p>
+                    <p className="text-violet text-base pb-2">{title}</p>
                     <p className="text-xs">{(file.url.substring(file.url.lastIndexOf('.') + 1)).toUpperCase() + " - 230 Kb"}</p>
                   </div>
                     <ExternalLink
                       label="download"
                       className="space-x-2 items-center bg-violet rounded-full p-3 float-right text-white"
                       url={file.url}>
-                      <Icon name="download" className="" fill="white"/>
+                      <Icon name="download" className="" fill="white" size="25"/>
                     </ExternalLink>
                 </div>
               ))}
