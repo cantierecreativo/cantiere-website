@@ -13,7 +13,7 @@ export default function IndexTmp({ locale, page, items }) {
       />
       <HeroText locale={locale} page={page} />
       <div className="container z-10 relative pb-10 lg:pb-24">
-        <div className="grid gap-8 py-6 md:grid-cols-2 lg:gap-x-0">
+        <div className="grid gap-8 py-6 md:grid-cols-2 lg:gap-x-0 lg:gap-y-12">
           {items.map((i) => (
             <WhichCard key={i.id} locale={locale} record={i} />
           ))}

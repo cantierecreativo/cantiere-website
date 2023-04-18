@@ -1,11 +1,9 @@
 import Layout from "components/layout/Layout";
 import * as queries from "lib/queries";
 import fetchData from "lib/dato";
-import HeroText from "components/hero/HeroText";
-import Icon from "components/layout/Icon";
 import IndexTmp from "components/templates/IndexTmp";
 
-export default function NewsIndex({ locale, site, page, allItems }) {
+export default function MethodsIndex({ locale, site, page, allItems }) {
   return (
     <Layout site={site} locale={locale} page={page}>
       <IndexTmp locale={locale} items={allItems} page={page} />
@@ -14,13 +12,17 @@ export default function NewsIndex({ locale, site, page, allItems }) {
 }
 
 export async function getStaticProps({ locale = "it", preview }) {
-  const response = await fetchData(queries.getWorksIndex, { locale }, preview);
+  const response = await fetchData(
+    queries.getMethodsIndex,
+    { locale },
+    preview
+  );
   const site = await fetchData(queries.site, { locale });
   return {
     props: {
       locale,
-      page: response.worksIndex,
-      allItems: response.allWorks,
+      page: response.methodsIndex,
+      allItems: response.allMethods,
       site,
     },
   };

@@ -3,11 +3,21 @@ import { Image as DatoImage } from "react-datocms";
 import { renderHTML, resolveLink } from "lib/utils";
 
 export default function StandardCard({ locale, record }) {
-  const { title, cover, abstract } = record;
+  const { title, cover, subtitle, oneColumn } = record;
   return (
     <>
-      <div className="lg:grid lg:grid-cols-6">
-        <div className="grid gap-2 lg:col-span-5 lg:col-start-2 content-start">
+      <div
+        className={`${
+          oneColumn ? "col-span-2 lg:grid-cols-12" : "col-span-1 lg:grid-cols-6"
+        } lg:grid`}
+      >
+        <div
+          className={`${
+            oneColumn
+              ? "lg:col-start-2 lg:col-span-12"
+              : "lg:col-start-2 lg:col-span-5"
+          } grid gap-2 content-start`}
+        >
           <InternalLink
             element={record}
             label={title}
@@ -23,8 +33,10 @@ export default function StandardCard({ locale, record }) {
                 layout=""
               />
             )}
+            <div className="text-gray font-bold text-xs uppercase lg:text-sm md:pt-2">
+              {subtitle}
+            </div>
             <h2 className="text-blue text-xl lg:text-2xl">{title}</h2>
-            <h3 className="">{renderHTML(abstract)}</h3>
           </InternalLink>
         </div>
       </div>
