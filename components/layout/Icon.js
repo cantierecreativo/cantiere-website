@@ -218,7 +218,26 @@ export default function Icon({ name, size = 30, fill, className = "" }) {
           </defs>
         </svg>
       );
+    case "download":
+      return (
+        <svg
+          className={className}
+          width={size}
+          height={size}
+          viewBox="0 0 48 48"
+          fill={fill}
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden={true}
+          focusable={false}
+        >
+          <path
+            fill-rule="evenodd" 
+            d="m25.219 31.622 7.067-7.067L34 26.269l-9.992 9.992L14 26.269l1.713-1.715 7.082 7.07V8h2.424v23.622ZM38 40H10v-2h28v2Z" 
+            clip-rule="evenodd" />
+        </svg>
+      );
     default:
       return "⚠️";
   }
 }
+
