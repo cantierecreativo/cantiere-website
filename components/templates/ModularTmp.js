@@ -1,9 +1,10 @@
 import Menu from "components/layout/Menu";
+import HeroOrange from "components/hero/HeroOrange";
 
 export default function ModularTmp({ locale, page, children }) {
   return (
     <>
-      <div className="bg-red h-[300px]"></div>
+      <HeroOrange locale={locale} page={page} />
       {/* <Menu page={page} locale={locale} /> */}
       <div className="formatted-text">{children}</div>
     </>
