@@ -25,8 +25,6 @@ module.exports = {
         },
         blue: {
           DEFAULT: "#4637F1",
-          // light: "#F5F4F4",
-          // dark: "#696969",
         },
         violet: {
           DEFAULT: "#564DF1",

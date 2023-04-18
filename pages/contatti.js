@@ -1,7 +1,6 @@
 import Layout from "components/layout/Layout";
 import * as queries from "lib/queries";
 import fetchData from "lib/dato";
-import FormBlock from "components/blocks/FormBlock";
 import ContactTmp from "components/templates/ContactTmp";
 import PostContent from "components/PostContent";
 

@@ -1,8 +1,7 @@
 import InternalLink from "components/links/InternalLink";
 import { Image as DatoImage } from "react-datocms";
-import { renderHTML, resolveLink } from "lib/utils";
 
-export default function StandardCard({ locale, record }) {
+export default function WorkCard({ locale, record }) {
   const { title, cover, subtitle, oneColumn } = record;
   return (
     <>
