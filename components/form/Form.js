@@ -3,11 +3,15 @@ import { useForm } from "react-hook-form";
 import t from "lib/locales";
 import ExternalLink from "components/links/ExternalLink";
 import FormMessage from "components/form/FormMessage";
+import Button from "components/blocks/Button";
 
 export default function ContactForm({ page, locale }) {
+  console.log(page)
   const labelClass = "";
   const inputClass =
-    "border border-black border-x-0 border-t-0 border-b-1 lg:px-6 lg:pt-2 lg:pb-2 w-full mx-0 placehoder-violet";
+    "border border-black border-x-0 border-t-0 border-b-1lg:pt-2 lg:pb-2 w-full mx-0 placeholder-violet text-base overflow-hidden";
+  const selectClass =
+    "border border-black border-x-0 border-t-0 border-b-1lg:pt-2 lg:pb-2 w-full mx-0 text-violet";
   const checkboxClass =
     "h-4 w-4 shrink-0 rounded-full bg-white text-blue accent-blue";
 
@@ -86,15 +90,12 @@ export default function ContactForm({ page, locale }) {
         />
       </div>
       <div className="pb-8">
-        <input
-          type="text"
-          name="service"
-          id="service"
-          placeholder={t("formDropdown", locale)}
-          required={true}
-          className={`${inputClass}`}
-          {...register("Selezione")}
-        />
+        <select id="service"
+         className={selectClass}>
+          <option selected>{t("formDropdown", locale)}</option>
+          <option value="servizio1">Servizio 1</option>
+          <option value="servizio1">Servizio 2</option>
+        </select>
       </div>
       <div className="">
         <textarea
@@ -103,13 +104,13 @@ export default function ContactForm({ page, locale }) {
           id="message"
           placeholder={t("formMessage", locale)}
           required={true}
-          className={`${inputClass}`}
+          className={`${inputClass} + h-7 + lg:h-8`}
           {...register("Messaggio")}
         />
       </div>
-      {t("requiredFields", locale)}
+      <p className="text-xs py-3">{t("requiredFields", locale)}</p>
       <fieldset
-        className="mt-9 flex px-2 lg:mb-20"
+        className="mt-9 pt-4 flex px-2 lg:mb-20"
         role="group"
         aria-label={t("formPrivacyFieldsetLabel")}
       >
@@ -137,10 +138,9 @@ export default function ContactForm({ page, locale }) {
           </ExternalLink>
         </label>
       </fieldset>
-      <div className="mt-2">
-        <button className="" type="submit">
-          INVIA
-        </button>
+      <div className="flex flex-row items-center pt-9 lg:pt-0">
+        <p className="pr-6">{t("formSend", locale)}</p>
+        <Button bg="blue" />
       </div>
       <FormMessage status={result} locale={locale} />
     </form>
