@@ -26,12 +26,7 @@ export default function Home({ locale, site, page, lastNews }) {
       </div>
       <div className="vertical-spaces">
         {mainBlocks.map((b) => (
-          <PostContent
-            key={b.id}
-            record={b}
-            locale={locale}
-            page={"homepage"}
-          />
+          <PostContent key={b.id} record={b} locale={locale} page={page} />
         ))}
       </div>
       <div className="bg-red relative">
@@ -41,7 +36,7 @@ export default function Home({ locale, site, page, lastNews }) {
         />
         <div className="vertical-spaces">
           {orangeBlocks.map((b) => (
-            <PostContent key={b.id} record={b} locale={locale} />
+            <PostContent key={b.id} record={b} locale={locale} page={page} />
           ))}
         </div>
       </div>

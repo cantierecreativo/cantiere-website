@@ -36,6 +36,18 @@
     @apply my-2 pl-4;
   }
 
+  .formatted-text p {
+    @apply text-base lg:text-lg;
+  }
+
+  .formatted-text h2 {
+    @apply text-2xl lg:text-5xl;
+  }
+
+  .formatted-text h3 {
+    @apply text-xl lg:text-3xl;
+  }
+
   .formatted-text ol {
     @apply my-2;
     counter-reset: my-awesome-counter;
@@ -59,7 +71,7 @@
   }
 
   .container-fluid {
-    @apply px-6 md:px-10 lg:px-6 xl:px-10 max-w-[1920px] mx-auto;
+    @apply px-6 md:px-10 lg:px-6 max-w-[1920px] mx-auto;
   }
 
   .container {
@@ -76,6 +88,10 @@
 
   .vertical-spaces {
     @apply grid gap-16 py-20 lg:py-28 xl:py-32 xl:gap-20 2xl:gap-28 2xl:py-44 z-10 relative;
+  }
+
+  .margin-scroll-standard {
+    @apply scroll-mt-8 md:scroll-mt-24 xl:scroll-mt-16 lg:scroll-mt-32;
   }
 }
 

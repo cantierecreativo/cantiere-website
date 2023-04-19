@@ -33,11 +33,11 @@ export default function PostContent({ record, locale, page = null }) {
     case "card_image_block":
       return <CardImageBlock record={record} locale={locale} page={page} />;
     case "article_link_block":
-      return <ArticleLinkBlock record={record} locale={locale} />;
+      return <ArticleLinkBlock record={record} locale={locale} page={page} />;
     case "video_block":
       return <VideoBlock record={record} locale={locale} />;
-    case "spacing_block":
-      return <SpacingBlock record={record} locale={locale} />;
+    // case "spacing_block":
+    //   return <SpacingBlock record={record} locale={locale} />;
     case "text_block":
       return <TextBlock record={record} locale={locale} />;
     case "title_text_block":

@@ -158,7 +158,7 @@ function Header(props) {
               </div>
               <Popover.Group
                 as="nav"
-                className="hidden space-x-8 lg:flex lg:items-center lg:justify-between xl:w-full"
+                className="hidden space-x-8 lg:flex lg:items-center lg:justify-between xl:w-full 3xl:pl-4"
               >
                 <div className="flex gap-4 items-center justify-between xl:gap-6">
                   {navItems.map((item) => (

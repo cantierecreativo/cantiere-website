@@ -9,7 +9,7 @@ export default function Work({ locale, site, page }) {
   return (
     <Layout site={site} locale={locale} page={page} parent={site.newsIndex}>
       <ModularTmp locale={locale} page={page}>
-        <div className="formatted-text vertical-spaces">
+        <div className="vertical-spaces">
           {blocks.map((b) => (
             <PostContent key={b.id} record={b} locale={locale} />
           ))}

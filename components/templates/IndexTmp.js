@@ -4,9 +4,6 @@ import WhichCard from "components/cards/WhichCard";
 import PostContent from "components/PostContent";
 
 export default function IndexTmp({ locale, page, items }) {
-  if (page.blocks) {
-    const b = page.blocks[0];
-  }
   return (
     <div className="overflow-hidden">
       <div className="absolute z-0 w-full">
@@ -26,7 +23,13 @@ export default function IndexTmp({ locale, page, items }) {
           ))}
         </div>
       </div>
-      {page.blocks && <PostContent key={b.id} record={b} locale={locale} />}
+      {page.blocks.length && (
+        <PostContent
+          key={page.blocks[0].id}
+          record={page.blocks[0]}
+          locale={locale}
+        />
+      )}
     </div>
   );
 }
