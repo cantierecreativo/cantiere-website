@@ -3,6 +3,7 @@ import * as queries from "lib/queries";
 import fetchData from "lib/dato";
 import ContactTmp from "components/templates/ContactTmp";
 import PostContent from "components/PostContent";
+import InfoContanctBlock from "components/blocks/InfoContactBlock";
 
 export default function Contact({ locale, site, page }) {
   return (
@@ -14,6 +15,7 @@ export default function Contact({ locale, site, page }) {
           ))}
         </div>
       </ContactTmp>
+      <InfoContanctBlock></InfoContanctBlock>
     </Layout>
   );
 }

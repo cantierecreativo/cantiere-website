@@ -2,7 +2,6 @@ import { renderHTML } from "lib/utils";
 
 export default function NumbersBlock({ locale, record }) {
   const { numbers, text, title } = record;
-  console.log(numbers)
   return (
     <>
       <section className="container">
