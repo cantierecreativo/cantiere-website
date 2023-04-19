@@ -107,7 +107,7 @@ function Header(props) {
 
   if (headerTxt === "white") {
     logoSrc = scroll ? "/logos/color.svg" : "/logos/white.svg";
-  } else logoSrc = "/logos/color.svg";
+  } else logoSrc = scroll ? "/logos/color.svg" : "/logos/black.svg";
 
   if (headerTxt === "white") {
     setTriangle = scroll ? "triangle-black" : "triangle";
