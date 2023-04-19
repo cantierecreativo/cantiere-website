@@ -3,7 +3,7 @@ import { renderHTML } from "lib/utils";
 import Image from "next/image";
 
 export default function HeroOrange({ locale, page }) {
-  const { title, subtitle } = page;
+  const { title, subtitle, abstract } = page;
   return (
     <>
       <header className="bg-red text-black relative">
@@ -16,6 +16,11 @@ export default function HeroOrange({ locale, page }) {
               {subtitle && (
                 <h2 className="text-lg max-w-prose xl:text-xl">
                   {renderHTML(subtitle)}
+                </h2>
+              )}
+              {abstract && !subtitle && (
+                <h2 className="text-lg max-w-prose xl:text-xl">
+                  {renderHTML(abstract)}
                 </h2>
               )}
               <div

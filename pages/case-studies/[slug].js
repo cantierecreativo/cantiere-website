@@ -23,7 +23,7 @@ export async function getStaticPaths() {
   const response = await fetchData(queries.getAllSlugsCaseStudies, {
     locale: "it",
   });
-  const paths = response.AllCaseStudies.map(({ slug }) => ({
+  const paths = response.allCaseStudies.map(({ slug }) => ({
     params: { slug },
   }));
   return { paths, fallback: false };
