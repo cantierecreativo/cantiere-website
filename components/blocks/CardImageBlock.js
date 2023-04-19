@@ -16,7 +16,7 @@ export default function CardImageBlock({ locale, record, page }) {
             {title && (
               <h2
                 className={`${
-                  page.model === "homepage"
+                  page?.model === "homepage"
                     ? "md:text-4xl xl:text-6xl"
                     : "xl:text-5xl"
                 } max-w-prose text-3xl`}
@@ -27,7 +27,7 @@ export default function CardImageBlock({ locale, record, page }) {
             {text && (
               <div
                 className={`${
-                  page.model === "homepage" ? "text-lg" : ""
+                  page?.model === "homepage" ? "text-lg" : ""
                 } max-w-prose xl:text-xl xl:max-w-2xl`}
               >
                 {renderHTML(text)}
@@ -35,7 +35,7 @@ export default function CardImageBlock({ locale, record, page }) {
             )}
           </div>
         </div>
-        {page.model === "homepage" ? (
+        {page?.model === "homepage" ? (
           <div className="grid gap-4 md:gap-6 lg:grid-cols-12 lg:gap-x-0 pb-8 mt-10 lg:mt-16">
             <div className="lg:col-span-10 lg:col-start-2 grid gap-10 xl:gap-12 border-t border-dashed border-white">
               {related.map((c, n) => (

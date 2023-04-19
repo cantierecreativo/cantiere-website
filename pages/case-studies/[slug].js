@@ -11,7 +11,7 @@ export default function Work({ locale, site, page }) {
       <ModularTmp locale={locale} page={page}>
         <div className="vertical-spaces">
           {blocks.map((b) => (
-            <PostContent key={b.id} record={b} locale={locale} />
+            <PostContent key={b.id} record={b} locale={locale} page={page} />
           ))}
         </div>
       </ModularTmp>
@@ -20,8 +20,10 @@ export default function Work({ locale, site, page }) {
 }
 
 export async function getStaticPaths() {
-  const response = await fetchData(queries.getAllSlugsWorks, { locale: "it" });
-  const paths = response.allWorks.map(({ slug }) => ({
+  const response = await fetchData(queries.getAllSlugsCaseStudies, {
+    locale: "it",
+  });
+  const paths = response.AllCaseStudies.map(({ slug }) => ({
     params: { slug },
   }));
   return { paths, fallback: false };
@@ -29,12 +31,16 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params, locale = "it", preview }) {
   const { slug } = params;
-  const response = await fetchData(queries.getWork, { slug, locale }, preview);
+  const response = await fetchData(
+    queries.getCaseStudy,
+    { slug, locale },
+    preview
+  );
   const site = await fetchData(queries.site, { locale });
   return {
     props: {
       locale,
-      page: response.work,
+      page: response.caseStudy,
       site,
     },
   };
