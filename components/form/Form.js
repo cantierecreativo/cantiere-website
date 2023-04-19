@@ -7,7 +7,7 @@ import FormMessage from "components/form/FormMessage";
 export default function ContactForm({ page, locale }) {
   const labelClass = "";
   const inputClass =
-    "border lg:px-6 w-full border-pink px-2 placehoder:text-violet py-4";
+    "border border-black border-x-0 border-t-0 border-b-1 lg:px-6 lg:pt-2 lg:pb-2 w-full mx-0 placehoder-violet";
   const checkboxClass =
     "h-4 w-4 shrink-0 rounded-full bg-white text-blue accent-blue";
 
@@ -41,10 +41,7 @@ export default function ContactForm({ page, locale }) {
 
   return (
     <form className="mt-6 pt-8" onSubmit={handleSubmit(onSubmit)}>
-      <div>
-        <label htmlFor="fullName" className={labelClass}>
-          {t("formFullName", locale)}
-        </label>
+      <div className="pb-8">
         <input
           type="text"
           name="fullName"
@@ -55,36 +52,64 @@ export default function ContactForm({ page, locale }) {
           {...register("Nome & Cognome")}
         />
       </div>
-      <div>
-        <label htmlFor="email" className={labelClass}>
-          Email
-        </label>
+      <div className="pb-8">
         <input
           type="email"
           name="email"
           id="email"
-          placeholder="Email"
+          placeholder={t("formEmail", locale)}
           required={true}
           className={inputClass}
           {...register("Email")}
         />
       </div>
-      <div>
-        <label htmlFor="message" className={`${labelClass}`}>
-          {t("message", locale)}
-        </label>
+      <div className="pb-8">
+        <input
+          type="tel"
+          name="phone"
+          id="phone"
+          placeholder={t("formPhone", locale)}
+          required={true}
+          className={inputClass}
+          {...register("Telefono")}
+        />
+      </div>
+      <div className="pb-8">
+        <input
+          type="text"
+          name="project"
+          id="project"
+          placeholder={t("formProject", locale)}
+          required={true}
+          className={`${inputClass}`}
+          {...register("Messaggio")}
+        />
+      </div>
+      <div className="pb-8">
+        <input
+          type="text"
+          name="service"
+          id="service"
+          placeholder={t("formDropdown", locale)}
+          required={true}
+          className={`${inputClass}`}
+          {...register("Selezione")}
+        />
+      </div>
+      <div className="">
         <textarea
           type="text"
           name="message"
           id="message"
-          placeholder={t("message", locale)}
+          placeholder={t("formMessage", locale)}
           required={true}
-          className={`${inputClass} h-24 border-b border-pink`}
+          className={`${inputClass}`}
           {...register("Messaggio")}
         />
       </div>
+      {t("requiredFields", locale)}
       <fieldset
-        className="mr-4 mt-3 flex px-2 lg:px-6 lg:mb-20"
+        className="mt-9 flex px-2 lg:mb-20"
         role="group"
         aria-label={t("formPrivacyFieldsetLabel")}
       >
@@ -99,7 +124,7 @@ export default function ContactForm({ page, locale }) {
           className={checkboxClass}
         />
         <label htmlFor="privacyCheckbox" className="ml-2 text-xs">
-          {t("formPrivacyPre", locale)}
+          {t("formPrivacyPolicy", locale)}
           <ExternalLink
             label={"Privacy Policy"}
             url={`//www.iubenda.com/privacy-policy/${t(
@@ -110,7 +135,6 @@ export default function ContactForm({ page, locale }) {
           >
             {"Privacy Policy"}
           </ExternalLink>
-          {t("formPrivacyAfter", locale)}
         </label>
       </fieldset>
       <div className="mt-2">
