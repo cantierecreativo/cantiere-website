@@ -5,13 +5,18 @@ import ContactTmp from "components/templates/ContactTmp";
 import PostContent from "components/PostContent";
 import InfoContanctBlock from "components/blocks/InfoContactBlock";
 
-export default function Contact({ locale, site, page }) {
+export default function Contact({ locale, site, page, services }) {
   return (
     <Layout site={site} locale={locale} page={page} parent={site.newsIndex}>
       <ContactTmp locale={locale} page={page}>
-        <div className="formatted-text vertical-spaces">
+        <div className="vertical-spaces">
           {page.blocks.map((b) => (
-            <PostContent key={b.id} record={b} locale={locale} />
+            <PostContent
+              key={b.id}
+              record={b}
+              locale={locale}
+              services={services}
+            />
           ))}
         </div>
       </ContactTmp>
@@ -27,6 +32,7 @@ export async function getStaticProps({ locale = "it", preview }) {
     props: {
       locale,
       page: response.contactsIndex,
+      services: response.allServices,
       site,
     },
   };

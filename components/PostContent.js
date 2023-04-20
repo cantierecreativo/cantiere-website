@@ -7,13 +7,17 @@ import BannerBlock from "components/blocks/BannerBlock";
 import CardsBlock from "components/blocks/CardsBlock";
 import CardImageBlock from "components/blocks/CardImageBlock";
 import ArticleLinkBlock from "components/blocks/ArticleLinkBlock";
-import SpacingBlock from "components/blocks/SpacingBlock";
 import TitleTextBlock from "components/blocks/TitleTextBlock";
 import ImageDoubleBlock from "components/blocks/ImageDoubleBlock";
 import NumbersBlock from "components/blocks/NumbersBlock";
 import TextForm from "components/blocks/TextForm";
 
-export default function PostContent({ record, locale, page = null }) {
+export default function PostContent({
+  record,
+  locale,
+  page = null,
+  services = null,
+}) {
   // return <div>{record.model}</div>;
   switch (record.model) {
     case "image_block":
@@ -36,8 +40,6 @@ export default function PostContent({ record, locale, page = null }) {
       return <ArticleLinkBlock record={record} locale={locale} page={page} />;
     case "video_block":
       return <VideoBlock record={record} locale={locale} />;
-    // case "spacing_block":
-    //   return <SpacingBlock record={record} locale={locale} />;
     case "text_block":
       return <TextBlock record={record} locale={locale} />;
     case "title_text_block":
@@ -47,6 +49,6 @@ export default function PostContent({ record, locale, page = null }) {
     case "numbers_block":
       return <NumbersBlock record={record} locale={locale} />;
     case "text_form_block":
-      return <TextForm record={record} locale={locale} />;
+      return <TextForm record={record} locale={locale} services={services} />;
   }
 }
