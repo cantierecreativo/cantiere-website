@@ -91,7 +91,7 @@ export default function ContactForm({ page, locale }) {
       </div>
       <div className="pb-8">
         <select id="service"
-         className={selectClass}>
+          className={selectClass}>
           <option selected>{t("formDropdown", locale)}</option>
           <option value="servizio1">Servizio 1</option>
           <option value="servizio1">Servizio 2</option>
@@ -108,7 +108,9 @@ export default function ContactForm({ page, locale }) {
           {...register("Messaggio")}
         />
       </div>
-      <p className="text-xs py-3">{t("requiredFields", locale)}</p>
+      <div className="text-xs py-1">
+        <span>{t("requiredFields", locale)}</span>
+      </div>
       <fieldset
         className="mt-9 pt-4 flex px-2 lg:mb-20"
         role="group"
@@ -134,7 +136,7 @@ export default function ContactForm({ page, locale }) {
             )}`}
             className="iubenda-nostyle no-brand iubenda-embed iubenda-noiframe underline font-extra-bold"
           >
-            {"Privacy Policy"}
+            {"Privacy Policy"}*
           </ExternalLink>
         </label>
       </fieldset>
