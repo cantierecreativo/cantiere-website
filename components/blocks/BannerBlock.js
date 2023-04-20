@@ -47,14 +47,16 @@ export default function BannerBlock({ locale, record }) {
           id={`${convertToSlug(labelMenu)}`}
           className="bg-blue text-white bg-cover relative overflow-hidden lg:py-12 margin-scroll-standard"
         >
-          <div className="container py-16 relative z-10 lg:grid lg:grid-cols-12">
+          <div className="container py-16 relative z-10 grid gap-8 lg:grid-cols-12">
             <div className="lg:col-span-7 lg:col-start-2">
               <h2 className="text-3xl xl:text-4xl">{title}</h2>
-              <h3 className="pt-5 pb-10 text-lg lg:pb-0 xl:text-xl">
-                {renderHTML(text)}
-              </h3>
+              {text && (
+                <h3 className="pt-5 pb-10 text-lg lg:pb-0 xl:text-xl">
+                  {renderHTML(text)}
+                </h3>
+              )}
             </div>
-            <div className="lg:col-span-3 lg:col-start-10 lg:justify-end lg:flex lg:mt-2 xl:-translate-x-14 xl:translate-y-11 xl:scale-150">
+            <div className="lg:col-span-3 lg:col-start-10 lg:justify-end lg:flex lg:mt-2 xl:-translate-x-14 xl:translate-y-[5px] xl:scale-150">
               <DynamicLink record={link} locale={locale}>
                 <Button label={t("contact-us-label", locale)} bg="white" />
               </DynamicLink>

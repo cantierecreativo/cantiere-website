@@ -14,7 +14,7 @@ function RenderCards(cards, showNumbers) {
               className="grid gap-5 p-6 py-8 border border-dashed border-gray lg:pt-10 lg:gap-x-0 bg-white"
             >
               <div className="grid gap-4 content-start">
-                {!showNumbers && <div className="">{`0${n + 1}`}</div>}
+                {showNumbers && <div className="">{`0${n + 1}`}</div>}
                 {c.title && <h2 className="text-blue text-xl">{c.title}</h2>}
                 {c.text && <h3 className="xl:text-lg">{renderHTML(c.text)}</h3>}
               </div>
@@ -33,7 +33,7 @@ export default function CardsBlock({ locale, record, page }) {
       id={`${convertToSlug(labelMenu)}`}
       className="container margin-scroll-standard"
     >
-      {inLine ? (
+      {!inLine ? (
         <div className="lg:grid lg:grid-cols-12 pb-8 xl:pb-16">
           <div className="border-y border-gray border-dashed grid gap-10 lg:col-span-12 divide-y divide-dashed divide-gray pb-10">
             {cards.map((c, n) => (

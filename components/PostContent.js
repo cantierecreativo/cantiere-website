@@ -11,6 +11,7 @@ import TitleTextBlock from "components/blocks/TitleTextBlock";
 import ImageDoubleBlock from "components/blocks/ImageDoubleBlock";
 import NumbersBlock from "components/blocks/NumbersBlock";
 import TextForm from "components/blocks/TextForm";
+import Quote from "components/blocks/Quote";
 
 export default function PostContent({
   record,
@@ -21,6 +22,7 @@ export default function PostContent({
   // return <div>{record.model}</div>;
   switch (record.model) {
     case "image_block":
+    case "article_image_block":
       return <ImageBlock record={record} locale={locale} />;
     case "video_block":
       return <VideoBlock record={record} locale={locale} />;
@@ -50,5 +52,7 @@ export default function PostContent({
       return <NumbersBlock record={record} locale={locale} />;
     case "text_form_block":
       return <TextForm record={record} locale={locale} services={services} />;
+    case "quote":
+      return <Quote record={record} locale={locale} services={services} />;
   }
 }
