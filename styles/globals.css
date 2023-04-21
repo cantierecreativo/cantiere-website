@@ -32,10 +32,6 @@
 @tailwind utilities;
 
 @layer components {
-  .formatted-text ul {
-    @apply my-2 pl-4;
-  }
-
   .formatted-text p {
     @apply text-base lg:text-lg;
   }
@@ -48,21 +44,25 @@
     @apply text-xl lg:text-3xl;
   }
 
-  .formatted-text ol {
-    @apply my-2;
+  .prose ul {
+    @apply my-2 pl-4 xl:my-4;
+  }
+
+  .prose ol {
+    @apply my-2 xl:my-4;
     counter-reset: my-awesome-counter;
   }
 
-  .formatted-text ul li {
-    @apply relative py-[3px] after:absolute after:top-[15px] after:-left-4 after:h-[7px] after:w-[7px] after:rotate-45 after:rounded-full after:bg-black;
+  .prose ul li {
+    @apply relative py-[3px] after:absolute after:top-[12px] xl:after:top-4 after:-left-4 after:h-[7px] after:w-[7px] after:rotate-45 after:rounded-full after:bg-blue xl:my-1;
   }
 
-  .formatted-text ol li {
-    @apply relative py-[3px] before:pr-1 before:font-bold before:text-black flex;
+  .prose ol li {
+    @apply relative py-[3px] pl-4 before:absolute before:-left-0 before:pr-1 before:font-bold before:text-blue xl:pl-6 xl:py-1;
     counter-increment: my-awesome-counter;
   }
 
-  .formatted-text ol li:before {
+  .prose ol li:before {
     content: counter(my-awesome-counter) ". ";
   }
 

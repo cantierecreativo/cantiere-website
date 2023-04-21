@@ -6,7 +6,7 @@ export default function ModularTmp({ locale, page, children }) {
     <>
       <HeroOrange locale={locale} page={page} />
       <Menu page={page} locale={locale} />
-      <div className="">{children}</div>
+      <div className="prose">{children}</div>
     </>
   );
 }

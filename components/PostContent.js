@@ -28,8 +28,6 @@ export default function PostContent({
       return <VideoBlock record={record} locale={locale} />;
     case "partner_block":
       return <PartnerBlock record={record} locale={locale} />;
-    case "article_text_block":
-      return <TextBlock record={record} locale={locale} />;
     case "double_cta_block":
       return <DoubleCtaBlock record={record} locale={locale} />;
     case "banner_block":
@@ -44,6 +42,7 @@ export default function PostContent({
       return <VideoBlock record={record} locale={locale} />;
     case "text_block":
       return <TextBlock record={record} locale={locale} />;
+    case "article_text_block":
     case "title_text_block":
       return <TitleTextBlock record={record} locale={locale} />;
     case "image_double_block":
