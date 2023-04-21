@@ -116,14 +116,13 @@ export default function Icon({ name, size = 30, fill, className = "" }) {
           className={className}
           width={size}
           height={size}
-          viewBox="0 0 21 17"
+          viewBox="0 0 512 417"
           fill={fill}
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden={true}
           focusable={false}
         >
-          <path d="M6.764 9.728H3.724V8.892C3.724 5.244 5.7 3.344 9.044 3.04V0C3.344 0.152003 0 3.8 0 9.196V16.948H6.764V9.728ZM18.544 9.728H15.504V8.892C15.504 5.244 17.48 3.344 20.824 3.04V0C15.124 0.152003 11.78 3.8 11.78 9.196V16.948H18.544V9.728Z" fill="black" />
-        </svg>
+          <path d="M166.307 239.292H91.562v-20.564c0-89.735 48.584-136.471 130.803-143.95V0C82.219 3.739 0 93.474 0 226.206v190.686h166.307v-177.6Zm289.635 0h-74.745v-20.564c0-89.735 48.584-136.471 130.803-143.95V0C371.854 3.739 289.635 93.474 289.635 226.206v190.686h166.307v-177.6Z" />        </svg>
       );
     case "shapeSingle":
       return (
