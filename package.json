@@ -14,8 +14,6 @@
     "@splidejs/splide": "^4.1.4",
     "@tailwindcss/line-clamp": "^0.4.4",
     "dayjs": "^1.11.7",
-    "html-react-parser": "^3.0.15",
-    "isomorphic-dompurify": "^1.2.0",
     "next": "^13.3.0",
     "react": "18.2.0",
     "react-datocms": "^4.0.10",

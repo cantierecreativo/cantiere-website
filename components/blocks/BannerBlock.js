@@ -25,8 +25,15 @@ export default function BannerBlock({ locale, record }) {
                 <h3 className="pr-6 line-clamp-4 xl:line-clamp-none">
                   {renderHTML(text)}
                 </h3>
-                <InternalLink element={link} locale={locale} label={link.title}>
-                  <Button bg="white" label={t("more", locale)} />
+                <InternalLink
+                  element={link.relatedElement}
+                  locale={locale}
+                  label={link.relatedElement.title}
+                >
+                  <Button
+                    bg="white"
+                    label={link?.cta ? link.cta : t("more", locale)}
+                  />
                 </InternalLink>
               </div>
               <div className="w-full aspect-square relative my-6 md:my-0">

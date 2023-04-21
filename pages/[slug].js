@@ -4,10 +4,10 @@ import fetchData from "lib/dato";
 import ModularTmp from "components/templates/ModularTmp";
 import PostContent from "components/PostContent";
 
-export default function Solution({ locale, site, page }) {
+export default function Work({ locale, site, page }) {
   const { blocks } = page;
   return (
-    <Layout site={site} locale={locale} page={page}>
+    <Layout site={site} locale={locale} page={page} parent={site.newsIndex}>
       <ModularTmp locale={locale} page={page}>
         <div className="vertical-spaces">
           {blocks.map((b) => (
@@ -20,10 +20,10 @@ export default function Solution({ locale, site, page }) {
 }
 
 export async function getStaticPaths() {
-  const response = await fetchData(queries.getAllTechnologiesSlugs, {
+  const response = await fetchData(queries.getAllLandingSlugs, {
     locale: "it",
   });
-  const paths = response.allTechnologies.map(({ slug }) => ({
+  const paths = response.allLandingPages.map(({ slug }) => ({
     params: { slug },
   }));
   return { paths, fallback: false };
@@ -32,7 +32,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params, locale = "it", preview }) {
   const { slug } = params;
   const response = await fetchData(
-    queries.getTechnology,
+    queries.getLandingPage,
     { slug, locale },
     preview
   );
@@ -40,7 +40,7 @@ export async function getStaticProps({ params, locale = "it", preview }) {
   return {
     props: {
       locale,
-      page: response.technology,
+      page: response.landingPage,
       site,
     },
   };

@@ -3,7 +3,7 @@ import { renderHTML, convertToSlug } from "lib/utils";
 import InternalLink from "components/links/InternalLink";
 import t from "lib/locales";
 
-function RenderCards(cards, showNumbers) {
+function RenderCards(cards, showNumbers, l) {
   return (
     <section className="container">
       <div className="lg:grid lg:grid-cols-12">
@@ -17,6 +17,17 @@ function RenderCards(cards, showNumbers) {
                 {showNumbers && <div className="">{`0${n + 1}`}</div>}
                 {c.title && <h2 className="text-blue text-xl">{c.title}</h2>}
                 {c.text && <h3 className="xl:text-lg">{renderHTML(c.text)}</h3>}
+                {c.link && (
+                  <InternalLink
+                    element={c.link.relatedElement}
+                    locale={l}
+                    label={c.link.title}
+                  >
+                    <div className="border-black border-b-2 pb-1 inline-block mt-4">
+                      {c.link?.cta ? c.link.cta : t("more", l)}
+                    </div>
+                  </InternalLink>
+                )}
               </div>
             </div>
           ))}
@@ -55,12 +66,12 @@ export default function CardsBlock({ locale, record, page }) {
                   )}
                   {c.link && (
                     <InternalLink
-                      element={c.link}
+                      element={c.link.relatedElement}
                       locale={locale}
                       label={c.link.title}
                     >
                       <div className="border-black border-b-2 pb-1 inline-block mt-4">
-                        {t("more", locale)}
+                        {c.link?.cta ? c.cta : t("more", locale)}
                       </div>
                     </InternalLink>
                   )}
@@ -70,10 +81,10 @@ export default function CardsBlock({ locale, record, page }) {
           </div>
         </div>
       ) : (
-        RenderCards(cards, showNumbers)
+        RenderCards(cards, showNumbers, locale)
       )}
     </section>
   ) : (
-    <>{inLine ? RenderCards(cards, showNumbers) : <></>}</>
+    <>{inLine ? RenderCards(cards, showNumbers, locale) : <></>}</>
   );
 }
