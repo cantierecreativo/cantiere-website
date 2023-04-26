@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300&family=Lato:wght@300;400;700&family=Oswald:wght@300&display=swap");
-
 @font-face {
   font-family: "Buch";
   src: url("/fonts/buch.woff2") format("woff2");
@@ -93,6 +91,17 @@
   .margin-scroll-standard {
     @apply scroll-mt-8 md:scroll-mt-24 lg:scroll-mt-32;
   }
+
+  .subtitleHero {
+    @apply text-lg max-w-prose xl:text-xl;
+  }
+  .subtitleHero a,
+  .prose p a {
+    @apply border-red border-b-2 hover:text-blue duration-200;
+  }
+  .prose u {
+    @apply no-underline;
+  }
 }
 
 .splide__pagination {
@@ -138,10 +147,15 @@
 }
 
 @media (max-width: 1023px) {
-  .unwrapped {
+  .unwrapped-on-mobile {
     margin-left: calc(-50vw + 50%);
     margin-right: calc(-50vw + 50%);
   }
+}
+
+.unwrapped {
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
 }
 
 .unwrapped-on-right {

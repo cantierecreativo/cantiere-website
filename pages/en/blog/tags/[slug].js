@@ -1,19 +1,12 @@
-import Layout from "components/layout/Layout";
 import * as queries from "lib/queries";
 import fetchData from "lib/dato";
-import IndexTmp from "components/templates/IndexTmp";
 
-function TagsArticle({ locale, site, page, allItems }) {
-  return (
-    <Layout site={site} locale={locale} page={page}>
-      <IndexTmp locale={locale} items={allItems} page={page} />
-    </Layout>
-  );
-}
+import { default as TagsArticle } from "pages/blog/tags/[slug].js";
+export default TagsArticle;
 
 export async function getStaticPaths() {
   const response = await fetchData(queries.getAllArticleTags, {
-    locale: "it",
+    locale: "en",
   });
   const paths = response.allArticleTags.map(({ slug }) => ({
     params: { slug },
@@ -21,7 +14,7 @@ export async function getStaticPaths() {
   return { paths, fallback: false };
 }
 
-export async function getStaticProps({ params, locale = "it", preview }) {
+export async function getStaticProps({ params, locale = "en", preview }) {
   const { slug } = params;
   const response = await fetchData(
     queries.getArticleTag,
@@ -40,5 +33,3 @@ export async function getStaticProps({ params, locale = "it", preview }) {
     },
   };
 }
-
-export default TagsArticle;

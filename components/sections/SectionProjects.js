@@ -19,7 +19,7 @@ export default function SectionProjects({ page, locale, site }) {
       <div className="-mt-12 xl:-mt-20 py-6 lg:pb-24 pb-16 xl:py-0 xl:pb-12 padding-left-container">
         <Splide
           aria-label="Projects Gallery"
-          options={{ autoWidth: true, arrows: false }}
+          options={{ autoWidth: true, arrows: false, pagination: false }}
         >
           {page.projects.map((p) => (
             <SplideSlide key={p.id}>

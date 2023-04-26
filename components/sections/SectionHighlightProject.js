@@ -16,7 +16,7 @@ export default function SectionHighlightProject({ locale, project }) {
               <h2 className="text-3xl md:text-4xl xl:text-5xl max-w-prose md:pr-12 pr-6 lg:block lg:pr-0 z-20">
                 {title}
               </h2>
-              <h3 className="pr-6 line-clamp-4 xl:line-clamp-none">
+              <h3 className="pr-6 line-clamp-4 xl:line-clamp-6">
                 {renderHTML(abstract)}
               </h3>
               <InternalLink element={project} locale={locale} label={title}>

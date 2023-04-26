@@ -1,11 +1,9 @@
 import Layout from "components/layout/Layout";
 import * as queries from "lib/queries";
 import fetchData from "lib/dato";
-import HeroText from "components/hero/HeroText";
-import Icon from "components/layout/Icon";
 import IndexTmp from "components/templates/IndexTmp";
 
-export default function NewsIndex({ locale, site, page, allItems }) {
+export default function WorksIndex({ locale, site, page, allItems }) {
   return (
     <Layout site={site} locale={locale} page={page}>
       <IndexTmp locale={locale} items={allItems} page={page} />

@@ -54,11 +54,11 @@ export default function BannerBlock({ locale, record }) {
           id={`${convertToSlug(labelMenu)}`}
           className="bg-blue text-white bg-cover relative overflow-hidden lg:py-12 margin-scroll-standard"
         >
-          <div className="container py-16 relative z-10 grid gap-8 lg:grid-cols-12">
+          <div className="container py-16 relative z-10 grid gap-8 lg:grid-cols-12 items-start">
             <div className="lg:col-span-7 lg:col-start-2">
               <h2 className="text-3xl xl:text-4xl">{title}</h2>
               {text && (
-                <h3 className="pt-5 pb-10 text-lg lg:pb-0 xl:text-xl">
+                <h3 className="pt-5 pb-10 text-lg lg:pb-0 xl:text-xl xl:pt-10">
                   {renderHTML(text)}
                 </h3>
               )}

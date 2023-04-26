@@ -43,12 +43,7 @@ export default function Home({ locale, site, page, lastNews }) {
       <div className="bg-blue text-white">
         <div className="vertical-spaces">
           {blueBlocks.map((b) => (
-            <PostContent
-              key={b.id}
-              record={b}
-              locale={locale}
-              page={"homepage"}
-            />
+            <PostContent key={b.id} record={b} locale={locale} page={page} />
           ))}
         </div>
       </div>

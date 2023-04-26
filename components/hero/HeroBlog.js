@@ -19,15 +19,9 @@ export default function HeroBlog({ locale, page }) {
               <h1 className="text-2xl md:text-2xl lg:text-4xl max-w-prose pt-4 md:pt-0">
                 {title}
               </h1>
-              {text && (
-                <h2 className="text-lg max-w-prose xl:text-xl">
-                  {renderHTML(text)}
-                </h2>
-              )}
+              {text && <h2 className="subtitleHero">{renderHTML(text)}</h2>}
               {abstract && (
-                <h3 className="text-lg max-w-prose xl:text-xl">
-                  {renderHTML(abstract)}
-                </h3>
+                <h3 className="subtitleHero">{renderHTML(abstract)}</h3>
               )}
             </div>
             {tags && (
@@ -51,7 +45,7 @@ export default function HeroBlog({ locale, page }) {
           </div>
         </div>
         {cover && (
-          <div className="unwrapped mt-8 lg:mt-12 xl:mt-16 lg:pt-16">
+          <div className="unwrapped-on-mobile mt-8 lg:mt-12 xl:mt-16 lg:pt-16">
             <DatoImage
               className=""
               data={cover.responsiveImage}

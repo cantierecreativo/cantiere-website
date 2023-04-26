@@ -4,7 +4,7 @@ import fetchData from "lib/dato";
 import ModularTmp from "components/templates/ModularTmp";
 import PostContent from "components/PostContent";
 
-export default function Solution({ locale, site, page }) {
+export default function Method({ locale, site, page }) {
   const { blocks } = page;
   return (
     <Layout site={site} locale={locale} page={page}>

@@ -9,6 +9,7 @@ import {
   isParagraph,
 } from "datocms-structured-text-utils";
 
+import ArticleLinkBlock from "./blocks/ArticleLinkBlock";
 import ImageBlock from "./blocks/ImageBlock";
 import BannerBlock from "./blocks/BannerBlock";
 import AttachmentsBlock from "./blocks/AttachmentsBlock";
@@ -18,15 +19,16 @@ import ExternalVideo from "./video/VideoEmbedded";
 import CardImageBlock from "./blocks/CardImageBlock";
 import Quote from "./blocks/Quote";
 import { convertToSlug } from "lib/utils";
+import TextBlock from "./blocks/TextBlock";
 
 export default function DastContent({ content, locale, page }) {
   const getTextSizeForHeading = (nodeLevel) => {
     switch (nodeLevel) {
       case 1:
       case 2:
-        return "text-3xl max-w-prose pt-4 lg:text-5xl";
+        return "text-3xl max-w-prose pt-4 lg:pt-8 lg:text-5xl";
       case 3:
-        return "text-2xl max-w-prose pt-2 lg:text-3xl";
+        return "text-2xl max-w-prose pt-2 lg:pt-4 lg:text-3xl";
       default:
         "";
     }
@@ -38,23 +40,24 @@ export default function DastContent({ content, locale, page }) {
       renderBlock={({ record }) => {
         switch (record.model) {
           case "image_block":
+          case "article_image_block":
             return (
               <div className={blockPadding}>
                 <ImageBlock record={record} locale={locale} />
               </div>
             );
-          // case "article_link_block":
-          //   return (
-          //     <div className={blockPadding}>
-          //       <ArticleLinkBlock record={record} locale={locale} />
-          //     </div>
-          //   );
-          // case "article_text_block":
-          //   return (
-          //     <div className={blockPadding}>
-          //       <ArticleTextBlock record={record} locale={locale} />
-          //     </div>
-          //   );
+          case "article_link_block":
+            return (
+              <div className={blockPadding}>
+                <ArticleLinkBlock record={record} locale={locale} />
+              </div>
+            );
+          case "article_text_block":
+            return (
+              <div className={blockPadding}>
+                <TextBlock record={record} locale={locale} />
+              </div>
+            );
           case "article_video_block":
             return (
               <div className={blockPadding}>

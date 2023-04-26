@@ -23,7 +23,7 @@ export default function Menu({ locale, page }) {
 
   return (
     <>
-      <div className="sticky md:top-10 lg:top-16 xl:top-28 z-30 xl:relative">
+      <div className="sticky md:top-10 lg:top-16 xl:top-24 z-30 xl:relative">
         {navItems.length > 0 && (
           <div className="bg-white xl:absolute xl:pl-4 3xl:pl-[calc(((100vw-1920px)/2)+12px)]">
             <div className="container">
