@@ -11,8 +11,8 @@ import { useState, useEffect } from "react";
 function RenderNavItem(item, locale, scroll, setTriangle) {
   const classNameActive = "underline";
   const classNameItem = scroll
-    ? "font-bold group gap-2 inline-flex items-center text-sm xl:text-base duration-200 hover:text-orange focus:ring-orange"
-    : "group gap-2 inline-flex items-center text-sm xl:text-base duration-200 hover:text-orange focus:ring-orange";
+    ? "font-bold group gap-2 inline-flex items-center text-sm xl:text-base duration-200 focus:ring-orange"
+    : "group gap-2 inline-flex items-center text-sm xl:text-base duration-200 focus:ring-orange";
   const classDropdownItem =
     "block whitespace-nowrap py-2 px-8 text-lg text-center";
 
@@ -41,7 +41,7 @@ function RenderNavItem(item, locale, scroll, setTriangle) {
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 translate-y-1"
             >
-              <Popover.Panel className="absolute z-10 -ml-4 mt-6 w-auto max-w-md transform px-2 sm:px-0 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2">
+              <Popover.Panel className="absolute z-10 -ml-4 mt-6 w-auto max-w-md transform px-2 sm:px-0 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 drop-shadow-2xl">
                 <div className="triangle absolute left-1/2 -top-1 scale-150 rotate-180" />
                 <div className="overflow-hidden rounded-lg">
                   <div className="relative grid bg-white text-lg py-4 text-black">

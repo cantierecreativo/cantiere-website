@@ -6,7 +6,7 @@ export default function HeroOrange({ locale, page }) {
   const { title, subtitle, abstract } = page;
   return (
     <>
-      <header className="bg-red text-black relative">
+      <header className="bg-[#C16AFF] text-black relative">
         <div className="container pt-20 pb-8 md:pt-32 lg:pt-40 lg:pb-16 z-10 relative h-full">
           <div className="grid gap-6 lg:grid-cols-12 lg:gap-x-0">
             <div className="grid gap-4 md:gap-6 lg:gap-12 lg:col-span-9 xl:col-span-8 lg:col-start-2 xl:col-start-2">
@@ -38,11 +38,11 @@ export default function HeroOrange({ locale, page }) {
             className="w-2/3 aspect-square relative lg:w-4/5 xl:w-[60vw]"
           >
             <Image
-              src="/shape/shape-orange.svg"
+              alt="shape violet"
+              src="/shape/shape-violet.svg"
               layout="fill"
               objectFit="contain"
               objectPosition="right"
-              alt="shape orange"
             />
           </div>
         </div>

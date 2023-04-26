@@ -1,27 +1,26 @@
 import Layout from "components/layout/Layout";
 import * as queries from "lib/queries";
 import fetchData from "lib/dato";
-import ModularTmp from "components/templates/ModularTmp";
-import PostContent from "components/PostContent";
+import EditorialTmp from "components/templates/EditorialTmp";
+import DastContent from "components/DastContent";
 
-export default function Work({ locale, site, page }) {
-  const { blocks } = page;
+function Job({ locale, site, page }) {
   return (
-    <Layout site={site} locale={locale} page={page} parent={site.newsIndex}>
-      <ModularTmp locale={locale} page={page}>
-        <div className="vertical-spaces">
-          {blocks.map((b) => (
-            <PostContent key={b.id} record={b} locale={locale} />
-          ))}
+    <Layout site={site} locale={locale} page={page}>
+      <EditorialTmp locale={locale} page={page}>
+        <div className="grid gap-6 py-6 lg:py-20 xl:py-26 xl:gap-8 2xl:py-32 z-10 relative">
+          <DastContent content={page.body} locale={locale} site={site} />
         </div>
-      </ModularTmp>
+      </EditorialTmp>
     </Layout>
   );
 }
 
 export async function getStaticPaths() {
-  const response = await fetchData(queries.getAllSlugsWorks, { locale: "it" });
-  const paths = response.allWorks.map(({ slug }) => ({
+  const response = await fetchData(queries.getAllSlugsJobs, {
+    locale: "it",
+  });
+  const paths = response.allJobs.map(({ slug }) => ({
     params: { slug },
   }));
   return { paths, fallback: false };
@@ -29,13 +28,15 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params, locale = "it", preview }) {
   const { slug } = params;
-  const response = await fetchData(queries.getWork, { slug, locale }, preview);
+  const response = await fetchData(queries.getJob, { slug, locale }, preview);
   const site = await fetchData(queries.site, { locale });
   return {
     props: {
       locale,
-      page: response.work,
+      page: response.job,
       site,
     },
   };
 }
+
+export default Job;

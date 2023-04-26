@@ -4,7 +4,7 @@ import { renderHTML } from "lib/utils";
 export default function Quote({ locale, record }) {
   return (
     <>
-      <section className="container">
+      <blockquote className="container">
         <div className="grid lg:grid-cols-12 gap-4">
           <div className="lg:col-start-2 lg:col-span-10">
             <Icon name="quote" className="" fill="black" size="20" />
@@ -17,7 +17,7 @@ export default function Quote({ locale, record }) {
             <div className="text-xs py-3">{renderHTML(record.authorRole)}</div>
           </div>
         </div>
-      </section>
+      </blockquote>
     </>
   );
 }

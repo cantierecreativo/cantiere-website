@@ -23,7 +23,7 @@ export default function IndexTmp({ locale, page, items }) {
           ))}
         </div>
       </div>
-      {page.blocks.length && (
+      {page.blocks?.length && (
         <PostContent
           key={page.blocks[0].id}
           record={page.blocks[0]}

@@ -7,25 +7,41 @@ export default function AttachmentsBlock({ locale, record }) {
   return (
     <>
       <section className="container">
-        <div className="grid gap-4 md:gap-6 lg:grid-cols-12 lg:gap-x-0">
-          <div className="lg:col-span-10  grid gap-6">
-            <h2 className="text-3xl md:col-start-5 max-w-prose">{title}</h2>
-            <div className="text-lg md:col-start-5 max-w-prose pb-6">{renderHTML(text)}</div>
-            <div className="border-t border-dashed md:col-start-5">
-              {attachments && attachments.map(({ id, file, title }) => (
-                <div key={id} className="border-b border-dashed py-4 flow-root">
-                  <div className="float-left">
-                    <p className="text-violet text-base pb-2">{title}</p>
-                    <p className="text-xs">{(file.url.substring(file.url.lastIndexOf('.') + 1)).toUpperCase() + " - 230 Kb"}</p>
-                  </div>
+        <div className="grid gap-4 md:gap-6 md:grid-cols-12 md:gap-x-0">
+          <div className="grid gap-6 md:col-start-5 md:col-span-8 lg:col-start-7 lg:col-span-5">
+            <h2 className="text-3xl max-w-prose">{title}</h2>
+            <div className="text-lg max-w-prose pb-6">{renderHTML(text)}</div>
+            <div className="border-t border-dashed">
+              {attachments &&
+                attachments.map(({ id, file, title }) => (
+                  <div
+                    key={id}
+                    className="border-b border-dashed py-4 flow-root"
+                  >
+                    <div className="float-left">
+                      <h2 className="text-violet text-base pb-2">{title}</h2>
+                      <div className="text-xs flex">
+                        <div className="uppercase">{file.format}</div>
+                        <span className="px-1">-</span>
+                        <div className="">
+                          {`${Math.trunc(file.size / 1000)} Kb`}
+                        </div>
+                      </div>
+                    </div>
                     <ExternalLink
                       label="download"
                       className="space-x-2 items-center bg-violet rounded-full p-3 float-right text-white"
-                      url={file.url}>
-                      <Icon name="download" className="" fill="white" size="25"/>
+                      url={file.url}
+                    >
+                      <Icon
+                        name="download"
+                        className=""
+                        fill="white"
+                        size="25"
+                      />
                     </ExternalLink>
-                </div>
-              ))}
+                  </div>
+                ))}
             </div>
           </div>
         </div>
@@ -33,4 +49,3 @@ export default function AttachmentsBlock({ locale, record }) {
     </>
   );
 }
-

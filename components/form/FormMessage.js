@@ -15,7 +15,7 @@ export default function FormMessage({ status, locale }) {
   }
   if (status === "success") {
     return (
-      <div className={`${bannerClass} bg-green-600`}>
+      <div className={`${bannerClass} bg-green`}>
         <div className="text-white">
           <div className={titleClass}>{t("formSuccessTitle", locale)}</div>
           <div className={textClass}>{t("formSuccessText", locale)}</div>

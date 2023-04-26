@@ -24,6 +24,7 @@ export default function Footer({ locale, site }) {
               {item.label ? (
                 item.hide ? null : (
                   <InternalLink
+                    locale={locale}
                     element={item.link}
                     label={item.label}
                     className="font-bold text-xs block py-1"
@@ -39,6 +40,7 @@ export default function Footer({ locale, site }) {
                   {item.menuItems.map((item) => (
                     <div key={item.id}>
                       <InternalLink
+                        locale={locale}
                         element={item.link}
                         label={item.label}
                         className="text-xs block py-1"
@@ -60,6 +62,7 @@ export default function Footer({ locale, site }) {
             {allSolutions.map((item) => (
               <div key={item.id}>
                 <InternalLink
+                  locale={locale}
                   element={item.slug}
                   label={item.title}
                   className="text-xs block py-1"
@@ -76,6 +79,7 @@ export default function Footer({ locale, site }) {
             {allServices.map((item) => (
               <div key={item.id}>
                 <InternalLink
+                  locale={locale}
                   element={item.slug}
                   label={item.title}
                   className="text-xs block py-1"
@@ -92,6 +96,7 @@ export default function Footer({ locale, site }) {
             {allTechnologies.map((item) => (
               <div key={item.id}>
                 <InternalLink
+                  locale={locale}
                   element={item.slug}
                   label={item.title}
                   className="text-xs block py-1"
@@ -108,6 +113,7 @@ export default function Footer({ locale, site }) {
             {allMethods.map((item) => (
               <div key={item.id}>
                 <InternalLink
+                  locale={locale}
                   element={item.slug}
                   label={item.title}
                   className="text-xs block py-1"

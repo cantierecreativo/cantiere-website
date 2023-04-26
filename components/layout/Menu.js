@@ -5,9 +5,19 @@ import Icon from "./Icon";
 export default function Menu({ locale, page }) {
   const navItems = [];
 
-  if (page.blocks.length > 0) {
+  if (page.blocks?.length > 0) {
     page.blocks.map((b) => {
       if (b.labelMenu) navItems.push(b.labelMenu);
+    });
+  }
+
+  const TitleOnPage = page.body?.value.document.children.filter(
+    (a) => a.type == "heading" && (a.level == 2) | (a.level == 1)
+  );
+
+  if (TitleOnPage?.length > 0) {
+    TitleOnPage.map((b) => {
+      navItems.push(b.children[0].value);
     });
   }
 
@@ -19,16 +29,23 @@ export default function Menu({ locale, page }) {
             <div className="container">
               <div className="grid lg:grid-cols-12">
                 <div className="lg:col-start-2 lg:col-span-10">
-                  <div className="flex flex-wrap gap-x-6 gap-y-3 py-6 border-b border-dashed border-black xl:border-none xl:block xl:max-w-[150px]">
+                  <div className="flex flex-wrap gap-x-6 gap-y-3 py-6 border-b border-dashed border-black xl:border-none xl:block xl:max-w-[120px]">
                     {navItems.map((n) => (
                       <Link
                         href={`#${convertToSlug(n)}`}
-                        className="text-xs"
+                        className="text-xs group"
                         key={n.id}
                       >
-                        <div className="flex items-center xl:py-2" key={n.id}>
+                        <div
+                          className="flex items-center xl:py-2 justify-start group-hover:text-blue duration-200"
+                          key={n.id}
+                        >
                           {n}
-                          <Icon name="arrow" size="15" className="rotate-90" />
+                          <Icon
+                            name="arrow"
+                            size="15"
+                            className="rotate-90 flex-none"
+                          />
                         </div>
                       </Link>
                     ))}

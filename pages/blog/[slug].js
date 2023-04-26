@@ -7,12 +7,8 @@ import DastContent from "components/DastContent";
 function Article({ locale, site, page }) {
   return (
     <Layout site={site} locale={locale} page={page}>
-      <div className="container py-20 text-5xl border-t">
-        <p>Title: {page.title}</p>
-        <p>Model: {page.model}</p>
-      </div>
       <EditorialTmp locale={locale} page={page}>
-        <div className="formatted-text vertical-spaces">
+        <div className="grid gap-6 py-6 lg:py-20 xl:py-26 xl:gap-8 2xl:py-32 z-10 relative">
           <DastContent content={page.body} locale={locale} site={site} />
         </div>
       </EditorialTmp>

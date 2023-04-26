@@ -1,11 +1,12 @@
 import Menu from "components/layout/Menu";
+import HeroViolet from "components/hero/HeroViolet";
 
-export default function ContactTmp({ locale, page, children }) {
+export default function ModularTmp({ locale, page, children }) {
   return (
     <>
-      <div className="bg-red h-[300px]"></div>
-      {/* <Menu page={page} locale={locale} /> */}
-      <div className="">{children}</div>
+      <HeroViolet locale={locale} page={page} />
+      <Menu page={page} locale={locale} />
+      <div className="prose">{children}</div>
     </>
   );
 }

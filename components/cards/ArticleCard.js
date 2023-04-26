@@ -16,6 +16,7 @@ export default function ArticleCard({ locale, record }) {
             <div className="uppercase font-bold">
               {tags.map((t) => (
                 <InternalLink
+                  key={t.id}
                   element={t}
                   locale={locale}
                   label={t.title}
