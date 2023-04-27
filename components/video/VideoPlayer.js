@@ -2,11 +2,14 @@ import dynamic from "next/dynamic";
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 
 export default function VideoPlayer({ record }) {
-  const mp4Url = record.internalVideo.video.mp4Url;
+  // return console.log("record:", record);
+  const mp4Url = record.internalVideo.video?.mp4Url
+    ? record.internalVideo.video?.mp4Url
+    : record.internalVideo.url;
   return (
     <ReactPlayer
       fluid={true}
-      playing={true}
+      playing={false}
       autoPlay={false}
       width="100%"
       height="100%"

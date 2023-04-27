@@ -52,7 +52,7 @@
   }
 
   .prose ul li {
-    @apply relative py-[3px] after:absolute after:top-[12px] xl:after:top-4 after:-left-4 after:h-[7px] after:w-[7px] after:rotate-45 after:rounded-full after:bg-blue xl:my-1;
+    @apply relative py-[3px] after:absolute after:top-[12px] xl:after:top-[12px] after:-left-4 after:h-[7px] after:w-[7px] after:rotate-45 after:rounded-full after:bg-blue xl:my-1;
   }
 
   .prose ol li {

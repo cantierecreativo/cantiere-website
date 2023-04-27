@@ -1,3 +1,4 @@
+import React from "react";
 import { StructuredText } from "react-datocms";
 import {
   renderRule,
@@ -6,6 +7,7 @@ import {
   isList,
   isListItem,
   isBlockquote,
+  isCode,
   isParagraph,
 } from "datocms-structured-text-utils";
 
@@ -125,11 +127,31 @@ export default function DastContent({ content, locale, page }) {
             </div>
           );
         }),
-        renderRule(isParagraph, ({ children, key }) => {
+        renderRule(isParagraph, ({ children, key, ancestors }) => {
+          {
+            if (
+              ancestors[0].type === "listItem" &&
+              ancestors[0].children.length === 1
+            ) {
+              return <React.Fragment key={key}>{children}</React.Fragment>;
+            }
+          }
+
           return (
             <div key={key} className="container lg:grid lg:grid-cols-12">
               <div className="lg:col-span-10 lg:col-start-2">
                 <p className="max-w-prose text-base lg:text-lg">{children}</p>
+              </div>
+            </div>
+          );
+        }),
+        renderRule(isCode, ({ key, node }) => {
+          return (
+            <div key={key} className="container lg:grid lg:grid-cols-12">
+              <div className="lg:col-span-10 lg:col-start-2">
+                <div className="px-8 bg-black text-white py-8 overflow-x-auto max-w-[calc(100vw-1.5rem)]">
+                  <pre className="">{node.code}</pre>
+                </div>
               </div>
             </div>
           );
@@ -145,6 +167,13 @@ export default function DastContent({ content, locale, page }) {
                 )}
               </div>
             </div>
+          );
+        }),
+        renderRule(isListItem, ({ children, key }) => {
+          return (
+            <li key={key} className="">
+              {children}
+            </li>
           );
         }),
       ]}
