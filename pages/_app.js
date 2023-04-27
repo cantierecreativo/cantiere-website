@@ -23,38 +23,30 @@ function MyApp({ Component, pageProps }) {
           id="iubenda"
           dangerouslySetInnerHTML={{
             __html: `
-          var _iub = _iub || [];
-          _iub.csConfiguration = {
-            "lang":"${locale}",
-            "siteId":${IUBENDA_SITE_ID},
-            "cookiePolicyId":"${t("cookiePolicyId", locale)}",
-            perPurposeConsent: true,
-            consentOnContinuedBrowsing: false,
-            consentOnDocument: true,
-            purposes: "1, 3, 4",
-            "banner":{
-              "acceptButtonDisplay":true,
-              "customizeButtonDisplay":true,
-              "position":"float-bottom-right",
-              "closeButtonDisplay":false,
-              "acceptButtonColor":"#6d5b31",
-              "acceptButtonCaptionColor":"white",
-              "customizeButtonColor":"#6d5b31",
-              "customizeButtonCaptionColor":"white",
-              "rejectButtonColor":"#6d5b31",
-              "rejectButtonCaptionColor":"white",
-              "textColor":"#ffffff",
-              "backgroundColor":"#27231B",
-              "rejectButtonDisplay":true,
-              "closeButtonRejects":true,
-              "showPurposesToggles":true
-            },
-            callback: {
-              onPreferenceExpressedOrNotNeeded: function(preference) {
-                window.consentIsGiven = preference;
+            var _iub = _iub || [];
+            _iub.csConfiguration = {
+              "countryDetection":true,
+              "enableUspr":true,
+              "lang":"${locale}",
+              "perPurposeConsent":true,
+              "siteId":${IUBENDA_SITE_ID},
+              "cookiePolicyId":"${t("cookiePolicyId", locale)}",
+              purposes: "1, 3, 4",
+              "banner":{
+                "acceptButtonColor":"#FF6A6C",
+                "acceptButtonDisplay":true,
+                "backgroundColor":"#4637F1",
+                "brandBackgroundColor":"#4637F1",
+                "closeButtonRejects":true,
+                "customizeButtonColor":"#FF6A6C",
+                "customizeButtonDisplay":true,
+                "logo":"https://www.datocms-assets.com/9862/1682511229-white.svg",
+                "position":"float-bottom-center",
+                "rejectButtonColor":"#FF6A6C",
+                "rejectButtonDisplay":true,
+                "slideDown":false
               }
-            }
-          }`,
+            }`,
           }}
         />
       )}
