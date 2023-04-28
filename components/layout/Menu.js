@@ -23,9 +23,9 @@ export default function Menu({ locale, page }) {
 
   return (
     <>
-      <div className="sticky md:top-10 lg:top-16 xl:top-24 z-30 xl:relative">
+      <div className="z-30 xl:relative">
         {navItems.length > 0 && (
-          <div className="bg-white xl:absolute xl:pl-4 3xl:pl-[calc(((100vw-1920px)/2)+12px)]">
+          <div className="bg-white xl:absolute xl:pl-4 3xl:pl-[calc(((100vw-1920px)/2)+12px)] xl:pt-24 2xl:pt-36">
             <div className="container">
               <div className="grid lg:grid-cols-12">
                 <div className="lg:col-start-2 lg:col-span-10">
