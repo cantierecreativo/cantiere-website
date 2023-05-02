@@ -37,7 +37,7 @@ export default function SectionProjects({ page, locale, site }) {
                     title={p.previewImage.responsiveImage.title}
                     layout=""
                   />
-                  <h2 className="py-2 md:pb-4 uppercase text-gray font-bold text-sm">
+                  <h2 className="py-2 md:pb-4 uppercase text-black font-bold text-sm tracking-wide">
                     {p.title}
                   </h2>
                   <h3 className="text-xl text-blue md:text-xl lg:text-2xl">

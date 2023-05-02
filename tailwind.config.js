@@ -19,7 +19,7 @@ module.exports = {
     extend: {
       colors: {
         gray: {
-          DEFAULT: "#7A7A7A",
+          DEFAULT: "#B7B7B7",
           light: "#F5F4F4",
           dark: "#696969",
         },
@@ -51,6 +51,7 @@ module.exports = {
         "4xl": ["48px", "58px"],
         "5xl": ["60px", "72px"],
         "6xl": ["76px", "91px"],
+        "7xl": ["95px", "120px"],
       },
       screens: {
         "3xl": "1920px",

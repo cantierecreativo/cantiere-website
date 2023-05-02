@@ -13,7 +13,7 @@ export default function SectionLastNews({ locale, items, site }) {
           element={site.articlesIndex}
           locale={locale}
         />
-        <div className="border-t border-gray border-dashed">
+        <div className="border-t border-gray border-dotted">
           {items.map((n) => (
             <WhichCard key={n.id} record={n} locale={locale} />
           ))}

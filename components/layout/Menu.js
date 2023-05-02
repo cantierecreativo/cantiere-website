@@ -29,7 +29,7 @@ export default function Menu({ locale, page }) {
             <div className="container">
               <div className="grid lg:grid-cols-12">
                 <div className="lg:col-start-2 lg:col-span-10">
-                  <div className="flex flex-wrap gap-x-6 gap-y-3 py-6 border-b border-dashed border-black xl:border-none xl:block xl:max-w-[120px]">
+                  <div className="flex flex-wrap gap-x-6 gap-y-3 py-6 border-b border-dotted border-black xl:border-none xl:block xl:max-w-[120px]">
                     {navItems.map((n) => (
                       <Link
                         href={`#${convertToSlug(n)}`}

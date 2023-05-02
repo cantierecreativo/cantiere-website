@@ -13,16 +13,17 @@ export default function HeroHp({ locale, page }) {
             </h1>
             <div className="flex relative xl:col-start-2">
               <Icon
-                className="w-[41.2%] h-full fill-violet lg:absolute lg:right-full xl:translate-x-10 lg:translate-x-4 lg:top-0 lg:w-[62%] lg:h-[88%]"
+                className="w-[41.2%] h-full fill-violet lg:absolute lg:right-full lg:top-0 lg:w-[75%] xl:w-[50%]"
                 name="shapeSingle"
               />
-              <div className="w-[58.8%] lg:w-full aspect-[5/7] xl:aspect-[5/6] relative">
+              <div className="w-[58.8%] lg:w-full aspect-[5/7] xl:aspect-[5/5] relative">
                 <DatoImage
                   className="rounded-l-full"
                   data={image.responsiveImage}
                   alt={image.responsiveImage.alt}
                   title={image.responsiveImage.title}
                   layout="fill"
+                  objectFit="cover"
                 />
               </div>
             </div>
@@ -33,7 +34,7 @@ export default function HeroHp({ locale, page }) {
           className="hidden container z-20 xl:block absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 left"
         >
           <div className="xl:grid grid-cols-12">
-            <div className="text-6xl col-span-6 3xl:col-span-5 3xl:col-start-2 col-start-2">
+            <div className="text-6xl 2xl:text-7xl col-span-6 xl:col-span-7 2xl:col-span-8 3xl:col-span-7 3xl:col-start-2 col-start-2">
               {title}
             </div>
           </div>

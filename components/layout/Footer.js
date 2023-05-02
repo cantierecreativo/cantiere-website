@@ -18,7 +18,7 @@ export default function Footer({ locale, site }) {
         data-datocms-noindex
         className="container py-6 pt-8 xl:pt-16"
       >
-        <nav className="grid grid-cols-2 md:flex md:gap-4 gap-2 gap-y-8 justify-between pb-6 border-gray border-dashed border-b xl:grid xl:grid-cols-6">
+        <nav className="grid grid-cols-2 md:flex md:gap-4 gap-2 gap-y-8 justify-between pb-6 border-gray border-dotted border-b xl:grid xl:grid-cols-6">
           {menu.menuFirstLevels.map((item) => (
             <>
               {item.label ? (
@@ -54,7 +54,7 @@ export default function Footer({ locale, site }) {
             </>
           ))}
         </nav>
-        <nav className="xl:grid xl:grid-cols-6 grid grid-cols-2 md:flex md:gap-4 gap-2 gap-y-8 justify-between py-6 border-b border-gray border-dashed">
+        <nav className="xl:grid xl:grid-cols-6 grid grid-cols-2 md:flex md:gap-4 gap-2 gap-y-8 justify-between py-6 border-b border-gray border-dotted">
           <div className="">
             <div className="font-bold text-xs py-1 pb-3">
               {t("solutions", locale)}

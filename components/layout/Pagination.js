@@ -22,7 +22,7 @@ export default function Pagination({
             currentPage > 0
               ? "duration-300 hover:border-gray hover:bg-gray-50"
               : "cursor-auto opacity-30"
-          } relative inline-flex items-center border border-gray-300 bg-white px-3 py-2 text-xs font-medium text-gray-500`}
+          } relative inline-flex items-center border border-gray-300 bg-white px-3 py-2 text-xs font-medium text-gray-dark-500`}
         >
           <span className="sr-only">Previous</span>
           <ArrowLeftIcon className="h-4 w-4" aria-hidden="true" />
@@ -52,7 +52,7 @@ export default function Pagination({
             Number(currentPage) + 1 < totalPages
               ? "duration-300 hover:border-gray hover:bg-gray-50"
               : "cursor-auto opacity-30"
-          } relative inline-flex items-center border border-gray-300 bg-white px-3 py-2 text-xs font-medium text-gray-500`}
+          } relative inline-flex items-center border border-gray-300 bg-white px-3 py-2 text-xs font-medium text-gray-dark-500`}
         >
           <span className="sr-only">Next</span>
           <ArrowRightIcon className="h-4 w-4" aria-hidden="true" />

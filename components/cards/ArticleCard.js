@@ -7,7 +7,7 @@ export default function ArticleCard({ locale, record }) {
   return (
     <>
       <div className="rounded-full">
-        <div className="grid gap-6 py-8 xl:py-12 border-b border-gray border-dashed md:grid-cols-12 md:py-12">
+        <div className="grid gap-6 py-8 xl:py-12 border-b border-gray border-dotted md:grid-cols-12 md:py-12">
           <header className="flex gap-4 md:col-span-4 md:block lg:col-start-2">
             <div className="font-bold">{formatDate(date, locale)}</div>
             <div className="md:pt-2">{author.name}</div>

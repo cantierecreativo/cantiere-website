@@ -8,13 +8,18 @@ import Image from "next/image";
 import t from "lib/locales";
 import { useState, useEffect } from "react";
 
-function RenderNavItem(item, locale, scroll, setTriangle) {
-  const classNameActive = "underline";
+function RenderNavItem(item, locale, scroll, setTriangle, headerTxt) {
+  const classNameActive =
+    headerTxt === "white" ? "after:bg-white" : "after:bg-black";
   const classNameItem = scroll
-    ? "font-bold group gap-2 inline-flex items-center text-sm xl:text-base duration-200 focus:ring-orange"
-    : "group gap-2 inline-flex items-center text-sm xl:text-base duration-200 focus:ring-orange";
+    ? `${
+        headerTxt === "white" ? "hover:after:bg-black" : "hover:after:bg-white"
+      } font-bold group gap-2 inline-flex items-center text-sm xl:text-base duration-200 focus:ring-orange relative after:absolute after:block after:h-[2px] after:w-full after:-bottom-1 whitespace-nowrap`
+    : `${
+        headerTxt === "white" ? "hover:after:bg-white" : "hover:after:bg-black"
+      } group gap-2 inline-flex items-center text-sm xl:text-base duration-200 focus:ring-orange after:absolute after:block after:h-[2px] after:w-full relative after:-bottom-1 after:duration-200 whitespace-nowrap`;
   const classDropdownItem =
-    "block whitespace-nowrap py-2 px-8 text-lg text-center";
+    "block whitespace-nowrap py-1 font-bold group-hover:border-blue group-hover:border-b-2 duration-200";
 
   if (item.menuItems?.length > 0) {
     return (
@@ -22,9 +27,9 @@ function RenderNavItem(item, locale, scroll, setTriangle) {
         {({ open, close }) => (
           <>
             <Popover.Button
-              className={`${
+              className={`${classNameItem} ${
                 IsActive(item, locale) == true ? classNameActive : ""
-              } ${classNameItem}`}
+              }`}
             >
               <span>{item.mainLabel}</span>
               <div
@@ -41,19 +46,19 @@ function RenderNavItem(item, locale, scroll, setTriangle) {
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 translate-y-1"
             >
-              <Popover.Panel className="absolute z-10 -ml-4 mt-6 w-auto max-w-md transform px-2 sm:px-0 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 drop-shadow-2xl">
-                <div className="triangle absolute left-1/2 -top-1 scale-150 rotate-180" />
-                <div className="overflow-hidden rounded-lg">
-                  <div className="relative grid bg-white text-lg py-4 text-black">
+              <Popover.Panel className="absolute z-10 -ml-4 mt-6 w-auto max-w-md transform px-2 sm:px-0 lg:-left-6 lg:ml-0 drop-shadow-2xl">
+                <div className="absolute left-1/2 -top-1 scale-150 rotate-180" />
+                <div className="overflow-hidden">
+                  <div className="relative grid bg-white text-lg py-4 text-black min-w-[200px] px-6 gap-1">
                     {item.menuItems.map((item) => (
                       <Link
                         key={item.id}
                         href={resolveLink(item.link, locale)}
                         title={item.link.title}
                         onClick={() => close()}
-                        className={`${
+                        className={`${classNameItem} ${
                           IsActive(item, locale) == true ? classNameActive : ""
-                        } ${classNameItem}`}
+                        } after:hidden`}
                       >
                         <span className={classDropdownItem}>{item.label}</span>
                       </Link>
@@ -76,9 +81,9 @@ function RenderNavItem(item, locale, scroll, setTriangle) {
         className="group"
       >
         <span
-          className={`${
+          className={`${classNameItem} ${
             IsActive(item, locale) == true ? classNameActive : ""
-          } ${classNameItem}`}
+          }`}
         >
           {item.label}
         </span>
@@ -89,7 +94,6 @@ function RenderNavItem(item, locale, scroll, setTriangle) {
 
 function Header(props) {
   const { locale, site, page, headerTxt } = props;
-  const navNewsCategories = site.allNewsCategories;
   const navItems = site.menu.menuFirstLevels;
   const prefix = locale === "it" ? "/" : "/en";
 
@@ -119,7 +123,7 @@ function Header(props) {
 
   if (headerTxt === "white") {
     headerClass = scroll
-      ? "bg-white text-black py-2 drop-shadow-md"
+      ? "bg-white text-black py-2 border-b border-gray/80"
       : "bg-transparent text-white py-5";
   } else
     headerClass = scroll
@@ -152,7 +156,7 @@ function Header(props) {
               <div className="flex items-center lg:hidden">
                 <Popover.Button className="inline-flex items-center justify-center">
                   <div className={`${setBorder} border-b-2 pb-1`}>
-                    <div className="">Menù</div>
+                    <div className="">Menu</div>
                   </div>
                 </Popover.Button>
               </div>
@@ -160,14 +164,20 @@ function Header(props) {
                 as="nav"
                 className="hidden space-x-8 lg:flex lg:items-center lg:justify-between xl:w-full 3xl:pl-4"
               >
-                <div className="flex gap-4 items-center justify-between xl:gap-6">
+                <div className="flex gap-4 items-center justify-between xl:gap-6 xl:absolute xl:left-1/2 xl:-translate-x-1/2">
                   {navItems.map((item) => (
                     <div key={item.id}>
-                      {RenderNavItem(item, locale, scroll, setTriangle)}
+                      {RenderNavItem(
+                        item,
+                        locale,
+                        scroll,
+                        setTriangle,
+                        headerTxt
+                      )}
                     </div>
                   ))}
                 </div>
-                <div className="hidden items-center space-x-3 lg:flex xl:space-x-6">
+                <div className="hidden items-center space-x-3 lg:flex xl:space-x-6 xl:absolute xl:right-6">
                   <div
                     className={`${setBorder} border-b-2 pb-1 text-sm xl:text-base translate-y-[3px]`}
                   >

@@ -32,7 +32,7 @@ export default function WorkCard({ locale, record }) {
                 layout=""
               />
             )}
-            <div className="text-gray font-bold text-xs uppercase lg:text-sm md:pt-2">
+            <div className="text-gray-dark font-bold text-xs uppercase lg:text-sm md:pt-2">
               {subtitle}
             </div>
             <h2 className="text-blue text-xl lg:text-2xl">{title}</h2>

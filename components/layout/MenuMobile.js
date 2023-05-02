@@ -121,7 +121,7 @@ export default function MenuMobile({ site, locale, page }) {
                 <nav className="my-5 pb-12">
                   {navItems.map((item) => (
                     <div
-                      className="py-5 border-b border-dashed border-violet-light relative"
+                      className="py-5 border-b border-dotted border-violet-light relative"
                       key={item.id}
                     >
                       {RenderMobileNavItem(item, locale)}

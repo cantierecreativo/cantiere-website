@@ -7,16 +7,16 @@ function RenderCards(cards, showNumbers, l) {
   return (
     <section className="container">
       <div className="lg:grid lg:grid-cols-12">
-        <div className="grid gap-4 lg:gap-6 md:grid-cols-2 lg:grid-cols-3 lg:col-span-10 lg:col-start-2">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:col-span-10 lg:col-start-2">
           {cards.map((c, n) => (
             <div
               key={c.id}
-              className="grid gap-5 p-6 py-8 border border-dashed border-gray lg:pt-10 lg:gap-x-0 bg-white"
+              className="grid gap-5 p-6 lg:p-8 py-8 lg:pt-10 lg:gap-x-0 text-black border border-dotted border-black"
             >
               <div className="grid gap-4 content-start">
                 {showNumbers && <div className="">{`0${n + 1}`}</div>}
-                {c.title && <h2 className="text-blue text-xl">{c.title}</h2>}
-                {c.text && <h3 className="xl:text-lg">{renderHTML(c.text)}</h3>}
+                {c.title && <h2 className="text-2xl lg:text-3xl">{c.title}</h2>}
+                {c.text && <h3 className="">{renderHTML(c.text)}</h3>}
                 {c.link && (
                   <InternalLink
                     element={c.link.relatedElement}
@@ -46,7 +46,7 @@ export default function CardsBlock({ locale, record, page }) {
     >
       {!inLine ? (
         <div className="lg:grid lg:grid-cols-12 pb-8 xl:pb-16">
-          <div className="border-y border-gray border-dashed grid gap-10 lg:col-span-12 divide-y divide-dashed divide-gray pb-10">
+          <div className="border-y border-gray border-dotted grid gap-10 lg:col-span-12 divide-y divide-dashed divide-gray pb-10">
             {cards.map((c, n) => (
               <div
                 key={c.id}

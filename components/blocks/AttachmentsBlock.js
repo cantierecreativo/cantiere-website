@@ -11,12 +11,12 @@ export default function AttachmentsBlock({ locale, record }) {
           <div className="grid gap-6 md:col-start-5 md:col-span-8 lg:col-start-7 lg:col-span-5">
             <h2 className="text-3xl max-w-prose">{title}</h2>
             <div className="text-lg max-w-prose pb-6">{renderHTML(text)}</div>
-            <div className="border-t border-dashed">
+            <div className="border-t border-dotted">
               {attachments &&
                 attachments.map(({ id, file, title }) => (
                   <div
                     key={id}
-                    className="border-b border-dashed py-4 flow-root"
+                    className="border-b border-dotted py-4 flow-root"
                   >
                     <div className="float-left">
                       <h2 className="text-violet text-base pb-2">{title}</h2>

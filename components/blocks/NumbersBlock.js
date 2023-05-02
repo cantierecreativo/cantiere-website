@@ -19,12 +19,12 @@ export default function NumbersBlock({ record }) {
               </div>
             )}
           </div>
-          <div className="md:col-span-5 md:col-start-7 grid border-b border-dashed border-gray lg:col-span-4 lg:col-start-8">
+          <div className="md:col-span-5 md:col-start-7 grid border-b border-dotted border-gray lg:col-span-4 lg:col-start-8">
             {numbers &&
               numbers.map(({ id, number, description }) => (
                 <div
                   key={id}
-                  className="text-xl max-w-prose border-t border-dashed py-8 border-gray"
+                  className="text-xl max-w-prose border-t border-dotted py-8 border-gray"
                 >
                   <p className="text-violet text-5xl xl:text-6xl">{number}</p>
                   <p className="text-lg pt-2">{description}</p>

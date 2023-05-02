@@ -50,23 +50,25 @@ export default function BannerBlock({ locale, record }) {
           </div>
         </div>
       ) : (
-        <div
-          id={`${convertToSlug(labelMenu)}`}
-          className="bg-blue text-white bg-cover relative overflow-hidden lg:py-12 margin-scroll-standard"
-        >
-          <div className="container py-16 relative z-10 grid gap-8 lg:grid-cols-12 items-start">
-            <div className="lg:col-span-7 lg:col-start-2">
-              <h2 className="text-3xl xl:text-4xl">{title}</h2>
-              {text && (
-                <h3 className="pt-5 pb-10 text-lg lg:pb-0 xl:text-xl xl:pt-10">
-                  {renderHTML(text)}
-                </h3>
-              )}
-            </div>
-            <div className="lg:col-span-3 lg:col-start-10 lg:justify-end lg:flex lg:mt-2 xl:-translate-x-14 xl:translate-y-[5px] xl:scale-150">
-              <DynamicLink record={link} locale={locale}>
-                <Button label={t("contact-us-label", locale)} bg="white" />
-              </DynamicLink>
+        <div className="relative h-full">
+          <div
+            id={`${convertToSlug(labelMenu)}`}
+            className="bg-blue text-white bg-cover relative overflow-hidden lg:py-12 margin-scroll-standard"
+          >
+            <div className="container py-16 2xl:py-40 relative z-10 grid gap-8 lg:grid-cols-12 items-start">
+              <div className="lg:col-span-7 lg:col-start-2">
+                <h2 className="text-3xl xl:text-4xl 3xl:text-5xl">{title}</h2>
+                {text && (
+                  <h3 className="pt-5 pb-10 text-lg lg:pb-0 xl:text-xl xl:pt-10">
+                    {renderHTML(text)}
+                  </h3>
+                )}
+              </div>
+              <div className="lg:col-span-3 lg:col-start-10 lg:justify-end lg:flex lg:mt-2 xl:-translate-x-14 xl:translate-y-[5px] xl:scale-150">
+                <DynamicLink record={link} locale={locale}>
+                  <Button label={t("contact-us-label", locale)} bg="white" />
+                </DynamicLink>
+              </div>
             </div>
           </div>
           <Image
@@ -74,7 +76,7 @@ export default function BannerBlock({ locale, record }) {
             src="/background/contactBanner.svg"
             objectFit="cover"
             layout="fill"
-            className="absolute w-full h-full z-0 max-w-7xl mx-auto"
+            className="absolute w-full h-full z-0 mx-auto"
             alt="shape"
           />
         </div>

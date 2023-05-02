@@ -37,11 +37,11 @@ export default function CardImageBlock({ locale, record, page }) {
         </div>
         {page?.model === "homepage" ? (
           <div className="grid gap-4 md:gap-6 lg:grid-cols-12 lg:gap-x-0 pb-8 mt-10 lg:mt-16">
-            <div className="lg:col-span-10 lg:col-start-2 grid gap-10 xl:gap-12 border-t border-dashed border-white">
+            <div className="lg:col-span-10 lg:col-start-2 grid gap-10 xl:gap-12 border-t border-dotted border-white">
               {related.map((c, n) => (
                 <div
                   key={c.id}
-                  className="grid gap-6 lg:grid-cols-10 lg:gap-x-0 lg:pb-10 lg:items-center first:pt-8 pb-8 xl:pb-12 border-b border-dashed border-white"
+                  className="grid gap-6 lg:grid-cols-10 lg:gap-x-0 lg:pb-10 lg:items-center first:pt-8 pb-8 xl:pb-12 border-b border-dotted border-white"
                 >
                   <div className="grid gap-6 lg:col-span-4 content-center">
                     <div className="">{`0${n + 1}`}</div>
@@ -73,13 +73,13 @@ export default function CardImageBlock({ locale, record, page }) {
         ) : (
           <>
             <div className="grid gap-4 pb-8 mt-10 lg:mt-20">
-              <div className="md:gap-6 md:grid-cols-2 grid gap-10 xl:gap-12 border-t border-dashed border-white lg:grid-cols-12">
+              <div className="md:gap-6 md:grid-cols-2 grid gap-10 xl:gap-12 border-t border-dotted border-white lg:grid-cols-12">
                 {related.map((c, n) => (
                   <div
                     key={c.id}
                     className={`${
                       n % 2 == 0 ? "lg:col-start-2" : "lg:col-start-8"
-                    } content-start grid gap-6 pb-8 xl:pb-12 border-b border-dashed border-white lg:col-span-4`}
+                    } content-start grid gap-6 pb-8 xl:pb-12 border-b border-dotted border-white lg:col-span-4`}
                   >
                     {c.cover && (
                       <div className="aspect-[9/7] relative">
@@ -95,14 +95,14 @@ export default function CardImageBlock({ locale, record, page }) {
                     )}
                     <div className="grid gap-4">
                       {c.subtitle && (
-                        <div className="text-gray font-bold text-xs uppercase lg:text-sm">
+                        <div className="text-gray-dark font-bold text-xs uppercase lg:text-sm">
                           {c.subtitle}
                         </div>
                       )}
                       <h2 className="text-blue text-2xl max-w-prose">
                         {c.title}
                       </h2>
-                      <div className="border-t border-dashed border-gray" />
+                      <div className="border-t border-dotted border-gray" />
                       <h3 className="max-w-prose line-clamp-5">
                         {renderHTML(c.abstract)}
                       </h3>
