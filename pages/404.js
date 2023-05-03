@@ -25,15 +25,19 @@ function Template404({ site }) {
 
   return (
     <Layout site={site} locale={locale} page="404">
-      <div className="">
+      <div className="pt-24 pb-12">
         <div className="container lg:py-12 xl:py-20">
           <div className="">
             <div className="">
-              <div className="">{t("404title", locale)}</div>
+              <div className="lg:text-4xl text-2xl text-blue pb-3">
+                {t("404title", locale)}
+              </div>
             </div>
-            <h1 className="">{t("404text", locale)}</h1>
-            <Link href="/">
-              <span className="">{t("404cta", locale)}</span>
+            <h1 className="text-lg lg:py-4">{t("404text", locale)}</h1>
+            <Link className="mt-4 block" href="/">
+              <span className="underline-default after:bg-black">
+                {t("404cta", locale)}
+              </span>
             </Link>
           </div>
         </div>
