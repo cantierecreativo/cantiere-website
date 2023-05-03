@@ -13,13 +13,12 @@ function RenderNavItem(item, locale, scroll, setTriangle, headerTxt) {
     headerTxt === "white" ? "after:bg-white" : "after:bg-black";
   const classNameItem = scroll
     ? `${
-        headerTxt === "white" ? "hover:after:bg-black" : "hover:after:bg-white"
-      } font-bold group gap-2 inline-flex items-center text-sm xl:text-base duration-200 focus:ring-orange relative after:absolute after:block after:h-[2px] after:w-full after:-bottom-1 whitespace-nowrap`
+        headerTxt === "white" ? "after:bg-black" : "after:bg-white"
+      } font-bold group gap-2 underline-on-hover inline-flex items-center text-sm xl:text-base focus:ring-orange relative whitespace-nowrap`
     : `${
-        headerTxt === "white" ? "hover:after:bg-white" : "hover:after:bg-black"
-      } group gap-2 inline-flex items-center text-sm xl:text-base duration-200 focus:ring-orange after:absolute after:block after:h-[2px] after:w-full relative after:-bottom-1 after:duration-200 whitespace-nowrap`;
-  const classDropdownItem =
-    "block whitespace-nowrap py-1 font-bold group-hover:border-blue group-hover:border-b-2 duration-200";
+        headerTxt === "white" ? "after:bg-white" : "after:bg-black"
+      } group gap-2 inline-flex items-center text-sm xl:text-base focus:ring-orange relative whitespace-nowrap underline-on-hover inline-block`;
+  const classDropdownItem = "my-1 font-bold after:bg-blue inline-block";
 
   if (item.menuItems?.length > 0) {
     return (
@@ -29,7 +28,7 @@ function RenderNavItem(item, locale, scroll, setTriangle, headerTxt) {
             <Popover.Button
               className={`${classNameItem} ${
                 IsActive(item, locale) == true ? classNameActive : ""
-              }`}
+              } `}
             >
               <span>{item.mainLabel}</span>
               <div
@@ -46,24 +45,29 @@ function RenderNavItem(item, locale, scroll, setTriangle, headerTxt) {
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 translate-y-1"
             >
-              <Popover.Panel className="absolute z-10 -ml-4 mt-6 w-auto max-w-md transform px-2 sm:px-0 lg:-left-6 lg:ml-0 drop-shadow-2xl">
+              <Popover.Panel className="absolute z-10 -ml-4 mt-6 w-auto max-w-md transform px-2 sm:px-0 lg:-left-6 lg:ml-0">
                 <div className="absolute left-1/2 -top-1 scale-150 rotate-180" />
                 <div className="overflow-hidden">
-                  <div className="relative grid bg-white text-lg py-4 text-black min-w-[200px] px-6 gap-1">
+                  <ul className="relative bg-white text-lg border border-black/80 py-4 text-black min-w-[200px] px-6 gap-1">
                     {item.menuItems.map((item) => (
-                      <Link
-                        key={item.id}
-                        href={resolveLink(item.link, locale)}
-                        title={item.link.title}
-                        onClick={() => close()}
-                        className={`${classNameItem} ${
-                          IsActive(item, locale) == true ? classNameActive : ""
-                        } after:hidden`}
-                      >
-                        <span className={classDropdownItem}>{item.label}</span>
-                      </Link>
+                      <li key={item.id}>
+                        <Link
+                          href={resolveLink(item.link, locale)}
+                          title={item.link.title}
+                          onClick={() => close()}
+                          className={`group text-sm xl:text-base focus:ring-orange underline-on-hover after:bg-black ${
+                            IsActive(item, locale) == true
+                              ? classNameActive
+                              : ""
+                          } `}
+                        >
+                          <span className={classDropdownItem}>
+                            {item.label}
+                          </span>
+                        </Link>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
               </Popover.Panel>
             </Transition>
@@ -118,16 +122,16 @@ function Header(props) {
   } else setTriangle = "triangle-black";
 
   if (headerTxt === "white") {
-    setBorder = scroll ? "border-black" : "border-white";
-  } else setBorder = "border-black";
+    setBorder = scroll ? "after:bg-black" : "after:bg-white";
+  } else setBorder = "after:bg-black";
 
   if (headerTxt === "white") {
     headerClass = scroll
-      ? "bg-white text-black py-2 border-b border-gray/80"
+      ? "bg-white text-black py-2 custom-border-bottom"
       : "bg-transparent text-white py-5";
   } else
     headerClass = scroll
-      ? "py-2 bg-white drop-shadow-md"
+      ? "py-2 bg-white custom-border-bottom"
       : "py-5 bg-transparent text-black ";
 
   return (
@@ -178,9 +182,7 @@ function Header(props) {
                   ))}
                 </div>
                 <div className="hidden items-center space-x-3 lg:flex xl:space-x-6 xl:absolute xl:right-6">
-                  <div
-                    className={`${setBorder} border-b-2 pb-1 text-sm xl:text-base translate-y-[3px]`}
-                  >
+                  <div className={`${setBorder} underline-default`}>
                     <Link
                       href={t("contact-us-url", locale)}
                       title={t("contact-us-label", locale)}

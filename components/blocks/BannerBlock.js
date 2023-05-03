@@ -15,9 +15,9 @@ export default function BannerBlock({ locale, record }) {
           id={`${convertToSlug(labelMenu)}`}
           className="bg-[url('/background/gradient.svg')] bg-cover text-white relative margin-scroll-standard"
         >
-          <div className="pt-12 md:py-16 xl:py-8 padding-left-container">
+          <div className="pt-12 md:py-0 padding-left-container">
             <div className="grid gap-7 pb-8 md:pb-0 md:items-center md:grid-cols-2 md:gap-0 lg:pb-0 lg:items-center lg:gap-0">
-              <div className="grid gap-7 xl:max-w-md">
+              <div className="grid gap-7 xl:max-w-sm xl:py-24">
                 <div className="font-bold pr-6">{prefix}</div>
                 <h2 className="text-3xl md:text-4xl xl:text-5xl max-w-prose md:pr-12 pr-6 lg:block lg:pr-0 z-20">
                   {title}
@@ -36,7 +36,7 @@ export default function BannerBlock({ locale, record }) {
                   />
                 </InternalLink>
               </div>
-              <div className="w-full aspect-square relative my-6 md:my-0">
+              <div className="w-full h-full aspect-square relative my-6 md:my-0">
                 <DatoImage
                   className="rounded-l-full"
                   data={image.responsiveImage}
@@ -55,7 +55,7 @@ export default function BannerBlock({ locale, record }) {
             id={`${convertToSlug(labelMenu)}`}
             className="bg-blue text-white bg-cover relative overflow-hidden lg:py-12 margin-scroll-standard"
           >
-            <div className="container py-16 2xl:py-40 relative z-10 grid gap-8 lg:grid-cols-12 items-start">
+            <div className="container py-16 2xl:py-40 xl:py-28 relative z-10 grid gap-8 lg:gap-x-0 lg:grid-cols-12 items-start">
               <div className="lg:col-span-7 lg:col-start-2">
                 <h2 className="text-3xl xl:text-4xl 3xl:text-5xl">{title}</h2>
                 {text && (
@@ -64,8 +64,8 @@ export default function BannerBlock({ locale, record }) {
                   </h3>
                 )}
               </div>
-              <div className="lg:col-span-3 lg:col-start-10 lg:justify-end lg:flex lg:mt-2 xl:-translate-x-14 xl:translate-y-[5px] xl:scale-150">
-                <DynamicLink record={link} locale={locale}>
+              <div className="lg:col-span-3 lg:col-start-10 lg:justify-end lg:flex lg:mt-2 xl:-translate-x-14 xl:translate-y-[8px]">
+                <DynamicLink record={link} locale={locale} className={"group"}>
                   <Button label={t("contact-us-label", locale)} bg="white" />
                 </DynamicLink>
               </div>

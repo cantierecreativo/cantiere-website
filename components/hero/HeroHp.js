@@ -24,6 +24,7 @@ export default function HeroHp({ locale, page }) {
                   title={image.responsiveImage.title}
                   layout="fill"
                   objectFit="cover"
+                  objectPosition="right"
                 />
               </div>
             </div>

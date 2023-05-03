@@ -20,7 +20,9 @@ function LanguageSwitcher({ page, locale }) {
                   href={resolveLink(page, l, link)}
                   className="bg-white rounded-full text-black px-4 py-2 lg:bg-transparent lg:p-0 lg:text-inherit lg:text-sm xl:text-base"
                 >
-                  {t(`${l}`, locale)}
+                  <span className="underline-on-hover">
+                    {t(`${l}`, locale)}
+                  </span>
                 </Link>
               </Fragment>
             );

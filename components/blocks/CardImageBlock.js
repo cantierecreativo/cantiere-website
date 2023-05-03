@@ -50,7 +50,7 @@ export default function CardImageBlock({ locale, record, page }) {
                     </h2>
                     <h3 className="max-w-prose">{renderHTML(c.abstract)}</h3>
                     <InternalLink element={c} locale={locale} label={c.title}>
-                      <div className="border-white border-b-2 pb-1 inline-block">
+                      <div className="underline-default after:bg-white inline-block">
                         {t("more", locale)}
                       </div>
                     </InternalLink>
@@ -81,37 +81,43 @@ export default function CardImageBlock({ locale, record, page }) {
                       n % 2 == 0 ? "lg:col-start-2" : "lg:col-start-8"
                     } content-start grid gap-6 pb-8 xl:pb-12 border-b border-dotted border-white lg:col-span-4`}
                   >
-                    {c.cover && (
-                      <div className="aspect-[9/7] relative">
-                        <DatoImage
-                          className=""
-                          data={c.cover.responsiveImage}
-                          alt={c.cover.responsiveImage.alt}
-                          title={c.cover.responsiveImage.title}
-                          layout="fill"
-                          objectFit="cover"
-                        />
-                      </div>
-                    )}
-                    <div className="grid gap-4">
-                      {c.subtitle && (
-                        <div className="text-gray-dark font-bold text-xs uppercase lg:text-sm">
-                          {c.subtitle}
+                    <InternalLink
+                      element={c}
+                      locale={locale}
+                      label={c.title}
+                      className="group"
+                    >
+                      {c.cover && (
+                        <div className="aspect-[9/7] relative mb-6">
+                          <DatoImage
+                            className="group-hover:-translate-y-2 duration-200"
+                            data={c.cover.responsiveImage}
+                            alt={c.cover.responsiveImage.alt}
+                            title={c.cover.responsiveImage.title}
+                            layout="fill"
+                            objectFit="cover"
+                          />
                         </div>
                       )}
-                      <h2 className="text-blue text-2xl max-w-prose">
-                        {c.title}
-                      </h2>
-                      <div className="border-t border-dotted border-gray" />
-                      <h3 className="max-w-prose line-clamp-5">
-                        {renderHTML(c.abstract)}
-                      </h3>
-                      <InternalLink element={c} locale={locale} label={c.title}>
-                        <div className="border-black border-b-2 pb-1 inline-block md:mt-4">
-                          {t("more", locale)}
+                      <div className="grid gap-4 group-hover:-translate-y-2 duration-200">
+                        {c.subtitle && (
+                          <div className="text-gray-dark font-bold text-xs uppercase lg:text-sm">
+                            {c.subtitle}
+                          </div>
+                        )}
+                        <h2 className="text-blue text-2xl max-w-prose custom-border-bottom pb-4">
+                          {c.title}
+                        </h2>
+                        <h3 className="max-w-prose line-clamp-5">
+                          {renderHTML(c.abstract)}
+                        </h3>
+                        <div className="inline-block">
+                          <div className="underline-default inline-block after:bg-black md:mt-4">
+                            {t("more", locale)}
+                          </div>
                         </div>
-                      </InternalLink>
-                    </div>
+                      </div>
+                    </InternalLink>
                   </div>
                 ))}
               </div>

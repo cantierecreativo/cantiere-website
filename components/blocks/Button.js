@@ -2,18 +2,20 @@ import Icon from "components/layout/Icon";
 
 export default function Button({ label, bg }) {
   const colorButton = {
-    blue: "bg-blue fill-white",
-    black: "bg-black fill-white",
-    white: "bg-white fill-black",
-    border: "bg-white border border-black fill-black",
+    blue: "after:bg-blue border-blue fill-white group-hover:fill-blue",
+    black: "after:bg-black border-black fill-white group-hover:fill-black",
+    white: "after:bg-white border-white fill-black group-hover:fill-white",
+    border: "after:bg-white border border-black fill-black",
   };
   return (
     <>
       <div className="flex gap-4 items-center">
-        {label && <span className="">{label}</span>}
+        {label && <span className="cursor-pointer">{label}</span>}
         {bg !== null && (
-          <div className={`${colorButton[bg]} px-5 rounded-full py-2`}>
-            <Icon name="arrow" className="" size="22" />
+          <div
+            className={`${colorButton[bg]} px-5 cursor-pointer rounded-full py-2 border duration-300 after:z-0 after:absolute after:left-0 after:right-0 after:top-0 after:bottom-0 group-hover:after:top-full relative after:duration-300 overflow-hidden`}
+          >
+            <Icon name="arrow" className="z-10 relative" size="22" />
           </div>
         )}
       </div>

@@ -1,39 +1,58 @@
-import { Image as DatoImage } from "react-datocms";
 import { renderHTML, convertToSlug } from "lib/utils";
 import InternalLink from "components/links/InternalLink";
 import t from "lib/locales";
 
 function RenderCards(cards, showNumbers, l) {
+  // return console.log("cards:", cards);
   return (
-    <section className="container">
-      <div className="lg:grid lg:grid-cols-12">
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:col-span-10 lg:col-start-2">
-          {cards.map((c, n) => (
-            <div
-              key={c.id}
-              className="grid gap-5 p-6 lg:p-8 py-8 lg:pt-10 lg:gap-x-0 text-black border border-dotted border-black"
-            >
-              <div className="grid gap-4 content-start">
-                {showNumbers && <div className="">{`0${n + 1}`}</div>}
-                {c.title && <h2 className="text-2xl lg:text-3xl">{c.title}</h2>}
-                {c.text && <h3 className="">{renderHTML(c.text)}</h3>}
-                {c.link && (
-                  <InternalLink
-                    element={c.link.relatedElement}
-                    locale={l}
-                    label={c.link.title}
-                  >
-                    <div className="border-black border-b-2 pb-1 inline-block mt-4">
-                      {c.link?.cta ? c.link.cta : t("more", l)}
-                    </div>
-                  </InternalLink>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
+    <div className="lg:grid lg:grid-cols-12">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:col-span-10 lg:col-start-2">
+        {cards.map((c, n) => (
+          <div
+            key={c.id}
+            className="grid gap-5 lg:gap-x-0 text-black custom-border relative hover:-translate-y-2 duration-200"
+          >
+            {c.link !== null ? (
+              <>
+                <InternalLink
+                  element={c.link.relatedElement}
+                  locale={l}
+                  label={c.link.title}
+                  className="group z-10"
+                >
+                  <div className="grid gap-4 content-start lg:p-8 py-8 lg:pt-10 xl:pb-12 ">
+                    <div className="custom-border-right" />
+                    {showNumbers && <div className="">{`0${n + 1}`}</div>}
+                    {c.title && (
+                      <h2 className="text-2xl lg:text-3xl">{c.title}</h2>
+                    )}
+                    {c.text && <h3 className="">{renderHTML(c.text)}</h3>}
+                    {c.link && (
+                      <div className="inline-block">
+                        <div className="underline-default after:bg-black inline-block mt-4">
+                          {c.link?.cta ? c.link.cta : t("more", l)}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </InternalLink>
+              </>
+            ) : (
+              <>
+                <div className="custom-border-right" />
+                <div className="grid gap-4 content-start">
+                  {showNumbers && <div className="">{`0${n + 1}`}</div>}
+                  {c.title && (
+                    <h2 className="text-2xl lg:text-3xl">{c.title}</h2>
+                  )}
+                  {c.text && <h3 className="">{renderHTML(c.text)}</h3>}
+                </div>
+              </>
+            )}
+          </div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 }
 
@@ -46,11 +65,11 @@ export default function CardsBlock({ locale, record, page }) {
     >
       {!inLine ? (
         <div className="lg:grid lg:grid-cols-12 pb-8 xl:pb-16">
-          <div className="border-y border-gray border-dotted grid gap-10 lg:col-span-12 divide-y divide-dashed divide-gray pb-10">
+          <div className="grid gap-10 lg:col-span-12 custom-border-bottom pb-10">
             {cards.map((c, n) => (
               <div
                 key={c.id}
-                className="grid gap-5 pt-8 lg:pt-10 md:grid-cols-2 content-start lg:gap-x-0 lg:grid-cols-12 md:gap-8"
+                className="grid gap-5 pt-8 lg:pt-10 md:grid-cols-2 content-start lg:gap-x-0 lg:grid-cols-12 md:gap-8 custom-border-top after:hidden"
               >
                 <div className="md:col-span-2 lg:col-start-2 lg:col-span-1">
                   {showNumbers && `0${n + 1}`}
@@ -70,7 +89,7 @@ export default function CardsBlock({ locale, record, page }) {
                       locale={locale}
                       label={c.link.title}
                     >
-                      <div className="border-black border-b-2 pb-1 inline-block mt-4">
+                      <div className="underline-default after:bg-black inline-block mt-4">
                         {c.link?.cta ? c.cta : t("more", locale)}
                       </div>
                     </InternalLink>

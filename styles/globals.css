@@ -161,3 +161,66 @@
 .unwrapped-on-right {
   margin-right: calc(-50vw + 50%);
 }
+
+.underline-on-hover::after {
+  transform-origin: 100% 50%;
+  transform: scale3d(0, 1, 1);
+  transition: transform 0.3s;
+  @apply absolute h-[2px] w-full -bottom-1 left-0;
+}
+
+.underline-on-hover:hover::after {
+  transform-origin: 0% 50%;
+  transform: scale3d(1, 1, 1);
+}
+
+.underline-on-hover,
+.underline-default {
+  @apply relative;
+}
+
+.underline-default::after {
+  transform-origin: 0% 50%;
+  transform: scale3d(1, 1, 1);
+  transition: transform 0.3s;
+  @apply absolute h-[2px] w-full -bottom-1 left-0;
+}
+
+.underline-default:hover::after {
+  transform-origin: 100% 50%;
+  transform: scale3d(0, 1, 1);
+}
+
+.custom-border,
+.custom-border-top {
+  background-image: linear-gradient(
+    to right,
+    black 33%,
+    rgba(255, 255, 255, 0) 0%
+  );
+  @apply after:absolute after:bottom-0 after:bg-bottom bg-repeat-x bg-[length:6px_1px] before:absolute after:bg-repeat-x after:bg-[length:6px_1px] after:h-1 after:w-full before:bg-repeat-y before:bg-[length:1px_6px] before:top-0 before:bottom-0 before:h-full before:w-1 before:bg-left;
+}
+.custom-border-bottom {
+  background-image: linear-gradient(
+    to right,
+    black 33%,
+    rgba(255, 255, 255, 0) 0%
+  );
+}
+.custom-border:after {
+  background-image: linear-gradient(
+    to right,
+    black 33%,
+    rgba(255, 255, 255, 0) 0%
+  );
+}
+.custom-border-bottom {
+  @apply bg-bottom bg-repeat-x bg-[length:6px_1px];
+}
+.custom-border-right,
+.custom-border:before {
+  background-image: linear-gradient(black 33%, rgba(255, 255, 255, 0) 0%);
+}
+.custom-border-right {
+  @apply absolute w-full h-full top-0 bg-repeat-y bg-right bg-[length:1px_6px];
+}

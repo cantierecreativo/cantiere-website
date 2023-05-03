@@ -29,7 +29,7 @@ export default function SectionProjects({ page, locale, site }) {
                 locale={locale}
                 label={p.subtitle}
               >
-                <div className="w-[280px] md:w-[385px] xl:w-[440px] mr-4 relative md:mr-6">
+                <div className="w-[280px] md:w-[385px] xl:w-[440px] mr-4 relative md:mr-6 group-hover:-translate-y-2 duration-200">
                   <DatoImage
                     className="mb-2"
                     data={p.previewImage.responsiveImage}

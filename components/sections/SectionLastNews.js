@@ -1,7 +1,4 @@
 import TitleButton from "components/blocks/TitleButton";
-import InternalLink from "components/links/InternalLink";
-import { formatDate } from "lib/utils";
-import Button from "components/blocks/Button";
 import WhichCard from "components/cards/WhichCard";
 
 export default function SectionLastNews({ locale, items, site }) {
@@ -13,7 +10,7 @@ export default function SectionLastNews({ locale, items, site }) {
           element={site.articlesIndex}
           locale={locale}
         />
-        <div className="border-t border-gray border-dotted">
+        <div className="custom-border-bottom">
           {items.map((n) => (
             <WhichCard key={n.id} record={n} locale={locale} />
           ))}

@@ -53,7 +53,8 @@
     "close": "Chiudi",
     "contact-us-url": "/contatti#form",
     "contact-us-label": "Contattaci",
-    "contacts": "Contatti"
+    "contacts": "Contatti",
+    "go-to-website": "Visita il sito"
   },
   "en": {
     "it": "Ita",
@@ -109,6 +110,7 @@
     "close": "Close",
     "contact-us-url": "/en/contact#form",
     "contact-us-label": "Contact us",
-    "contacts": "Contacts"
+    "contacts": "Contacts",
+    "go-to-website": "Go to website"
   }
 }

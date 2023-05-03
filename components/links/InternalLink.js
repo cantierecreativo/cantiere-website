@@ -5,7 +5,7 @@ export default function InternalLink({
   children,
   element,
   label,
-  className,
+  className = "group",
   locale,
   slug = null,
 }) {

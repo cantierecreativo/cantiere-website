@@ -32,7 +32,7 @@ export default function SectionAbout({ page, locale, site }) {
               locale={locale}
               label={titleAbout}
             >
-              <div className="border-black border-b-2 pb-1 inline-block">
+              <div className="underline-default after:bg-black inline-block">
                 {t("more", locale)}
               </div>
             </InternalLink>

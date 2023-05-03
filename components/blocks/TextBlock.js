@@ -11,9 +11,10 @@ export default function TextBlock({ locale, record }) {
               <h2 className="xl:text-5xl max-w-prose text-3xl">{title}</h2>
             )}
             {text && (
-              <div className="text-lg max-w-prose grid gap-3 lg:gap-6 formatted-text">
-                {renderHTML(text)}
-              </div>
+              <div
+                className="text-lg max-w-prose grid gap-3 lg:gap-6 formatted-text"
+                dangerouslySetInnerHTML={{ __html: text }}
+              />
             )}
           </div>
         </div>

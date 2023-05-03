@@ -23,6 +23,7 @@ export default function ArticleLinkBlock({ locale, record }) {
             <InternalLink
               element={element.relatedElement}
               locale={locale}
+              className={"group"}
               label={element.title}
             >
               <Button bg="black" label={t("more", locale)} />

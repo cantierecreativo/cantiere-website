@@ -18,7 +18,12 @@ export default function TitleButton({ locale, title, text = null, element }) {
           )}
         </div>
         <div className="lg:col-span-3 lg:flex lg:justify-end lg:items-start lg:translate-y-2 xl:translate-y-7">
-          <InternalLink element={element} locale={locale} label={title}>
+          <InternalLink
+            element={element}
+            locale={locale}
+            label={title}
+            className="group"
+          >
             <Button bg="blue" label={t("more", locale)} />
           </InternalLink>
         </div>
