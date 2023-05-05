@@ -9,7 +9,7 @@ import t from "lib/locales";
 
 function RenderMobileNavItem(item, locale) {
   const classNameActive = "font-bold";
-  const classNameItem = "flex justify-between items-center text-lg";
+  const classNameItem = "flex justify-between items-center text-lg text-white";
   const classDropdownItem = "block whitespace-nowrap text-violet-dark";
 
   if (item.menuItems?.length > 0) {
@@ -131,7 +131,7 @@ export default function MenuMobile({ site, locale, page }) {
               </div>
               <div className="px-6 md:px-10 pb-8">
                 <div className="flex items-center justify-between">
-                  <div className="border-b-2 border-white pb-1 text-lg">
+                  <div className="border-b-2 border-white pb-1 text-lg text-white">
                     <Link
                       href={t("contact-us-url", locale)}
                       title={t("contact-us-label", locale)}

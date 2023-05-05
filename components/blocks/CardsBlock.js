@@ -45,7 +45,7 @@ function RenderCards(cards, showNumbers, l) {
               <div className="custom-border-right" />
               <div className="grid gap-4 content-start p-6 lg:p-8 py-8 lg:pt-10 xl:pb-12">
                 {showNumbers && <div className="">{`0${n + 1}`}</div>}
-                {c.title && <h2 className="text-2xl lg:text-3xl">{c.title}</h2>}
+                {c.title && <h2 className="text-2xl">{c.title}</h2>}
                 {c.text && <h3 className="">{renderHTML(c.text)}</h3>}
               </div>
             </div>

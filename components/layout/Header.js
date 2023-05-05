@@ -159,7 +159,11 @@ function Header(props) {
               </Link>
               <div className="flex items-center lg:hidden">
                 <Popover.Button className="inline-flex items-center justify-center">
-                  <div className={`${setBorder} border-b-2 pb-1`}>
+                  <div
+                    className={`${setBorder} ${
+                      scroll ? "-translate-y-1" : ""
+                    } underline-default`}
+                  >
                     <div className="">Menu</div>
                   </div>
                 </Popover.Button>
