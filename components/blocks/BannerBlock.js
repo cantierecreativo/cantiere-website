@@ -57,7 +57,7 @@ export default function BannerBlock({ locale, record }) {
           >
             <div className="container py-16 2xl:py-40 xl:py-28 relative z-10 grid gap-8 lg:gap-x-0 lg:grid-cols-12 items-start">
               <div className="lg:col-span-7 lg:col-start-2">
-                <h2 className="text-3xl xl:text-4xl 3xl:text-5xl">{title}</h2>
+                <h2 className="text-3xl xl:text-5xl">{title}</h2>
                 {text && (
                   <h3 className="pt-5 pb-10 text-lg lg:pb-0 xl:text-xl xl:pt-10">
                     {renderHTML(text)}

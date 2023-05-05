@@ -38,7 +38,8 @@
     @apply text-2xl lg:text-5xl;
   }
 
-  .formatted-text h3 {
+  .formatted-text h3,
+  .formatted-text h5 {
     @apply text-xl lg:text-3xl;
   }
 

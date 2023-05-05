@@ -5,7 +5,7 @@ export default function TeamCard({ locale, record }) {
   const { name, role, image, description, linkedinUrl, email } = record;
   return (
     <>
-      <div className="col-span-1 lg:grid-cols-6 lg:grid">
+      <div className="md:col-span-1 lg:grid-cols-6 lg:grid">
         <div className="lg:col-start-2 lg:col-span-4 grid gap-2 content-start lg:gap-4">
           {image && (
             <DatoImage
@@ -20,7 +20,7 @@ export default function TeamCard({ locale, record }) {
             {role}
           </div>
           <h2 className="text-blue text-xl lg:text-2xl">{name}</h2>
-          <div className="border-b border-blue opacity-30 border-dotted pb-2 mb-1"></div>
+          <div className="custom-border-bottom after:hidden pb-2 mb-1"></div>
           <h3 className="">{description}</h3>
           <div className="flex gap-3 py-2 lg:gap-5">
             <ExternalLink

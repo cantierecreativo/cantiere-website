@@ -14,11 +14,11 @@ function RenderNavItem(item, locale, scroll, setTriangle, headerTxt) {
   const classNameItem = scroll
     ? `${
         headerTxt === "white" ? "after:bg-black" : "after:bg-white"
-      } font-bold group gap-2 underline-on-hover inline-flex items-center text-sm xl:text-base focus:ring-orange relative whitespace-nowrap`
+      } group gap-2 underline-on-hover inline-flex items-center text-sm xl:text-base focus:ring-orange relative whitespace-nowrap`
     : `${
         headerTxt === "white" ? "after:bg-white" : "after:bg-black"
       } group gap-2 inline-flex items-center text-sm xl:text-base focus:ring-orange relative whitespace-nowrap underline-on-hover inline-block`;
-  const classDropdownItem = "my-1 font-bold after:bg-blue inline-block";
+  const classDropdownItem = "my-1 after:bg-blue inline-block";
 
   if (item.menuItems?.length > 0) {
     return (

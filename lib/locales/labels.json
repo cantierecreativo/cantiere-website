@@ -51,7 +51,7 @@
     "methods": "Metodi",
     "slug_tag": "blog/tags",
     "close": "Chiudi",
-    "contact-us-url": "/contatti#form",
+    "contact-us-url": "/contatti#contattaci",
     "contact-us-label": "Contattaci",
     "contacts": "Contatti",
     "go-to-website": "Visita il sito"
@@ -108,7 +108,7 @@
     "methods": "Methods",
     "slug_tag": "blog/tags",
     "close": "Close",
-    "contact-us-url": "/en/contact#form",
+    "contact-us-url": "/en/contact#contact-us",
     "contact-us-label": "Contact us",
     "contacts": "Contacts",
     "go-to-website": "Go to website"

@@ -35,7 +35,9 @@ export default function ArticleCard({ locale, record }) {
               label={title}
               className={"group grid gap-6"}
             >
-              <h2 className="text-2xl xl:max-w-md">{title}</h2>
+              <h2 className="text-2xl xl:max-w-md group-hover:text-violet duration-200">
+                {title}
+              </h2>
               <Button bg="border" />
             </InternalLink>
           </div>

@@ -7,7 +7,9 @@ export default function WorkCard({ locale, record }) {
     <>
       <div
         className={`${
-          oneColumn ? "col-span-2 lg:grid-cols-12" : "col-span-1 lg:grid-cols-6"
+          oneColumn
+            ? "md:col-span-2 lg:grid-cols-12"
+            : "md:col-span-1 lg:grid-cols-6"
         } lg:grid`}
       >
         <div
@@ -21,7 +23,9 @@ export default function WorkCard({ locale, record }) {
             element={record}
             label={title}
             locale={locale}
-            className={"group grid gap-2 lg:gap-4"}
+            className={
+              "group grid gap-2 lg:gap-4 hover:-translate-y-2 duration-200"
+            }
           >
             {cover && (
               <DatoImage

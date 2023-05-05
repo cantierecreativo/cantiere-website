@@ -12,8 +12,11 @@ export default function TitleTextBlock({ locale, record }) {
           <div className="lg:col-span-10 lg:col-start-2 grid gap-9 xl:gap-12">
             <h2 className="xl:text-5xl max-w-prose text-3xl">{title}</h2>
             {text && (
-              <div className="max-w-prose xl:text-xl xl:max-w-2xl">
-                {renderHTML(text)}
+              <div className="max-w-prose xl:text-xl">
+                <div
+                  className="grid gap-6 formatted-text xl:gap-8"
+                  dangerouslySetInnerHTML={{ __html: text }}
+                />
               </div>
             )}
           </div>
