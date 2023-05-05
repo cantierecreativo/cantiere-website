@@ -66,7 +66,10 @@ export default function BannerBlock({ locale, record }) {
               </div>
               <div className="lg:col-span-3 lg:col-start-10 lg:justify-end lg:flex lg:mt-2 xl:-translate-x-14 xl:translate-y-[8px]">
                 <DynamicLink record={link} locale={locale} className={"group"}>
-                  <Button label={t("contact-us-label", locale)} bg="white" />
+                  <Button
+                    label={link?.cta ? link.cta : t("more", locale)}
+                    bg="white"
+                  />
                 </DynamicLink>
               </div>
             </div>
