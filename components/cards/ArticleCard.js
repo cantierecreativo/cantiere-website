@@ -13,7 +13,7 @@ export default function ArticleCard({ locale, record }) {
             <div className="md:pt-2">{author.name}</div>
           </header>
           <div className="grid gap-6 md:col-span-7 lg:col-span-6">
-            <div className="uppercase font-bold">
+            <div className="uppercase font-bold text-sm md:text-lg">
               {tags.map((t) => (
                 <InternalLink
                   key={t.id}
