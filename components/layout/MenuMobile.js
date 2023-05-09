@@ -62,7 +62,7 @@ function RenderMobileNavItem(item, locale) {
   return (
     <Link
       key={item.id}
-      href={resolveLink(item, locale)}
+      href={resolveLink(item.link, locale)}
       title={item.title}
       className="group"
     >
