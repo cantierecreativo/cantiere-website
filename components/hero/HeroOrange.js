@@ -32,7 +32,7 @@ export default function HeroOrange({ locale, page }) {
             </div>
           </div>
         </div>
-        <div className="flex justify-end md:absolute md:right-0 md:top-0 md:h-full">
+        <div className="flex bg-cover justify-end md:absolute md:right-0 md:top-0 md:h-full">
           <div
             aria-hidden="true"
             className="w-2/3 aspect-square relative lg:w-4/5 xl:w-[60vw]"
