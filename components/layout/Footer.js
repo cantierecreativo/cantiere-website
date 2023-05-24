@@ -163,7 +163,7 @@ export default function Footer({ locale, site }) {
               </ExternalLink>
               <div className="">
                 <Link
-                  href={`//www.iubenda.com/privacy-policy/${t(
+                  href={`https://www.iubenda.com/privacy-policy/${t(
                     "cookiePolicyId"
                   )}`}
                   title={`${t("externaLink", locale)} Privacy Policy`}
@@ -173,7 +173,7 @@ export default function Footer({ locale, site }) {
                 </Link>
                 <span className="px-1"> - </span>
                 <Link
-                  href={`//www.iubenda.com/privacy-policy/${t(
+                  href={`https://www.iubenda.com/privacy-policy/${t(
                     "cookiePolicyId"
                   )}/cookie-policy`}
                   title={`${t("externaLink", locale)} Cookie Policy`}

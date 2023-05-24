@@ -1,9 +1,9 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import t from "lib/locales";
-import ExternalLink from "components/links/ExternalLink";
 import FormMessage from "components/form/FormMessage";
 import Button from "components/blocks/Button";
+import Link from "next/link";
 
 export default function ContactForm({ page, services, locale }) {
   const labelClass = "sr-only";
@@ -150,16 +150,16 @@ export default function ContactForm({ page, services, locale }) {
         />
         <label htmlFor="privacyCheckbox" className="ml-2 text-xs">
           {t("formPrivacyPolicy", locale)}
-          <ExternalLink
-            label={"Privacy Policy"}
-            url={`//www.iubenda.com/privacy-policy/${t(
+          <Link
+            title={"Privacy Policy"}
+            href={`https://www.iubenda.com/privacy-policy/${t(
               "cookiePolicyId",
               locale
             )}`}
             className="iubenda-nostyle no-brand iubenda-embed iubenda-noiframe underline font-extra-bold"
           >
             {"Privacy Policy"}*
-          </ExternalLink>
+          </Link>
         </label>
       </fieldset>
       <button className="" type="submit">

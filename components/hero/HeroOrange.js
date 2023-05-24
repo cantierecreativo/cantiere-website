@@ -14,18 +14,18 @@ export default function HeroOrange({ locale, page }) {
                 {title}
               </h1>
               {subtitle && (
-                <h2 className="text-lg max-w-prose xl:text-xl">
+                <h2 className="text-lg max-w-prose xl:text-2xl">
                   {renderHTML(subtitle)}
                 </h2>
               )}
-              {abstract && !subtitle && (
+              {abstract && (
                 <h2 className="text-lg max-w-prose xl:text-xl">
                   {renderHTML(abstract)}
                 </h2>
               )}
               <div
                 aria-hidden="true"
-                className="py-5 rounded-full px-2 md:px-[6px] border border-black hidden md:inline-block w-9 mt-12"
+                className="py-5 rounded-full px-2 border border-black hidden md:inline-block w-9 mt-12"
               >
                 <Icon name="arrow" className="rotate-90" size="22" />
               </div>
