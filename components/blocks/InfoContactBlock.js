@@ -56,7 +56,7 @@ export default function InfoContactBlock({ locale, record }) {
                   <span className="text-lg md:pt-1 md:pb-9">Twitter</span>
                 </ExternalLink>
                 <ExternalLink
-                  url="https://www.cantierecreativo.net/contatto/"
+                  url="https://www.linkedin.com/company/cantiere-creativo/mycompany/?viewAsMember=true"
                   label="Linkedin"
                   className={urlClass}
                 >
