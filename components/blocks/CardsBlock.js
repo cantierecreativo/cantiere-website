@@ -7,7 +7,7 @@ function RenderCards(cards, showNumbers, l) {
     <div className="lg:grid lg:grid-cols-12">
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:col-span-10 lg:col-start-2">
         {cards.map((c, n) =>
-          c.link !== null ? (
+          c.link ? (
             <div
               key={c.id}
               className="grid gap-5 lg:gap-x-0 text-black custom-border relative hover:-translate-y-2 duration-200"
