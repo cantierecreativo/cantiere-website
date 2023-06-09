@@ -1,7 +1,7 @@
 import * as queries from "lib/queries";
 import fetchData from "lib/dato";
 
-import { default as Method } from "pages/metodi/[slug].js";
+import { default as Method } from "pages/metodo/[slug].js";
 export default Method;
 
 export async function getStaticPaths() {

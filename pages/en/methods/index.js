@@ -1,7 +1,7 @@
 import * as queries from "lib/queries";
 import fetchData from "lib/dato";
 
-import { default as MethodsIndex } from "pages/metodi/index.js";
+import { default as MethodsIndex } from "pages/metodo/index.js";
 export default MethodsIndex;
 
 export async function getStaticProps({ locale = "en", preview }) {
