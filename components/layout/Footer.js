@@ -64,7 +64,7 @@ export default function Footer({ locale, site }) {
                 <div key={item.id}>
                   <InternalLink
                     locale={locale}
-                    element={item.slug}
+                    element={item}
                     label={item.title}
                     className="text-xs block py-1"
                   >
@@ -81,7 +81,7 @@ export default function Footer({ locale, site }) {
                 <div key={item.id}>
                   <InternalLink
                     locale={locale}
-                    element={item.slug}
+                    element={item}
                     label={item.title}
                     className="text-xs block py-1"
                   >
@@ -98,7 +98,7 @@ export default function Footer({ locale, site }) {
                 <div key={item.id}>
                   <InternalLink
                     locale={locale}
-                    element={item.slug}
+                    element={item}
                     label={item.title}
                     className="text-xs block py-1"
                   >
@@ -115,7 +115,7 @@ export default function Footer({ locale, site }) {
                 <div key={item.id}>
                   <InternalLink
                     locale={locale}
-                    element={item.slug}
+                    element={item}
                     label={item.title}
                     className="text-xs block py-1"
                   >

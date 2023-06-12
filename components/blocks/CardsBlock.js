@@ -1,6 +1,7 @@
 import { renderHTML, convertToSlug } from "lib/utils";
 import InternalLink from "components/links/InternalLink";
 import t from "lib/locales";
+import { Image as DatoImage } from "react-datocms";
 
 function RenderCards(cards, showNumbers, l) {
   return (
@@ -40,9 +41,20 @@ function RenderCards(cards, showNumbers, l) {
           ) : (
             <div
               key={c.id}
-              className="grid gap-5 lg:gap-x-0 text-black custom-border relative"
+              className="grid gap-5 lg:gap-x-0 text-black custom-border relative content-start"
             >
               <div className="custom-border-right" />
+              {c.image && (
+                <div className="relative aspect-[4/3]">
+                  <DatoImage
+                    className=""
+                    data={c.image.responsiveImage}
+                    alt={c.image.responsiveImage.alt}
+                    title={c.image.responsiveImage.title}
+                    layout="fill"
+                  />
+                </div>
+              )}
               <div className="grid gap-4 content-start p-6 lg:p-8 py-8 lg:pt-10 xl:pb-12">
                 {showNumbers && <div className="">{`0${n + 1}`}</div>}
                 {c.title && <h2 className="text-2xl">{c.title}</h2>}
