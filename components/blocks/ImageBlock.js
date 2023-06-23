@@ -14,7 +14,7 @@ export default function ImageBlock({ record }) {
           <div className="lg:col-start-2 lg:col-span-10">
             {image.responsiveImage ? (
               <DatoImage
-                className="xl:max-h-[650px] 2xl:max-h-[750px] 3xl:max-h-[950px]"
+                className=""
                 data={image.responsiveImage}
                 alt={image.responsiveImage.alt}
                 title={image.responsiveImage.title}

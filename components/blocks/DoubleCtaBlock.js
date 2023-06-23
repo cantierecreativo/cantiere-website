@@ -27,7 +27,7 @@ export default function DoubleCtaBlock({ locale, record }) {
                         </div>
                       )}
                       {l.text && (
-                        <div className="text-lg lg:text-xl xl:max-w-xs xl:mx-auto px-6">
+                        <div className="text-lg lg:text-xl xl:max-w-xs group-hover:text-blue duration-200 xl:mx-auto px-6">
                           {renderHTML(l.text)}
                         </div>
                       )}

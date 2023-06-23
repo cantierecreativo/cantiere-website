@@ -38,10 +38,10 @@ export default function SectionProjects({ page, locale, site }) {
                     layout=""
                   />
                   <h2 className="py-2 md:pb-4 uppercase text-black font-bold text-sm tracking-wide">
-                    {p.title}
+                    {p.subtitle}
                   </h2>
                   <h3 className="text-xl text-blue md:text-xl lg:text-2xl">
-                    {p.subtitle}
+                    {p.title}
                   </h3>
                 </div>
               </InternalLink>

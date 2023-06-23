@@ -14,17 +14,21 @@ export default function StandardCard({ locale, record }) {
             locale={locale}
             className={"group grid gap-2 lg:gap-4"}
           >
-            {cover && (
-              <DatoImage
-                className=""
-                data={cover.responsiveImage}
-                alt={cover.responsiveImage.alt}
-                title={cover.responsiveImage.title}
-                layout=""
-              />
-            )}
-            <h2 className="text-blue text-xl lg:text-2xl">{title}</h2>
-            <h3 className="">{renderHTML(abstract)}</h3>
+            <div className="group-hover:-translate-y-2 duration-200 grid gap-2 lg:gap-4">
+              {cover && (
+                <DatoImage
+                  className=""
+                  data={cover.responsiveImage}
+                  alt={cover.responsiveImage.alt}
+                  title={cover.responsiveImage.title}
+                  layout=""
+                />
+              )}
+              <h2 className="text-blue group-hover:text-black duration-200 text-xl lg:text-2xl">
+                {title}
+              </h2>
+              <h3 className="">{renderHTML(abstract)}</h3>
+            </div>
           </InternalLink>
         </div>
       </div>
