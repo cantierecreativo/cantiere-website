@@ -23,7 +23,7 @@ function RenderCards(cards, showNumbers, l) {
                   <div className="custom-border-right" />
                   {showNumbers && <div className="">{`0${n + 1}`}</div>}
                   {c.title && (
-                    <h2 className="text-2xl lg:text-3xl duration-200 text-blue group-hover:text-black">
+                    <h2 className="text-2xl lg:text-xl xl:text-2xl duration-200 text-blue group-hover:text-black">
                       {c.title}
                     </h2>
                   )}

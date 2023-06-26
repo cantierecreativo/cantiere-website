@@ -3,6 +3,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/css/core";
 import TitleButton from "components/blocks/TitleButton";
 import { Image as DatoImage } from "react-datocms";
+import Button from "components/blocks/Button";
 
 export default function SectionProjects({ page, locale, site }) {
   const { titleProject, textProject } = page;
@@ -40,9 +41,11 @@ export default function SectionProjects({ page, locale, site }) {
                   <h2 className="py-2 md:pb-4 uppercase text-black font-bold text-sm tracking-wide">
                     {p.subtitle}
                   </h2>
-                  <h3 className="text-xl text-blue md:text-xl lg:text-2xl">
+                  <h3 className="text-xl text-blue md:text-xl lg:text-2xl mb-4 lg:mb-6">
                     {p.title}
                   </h3>
+
+                  <Button bg="border" />
                 </div>
               </InternalLink>
             </SplideSlide>

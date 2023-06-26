@@ -41,7 +41,7 @@ export default function HeroHp({ page }) {
           className="hidden container z-20 xl:block absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 left"
         >
           <div className="xl:grid grid-cols-12">
-            <div className="text-5xl 2xl:text-6xl 3xl:text-6xl 2xl:max-w-md 3xl:max-w-xl col-span-6 xl:col-span-7 2xl:col-span-8 3xl:col-span-7 3xl:col-start-2 col-start-2">
+            <div className="text-5xl 2xl:text-5xl 3xl:text-6xl 2xl:max-w-md 3xl:max-w-xl col-span-6 xl:col-span-7 2xl:col-span-8 3xl:col-span-7 3xl:col-start-2 col-start-2">
               {title}
             </div>
             <div className="text-lg mt-8 max-w-md 2xl:text-lg 3xl:text-xl 3xl:mt-12 3xl:max-w-xl col-span-6 xl:col-span-7 2xl:col-span-8 3xl:col-span-7 3xl:col-start-2 col-start-2">

@@ -27,7 +27,7 @@ export default function PostContent({
     case "video_block":
       return <VideoBlock record={record} locale={locale} />;
     case "partner_block":
-      return <PartnerBlock record={record} locale={locale} />;
+      return <PartnerBlock record={record} locale={locale} page={page} />;
     case "double_cta_block":
       return <DoubleCtaBlock record={record} locale={locale} />;
     case "banner_block":

@@ -1,6 +1,7 @@
 import InternalLink from "components/links/InternalLink";
 import { Image as DatoImage } from "react-datocms";
 import { renderHTML } from "lib/utils";
+import t from "lib/locales";
 
 export default function StandardCard({ locale, record }) {
   const { title, cover, abstract } = record;
@@ -28,6 +29,11 @@ export default function StandardCard({ locale, record }) {
                 {title}
               </h2>
               <h3 className="">{renderHTML(abstract)}</h3>
+              <div className="inline-block">
+                <div className="underline-default after:bg-black inline-block">
+                  {t("more", locale)}
+                </div>
+              </div>
             </div>
           </InternalLink>
         </div>
