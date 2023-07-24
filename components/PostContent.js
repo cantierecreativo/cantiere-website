@@ -19,7 +19,8 @@ export default function PostContent({
   page = null,
   services = null,
 }) {
-  // return <div>{record.model}</div>;
+  // return <h2 className="text-red">{record.model}</h2>;
+  // return console.log("record:", record);
   switch (record.model) {
     case "image_block":
     case "article_image_block":

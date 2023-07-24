@@ -110,11 +110,10 @@ export default function CardImageBlock({ locale, record, page }) {
                         </h2>
 
                         <div className="max-h-24 line-clamp-4">
-                        <h3 className="max-w-prose">
-                          {renderHTML(c.abstract)}
-                        </h3>
+                          <h3 className="max-w-prose">
+                            {renderHTML(c.abstract)}
+                          </h3>
                         </div>
-                   
                         <div className="inline-block">
                           <div className="underline-default inline-block after:bg-black md:mt-4">
                             {t("more", locale)}

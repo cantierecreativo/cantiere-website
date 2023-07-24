@@ -129,13 +129,6 @@ export default function Footer({ locale, site }) {
                 {t("contacts", locale)}
               </div>
               <ExternalLink
-                url="tel:+393501083703"
-                label={t("phone", locale)}
-                className="text-xs block py-1"
-              >
-                Tel: +39 350 108 3703
-              </ExternalLink>
-              <ExternalLink
                 url="mailto:info@cantierecreativo.net"
                 label="Email"
                 className="text-xs block py-1"
@@ -148,6 +141,13 @@ export default function Footer({ locale, site }) {
                 className="text-xs block py-1"
               >
                 Via F. Botticini, 3 50143 - Firenze
+              </ExternalLink>
+              <ExternalLink
+                url="tel:+393501083703"
+                label={t("phone", locale)}
+                className="text-xs block py-1"
+              >
+                Tel: +39 350 108 3703
               </ExternalLink>
             </div>
           </nav>

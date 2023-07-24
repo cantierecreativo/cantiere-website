@@ -18,7 +18,7 @@ export default function IndexTmp({ locale, page, items }) {
               : "md:grid-cols-2 lg:gap-x-0 grid gap-8 py-6 lg:gap-y-16 xl:gap-y-20"
           }`}
         >
-          {items.map((i) => (
+          {items.map((i, n) => (
             <WhichCard key={i.id} locale={locale} record={i} />
           ))}
         </div>
