@@ -29,7 +29,7 @@ export default function Home({ locale, site, page, lastNews }) {
           <PostContent key={b.id} record={b} locale={locale} page={page} />
         ))}
       </div>
-      <div className="bg-red relative">
+      <div className="bg-red relative -mt-20 lg:-mt-28 xl:-mt-32 2xl:-mt-44">
         <Icon
           name={"shapeOrange"}
           className="h-full w-auto absolute right-0 top-0"
@@ -40,17 +40,8 @@ export default function Home({ locale, site, page, lastNews }) {
           ))}
         </div>
       </div>
-      <div className="bg-blue text-white">
-        <div className="vertical-spaces">
-          {blueBlocks.map((b) => (
-            <PostContent key={b.id} record={b} locale={locale} page={page} />
-          ))}
-        </div>
-      </div>
-      <SectionProjects page={page} locale={locale} site={site} />
-      <SectionAbout page={page} locale={locale} />
       <SectionHighlightProject project={highlightProject} locale={locale} />
-      <SectionLastNews site={site} items={lastNews} locale={locale} />
+      <SectionProjects page={page} locale={locale} site={site} />
       <BannerBlock record={page.blocksFooter[0]} locale={locale} />
     </Layout>
   );

@@ -17,15 +17,18 @@ export default function BannerBlock({ locale, record }) {
         >
           <div className="pt-12 md:py-0 padding-left-container">
             <div className="grid gap-7 pb-8 md:pb-0 md:items-center md:grid-cols-2 md:gap-0 lg:pb-0 lg:items-center lg:gap-0">
-              <div className="grid gap-7 xl:max-w-sm xl:py-24">
+              <div className="grid gap-7 xl:max-w-sm xl:py-24 md:py-12 lg:py-20">
                 <div className="font-bold pr-6">{prefix}</div>
-               {title && <h2 className="text-3xl md:text-4xl xl:text-5xl max-w-prose md:pr-12 pr-6 lg:block lg:pr-0 z-20">
-                  {title}
-                </h2>
-               } 
-                {text && <h3 className="pr-6 line-clamp-4 xl:line-clamp-none">
-                  {renderHTML(text)}
-                </h3>} 
+                {title && (
+                  <h2 className="text-3xl md:text-4xl xl:text-5xl max-w-prose md:pr-12 pr-6 lg:block lg:pr-0 z-20">
+                    {title}
+                  </h2>
+                )}
+                {text && (
+                  <h3 className="pr-6 line-clamp-4 xl:line-clamp-none">
+                    {renderHTML(text)}
+                  </h3>
+                )}
                 <InternalLink
                   element={link.relatedElement}
                   locale={locale}

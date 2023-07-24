@@ -6,7 +6,7 @@ import { Image as DatoImage } from "react-datocms";
 function RenderCards(cards, showNumbers, l) {
   return (
     <div className="lg:grid lg:grid-cols-12">
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:col-span-10 lg:col-start-2">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:col-span-10 lg:col-span-12 xl:col-start-2">
         {cards.map((c, n) =>
           c.link ? (
             <div
