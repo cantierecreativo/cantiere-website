@@ -167,7 +167,7 @@ export default function Footer({ locale, site }) {
                     "cookiePolicyId"
                   )}`}
                   title={`${t("externaLink", locale)} Privacy Policy`}
-                  className="iubenda-nostyle no-brand iubenda-embed iubenda-noiframe duration-200"
+                  className="iubenda-cs-preferences-link duration-200"
                 >
                   Privacy Policy
                 </Link>

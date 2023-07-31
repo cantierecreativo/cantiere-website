@@ -17,7 +17,7 @@ export default function PostContent({
   record,
   locale,
   page = null,
-  services = null,
+  solutions = null,
 }) {
   // return <h2 className="text-red">{record.model}</h2>;
   // return console.log("record:", record);
@@ -52,8 +52,8 @@ export default function PostContent({
     case "numbers_block":
       return <NumbersBlock record={record} locale={locale} />;
     case "text_form_block":
-      return <TextForm record={record} locale={locale} services={services} />;
+      return <TextForm record={record} locale={locale} solutions={solutions} />;
     case "quote":
-      return <Quote record={record} locale={locale} services={services} />;
+      return <Quote record={record} locale={locale} solutions={solutions} />;
   }
 }

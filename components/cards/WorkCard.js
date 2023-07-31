@@ -1,5 +1,6 @@
 import InternalLink from "components/links/InternalLink";
 import { Image as DatoImage } from "react-datocms";
+import Button from "components/blocks/Button";
 
 export default function WorkCard({ locale, record }) {
   const { title, cover, subtitle, oneColumn } = record;
@@ -40,6 +41,7 @@ export default function WorkCard({ locale, record }) {
               {subtitle}
             </div>
             <h2 className="text-blue text-xl lg:text-2xl">{title}</h2>
+            <Button bg="border" />
           </InternalLink>
         </div>
       </div>

@@ -12,14 +12,6 @@
 }
 
 @layer base {
-  html {
-    @apply !scroll-smooth;
-  }
-  @media (prefers-reduced-motion) {
-    html {
-      @apply !scroll-auto;
-    }
-  }
   body {
     @apply font-sans m-0 p-0 text-black text-base;
   }
@@ -97,7 +89,8 @@
     @apply text-lg max-w-prose xl:text-xl;
   }
   .subtitleHero a,
-  .prose p a {
+  .prose p a,
+  .paragraph a {
     @apply border-red border-b-2 hover:text-blue duration-200;
   }
   .prose u {

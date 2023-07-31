@@ -5,7 +5,7 @@ import FormMessage from "components/form/FormMessage";
 import Button from "components/blocks/Button";
 import Link from "next/link";
 
-export default function ContactForm({ page, services, locale }) {
+export default function ContactForm({ page, solutions, locale }) {
   const labelClass = "sr-only";
   const inputClass =
     "border-b-black border-b pb-2 lg:pt-2 lg:pb-2 w-full mx-0 placeholder-violet text-base overflow-hidden";
@@ -101,17 +101,17 @@ export default function ContactForm({ page, services, locale }) {
         />
       </div>
       <div className="pb-8">
-        <label htmlFor="service" className={labelClass}>
+        <label htmlFor="solution" className={labelClass}>
           {t("formDropdown", locale)}
         </label>
         <select
-          id="service"
-          name="service"
+          id="solution"
+          name="solution"
           className={selectClass}
           {...register("Servizio")}
         >
           <option selected>{t("formDropdown", locale)}</option>
-          {services.map((s) => (
+          {solutions.map((s) => (
             <option key={s.id}>{s.title}</option>
           ))}
         </select>
@@ -156,7 +156,7 @@ export default function ContactForm({ page, services, locale }) {
               "cookiePolicyId",
               locale
             )}`}
-            className="iubenda-nostyle no-brand iubenda-embed iubenda-noiframe underline font-extra-bold"
+            className="iubenda-cs-preferences-link underline font-extra-bold"
           >
             {"Privacy Policy"}*
           </Link>

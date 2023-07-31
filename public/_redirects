@@ -1,41 +1,61 @@
-/chi-siamo/
-/chi-siamo/eventi/
-/servizi/digital-transformation/
-/servizi/composable-wcm/
-/servizi/blueprint/
-/servizi/agency/
-/servizi/visual-web-design/
-/servizi/tecnologie/
-/servizi/tecnologie/composable-commerce/
-/servizi/tecnologie/sviluppo-ruby-on-rails/
-/servizi/tecnologie/sviluppo-angular-js-react/
-/servizi/tecnologie/sviluppo-con-test/
-/servizi/prodotti/
-/metodo/lean-startup/
-/contatto/
-/stai-investendo-in-tecnologia-nel-modo-piu-efficiente/
-/smart-working-davvero-smart/
-/headless-cms/
-/guidelines/
-/guidelines/intro/
-/guidelines/comunicazione/
-/guidelines/formazione/
-/guidelines/codice/
-/guidelines/metodologia/
-/guidelines/metodologia/scrum/
-/guidelines/metodologia/team-planning/
-/guidelines/codice/protocollo/
-/guidelines/comunicazione/twitter/
-/guidelines/comunicazione/blog-e-pubblicazioni/
-/guidelines/codice/artefatti-ui-ux/
-/guidelines/formazione/7191-idee-e-ricerca/
-/guidelines/codice/it-hackathons/
-/guidelines/intro/contratto/
-/guidelines/codice/sviluppo-frontend/
-/guidelines/intro/clienti/
-/guidelines/metodologia/agile/
-/guidelines/metodologia/metodologia/
-/guidelines/codice/git/
-/guidelines/codice/codice-best-practices/
-/guidelines/metodologia/it-time-material/
-/guidelines/comunicazione/press-kit/
+/chi-siamo/eventi/ /chi-siamo
+/servizi/digital-transformation/ /soluzioni/digital-strategy
+/servizi/composable-wcm/ /soluzioni/composable-wcm
+/servizi/blueprint/ /soluzioni/blueprint
+/servizi/agency/ /soluzioni/soluzione-agency
+/servizi/visual-web-design/ /servizi/servizi-design
+/servizi/tecnologie/ /tecnologie
+/servizi/tecnologie/composable-commerce/ /soluzioni/composable-wcm
+/servizi/tecnologie/sviluppo-ruby-on-rails/ /soluzioni
+/servizi/tecnologie/sviluppo-angular-js-react/ /tecnologie/react-next-js
+/servizi/tecnologie/sviluppo-con-test/ /tecnologie/sviluppo-con-test
+/servizi/prodotti/ /soluzioni
+/metodo/lean-startup/ /metodo/come-lavoriamo
+/contatto/ /contatti
+/stai-investendo-in-tecnologia-nel-modo-piu-efficiente/ /
+/smart-working-davvero-smart/ /metodo/full-remote
+/headless-cms/ /tecnologie/headless
+
+/guidelines/ /
+/guidelines/intro/ /
+/guidelines/comunicazione/ /
+/guidelines/formazione/ /
+/guidelines/codice/ /
+/guidelines/metodologia/ /
+/guidelines/metodologia/scrum/ /
+/guidelines/metodologia/team-planning/ /
+/guidelines/codice/protocollo/ /
+/guidelines/comunicazione/twitter/ /
+/guidelines/comunicazione/blog-e-pubblicazioni/ /
+/guidelines/codice/artefatti-ui-ux/ /
+/guidelines/formazione/7191-idee-e-ricerca/ /
+/guidelines/codice/it-hackathons/ /
+/guidelines/intro/contratto/ /
+/guidelines/codice/sviluppo-frontend/ /
+/guidelines/intro/clienti/ /
+/guidelines/metodologia/agile/ /
+/guidelines/metodologia/metodologia/ /
+/guidelines/codice/git/ /
+/guidelines/codice/codice-best-practices/ /
+/guidelines/metodologia/it-time-material/ /
+/guidelines/comunicazione/press-kit/ /
+
+/metodo-di-lavoro/ /metodo/
+/faq/ /
+/* /contatti/ */
+/* /servizi/ */
+/progetti/ /portfolio
+/progetti/castello-di-ama/ /portfolio/castello-di-ama
+/progetti/il-borgo/ /portfolio/ilborgo
+/progetti/quinti/ /portfolio/quinti
+/progetti/paci-paolo-siderurgica/ /portfolio/
+/progetti/albitalia/ /portfolio/
+/progetti/certa-2/ /portfolio/certa
+/progetti/alha-group/ /portfolio/
+/progetti/inferno-run/ /portfolio/
+/progetti/centro-oculistico/ /portfolio/
+/progetti/unicoop-firenze/ /portfolio/unicoop
+/progetti/coedu/ /portfolio/coedu
+/progetti/olianas/ /portfolio/
+/progetti/la-tavernaccia/ /portfolio/
+/progetti/da-petrolgas-a-progetto-a-noleggi/ /portfolio/
