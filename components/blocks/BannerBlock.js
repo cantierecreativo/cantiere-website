@@ -13,7 +13,7 @@ export default function BannerBlock({ locale, record }) {
       {image ? (
         <div
           id={`${convertToSlug(labelMenu)}`}
-          className="bg-[url('/background/gradient.svg')] bg-cover text-white relative margin-scroll-standard"
+          className="bg-[url('/background/gradient.svg')] bg-cover text-white relative margin-scroll-standard overflow-x-hidden"
         >
           <div className="pt-12 md:py-0 padding-left-container">
             <div className="grid gap-7 pb-8 md:pb-0 md:items-center md:grid-cols-2 md:gap-0 lg:pb-0 lg:items-center lg:gap-0">
