@@ -61,5 +61,5 @@
 /progetti/da-petrolgas-a-progetto-a-noleggi/ /portfolio/
 
 https://www.cantiere.agency/* https://www.cantierecreativo.net/:splat 301!
-https://cantiere23.netlify.app/* https://www.cantierecreativo.net/:splat 301!
+# https://cantiere23.netlify.app/* https://www.cantierecreativo.net/:splat 301!
 https://cantiere-agency.netlify.app/* https://www.cantierecreativo.net/:splat 301!
