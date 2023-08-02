@@ -2,8 +2,8 @@ import t from "lib/locales";
 
 export default function FormMessage({ status, locale }) {
   const bannerClass = "mt-8 rounded-md p-5";
-  const titleClass = "text-base font-bold";
-  const textClass = "text-xs";
+  const titleClass = "text-lg font-bold";
+  const textClass = "text-sm";
   if (status === "sending") {
     return (
       <div className={`${bannerClass} bg-blue`}>

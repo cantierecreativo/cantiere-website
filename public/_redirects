@@ -16,28 +16,28 @@
 /smart-working-davvero-smart/ /metodo/full-remote
 /headless-cms/ /tecnologie/headless
 
-/guidelines/ /
-/guidelines/intro/ /
-/guidelines/comunicazione/ /
-/guidelines/formazione/ /
-/guidelines/codice/ /
-/guidelines/metodologia/ /
-/guidelines/metodologia/scrum/ /
-/guidelines/metodologia/team-planning/ /
-/guidelines/codice/protocollo/ /
-/guidelines/comunicazione/twitter/ /
-/guidelines/comunicazione/blog-e-pubblicazioni/ /
-/guidelines/codice/artefatti-ui-ux/ /
-/guidelines/formazione/7191-idee-e-ricerca/ /
-/guidelines/codice/it-hackathons/ /
-/guidelines/intro/contratto/ /
-/guidelines/codice/sviluppo-frontend/ /
-/guidelines/intro/clienti/ /
-/guidelines/metodologia/agile/ /
-/guidelines/metodologia/metodologia/ /
-/guidelines/codice/git/ /
-/guidelines/codice/codice-best-practices/ /
-/guidelines/metodologia/it-time-material/ /
+/guidelines/ https://guidelines.cantierecreativo.net/
+/guidelines/intro/ https://guidelines.cantierecreativo.net/
+/guidelines/comunicazione/ /contatti
+/guidelines/formazione/ /chi-siamo
+/guidelines/codice/ /metodo/qualita
+/guidelines/metodologia/ /metodo/come-lavoriamo
+/guidelines/metodologia/scrum/ /metodo/come-lavoriamo
+/guidelines/metodologia/team-planning/ /metodo/come-lavoriamo
+/guidelines/codice/protocollo/ /tecnologie/sviluppo-con-test
+/guidelines/comunicazione/twitter/ /contatti
+/guidelines/comunicazione/blog-e-pubblicazioni/ /blog
+/guidelines/codice/artefatti-ui-ux/ /servizi
+/guidelines/formazione/7191-idee-e-ricerca/ /metodo
+/guidelines/codice/it-hackathons/ /metodo/qualita
+/guidelines/intro/contratto/ /metodo/manifesto-etico
+/guidelines/codice/sviluppo-frontend/ /metodo/qualita
+/guidelines/intro/clienti/ /portfolio
+/guidelines/metodologia/agile/ /metodo/come-lavoriamo
+/guidelines/metodologia/metodologia/ /metodo/come-lavoriamo
+/guidelines/codice/git/ /metodo/qualita
+/guidelines/codice/codice-best-practices/ /metodo/qualita
+/guidelines/metodologia/it-time-material/ /metodo
 /guidelines/comunicazione/press-kit/ /
 
 /metodo-di-lavoro/ /metodo/
@@ -59,3 +59,7 @@
 /progetti/olianas/ /portfolio/
 /progetti/la-tavernaccia/ /portfolio/
 /progetti/da-petrolgas-a-progetto-a-noleggi/ /portfolio/
+
+https://www.cantiere.agency/* https://www.cantierecreativo.net/:splat 301!
+https://cantiere23.netlify.app/* https://www.cantierecreativo.net/:splat 301!
+https://cantiere-agency.netlify.app/* https://www.cantierecreativo.net/:splat 301!
