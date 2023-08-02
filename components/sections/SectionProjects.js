@@ -44,7 +44,6 @@ export default function SectionProjects({ page, locale, site }) {
                   <h3 className="text-xl text-blue md:text-xl lg:text-2xl mb-4 lg:mb-6">
                     {p.title}
                   </h3>
-
                   <Button bg="border" />
                 </div>
               </InternalLink>
