@@ -51,7 +51,6 @@ function RenderCards(cards, showNumbers, l) {
                     data={c.image.responsiveImage}
                     alt={c.image.responsiveImage.alt}
                     title={c.image.responsiveImage.title}
-                    layout="fill"
                   />
                 </div>
               )}

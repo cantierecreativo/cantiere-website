@@ -23,11 +23,10 @@ export default function HeroOrange({ locale, page }) {
                   {renderHTML(abstract)}
                 </h2>
               )}
-              <div
-                aria-hidden="true"
-                className="py-5 rounded-full px-2 border border-black hidden md:inline-block w-9 mt-12"
-              >
-                <Icon name="arrow" className="rotate-90" size="22" />
+              <div aria-hidden="true" className="md:inline-block">
+                <div className="py-5 rounded-full px-2 border border-black hidden md:inline-block w:auto">
+                  <Icon name="arrow" className="rotate-90" size="22" />
+                </div>
               </div>
             </div>
           </div>
@@ -35,7 +34,7 @@ export default function HeroOrange({ locale, page }) {
         <div className="flex bg-cover justify-end md:absolute md:right-0 md:top-0 md:h-full">
           <div
             aria-hidden="true"
-            className="w-2/3 aspect-square relative lg:w-4/5 xl:w-[60vw]"
+            className="w-2/3 aspect-square relative lg:w-4/5 xl:w-[60vw] h-full"
           >
             <Image
               src="/shape/shape-orange.svg"
@@ -48,7 +47,7 @@ export default function HeroOrange({ locale, page }) {
         </div>
         <div
           aria-hidden="true"
-          className="py-5 rounded-full px-2 absolute bottom-6 border border-black left-6 md:hidden"
+          className="rounded-full absolute bottom-6 border border-black left-6 md:hidden"
         >
           <Icon name="arrow" className="rotate-90" size="22" />
         </div>

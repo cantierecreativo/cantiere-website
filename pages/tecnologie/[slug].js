@@ -7,7 +7,7 @@ import PostContent from "components/PostContent";
 export default function Technology({ locale, site, page }) {
   const { blocks } = page;
   return (
-    <Layout site={site} locale={locale} page={page}>
+    <Layout site={site} locale={locale} page={page} headerTxt="black">
       <ModularTmp locale={locale} page={page}>
         <div className="vertical-spaces">
           {blocks.map((b) => (

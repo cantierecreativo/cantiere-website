@@ -23,19 +23,18 @@ export default function HeroOrange({ locale, page }) {
                   {renderHTML(abstract)}
                 </h2>
               )}
-              <div
-                aria-hidden="true"
-                className="py-5 rounded-full px-2 border border-black hidden md:inline-block w-9 mt-12"
-              >
-                <Icon name="arrow" className="rotate-90" size="22" />
+              <div aria-hidden="true" className="md:inline-block">
+                <div className="py-5 rounded-full px-2 border border-black hidden md:inline-block w:auto">
+                  <Icon name="arrow" className="rotate-90" size="22" />
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="flex justify-end md:absolute md:right-0 md:top-0 md:h-full">
+        <div className="flex bg-cover justify-end md:absolute md:right-0 md:top-0 md:h-full">
           <div
             aria-hidden="true"
-            className="w-2/3 aspect-square relative lg:w-4/5 xl:w-[60vw]"
+            className="w-2/3 aspect-square relative lg:w-4/5 xl:w-[60vw] h-full"
           >
             <Image
               alt="shape violet"

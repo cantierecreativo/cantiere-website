@@ -11,7 +11,7 @@ function Layout({
   ancestor,
   grandParent,
   parent,
-  headerTxt = "black",
+  headerTxt = "color",
 }) {
   return (
     <>
