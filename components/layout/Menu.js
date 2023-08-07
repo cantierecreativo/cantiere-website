@@ -34,12 +34,9 @@ export default function Menu({ locale, page }) {
                       <Link
                         href={`#${convertToSlug(n)}`}
                         className="text-xs group"
-                        key={n.id}
+                        key={convertToSlug(n)}
                       >
-                        <div
-                          className="flex items-center py-2 xl:py-2 xl:items-start lg:gap-3 justify-between group-hover:text-blue duration-200"
-                          key={n.id}
-                        >
+                        <div className="flex items-center py-2 xl:py-2 xl:items-start lg:gap-3 justify-between group-hover:text-blue duration-200">
                           {n}
                           <Icon
                             name="arrow"

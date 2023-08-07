@@ -9,7 +9,7 @@ function Article({ locale, site, page }) {
   return (
     <Layout site={site} locale={locale} page={page}>
       <EditorialTmp locale={locale} page={page}>
-        <div className="grid gap-6 py-6 lg:py-28 xl:py-32 xl:gap-8 2xl:py-44 z-10 relative">
+        <div className="grid gap-6 py-6 lg:py-28 xl:py-32 xl:gap-8 2xl:py-44 z-10 relative prose">
           {page.body != null ? (
             <DastContent content={page.body} locale={locale} site={site} />
           ) : (

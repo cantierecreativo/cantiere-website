@@ -3,7 +3,7 @@ import { Image as DatoImage } from "react-datocms";
 import Button from "components/blocks/Button";
 
 export default function WorkCard({ locale, record }) {
-  const { title, cover, subtitle, oneColumn } = record;
+  const { title, previewImage, subtitle, oneColumn } = record;
   return (
     <>
       <div
@@ -28,12 +28,12 @@ export default function WorkCard({ locale, record }) {
               "group grid gap-2 lg:gap-4 hover:-translate-y-2 duration-200"
             }
           >
-            {cover && (
+            {previewImage && (
               <DatoImage
                 className=""
-                data={cover.responsiveImage}
-                alt={cover.responsiveImage.alt}
-                title={cover.responsiveImage.title}
+                data={previewImage.responsiveImage}
+                alt={previewImage.responsiveImage.alt}
+                title={previewImage.responsiveImage.title}
                 layout=""
               />
             )}

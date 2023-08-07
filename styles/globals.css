@@ -218,3 +218,7 @@
 .custom-border-right {
   @apply absolute w-full h-full top-0 bg-repeat-y bg-right bg-[length:1px_6px];
 }
+
+strong {
+  @apply font-bold;
+}

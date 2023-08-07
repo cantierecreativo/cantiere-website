@@ -24,7 +24,7 @@ export default function HeroBlog({ locale, page }) {
                 <h3 className="subtitleHero">{renderHTML(abstract)}</h3>
               )}
             </div>
-            {tags && (
+            {tags.length > 0 && (
               <div className="grid gap-2 content-start pt-6 md:pt-12 md:col-start-10 xl:pt-20">
                 <div className="text-xs text-black/50 pb-1">Tag</div>
                 {tags.map((t) => (

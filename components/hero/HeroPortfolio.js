@@ -1,5 +1,4 @@
-import { renderHTML, formatDate } from "lib/utils";
-import InternalLink from "components/links/InternalLink";
+import { renderHTML } from "lib/utils";
 import { Image as DatoImage } from "react-datocms";
 import ExternalLink from "components/links/ExternalLink";
 import Button from "components/blocks/Button";
@@ -13,12 +12,12 @@ export default function HeroPortfolio({ locale, page }) {
         <div className="grid gap-6 lg:grid-cols-12 lg:gap-x-0">
           <div className="grid gap-4 md:gap-6 md:grid-cols-12 lg:grid-cols-11 lg:gap-12 lg:col-span-10 lg:gap-x-0 lg:col-start-2">
             <div className="grid gap-4 md:gap-6 md:col-span-12 md:gap-x-0 xl:gap-10">
-              <h1 className="text-3xl md:text-4xl xl:text-6xl max-w-prose">
+              <h1 className="text-2xl md:text-3xl xl:text-5xl max-w-prose">
                 {title}
               </h1>
               <div className="grid md:grid-cols-12 gap-y-8">
                 {abstract && (
-                  <div className="subtitleHero md:col-span-7">
+                  <div className="max-w-prose xl:text-lg md:col-span-8">
                     {renderHTML(abstract)}
                   </div>
                 )}

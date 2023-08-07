@@ -10,7 +10,7 @@ export default function VideoPlayer({ record }) {
     <ReactPlayer
       fluid={true}
       playing={false}
-      autoPlay={false}
+      autoPlay={true}
       width="100%"
       height="100%"
       light={record.poster?.responsiveImage.src}

@@ -72,58 +72,52 @@ export default function CardImageBlock({ locale, record, page }) {
           </div>
         ) : (
           <>
-            <div className="grid gap-4 pb-8 mt-10 lg:mt-20">
-              <div className="md:gap-6 md:grid-cols-2 grid gap-10 xl:gap-12 border-t border-dotted border-white lg:grid-cols-12">
-                {related.map((c, n) => (
-                  <div
-                    key={c.id}
-                    className={`${
-                      n % 2 == 0 ? "lg:col-start-2" : "lg:col-start-8"
-                    } content-start grid gap-6 pb-8 xl:pb-12 border-b border-dotted border-white lg:col-span-4`}
+            <div className="border-t border-dotted border-white pb-8 mt-10 lg:mt-20 md:grid-cols-2 lg:gap-x-0 grid gap-8 lg:gap-y-16 xl:gap-y-20">
+              {related.map((c, n) => (
+                <div
+                  key={c.id}
+                  className={
+                    "content-start lg:grid-cols-6 grid gap-y-6 pb-8 xl:pb-12 border-b border-dotted border-white"
+                  }
+                >
+                  <InternalLink
+                    element={c}
+                    locale={locale}
+                    label={c.title}
+                    className="group grid gap-2 lg:col-span-5 lg:col-start-2 content-start"
                   >
-                    <InternalLink
-                      element={c}
-                      locale={locale}
-                      label={c.title}
-                      className="group"
-                    >
-                      {c.cover && (
-                        <div className="aspect-[9/7] relative mb-6">
-                          <DatoImage
-                            className="group-hover:-translate-y-2 duration-200"
-                            data={c.cover.responsiveImage}
-                            alt={c.cover.responsiveImage.alt}
-                            title={c.cover.responsiveImage.title}
-                            layout="fill"
-                            objectFit="cover"
-                          />
+                    {c.cover && (
+                      <DatoImage
+                        className="group-hover:-translate-y-2 duration-200 mb-6"
+                        data={c.cover.responsiveImage}
+                        alt={c.cover.responsiveImage.alt}
+                        title={c.cover.responsiveImage.title}
+                      />
+                    )}
+                    <div className="grid gap-4 group-hover:-translate-y-2 duration-200">
+                      {c.subtitle && (
+                        <div className="text-gray-dark font-bold text-xs uppercase lg:text-sm">
+                          {c.subtitle}
                         </div>
                       )}
-                      <div className="grid gap-4 group-hover:-translate-y-2 duration-200">
-                        {c.subtitle && (
-                          <div className="text-gray-dark font-bold text-xs uppercase lg:text-sm">
-                            {c.subtitle}
-                          </div>
-                        )}
-                        <h2 className="text-blue text-2xl max-w-prose custom-border-bottom pb-4">
-                          {c.title}
-                        </h2>
+                      <h2 className="text-blue text-2xl max-w-prose custom-border-bottom pb-4">
+                        {c.title}
+                      </h2>
 
-                        <div className="max-h-24 line-clamp-4">
-                          <h3 className="max-w-prose">
-                            {renderHTML(c.abstract)}
-                          </h3>
-                        </div>
-                        <div className="inline-block">
-                          <div className="underline-default inline-block after:bg-black md:mt-4">
-                            {t("more", locale)}
-                          </div>
+                      <div className="max-h-24 line-clamp-4">
+                        <h3 className="max-w-prose">
+                          {renderHTML(c.abstract)}
+                        </h3>
+                      </div>
+                      <div className="inline-block">
+                        <div className="underline-default inline-block after:bg-black md:mt-4">
+                          {t("more", locale)}
                         </div>
                       </div>
-                    </InternalLink>
-                  </div>
-                ))}
-              </div>
+                    </div>
+                  </InternalLink>
+                </div>
+              ))}
             </div>
           </>
         )}
