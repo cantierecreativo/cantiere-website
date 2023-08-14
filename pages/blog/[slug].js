@@ -12,7 +12,6 @@ function Article({ locale, site, page }) {
         <div className="grid gap-6 py-6 lg:py-28 xl:py-32 xl:gap-8 2xl:py-44 z-10 relative prose">
           <DastContent content={page.body} locale={locale} site={site} />
           {/* {page.body != null ? (
-            <DastContent content={page.body} locale={locale} site={site} />
           ) : (
             page.content.map((b) => (
               <PostContent key={b.id} record={b} locale={locale} page={page} />
