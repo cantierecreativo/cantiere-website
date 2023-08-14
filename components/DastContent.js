@@ -22,6 +22,7 @@ import CardImageBlock from "./blocks/CardImageBlock";
 import Quote from "./blocks/Quote";
 import { convertToSlug } from "lib/utils";
 import TextBlock from "./blocks/TextBlock";
+import EmbedBlock from "./blocks/EmbedBlock";
 
 export default function DastContent({ content, locale, page }) {
   const getTextSizeForHeading = (nodeLevel) => {
@@ -41,6 +42,12 @@ export default function DastContent({ content, locale, page }) {
       data={content}
       renderBlock={({ record }) => {
         switch (record.model) {
+          case "embed_block":
+            return (
+              <div className={blockPadding}>
+                <EmbedBlock record={record} locale={locale} />
+              </div>
+            );
           case "image_block":
           case "article_image_block":
             return (
