@@ -91,7 +91,7 @@
   .subtitleHero a,
   .prose p a,
   .paragraph a {
-    @apply border-red border-b-2 hover:text-blue duration-200;
+    @apply border-blue border-b-2 hover:text-blue duration-200;
   }
   .prose u {
     @apply no-underline;
