@@ -136,18 +136,18 @@ export default function Footer({ locale, site }) {
                 info@cantierecreativo.net
               </ExternalLink>
               <ExternalLink
-                url="https://www.google.it/maps/place/Cantiere+Creativo+-+Siti+web+Firenze/@43.769635,11.21525,17z/data=!3m1!4b1!4m2!3m1!1s0x132a512cfd40a6d7:0xab02d55f2e455d26"
+                url="https://goo.gl/maps/1ryVbBc5zSoimBr57"
                 label="Google Maps"
                 className="text-xs block py-1"
               >
-                Via F. Botticini, 3 50143 - Firenze
+                Via Garibaldi, 15 - 50143 Firenze
               </ExternalLink>
               <ExternalLink
                 url="tel:+393501083703"
                 label={t("phone", locale)}
                 className="text-xs block py-1"
               >
-                Tel: +39 350 108 3703
+                Tel: +39 350 108 3703 (Lun-Ven, 9-13 e 14-18)
               </ExternalLink>
             </div>
           </nav>
@@ -167,7 +167,7 @@ export default function Footer({ locale, site }) {
                     "cookiePolicyId"
                   )}`}
                   title={`${t("externaLink", locale)} Privacy Policy`}
-                  className="iubenda-cs-preferences-link duration-200"
+                  className="iubenda-cs-preferences-link iubenda-nostyle no-brand iubenda-embed iubenda-noiframe duration-200"
                 >
                   Privacy Policy
                 </Link>
