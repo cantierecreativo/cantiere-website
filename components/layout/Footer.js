@@ -167,7 +167,7 @@ export default function Footer({ locale, site }) {
                     "cookiePolicyId"
                   )}`}
                   title={`${t("externaLink", locale)} Privacy Policy`}
-                  className="iubenda-cs-preferences-link iubenda-nostyle no-brand iubenda-embed iubenda-noiframe duration-200"
+                  className="iubenda-nostyle no-brand iubenda-embed iubenda-noiframe duration-200"
                 >
                   Privacy Policy
                 </Link>
@@ -180,6 +180,16 @@ export default function Footer({ locale, site }) {
                   className="iubenda-nostyle no-brand iubenda-embed iubenda-noiframe duration-200"
                 >
                   Cookie Policy
+                </Link>
+                <span className="px-1"> - </span>
+                <Link
+                  href={`https://www.iubenda.com/privacy-policy/${t(
+                    "cookiePolicyId"
+                  )}`}
+                  title={`${t("privacyPreferences", locale)}
+                  className="iubenda-cs-preferences-link iubenda-nostyle no-brand iubenda-embed iubenda-noiframe duration-200"
+                >
+                  {t("privacyPreferences", locale)}
                 </Link>
               </div>
             </div>
