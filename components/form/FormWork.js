@@ -87,7 +87,7 @@ export default function FormWork({ page, openPosition, locale, position }) {
           {...register("Email")}
         />
       </div>
-      <div aria-hidde="true" className={`${position ? "hidden" : "pb-8"}`}>
+      <div className="pb-8">
         <label htmlFor="profile" className={labelClass}>
           {t("formProfile", locale)}
         </label>
@@ -98,6 +98,7 @@ export default function FormWork({ page, openPosition, locale, position }) {
           placeholder={t("formProfile", locale)}
           required={false}
           className={inputClass}
+          readOnly={position ? true : false}
           value={position ? position : null}
           {...register("Profilo")}
         />
