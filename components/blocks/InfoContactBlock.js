@@ -28,11 +28,11 @@ export default function InfoContactBlock({ locale, record }) {
             <div>
               <p className="text-base">PEC</p>
               <ExternalLink
-                url="mailto:info@cantierecreativo.net"
+                url="mailto:cantierecreativo@pec.it"
                 label="PEC"
                 className="text-lg block pt-1"
               >
-                <span className={urlClass}>info@cantierecreativo.net</span>
+                <span className={urlClass}>cantierecreativo@pec.it</span>
               </ExternalLink>
             </div>
             <div>
@@ -42,7 +42,7 @@ export default function InfoContactBlock({ locale, record }) {
                 label={t("phone", locale)}
                 className="text-lg block pt-1"
               >
-                <span className={urlClass}>Tel: +39 350 108 3703</span>
+                <span className={urlClass}>Tel: +39 350 108 3703 (Lun-Ven, 9-13 e 14-18)</span>
               </ExternalLink>
             </div>
             <div>
