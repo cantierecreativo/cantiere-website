@@ -154,7 +154,7 @@ export default function ContactForm({ page, solutions, locale }) {
               "cookiePolicyId",
               locale
             )}`}
-            className="iubenda-nostyle no-brand iubenda-embed iubenda-noiframe duration-200"
+            className="iubenda-nostyle no-brand iubenda-embed iubenda-noiframe duration-200 underline font-extra-bold"
           >
             {"Privacy Policy"}*
           </Link>
