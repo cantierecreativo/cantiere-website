@@ -10,7 +10,7 @@ export default function InfoContactBlock({ locale, record }) {
           <div className="md:col-span-5 md:col-start-1 lg:col-start-2">
             <p className="text-base">{t("address", locale)}</p>
             <p className="text-lg lg:text-xl pt-1">
-              Cantiere Creativo <br /> Via Francesco Botticini, 3 <br /> 05100
+              Cantiere Creativo Srl<br /> Via Garibaldi, 15 <br /> 05143
               Firenze - Italy
             </p>
           </div>
