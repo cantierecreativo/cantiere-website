@@ -169,7 +169,7 @@ export default function FormWork({ page, openPosition, locale, position }) {
               "cookiePolicyId",
               locale
             )}`}
-            className="iubenda-cs-preferences-link underline font-extra-bold"
+            className="iubenda-nostyle no-brand iubenda-embed iubenda-noiframe duration-200 underline font-extra-bold"
           >
             {"Privacy Policy"}*
           </Link>
