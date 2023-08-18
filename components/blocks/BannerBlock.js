@@ -40,7 +40,7 @@ export default function BannerBlock({ locale, record }) {
                   />
                 </InternalLink>
               </div>
-              <div className="w-full h-full aspect-square relative my-6 md:my-0">
+              <div className="xl:w-full xl:h-full aspect-square relative my-6 md:my-0">
                 <DatoImage
                   className="rounded-l-full"
                   data={image.responsiveImage}
