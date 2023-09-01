@@ -41,7 +41,7 @@ export default function ContactForm({ page, solutions, locale }) {
   };
 
   return (
-    <form className="pt-4 lg:pt-0" onSubmit={handleSubmit(onSubmit)}>
+    <form className="pt-4 lg:pt-0 relative" onSubmit={handleSubmit(onSubmit)}>
       <div className="pb-8">
         <label htmlFor="fullName" className={labelClass}>
           {t("formFullName", locale)}

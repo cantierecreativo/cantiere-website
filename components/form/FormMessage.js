@@ -1,7 +1,8 @@
 import t from "lib/locales";
 
 export default function FormMessage({ status, locale }) {
-  const bannerClass = "mt-8 rounded-md p-5";
+  const bannerClass =
+    "mt-8 rounded-md p-5 absolute bottom-0 right-0 left-[55%] lg:-left-full lg:right-[120%] xl:right-0 xl:left-[55%]";
   const titleClass = "text-lg font-bold";
   const textClass = "text-sm";
   if (status === "sending") {
@@ -15,10 +16,9 @@ export default function FormMessage({ status, locale }) {
   }
   if (status === "success") {
     return (
-      <div className={`${bannerClass} bg-green`}>
+      <div className={`${bannerClass} bg-[#006400]`}>
         <div className="text-white">
           <div className={titleClass}>{t("formSuccessTitle", locale)}</div>
-          <div className={textClass}>{t("formSuccessText", locale)}</div>
         </div>
       </div>
     );
@@ -28,7 +28,6 @@ export default function FormMessage({ status, locale }) {
       <div className={`${bannerClass} bg-red`}>
         <div className="text-white">
           <div className={titleClass}>{t("formErrorTitle", locale)}</div>
-          <div className={textClass}>{t("formErrorText", locale)}</div>
         </div>
       </div>
     );

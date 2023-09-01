@@ -98,12 +98,25 @@ export default function MenuMobile({ site, locale, page }) {
             <div className="py-5">
               <div className="px-6 md:px-10">
                 <div className="flex items-center justify-between lg:justify-start lg:space-x-5">
-                  <div className="relative h-5 w-[90px] lg:h-12 lg:w-[130px]">
+                  <div className="hidden lg:block relative h-5 w-[90px] lg:h-12 lg:w-[130px]">
                     <Image
                       priority
                       src="/logos/white.svg"
                       alt="Logo Cantiere Creativo"
                       layout="fill"
+                    />
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    className="lg:hidden relative h-6 w-40 lg:h-12 md:h-14 md:w-52 lg:w-[130px] flex-none"
+                  >
+                    <Image
+                      priority
+                      src="/logos/whiteMobile.svg"
+                      alt="Logo Cantiere Creativo"
+                      layout="fill"
+                      objectFit="contain"
+                      objectPosition="left"
                     />
                   </div>
                   <div className="flex items-center lg:hidden">

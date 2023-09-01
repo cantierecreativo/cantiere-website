@@ -109,15 +109,21 @@ function Header(props) {
   }, []);
 
   let logoSrc = "";
+  let logoSrcMobile = "";
   let headerClass = "";
   let setTriangle = "";
   let setBorder = "";
 
   if (headerTxt === "white") {
     logoSrc = scroll ? "/logos/color.svg" : "/logos/white.svg";
+    logoSrcMobile = scroll
+      ? "/logos/colorMobile.svg"
+      : "/logos/whiteMobile.svg";
   } else if (headerTxt === "black") {
     logoSrc = "/logos/black.svg";
-  } else logoSrc = "/logos/color.svg";
+    logoSrcMobile = "/logos/revMobile.svg";
+  } else
+    (logoSrc = "/logos/color.svg"), (logoSrcMobile = "/logos/colorMobile.svg");
 
   if (headerTxt === "white") {
     setTriangle = scroll ? "triangle-black" : "triangle";
@@ -150,12 +156,25 @@ function Header(props) {
                 title="Homepage"
                 className="flex items-center"
               >
-                <div className="relative h-5 w-[90px] lg:h-12 lg:w-[130px] flex-none">
+                <div className="hidden lg:block relative h-5 w-[90px] lg:h-12 lg:w-[130px] flex-none">
                   <Image
                     priority
                     src={logoSrc}
                     alt="Logo Cantiere Creativo"
                     layout="fill"
+                  />
+                </div>
+                <div
+                  aria-hidden="true"
+                  className="lg:hidden relative h-6 w-40 lg:h-12 md:h-14 md:w-52 lg:w-[130px] flex-none"
+                >
+                  <Image
+                    priority
+                    src={logoSrcMobile}
+                    alt="Logo Cantiere Creativo"
+                    layout="fill"
+                    objectFit="contain"
+                    objectPosition="left"
                   />
                 </div>
               </Link>

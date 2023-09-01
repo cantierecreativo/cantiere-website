@@ -15,7 +15,7 @@ export default function IndexTmp({ locale, page, items }) {
           className={`${
             page.model.includes("article")
               ? ""
-              : "md:grid-cols-2 lg:gap-x-0 grid gap-8 py-6 lg:gap-y-16 xl:gap-y-20"
+              : "md:grid-cols-2 lg:gap-x-0 grid gap-y-16 gap-x-8 py-6 lg:gap-y-16 xl:gap-y-20"
           }`}
         >
           {items.map((i) => (
