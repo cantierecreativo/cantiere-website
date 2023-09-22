@@ -25,26 +25,34 @@ function MyApp({ Component, pageProps }) {
             __html: `
             var _iub = _iub || [];
             _iub.csConfiguration = {
+              "askConsentAtCookiePolicyUpdate":true,
               "countryDetection":true,
               "enableUspr":true,
+              "enableLgpd":true,
               "lang":"${locale}",
               "perPurposeConsent":true,
               "siteId":${IUBENDA_SITE_ID},
               "cookiePolicyId":"${t("cookiePolicyId", locale)}",
               purposes: "1, 3, 4",
               "banner":{
-                "acceptButtonColor":"#FF6A6C",
+                "acceptButtonColor":"#4637F1",
                 "acceptButtonDisplay":true,
-                "backgroundColor":"#4637F1",
-                "brandBackgroundColor":"#4637F1",
+                "backgroundColor":"#EBEBEB",
+                "brandBackgroundColor":"#EBEBEB",
                 "closeButtonRejects":true,
-                "customizeButtonColor":"#FF6A6C",
+                "customizeButtonColor":"#4637F1",
                 "customizeButtonDisplay":true,
-                "logo":"https://www.datocms-assets.com/9862/1682511229-white.svg",
+                "brandTextColor":"#000000",
+                "logo":"https://www.cantierecreativo.net/logos/color.svg",
                 "position":"float-bottom-center",
-                "rejectButtonColor":"#FF6A6C",
+                "rejectButtonColor":"#4637F1",
                 "rejectButtonDisplay":true,
-                "slideDown":false
+                "explicitWithdrawal":true,
+                "listPurposes":true,
+                "slideDown":false,
+                "linksColor":"#000000",
+                "showPurposesToggles":true,
+                "textColor":"#000000"
               }
             }`,
           }}
