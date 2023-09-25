@@ -16,7 +16,7 @@ export default function HeroBlog({ locale, page }) {
                   {author && <div>{author.name}</div>}
                 </div>
               )}
-              <h1 className="text-2xl md:text-2xl lg:text-4xl max-w-prose pt-4 md:pt-0">
+              <h1 className="text-3xl md:text-3xl lg:text-4xl max-w-prose pt-4 md:pt-0">
                 {title}
               </h1>
               {text && <h2 className="subtitleHero">{renderHTML(text)}</h2>}

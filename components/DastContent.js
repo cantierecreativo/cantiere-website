@@ -29,7 +29,7 @@ export default function DastContent({ content, locale, page }) {
     switch (nodeLevel) {
       case 1:
       case 2:
-        return "text-3xl max-w-prose pt-4 lg:pt-8 lg:text-5xl";
+        return "text-2xl max-w-prose pt-4 lg:pt-8 lg:text-2xl xl:text-3xl";
       case 3:
         return "text-2xl max-w-prose pt-2 lg:pt-4 lg:text-3xl";
       default:

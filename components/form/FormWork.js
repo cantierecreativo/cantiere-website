@@ -42,7 +42,7 @@ export default function FormWork({ page, openPosition, locale, position }) {
 
   return (
     <form
-      className="pt-4 lg:pt-0 lg:grid lg:grid-cols-2 lg:gap-x-10 xl:col-span-10 xl:col-start-2 xl:py-16"
+      className="pt-4 lg:pt-0 lg:grid lg:grid-cols-2 lg:gap-x-10 xl:col-span-10 xl:col-start-2 xl:my-16 relative"
       onSubmit={handleSubmit(onSubmit)}
     >
       <div className="pb-8">
@@ -181,7 +181,7 @@ export default function FormWork({ page, openPosition, locale, position }) {
           <Button bg="white" />
         </div>
       </button>
-      <FormMessage status={result} locale={locale} />
+      <FormMessage status={"success"} locale={locale} />
     </form>
   );
 }

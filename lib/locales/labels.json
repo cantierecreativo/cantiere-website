@@ -61,7 +61,11 @@
     "contact-us-url": "/contatti#contattaci",
     "contact-us-label": "Contattaci",
     "contacts": "Contatti",
-    "go-to-website": "Visita il sito"
+    "go-to-website": "Visita il sito",
+    "pagination-start": "Inizio",
+    "pagination-end": "Fine",
+    "pagination-forward": "Avanti",
+    "pagination-back": "Indietro"
   },
   "en": {
     "it": "Ita",
@@ -124,6 +128,10 @@
     "contact-us-url": "/en/contact#contact-us",
     "contact-us-label": "Contact us",
     "contacts": "Contacts",
-    "go-to-website": "Go to website"
+    "go-to-website": "Go to website",
+    "pagination-start": "First",
+    "pagination-end": "Last",
+    "pagination-forward": "Forward",
+    "pagination-back": "Back"
   }
 }

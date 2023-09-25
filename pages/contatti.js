@@ -20,7 +20,7 @@ export default function Contact({ locale, site, page, solutions }) {
           ))}
         </div>
       </ContactTmp>
-      <InfoContanctBlock></InfoContanctBlock>
+      <InfoContanctBlock />
     </Layout>
   );
 }

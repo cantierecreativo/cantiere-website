@@ -1,6 +1,6 @@
 import Icon from "components/layout/Icon";
 
-export default function Button({ label, bg }) {
+export default function Button({ label, bg, reverse = false }) {
   const colorButton = {
     blue: "after:bg-blue border-blue fill-white group-hover:fill-blue group-hover:after:top-full after:bottom-0",
     black:
@@ -18,7 +18,11 @@ export default function Button({ label, bg }) {
           <div
             className={`${colorButton[bg]} px-5 cursor-pointer rounded-full py-2 border duration-300 after:z-0 after:absolute after:left-0 after:right-0 after:top-0 relative after:duration-300 overflow-hidden`}
           >
-            <Icon name="arrow" className="z-10 relative" size="22" />
+            <Icon
+              name="arrow"
+              className={`${reverse ? "rotate-180" : ""} z-10 relative`}
+              size="22"
+            />
           </div>
         )}
       </div>
