@@ -4,7 +4,6 @@ const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
 export default function VideoPlayer({ record, video }) {
   return (
     <>
-      <div>Ciao</div>
       <ReactPlayer
         playing={true}
         loop={true}
