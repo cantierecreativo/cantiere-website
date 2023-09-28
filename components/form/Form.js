@@ -166,7 +166,7 @@ export default function ContactForm({ page, solutions, locale }) {
           <Button bg="blue" />
         </div>
       </button>
-      <FormMessage status="error" locale={locale} />
+      <FormMessage status={result} locale={locale} />
     </form>
   );
 }
