@@ -120,8 +120,10 @@ function Header(props) {
       ? "/logos/colorMobile.svg"
       : "/logos/whiteMobile.svg";
   } else if (headerTxt === "black") {
-    logoSrc = "/logos/black.svg";
-    logoSrcMobile = "/logos/revMobile.svg";
+    logoSrc = scroll ? "/logos/color.svg" : "/logos/black.svg";
+    logoSrcMobile = scroll
+      ? "/logos/colorMobile.svg"
+      : "/logos/blackMobile.svg";
   } else
     (logoSrc = "/logos/color.svg"), (logoSrcMobile = "/logos/colorMobile.svg");
 

@@ -7,7 +7,13 @@ import InfoContanctBlock from "components/blocks/InfoContactBlock";
 
 export default function Contact({ locale, site, page, solutions }) {
   return (
-    <Layout site={site} locale={locale} page={page} parent={site.newsIndex}>
+    <Layout
+      site={site}
+      locale={locale}
+      page={page}
+      parent={site.newsIndex}
+      headerTxt="black"
+    >
       <ContactTmp locale={locale} page={page}>
         <div className="vertical-spaces prose">
           {page.blocks.map((b) => (

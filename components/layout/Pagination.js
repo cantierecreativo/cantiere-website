@@ -59,88 +59,96 @@ export default function Pagination({
   const buttonClass =
     "border-black border hover:border-blue py-2 px-4 rounded-sm after:-z-10 hover:text-white text-black duration-200 after:bg-blue after:absolute relative after:w-full after:top-0 after:bottom-full after:left-0 hover:after:bottom-0 after:duration-300";
   return (
-    <nav className="flex flex-wrap gap-2 font-bold text-base py-8 lg:pt-16 justify-center items-center">
-      {current > 1 && (
-        <>
-          <div className="hidden lg:block">
-            <Link className={buttonClass} href={`${pathname}?${fParams}page=1`}>
-              <span>{t("pagination-start", locale)}</span>
-            </Link>
-          </div>
-
-          <div className="">
-            <Link
-              className="group relative"
-              href={`${pathname}?${fParams}page=${current - 1}`}
-            >
-              <span className="sr-only">{t("pagination-back", locale)}</span>
-              <Button bg="border" reverse />
-            </Link>
-          </div>
-
-          {minPage > 0 && (
-            <div className="hidden md:block">
-              <a
-                className={`border-black border hover:border-blue py-2 px-4 cursor-pointer rounded-sm`}
-              >
-                ...
-              </a>
-            </div>
-          )}
-        </>
-      )}
-
-      {pages.slice(minPage, maxPage).map((num) => {
-        return (
-          <div key={num}>
-            {num !== currentPage ? (
+    <div className="grid lg:grid-cols-12">
+      <nav
+        aria-label={t("pagination", locale)}
+        className="lg:col-start-2 lg:justify-start lg:col-span-10 content-start flex custom-border-top mt-8 flex-wrap gap-2 font-bold text-base py-8 lg:pt-16 justify-between items-center"
+      >
+        {current > 1 ? (
+          <>
+            <div aria-label={t("pagination-back", locale)} className="">
               <Link
-                className={buttonClass + " hidden md:block"}
-                href={`${pathname}?${fParams}page=${num}`}
+                className="group relative"
+                href={`${pathname}?${fParams}page=${current - 1}`}
               >
-                {num}
+                <span className="sr-only">{t("pagination-back", locale)}</span>
+                <Button bg="border" reverse />
               </Link>
-            ) : (
-              <a
-                className={`border-blue bg-blue text-white border py-2 px-4 rounded-sm hidden md:block`}
-              >
-                {num}
-              </a>
-            )}
-          </div>
-        );
-      })}
-
-      {current < pages.length && (
-        <>
-          {maxPage < pages.length && (
-            <div className=" hidden md:block">
-              <a
-                className={`border-black border hover:border-blue py-2 px-4 cursor-pointer rounded-sm`}
-              >
-                ...
-              </a>
             </div>
-          )}
-          <div className="">
-            <Link
-              className="group relative"
-              href={`${pathname}?${fParams}page=${current + 1}`}
-            >
-              <span className="sr-only">{t("pagination-forward", locale)}</span>
-              <Button bg="border" />
-            </Link>
+
+            {minPage > 0 && (
+              <div aria-hidden="true" className="hidden md:block">
+                <a
+                  className={`border-black border hover:border-blue py-2 px-4 cursor-pointer rounded-sm`}
+                >
+                  ...
+                </a>
+              </div>
+            )}
+          </>
+        ) : (
+          <div aria-hidden="true" className="opacity-20">
+            <span className="sr-only">{t("pagination-back", locale)}</span>
+            <Button bg="border" reverse />
           </div>
-          <div className=" hidden lg:block">
-            <Link
-              className={buttonClass}
-              href={`${pathname}?${fParams}page=${pages.length}`}
-            >
-              {t("pagination-end", locale)}{" "}
-            </Link>
+        )}
+
+        {pages.slice(minPage, maxPage).map((num) => {
+          return (
+            <>
+              {num !== currentPage ? (
+                <div aria-label={`page ${num}`}>
+                  <Link
+                    className={buttonClass + " hidden md:block"}
+                    href={`${pathname}?${fParams}page=${num}`}
+                    key={num}
+                  >
+                    {num}
+                  </Link>
+                </div>
+              ) : (
+                <div aria-label={t("current-page", locale)}>
+                  <a
+                    className={`border-blue bg-blue text-white border py-2.5 2xl:py-2 px-4 rounded-sm`}
+                  >
+                    {num}
+                  </a>
+                </div>
+              )}
+            </>
+          );
+        })}
+
+        {current < pages.length ? (
+          <>
+            {maxPage < pages.length && (
+              <div aria-hidden="true" className=" hidden md:block">
+                <a
+                  className={`border-black border hover:border-blue py-2 px-4 cursor-pointer rounded-sm`}
+                >
+                  ...
+                </a>
+              </div>
+            )}
+            <div className="">
+              <Link
+                className="group relative"
+                href={`${pathname}?${fParams}page=${current + 1}`}
+              >
+                <span className="sr-only">
+                  {t("pagination-forward", locale)}
+                </span>
+                <Button bg="border" />
+              </Link>
+            </div>
+          </>
+        ) : (
+          <div aria-hidden="true" className="opacity-20">
+            <span className="sr-only">{t("pagination-forward", locale)}</span>
+            <Button bg="border" />
           </div>
-        </>
-      )}
-    </nav>
+        )}
+      </nav>
+    </div>
   );
 }

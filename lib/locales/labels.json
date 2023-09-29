@@ -65,7 +65,9 @@
     "pagination-start": "Inizio",
     "pagination-end": "Fine",
     "pagination-forward": "Avanti",
-    "pagination-back": "Indietro"
+    "pagination-back": "Indietro",
+    "pagination": "Paginazione",
+    "current-page": "Pagina corrente"
   },
   "en": {
     "it": "Ita",
@@ -132,6 +134,8 @@
     "pagination-start": "First",
     "pagination-end": "Last",
     "pagination-forward": "Forward",
-    "pagination-back": "Back"
+    "pagination-back": "Back",
+    "pagination": "Pagination",
+    "current-page": "Current page"
   }
 }

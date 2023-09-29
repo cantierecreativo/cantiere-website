@@ -4,7 +4,7 @@ Allow: /
 Disallow: /server
 
 # Host
-Host: https://www.xxx.it/
+Host: https://www.cantierecreativo.net/
 
 # Sitemaps
-Sitemap: https://www.xxx.it/sitemap.xml
+Sitemap: https://www.cantierecreativo.net/sitemap.xml
