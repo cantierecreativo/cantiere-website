@@ -29,7 +29,7 @@ export default async function handler(req, res) {
   if (!url) {
     return res.status(200).json({ previewLinks: [] });
   }
-  const baseUrl = process.env.NEXT_PUBLIC_HOST;
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
   const previewLinks = [
     // Public URL:
