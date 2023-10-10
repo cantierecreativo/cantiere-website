@@ -181,7 +181,7 @@ export default function FormWork({ page, openPosition, locale, position }) {
           <Button bg="white" />
         </div>
       </button>
-      <FormMessage status={"success"} locale={locale} />
+      <FormMessage status={result} locale={locale} />
     </form>
   );
 }
