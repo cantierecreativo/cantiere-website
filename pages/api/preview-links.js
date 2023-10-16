@@ -24,7 +24,7 @@ export default async function handler(req, res) {
   if (req.method === "OPTIONS") {
     return res.status(200).send("ok");
   }
-  console.info("req.body", req.body);
+  // console.info("req.body", req.body);
   const url = await generatePreviewUrl(req.body);
   if (!url) {
     return res.status(200).json({ previewLinks: [] });
