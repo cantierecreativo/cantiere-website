@@ -1,16 +1,16 @@
 import { resolveLink } from "lib/utils";
 
 async function generatePreviewUrl(item, itemType, locale) {
-  // console.info("locale", locale);
+  console.info("locale", locale);
   if (!item?.attributes) return null;
-  // console.log(item.attributes);
+  console.log(item.attributes);
   const apiKey = itemType.attributes.api_key || null;
-  // console.info("apiKey", apiKey);
+  console.info("apiKey", apiKey);
   const slug = item.attributes.slug || null;
   const slugLocale = slug ? (locale ? slug[locale] : slug["it"]) : null;
   let record = { slug: slugLocale, apiKey };
   const link = apiKey === "homepage" ? "/" : resolveLink(record, locale);
-  // console.info("link", link);
+  console.info("link", link);
   return link;
 }
 
@@ -24,7 +24,7 @@ export default async function handler(req, res) {
   if (req.method === "OPTIONS") {
     return res.status(200).send("ok");
   }
-  // console.info("req.body", req.body);ga
+  console.info("req.body", req.body);
   const url = await generatePreviewUrl(req.body);
   if (!url) {
     return res.status(200).json({ previewLinks: [] });
