@@ -1,8 +1,10 @@
 import { resolveLink } from "lib/utils";
 
 async function generatePreviewUrl(item, itemType, locale) {
-  console.info("locale", locale);
+  console.info("item", item);
+  console.info("itemType", itemType);
   if (!item?.attributes) return null;
+  console.info("locale", locale);
   console.log(item.attributes);
   const apiKey = itemType.attributes.api_key || null;
   console.info("apiKey", apiKey);
