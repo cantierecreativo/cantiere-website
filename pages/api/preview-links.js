@@ -1,18 +1,17 @@
 import { resolveLink } from "lib/utils";
 
 async function generatePreviewUrl(item, itemType, locale) {
-  console.info("item", item);
-  console.info("itemType", itemType);
+  // console.info("item", item);
   if (!item?.attributes) return null;
-  console.info("locale", locale);
-  console.log(item.attributes);
+  // console.info("locale", locale);
+  console.log("item.attributes", item.attributes);
   const apiKey = itemType.attributes.api_key || null;
-  console.info("apiKey", apiKey);
+  // console.info("apiKey", apiKey);
   const slug = item.attributes.slug || null;
   const slugLocale = slug ? (locale ? slug[locale] : slug["it"]) : null;
   let record = { slug: slugLocale, apiKey };
   const link = apiKey === "homepage" ? "/" : resolveLink(record, locale);
-  console.info("link", link);
+  // console.info("link", link);
   return link;
 }
 
