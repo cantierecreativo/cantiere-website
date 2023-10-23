@@ -5,7 +5,7 @@ import { resolveLink } from "lib/utils";
 export default function MetaTags({ site, page }) {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
   const alts = page.alts;
-  const locales = ["it", "en"];
+  const locales = ["it"];
   const localeDefault = "it";
 
   return (

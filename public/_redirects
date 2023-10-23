@@ -58,7 +58,71 @@
 /progetti/la-tavernaccia/ /portfolio/
 /progetti/da-petrolgas-a-progetto-a-noleggi/ /portfolio/
 
-https://www.cantiere.agency/* https://www.cantierecreativo.net/:splat 301!
-https://cantiere.agency/* https://www.cantierecreativo.net/:splat 301!
-https://cantiere-website-2023.netlify.app/* https://www.cantierecreativo.net/:splat 301!
-https://cantiere-agency.netlify.app/* https://www.cantierecreativo.net/:splat 301!
+https://www.cantiere.agency/_ https://www.cantierecreativo.net/:splat 301!
+https://cantiere.agency/_ https://www.cantierecreativo.net/:splat 301!
+https://cantiere-website-2023.netlify.app/_ https://www.cantierecreativo.net/:splat 301!
+https://cantiere-agency.netlify.app/_ https://www.cantierecreativo.net/:splat 301!
+
+/blog/2015/01/04/sviluppo-single-page-application/ /blog
+/blog/2016/01/26/retrospettiva-agenzia-web-2015/ /blog
+/blog/2014/01/23/sognando-su-flowdock/ /blog
+/blog/2015/01/14/amd-requirejs-commonjs-browserify /blog
+/blog/2015/01/09/nodejs-grunt-gulp /blog
+/it/metodo /metodo
+/blog/2015/08/28/dato-cms-static-website/ /blog
+/blog/2016/11/02/guida-pratica-test-usabilita-parte-1 /blog/guida-pratica-test-usabilita-1
+/blog/2016/12/21/organizzazione-ruby-day-2016 /blog/organizzazione-rubyday-2015
+/blog/2017/02/27/applicazioni-multi-cliente-con-apartment /blog/applicazioni-multi-cliente-apartment
+/it/blog/2013/3/22/trello-aumento-produttivita-aziendale /blog/trello-produttivita-aziendale
+/blog/2014/03/14/gioie-e-dolori-del-testing /blog/2014-03-14-gioie-e-dolori-del-testing
+/blog/2014/05/05/di-cosa-parliamo-quando-diciamo-startup /blog/startup-di-cosa-parliamo
+/blog/2015/01/19/cantiere-creativo-2014-anno-intenso/ /blog/cantiere-creativo-2014-anno-intenso
+/blog/2015/01/21/css-sass-less-stylus-autoprefixer/ /blog/css-sass-less-stylus-autoprefixer
+/blog/2015/10/04/organizzazione-rubyday-2015/ /blog/organizzazione-rubyday-2015
+/blog/2016/05/08/https-free-con-letsencrypt/ /blog/2016-05-08-https-free-con-letsencrypt
+/blog/cantierecreativo.net/portfolio/uffizi/ /portfolio/uffizi/
+/blog/:/heroku.com /
+/blog/feed.xml /blog
+/case-studies/mitd/ /case-studies/casestudy-mitd
+/images/blog/2015-01-28/good-parts.jpg /blog
+/l-officiel /blog/cos-e-un-applicazione-componibile
+/portfolio/UX%20Design,%20UI%20design,%20Sviluppo%20web /portfolio/ilborgo
+/wineplatform /case-studies/casestudy-mitd
+/undefined/blog /blog
+/undefined/case-studies /case-studies
+/undefined/chi-siamo /chi-siamo
+/undefined/chi-siamo/offerte-lavoro /chi-siamo/offerte-lavoro
+/undefined/chi-siamo/team /chi-siamo/team
+/undefined/metodo /metodo
+/undefined/metodo/async-first /metodo/async-first
+/undefined/metodo/calm-company /metodo/calm-company
+/undefined/metodo/come-lavoriamo /metodo/come-lavoriamo
+/undefined/metodo/full-remote /metodo/full-remote
+/undefined/metodo/manifesto-etico /metodo/manifesto-etico
+/undefined/metodo/qualita /metodo/qualita
+/undefined/partners /partners
+/undefined/portfolio /portfolio
+/undefined/servizi /servizi
+/undefined/servizi/accessibilita /servizi/accessibilita
+/undefined/servizi/servizi-design /servizi/servizi-design
+/undefined/servizi/servizi-digital-marketing /servizi/servizi-digital-marketing
+/undefined/soluzioni /soluzioni
+/undefined/soluzioni/blueprint /soluzioni/blueprint
+/undefined/soluzioni/branding-startup /soluzioni/branding-startup
+/undefined/soluzioni/composable-dxp /soluzioni/composable-dxp
+/undefined/soluzioni/composable-wcm /soluzioni/composable-wcm
+/undefined/soluzioni/design-system /soluzioni/design-system
+/undefined/soluzioni/digital-strategy /soluzioni/digital-strategy
+/undefined/soluzioni/headless-pa /soluzioni/headless-pa
+/undefined/soluzioni/soluzione-agency /soluzioni/soluzione-agency
+/undefined/tecnologie /tecnologie
+/undefined/tecnologie/datocms /tecnologie/datocms
+/undefined/tecnologie/figma /tecnologie/figma
+/undefined/tecnologie/headless /tecnologie/headless
+/undefined/tecnologie/jamstack-mach /tecnologie/jamstack-mach
+/undefined/tecnologie/react-next-js /tecnologie/react-next-js
+/undefined/tecnologie/stripe /tecnologie/stripe
+/undefined/tecnologie/sviluppo-con-test /tecnologie/sviluppo-con-test
+/blog/2014/01/23/sognando-su-flowdock /blog/2014-01-23-sognando-su-flowdock
+/en/portfolio/- /en
+/en/technologies/test-driven-development /en
