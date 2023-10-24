@@ -13,6 +13,10 @@ async function generatePreviewUrl({ item, itemType, locale }) {
   return link;
 }
 
+console.log("getItem:", item.attributes);
+console.log("getlocale:", locale);
+console.log("getItem.slug:", item.attributes.slug[locale]);
+
 export default async function handler(req, res) {
   // setup CORS permissions
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -31,6 +35,7 @@ export default async function handler(req, res) {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
   {
     console.log("getUrl:", url);
+    console.log("getBaseUrl:", baseUrl);
   }
   const previewLinks = [
     // Public URL:
