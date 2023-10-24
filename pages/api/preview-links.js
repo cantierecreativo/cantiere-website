@@ -16,7 +16,7 @@ async function generatePreviewUrl({ item, itemType, locale }) {
     apiKey === "homepage"
       ? "/"
       : resolveLink(item.attributes, item.attributes.slug[locale], locale);
-  console.info("link", link);
+  console.log("checklink", link);
   return link;
 }
 
