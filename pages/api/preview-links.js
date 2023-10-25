@@ -1,19 +1,20 @@
 import { resolveLink } from "lib/utils";
 
-async function generatePreviewUrl({ item, itemType, locale }) {
-  console.log("getApiKey:", item.attributes.api_key);
-  // console.log("getlocale:", locale);
-  //  console.log("getItem.slug:", item.attributes.slug[locale]);
+function generatePreviewUrl({ item, itemType, locale }) {
+  console.info("locale", locale);
   if (!item?.attributes) return null;
 
   const apiKey = itemType.attributes.api_key || null;
+  console.info("apiKey", apiKey);
+
   const slug = item.attributes.slug || null;
   const slugLocale = slug ? (locale ? slug[locale] : slug["it"]) : null;
-  // let record = { slug: slugLocale, apiKey };
+  console.info("slug", slugLocale);
+
+  const record = { slug: slugLocale, apiKey };
   const link =
-    apiKey === "homepage"
-      ? "/"
-      : resolveLink(item.attributes, locale, item.attributes.slug);
+    apiKey === "homepage" ? "/" : resolveLink(record, locale, slugLocale);
+  console.info("link", link);
   return link;
 }
 
