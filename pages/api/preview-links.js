@@ -5,6 +5,10 @@ async function generatePreviewUrl({ item, itemType, locale }) {
   const apiKey = itemType.attributes.api_key || null;
   const slug = item.attributes.slug || null;
   const slugLocale = slug ? (locale ? slug[locale] : slug["it"]) : null;
+  console.log("getItem:", item.attributes);
+  console.log("getlocale:", locale);
+  console.log("getItem.slug:", item.attributes.slug[locale]);
+
   let record = { slug: slugLocale, apiKey };
   const link =
     apiKey === "homepage"
@@ -32,9 +36,6 @@ export default async function handler(req, res) {
   {
     console.log("getUrl:", url);
     console.log("getBaseUrl:", baseUrl);
-    console.log("getItem:", item.attributes);
-    console.log("getlocale:", locale);
-    console.log("getItem.slug:", item.attributes.slug[locale]);
   }
   const previewLinks = [
     // Public URL:
