@@ -1,8 +1,8 @@
 import { resolveLink } from "lib/utils";
 
 async function generatePreviewUrl({ item, itemType, locale }) {
-  console.log("getItem:", item.attributes);
-  console.log("getlocale:", locale);
+  console.log("getApiKey:", item.attribute.api_key);
+  // console.log("getlocale:", locale);
   //  console.log("getItem.slug:", item.attributes.slug[locale]);
   if (!item?.attributes) return null;
 
