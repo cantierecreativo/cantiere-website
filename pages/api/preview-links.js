@@ -9,11 +9,11 @@ async function generatePreviewUrl({ item, itemType, locale }) {
   const apiKey = itemType.attributes.api_key || null;
   const slug = item.attributes.slug || null;
   const slugLocale = slug ? (locale ? slug[locale] : slug["it"]) : null;
-  let record = { slug: slugLocale, apiKey };
+  // let record = { slug: slugLocale, apiKey };
   const link =
     apiKey === "homepage"
       ? "/"
-      : resolveLink(item.attributes, item.attributes.slug[locale], locale);
+      : resolveLink(item.attributes, locale, item.attributes.slug);
   return link;
 }
 
