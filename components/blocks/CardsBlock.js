@@ -19,8 +19,8 @@ function RenderCards(cards, showNumbers, l) {
                 label={c.link.title}
                 className="group z-10"
               >
+                <div className="custom-border-right" />
                 <div className="grid gap-4 p-6 content-start lg:p-8 py-8 lg:pt-10 xl:pb-12 ">
-                  <div className="custom-border-right" />
                   {showNumbers && <div className="">{`0${n + 1}`}</div>}
                   {c.title && (
                     <h2 className="text-2xl lg:text-xl xl:text-2xl duration-200 text-blue group-hover:text-black">

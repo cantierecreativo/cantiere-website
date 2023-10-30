@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import MenuMobile from "components/layout/MenuMobile";
-import LanguageSwitcher from "./LanguageSwitcher";
+import Breadcrumbs from "./Breadcrumbs";
 import { resolveLink, IsActive } from "lib/utils";
 import Image from "next/image";
 import t from "lib/locales";
@@ -97,7 +97,7 @@ function RenderNavItem(item, locale, scroll, setTriangle, headerTxt) {
 }
 
 function Header(props) {
-  const { locale, site, page, headerTxt } = props;
+  const { locale, site, page, headerTxt, grandParent, parent } = props;
   const navItems = site.menu.menuFirstLevels;
   const prefix = locale === "it" ? "/" : "/en";
 
@@ -145,87 +145,98 @@ function Header(props) {
       : "py-5 bg-transparent text-black ";
 
   return (
-    <header
-      className={`${headerClass} fixed top-0 left-0 right-0 z-40 duration-200`}
-    >
-      <Popover className="">
-        <div className="">
-          <div className="container-fluid">
-            <div className="flex items-center justify-between lg:space-x-5 xl:justify-start xl:gap-20 3xl:gap-32">
-              <Link
-                href={prefix}
-                key="homepage"
-                title="Homepage"
-                className="flex items-center"
-              >
-                <div className="hidden lg:block relative h-5 w-[90px] lg:h-12 lg:w-[130px] flex-none">
-                  <Image
-                    priority
-                    src={logoSrc}
-                    alt="Logo Cantiere Creativo"
-                    layout="fill"
-                  />
-                </div>
-                <div
-                  aria-hidden="true"
-                  className="lg:hidden relative h-6 w-40 lg:h-12 md:h-14 md:w-52 lg:w-[130px] flex-none"
+    <>
+      <header
+        className={`${headerClass} fixed top-0 left-0 right-0 z-40 duration-200`}
+      >
+        <Popover className="">
+          <div className="">
+            <div className="container-fluid">
+              <div className="flex items-center justify-between lg:space-x-5 xl:justify-start xl:gap-20 3xl:gap-32">
+                <Link
+                  href={prefix}
+                  key="homepage"
+                  title="Homepage"
+                  className="flex items-center"
                 >
-                  <Image
-                    priority
-                    src={logoSrcMobile}
-                    alt="Logo Cantiere Creativo"
-                    layout="fill"
-                    objectFit="contain"
-                    objectPosition="left"
-                  />
-                </div>
-              </Link>
-              <div className="flex items-center lg:hidden">
-                <Popover.Button className="inline-flex items-center justify-center">
+                  <div className="hidden lg:block relative h-5 w-[90px] lg:h-12 lg:w-[130px] flex-none">
+                    <Image
+                      priority
+                      src={logoSrc}
+                      alt="Logo Cantiere Creativo"
+                      layout="fill"
+                    />
+                  </div>
                   <div
-                    className={`${setBorder} ${
-                      scroll ? "-translate-y-1" : ""
-                    } underline-default`}
+                    aria-hidden="true"
+                    className="lg:hidden relative h-6 w-40 lg:h-12 md:h-14 md:w-52 lg:w-[130px] flex-none"
                   >
-                    <div className="">Menu</div>
+                    <Image
+                      priority
+                      src={logoSrcMobile}
+                      alt="Logo Cantiere Creativo"
+                      layout="fill"
+                      objectFit="contain"
+                      objectPosition="left"
+                    />
                   </div>
-                </Popover.Button>
-              </div>
-              <Popover.Group
-                as="nav"
-                className="hidden space-x-8 lg:flex lg:items-center lg:justify-between xl:w-full 3xl:pl-4"
-              >
-                <div className="flex gap-4 items-center justify-between xl:gap-6 xl:absolute xl:left-1/2 xl:-translate-x-1/2">
-                  {navItems.map((item) => (
-                    <div key={item.id}>
-                      {RenderNavItem(
-                        item,
-                        locale,
-                        scroll,
-                        setTriangle,
-                        headerTxt
-                      )}
-                    </div>
-                  ))}
-                </div>
-                <div className="hidden items-center space-x-3 lg:flex xl:space-x-6 xl:absolute xl:right-6">
-                  <div className={`${setBorder} underline-default`}>
-                    <Link
-                      href={t("contact-us-url", locale)}
-                      title={t("contact-us-label", locale)}
+                </Link>
+                <div className="flex items-center lg:hidden">
+                  <Popover.Button className="inline-flex items-center justify-center">
+                    <div
+                      className={`${setBorder} ${
+                        scroll ? "-translate-y-1" : ""
+                      } underline-default`}
                     >
-                      {t("contact-us-label", locale)}
-                    </Link>
-                  </div>
-                  {/* <LanguageSwitcher page={page} locale={locale} /> */}
+                      <div className="">Menu</div>
+                    </div>
+                  </Popover.Button>
                 </div>
-              </Popover.Group>
+                <Popover.Group
+                  as="nav"
+                  className="hidden space-x-8 lg:flex lg:items-center lg:justify-between xl:w-full 3xl:pl-4"
+                >
+                  <div className="flex gap-4 items-center justify-between xl:gap-6 xl:absolute xl:left-1/2 xl:-translate-x-1/2">
+                    {navItems.map((item) => (
+                      <div key={item.id}>
+                        {RenderNavItem(
+                          item,
+                          locale,
+                          scroll,
+                          setTriangle,
+                          headerTxt
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                  <div className="hidden items-center space-x-3 lg:flex xl:space-x-6 xl:absolute xl:right-6">
+                    <div className={`${setBorder} underline-default`}>
+                      <Link
+                        href={t("contact-us-url", locale)}
+                        title={t("contact-us-label", locale)}
+                      >
+                        {t("contact-us-label", locale)}
+                      </Link>
+                    </div>
+                    {/* <LanguageSwitcher page={page} locale={locale} /> */}
+                  </div>
+                </Popover.Group>
+              </div>
             </div>
           </div>
-        </div>
-        <MenuMobile site={site} page={page} locale={locale} />
-      </Popover>
-    </header>
+          <MenuMobile site={site} page={page} locale={locale} />
+        </Popover>
+      </header>
+      {page.model !== "homepage" && (
+        <Breadcrumbs
+          page={page}
+          grandParent={grandParent}
+          parent={parent}
+          locale={locale}
+          color={headerTxt}
+        />
+      )}
+    </>
   );
 }
 

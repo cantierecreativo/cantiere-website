@@ -6,7 +6,7 @@ import FormWork from "components/form/FormWork";
 
 export default function JobIndex({ locale, site, page, allItems }) {
   return (
-    <Layout site={site} locale={locale} page={page}>
+    <Layout site={site} locale={locale} page={page} parent={site.aboutIndex}>
       <IndexTmp locale={locale} items={allItems} page={page} />
       <div className="bg-blue text-white">
         <div className="container py-12 relative z-10 xl:grid xl:grid-cols-12">

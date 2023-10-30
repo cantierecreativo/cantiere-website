@@ -11,7 +11,7 @@ export default function CasteStudy({ locale, site, page }) {
       site={site}
       locale={locale}
       page={page}
-      parent={site.newsIndex}
+      parent={site.caseStudiesIndex}
       headerTxt="black"
     >
       <ModularTmp locale={locale} page={page}>

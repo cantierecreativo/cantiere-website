@@ -11,7 +11,7 @@ export default function Work({ locale, site, page }) {
       site={site}
       locale={locale}
       page={page}
-      parent={site.newsIndex}
+      parent={site.worksIndex}
       headerTxt="colored"
     >
       <ModularTmp locale={locale} page={page}>

@@ -7,16 +7,10 @@ import PostContent from "components/PostContent";
 
 function Article({ locale, site, page }) {
   return (
-    <Layout site={site} locale={locale} page={page}>
+    <Layout site={site} locale={locale} page={page} parent={site.articlesIndex}>
       <EditorialTmp locale={locale} page={page}>
         <div className="grid gap-6 py-6 lg:py-28 xl:py-32 xl:gap-8 2xl:py-44 z-10 relative prose">
           <DastContent content={page.body} locale={locale} site={site} />
-          {/* {page.body != null ? (
-          ) : (
-            page.content.map((b) => (
-              <PostContent key={b.id} record={b} locale={locale} page={page} />
-            ))
-          )} */}
         </div>
       </EditorialTmp>
     </Layout>

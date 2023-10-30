@@ -5,7 +5,7 @@ import IndexTmp from "components/templates/IndexTmp";
 
 export default function TeamIndex({ locale, site, page, allItems }) {
   return (
-    <Layout site={site} locale={locale} page={page}>
+    <Layout site={site} locale={locale} page={page} parent={site.aboutIndex}>
       <IndexTmp locale={locale} items={allItems} page={page} />
     </Layout>
   );

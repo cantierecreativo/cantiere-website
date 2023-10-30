@@ -231,6 +231,21 @@ export default function Icon({ name, size = 30, fill, className = "" }) {
           />
         </svg>
       );
+    case "home":
+      return (
+        <svg
+          className={className}
+          width={size}
+          height={size}
+          viewBox="0 0 81 81.1"
+          fill={fill}
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden={true}
+          focusable={false}
+        >
+          <path d="M40.5,38.2V0C18.1,0,0,18.1,0,40.5S18.1,81,40.5,81V42.9C41.8,64.2,59.4,81.1,81,81.1V0C59.4,0,41.8,16.9,40.5,38.2z" />{" "}
+        </svg>
+      );
     default:
       return "⚠️";
   }

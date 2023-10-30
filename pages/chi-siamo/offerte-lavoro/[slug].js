@@ -5,9 +5,15 @@ import EditorialTmp from "components/templates/EditorialTmp";
 import DastContent from "components/DastContent";
 import FormWork from "components/form/FormWork";
 
-function Job({ locale, site, page }) {
+export default function Job({ locale, site, page }) {
   return (
-    <Layout site={site} locale={locale} page={page}>
+    <Layout
+      site={site}
+      locale={locale}
+      page={page}
+      parent={site.jobsIndex}
+      grandParent={site.aboutIndex}
+    >
       <EditorialTmp locale={locale} page={page}>
         <div className="grid gap-6 py-6 lg:py-20 xl:py-26 xl:gap-8 2xl:py-32 z-10 relative">
           <DastContent content={page.body} locale={locale} site={site} />
@@ -44,5 +50,3 @@ export async function getStaticProps({ params, locale = "it", preview }) {
     },
   };
 }
-
-export default Job;

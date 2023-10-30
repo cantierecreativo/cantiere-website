@@ -6,7 +6,7 @@ export default function HeroBlog({ locale, page }) {
   const { title, text, date, author, abstract, tags, cover, model } = page;
   return (
     <>
-      <header className="container pt-20 pb-8 md:pt-32 lg:pt-40 lg:pb-16 z-10 relative">
+      <header className="container pt-32 pb-8 md:pt-40 lg:pt-48 lg:pb-16 z-10 relative">
         <div className="grid gap-6 lg:grid-cols-12 lg:gap-x-0">
           <div className="grid gap-4 md:gap-6 md:grid-cols-12 lg:grid-cols-11 lg:gap-12 lg:col-span-11 lg:gap-x-0 lg:col-start-2">
             <div className="grid gap-4 md:gap-6 md:col-span-8 xl:gap-10">
@@ -24,7 +24,7 @@ export default function HeroBlog({ locale, page }) {
                 <h3 className="subtitleHero">{renderHTML(abstract)}</h3>
               )}
             </div>
-            {tags.length > 0 && (
+            {tags?.length > 0 && (
               <div className="grid gap-2 content-start pt-6 md:pt-12 md:col-start-10 xl:pt-20">
                 <div className="text-xs text-black/50 pb-1">Tag</div>
                 {tags.map((t) => (

@@ -5,7 +5,7 @@ import IndexTmp from "components/templates/IndexTmp";
 
 function TagsArticle({ locale, site, page, allItems }) {
   return (
-    <Layout site={site} locale={locale} page={page}>
+    <Layout site={site} locale={locale} page={page} parent={site.articlesIndex}>
       <IndexTmp locale={locale} items={allItems} page={page} />
     </Layout>
   );
