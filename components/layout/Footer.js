@@ -140,14 +140,14 @@ export default function Footer({ locale, site }) {
                 label="Google Maps"
                 className="text-sm block py-1.5"
               >
-                Via Garibaldi, 15 - 50143 Firenze
+                Via Botticini 3 - 50143 Firenze (FI)
               </ExternalLink>
               <ExternalLink
-                url="tel:+393501083703"
+                url="tel:+390555387851"
                 label={t("phone", locale)}
                 className="text-sm block py-1.5"
               >
-                Tel: +39 350 108 3703 (Lun-Ven, 9-13 e 14-18)
+                Tel: +39 055 5387851 (Lun-Ven, 9-13 e 14-18)
               </ExternalLink>
             </div>
           </nav>
