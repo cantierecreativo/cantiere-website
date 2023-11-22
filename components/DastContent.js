@@ -11,7 +11,7 @@ import {
   isParagraph,
 } from "datocms-structured-text-utils";
 
-import ArticleLinkBlock from "./blocks/ArticleLinkBlock";
+import WorkCard from "./cards/WorkCard";
 import ImageBlock from "./blocks/ImageBlock";
 import BannerBlock from "./blocks/BannerBlock";
 import AttachmentsBlock from "./blocks/AttachmentsBlock";
@@ -58,7 +58,13 @@ export default function DastContent({ content, locale, page }) {
           case "article_link_block":
             return (
               <div className={blockPadding}>
-                <ArticleLinkBlock record={record} locale={locale} />
+                <div className="px-6 md:px-10 lg:container lg:grid lg:grid-cols-12 xl:px-0">
+                  <WorkCard
+                    record={record}
+                    locale={locale}
+                    fromStructuredText
+                  />
+                </div>
               </div>
             );
           case "article_text_block":

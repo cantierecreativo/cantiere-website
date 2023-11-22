@@ -2,14 +2,21 @@ import InternalLink from "components/links/InternalLink";
 import { Image as DatoImage } from "react-datocms";
 import Button from "components/blocks/Button";
 
-export default function WorkCard({ locale, record }) {
-  const { title, previewImage, subtitle, oneColumn } = record;
+export default function WorkCard({
+  locale,
+  record,
+  fromStructuredText = false,
+}) {
+  const { title, previewImage, subtitle, oneColumn, image } = record;
+  const chooseImage = previewImage ? previewImage : image;
   return (
     <>
       <div
         className={`${
           oneColumn
             ? "md:col-span-2 lg:grid-cols-12"
+            : fromStructuredText
+            ? "lg:col-span-8 lg:col-start-2 xl:col-span-6 xl:col-start-2 xl:px-0"
             : "md:col-span-1 lg:grid-cols-6"
         } lg:grid`}
       >
@@ -28,12 +35,12 @@ export default function WorkCard({ locale, record }) {
               "group grid gap-2 lg:gap-4 hover:-translate-y-2 duration-200"
             }
           >
-            {previewImage && (
+            {chooseImage && (
               <DatoImage
                 className=""
-                data={previewImage.responsiveImage}
-                alt={previewImage.responsiveImage.alt}
-                title={previewImage.responsiveImage.title}
+                data={chooseImage.responsiveImage}
+                alt={chooseImage.responsiveImage.alt}
+                title={chooseImage.responsiveImage.title}
                 layout=""
               />
             )}
