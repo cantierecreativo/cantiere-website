@@ -5,7 +5,7 @@ export default function VideoPlayer({ record, video }) {
   return (
     <>
       <ReactPlayer
-        playing={true}
+        playing={false}
         loop={true}
         width="100%"
         height="100%"

@@ -7,6 +7,7 @@ export default function MetaTags({ site, page }) {
   const alts = page.alts;
   const locales = ["it"];
   const localeDefault = "it";
+  const linkEng = alts?.find((alt) => alt.locale === "en")?.value || null;
 
   return (
     <Head>
@@ -20,14 +21,22 @@ export default function MetaTags({ site, page }) {
           if (page.model === "homepage" || link !== null) {
             return (
               <link
-                key={hrefLang}
+                key={l}
                 href={shareUrl}
-                hrefLang={hrefLang}
-                rel="alternate"
+                hrefLang={l}
+                title={page.title}
+                rel={localeDefault === l ? "canonical" : "alternate"}
+                type="text/html"
               />
             );
           }
         })}
+      <link
+        href={`${siteUrl}${resolveLink(page, localeDefault, linkEng)}`}
+        hrefLang="x-default"
+        rel="alternate"
+        type="text/html"
+      />
     </Head>
   );
 }

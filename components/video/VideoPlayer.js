@@ -12,7 +12,7 @@ export default function VideoPlayer({ record }) {
   return (
     <>
       <ReactPlayer
-        playing={true}
+        playing={false}
         loop={true}
         playIcon={true}
         width="100%"
