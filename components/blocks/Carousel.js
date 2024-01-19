@@ -24,9 +24,9 @@ export default function Carousel({ data }) {
   );
 
   return (
-    <div className="text-white bg-blue relative py-20 w-screen min-h-screen">
-      <div className="embla min-h-[84vh] min-w-full" ref={emblaRef}>
-        <div className="embla__container w-full h-full">
+    <div className="text-white bg-blue relative py-20 w-screen h-screen">
+      <div className="embla min-h-[84vh] min-h-[90vh]" ref={emblaRef}>
+        <div className="embla__container w-full h-full my-20">
           {data.map((slide) => {
             const { id, title, image, text, label = "" } = slide;
 
@@ -34,9 +34,9 @@ export default function Carousel({ data }) {
               <div key={id} className="embla__slide  w-full h-full p-10">
                 <div className="flex flex-col lg:flex-row">
                   <div className="w-full h-full lg:w-[40vw]">
-                    <div className="lg:absolute lg:z-10 lg:w-[70vw] lg:h-[80vh] flex flex-col  justify-center">
+                    <div className="lg:absolute lg:top-[-9rem] lg:pl-[2rem] lg:z-10 lg:w-[70vw] lg:h-[80vh] flex flex-col  justify-center">
                       <motion.div
-                        className="w-full lg:w-[35vw] py-10 p-10   rounded-xl"
+                        className="w-full lg:w-[40vw] p-10 rounded-xl"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.6, delay: 0 }}
@@ -44,9 +44,9 @@ export default function Carousel({ data }) {
                         <motion.div
                           initial={{ opacity: 0, x: -100 }}
                           animate={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.6, delay: 0.3 }}
+                          transition={{ duration: 0.6, delay: 0 }}
                         >
-                          <h1 className="text-3xl xl:text-5xl font-bold">
+                          <h1 className="text-3xl xl:text-5xl 2xl:text-6xl font-bold">
                             {title}
                           </h1>
                         </motion.div>
@@ -54,7 +54,7 @@ export default function Carousel({ data }) {
                           className="mt-6"
                           initial={{ opacity: 0, y: -30 }}
                           animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.6, delay: 0.5 }}
+                          transition={{ duration: 0.6, delay: 0 }}
                         >
                           <h2 className="text-lg">{text}</h2>
                         </motion.div>
@@ -66,7 +66,7 @@ export default function Carousel({ data }) {
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 1, delay: 0.5 }}
+                      transition={{ duration: 0.6, delay: 0 }}
                     >
                       <Icon
                         className="h-[50vh] xl:h-[70vh] fill-violet "
@@ -76,7 +76,7 @@ export default function Carousel({ data }) {
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      transition={{ duration: 1.2, delay: 1.2 }}
+                      transition={{ duration: 0.6, delay: 0 }}
                       className="h-[50vh] xl:h-[70vh] aspect-[5/7] xl:aspect-[5/5] relative"
                     >
                       <DatoImage
