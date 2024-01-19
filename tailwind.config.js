@@ -67,6 +67,28 @@ module.exports = {
         "banner-blue": "url('/background/gradient.svg')",
         "banner-contact": "url('/background/contactBanner.svg')",
       },
+      keyframes: {
+        card_loop_left: {
+          "0%": {
+            transform: "translateX(0)",
+          },
+          "100%": {
+            transform: "translateX(-100%)",
+          },
+        },
+        card_loop_right: {
+          "0%": {
+            transform: "translateX(-100%)",
+          },
+          "100%": {
+            transform: "translateX(0)",
+          },
+        },
+      },
+      animation: {
+        "card-loop-left": "card_loop_left 20s linear infinite",
+        "card-loop-right": "card_loop_right 20s linear infinite",
+      },
     },
   },
 };
