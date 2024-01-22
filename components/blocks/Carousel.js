@@ -1,12 +1,12 @@
 import React, { useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
-
+// import { useRef } from "react";
 import { DotButton, useDotButton } from "./CarouselDots";
-
 import Icon from "components/layout/Icon";
 import { Image as DatoImage } from "react-datocms";
 import { motion } from "framer-motion";
+// import useIsInViewport from "lib/hooks/useIsInViewport";
 
 export default function Carousel({ data }) {
   const options = { loop: true };
@@ -23,15 +23,23 @@ export default function Carousel({ data }) {
     onButtonClick
   );
 
+  // const refs = data.map(() => useRef(null));
+  // const visible = refs.map((item, i) => useIsInViewport(item));
+
   return (
     <div className="text-white bg-blue relative py-20 w-screen h-screen">
       <div className="embla min-h-[84vh] min-h-[90vh]" ref={emblaRef}>
         <div className="embla__container w-full h-full my-20">
-          {data.map((slide) => {
+          {data.map((slide, index) => {
             const { id, title, image, text, label = "" } = slide;
 
             return (
-              <div key={id} className="embla__slide  w-full h-full p-10">
+              <div
+                key={id}
+                className="embla__slide  w-full h-full p-10"
+                // ref={refs[index]}
+              >
+                {/* {visible[i] && ( */}
                 <div className="flex flex-col lg:flex-row">
                   <div className="w-full h-full lg:w-[40vw]">
                     <div className="lg:absolute lg:top-[-9rem] lg:pl-[2rem] lg:z-10 lg:w-[70vw] lg:h-[80vh] flex flex-col  justify-center">
@@ -91,6 +99,7 @@ export default function Carousel({ data }) {
                     </motion.div>
                   </div>
                 </div>
+                {/* )} */}
               </div>
             );
           })}
