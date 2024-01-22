@@ -10,8 +10,8 @@ export default function InfoContactBlock({ locale, record }) {
           <div className="md:col-span-5 md:col-start-1 lg:col-start-2">
             <p className="text-base">{t("address", locale)}</p>
             <p className="text-lg lg:text-xl pt-1">
-              Cantiere Creativo Srl<br /> Via Garibaldi, 15 <br /> 05143
-              Firenze - Italy
+              Cantiere Creativo Srl
+              <br /> Via Botticini, 3 <br /> 50143 Firenze - Italy
             </p>
           </div>
           <div className="md:col-start-7 md:col-span-5 grid gap-6 lg:gap-8">
@@ -38,11 +38,13 @@ export default function InfoContactBlock({ locale, record }) {
             <div>
               <p className="text-base">{t("phone", locale)}</p>
               <ExternalLink
-                url="tel:+393501083703"
+                url="tel:+390555387851"
                 label={t("phone", locale)}
                 className="text-lg block pt-1"
               >
-                <span className={urlClass}>Tel: +39 350 108 3703 (Lun-Ven, 9-13 e 14-18)</span>
+                <span className={urlClass}>
+                  Tel: +39 055 5387851 (Lun-Ven, 9-13 e 14-18)
+                </span>
               </ExternalLink>
             </div>
             <div>

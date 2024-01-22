@@ -5,19 +5,19 @@ import HeroHp from "components/hero/HeroHp";
 import PostContent from "components/PostContent";
 import Icon from "components/layout/Icon";
 import SectionProjects from "components/sections/SectionProjects";
-import SectionAbout from "components/sections/SectionAbout";
 import SectionHighlightProject from "components/sections/SectionHighlightProject";
-import SectionLastNews from "components/sections/SectionLastNews";
 import BannerBlock from "components/blocks/BannerBlock";
-import Carousel from "components/blocks/Carousel";
+// import SectionAbout from "components/sections/SectionAbout";
+// import SectionLastNews from "components/sections/SectionLastNews";
 
 export default function Home({ locale, site, page, lastNews }) {
   const { mainBlocks, blueBlocks, orangeBlocks, highlightProject, carousel } =
     page;
   return (
     <Layout site={site} locale={locale} page={page} headerTxt="white">
-      {!carousel && <HeroHp page={page} locale={locale} />}
-      {carousel && <Carousel data={carousel} />}
+      <HeroHp page={page} locale={locale} />
+      {/* {!carousel && <HeroHp page={page} locale={locale} />}
+      {carousel && <Carousel data={carousel} />} */}
       <div
         aria-hidden="true"
         className="w-full z-0 top-[1300px] xl:top-[1600px] 2xl:top-[1800px] hidden lg:absolute lg:block"
