@@ -96,6 +96,8 @@
   .prose u {
     @apply no-underline;
   }
+
+
 }
 
 .splide__pagination {

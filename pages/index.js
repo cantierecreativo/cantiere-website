@@ -9,15 +9,18 @@ import SectionHighlightProject from "components/sections/SectionHighlightProject
 import BannerBlock from "components/blocks/BannerBlock";
 // import SectionAbout from "components/sections/SectionAbout";
 // import SectionLastNews from "components/sections/SectionLastNews";
+import Carousel from "components/blocks/Carousel";
+// import Slider from "components/blocks/Slider";
 
 export default function Home({ locale, site, page, lastNews }) {
   const { mainBlocks, blueBlocks, orangeBlocks, highlightProject, carousel } =
     page;
   return (
     <Layout site={site} locale={locale} page={page} headerTxt="white">
-      <HeroHp page={page} locale={locale} />
+      {/* <HeroHp page={page} locale={locale} /> */}
       {/* {!carousel && <HeroHp page={page} locale={locale} />}
       {carousel && <Carousel data={carousel} />} */}
+      {carousel && <Carousel data={carousel} />}
       <div
         aria-hidden="true"
         className="w-full z-0 top-[1300px] xl:top-[1600px] 2xl:top-[1800px] hidden lg:absolute lg:block"
