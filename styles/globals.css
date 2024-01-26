@@ -2,7 +2,7 @@
   font-family: "Buch";
   src: url("/fonts/buch.woff2") format("woff2");
   font-style: normal;
-  font-weight: bold;
+  font-weight: normal;
 }
 @font-face {
   font-family: "Leicht";
@@ -258,7 +258,7 @@ strong {
   border-radius: 0.2rem;
   width: 100%;
   height: 0.3rem;
-  content: '';
+  content: "";
 }
 
 .embla__dot--selected:after {

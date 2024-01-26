@@ -16,7 +16,9 @@ module.exports = {
       sans: ["Leicht", "sans-serif"],
       bold: ["Buch", "serif"],
     },
-
+    fontWeight: {
+      bold: '600',
+    },
     extend: {
       colors: {
         gray: {
