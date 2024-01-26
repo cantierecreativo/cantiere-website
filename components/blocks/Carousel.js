@@ -38,7 +38,7 @@ export default function Carousel({ data }) {
                     {({ inView, ref, entry }) => (
                       <div
                         key={id}
-                        className="embla__slide  w-full h-full p-10"
+                        className="embla__slide  w-full h-full"
                         ref={ref}
                       >
                         {inView && (
@@ -137,7 +137,7 @@ export default function Carousel({ data }) {
                     {({ inView, ref, entry }) => (
                       <div
                         key={id}
-                        className="embla__slide  w-full h-full p-10"
+                        className="embla__slide  w-full h-full"
                         ref={ref}
                       >
                         {inView && (
