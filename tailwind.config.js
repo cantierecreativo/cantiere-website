@@ -16,6 +16,7 @@ module.exports = {
       sans: ["Leicht", "sans-serif"],
       bold: ["Buch", "serif"],
     },
+
     extend: {
       colors: {
         gray: {
@@ -90,5 +91,6 @@ module.exports = {
         "card-loop-right": "card_loop_right 20s linear infinite",
       },
     },
+    plugins: [require("@tailwindcss/forms")],
   },
 };

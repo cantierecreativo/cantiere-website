@@ -19,8 +19,8 @@ export default function Footer({ locale, site }) {
         className=" bg-white z-30 relative"
       >
         <div className="container-fluid py-6 pt-8 xl:pt-16">
-          <nav className="grid grid-cols-2 md:flex md:gap-4 gap-2 gap-y-8 justify-between pb-6 custom-border-bottom xl:grid xl:grid-cols-5">
-            {menu.menuFirstLevels.map((item) => (
+          <nav className="grid grid-cols-2 md:flex md:gap-4 gap-2 gap-y-8 justify-between pb-6   xl:grid xl:grid-cols-5">
+            {menu.menuFirstLevels.slice(0, 4).map((item) => (
               <>
                 {item.label ? (
                   item.hide ? null : (
@@ -54,8 +54,34 @@ export default function Footer({ locale, site }) {
                 )}
               </>
             ))}
+            <div>
+              <div className="font-bold text-sm py-1 pb-3">
+                {t("contacts", locale)}
+              </div>
+              <ExternalLink
+                url="mailto:info@cantierecreativo.net"
+                label="Email"
+                className="text-sm block py-1.5"
+              >
+                info@cantierecreativo.net
+              </ExternalLink>
+              <ExternalLink
+                url="https://goo.gl/maps/1ryVbBc5zSoimBr57"
+                label="Google Maps"
+                className="text-sm block py-1.5"
+              >
+                Via Botticini 3 - 50143 Firenze (FI)
+              </ExternalLink>
+              <ExternalLink
+                url="tel:+390555387851"
+                label={t("phone", locale)}
+                className="text-sm block py-1.5"
+              >
+                Tel: +39 055 5387851 (Lun-Ven, 9-13 e 14-18)
+              </ExternalLink>
+            </div>
           </nav>
-          <nav className="xl:grid xl:grid-cols-5 grid grid-cols-2 md:flex md:gap-4 gap-2 gap-y-8 justify-between py-6 custom-border-bottom">
+          {/* <nav className="xl:grid xl:grid-cols-5 grid grid-cols-2 md:flex md:gap-4 gap-2 gap-y-8 justify-between py-6 custom-border-bottom">
             <div className="">
               <div className="font-bold text-sm py-1 pb-3">
                 {t("solutions", locale)}
@@ -150,7 +176,7 @@ export default function Footer({ locale, site }) {
                 Tel: +39 055 5387851 (Lun-Ven, 9-13 e 14-18)
               </ExternalLink>
             </div>
-          </nav>
+          </nav> */}
 
           <div className="pt-6">
             <div className="lg:flex lg:justify-center lg:gap-6 text-xs">

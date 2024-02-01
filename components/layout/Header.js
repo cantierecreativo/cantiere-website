@@ -137,12 +137,10 @@ function Header(props) {
 
   if (headerTxt === "white") {
     headerClass = scroll
-      ? "bg-white text-black py-2 custom-border-bottom"
+      ? "bg-white text-black py-2 "
       : "bg-transparent text-white py-5";
   } else
-    headerClass = scroll
-      ? "py-2 bg-white custom-border-bottom"
-      : "py-5 bg-transparent text-black ";
+    headerClass = scroll ? "py-2 bg-white " : "py-5 bg-transparent text-black ";
 
   return (
     <>

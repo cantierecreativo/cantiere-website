@@ -134,6 +134,7 @@ export default function Icon({ name, size = 30, fill, className = "" }) {
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden={true}
           focusable={false}
+          
         >
           <path d="M40.5,38.2V0C18.1,0,0,18.1,0,40.5S18.1,81,40.5,81V42.9" />
         </svg>
