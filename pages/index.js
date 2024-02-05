@@ -4,18 +4,17 @@ import fetchData from "lib/dato";
 import HeroHp from "components/hero/HeroHp";
 import PostContent from "components/PostContent";
 import Icon from "components/layout/Icon";
+import BannerBlock from "components/blocks/BannerBlock";
 import SectionProjects from "components/sections/SectionProjects";
 // import SectionAbout from "components/sections/SectionAbout";
-import SectionHighlightProject from "components/sections/SectionHighlightProject";
+// import SectionHighlightProject from "components/sections/SectionHighlightProject";
 // import SectionLastNews from "components/sections/SectionLastNews";
-import BannerBlock from "components/blocks/BannerBlock";
-import Carousel from "components/blocks/Carousel";
+// import Carousel from "components/blocks/Carousel";
 import Slideshow from "components/blocks/Slideshow";
 import ContactForm from "components/form/ContactForm";
 
 export default function Home({ locale, site, page, lastNews }) {
-  const { mainBlocks, blueBlocks, orangeBlocks, highlightProject, carousel } =
-    page;
+  const { mainBlocks, carousel } = page; //blueBlocks, orangeBlocks, highlightProject,
   return (
     <Layout site={site} locale={locale} page={page} headerTxt="white">
       {!carousel && <HeroHp page={page} locale={locale} />}

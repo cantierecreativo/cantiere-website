@@ -1,10 +1,8 @@
 "use client";
-import { Fragment } from "react";
 import { Image } from "react-datocms";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { motion } from "framer-motion";
 import { InView } from "react-intersection-observer";
-import { useWindowSize } from "usehooks-ts";
 import {
   Autoplay,
   A11y,
@@ -13,11 +11,8 @@ import {
   Parallax,
 } from "swiper/modules";
 import "swiper/css/bundle";
-import Icon from "components/layout/Icon";
 
 export default function Carousel({ data }) {
-  const { width, height } = useWindowSize();
-  const isMobile = width < 768;
   return (
     <header className={`relative`}>
       <Swiper

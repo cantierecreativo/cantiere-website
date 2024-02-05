@@ -9,7 +9,8 @@ import { InView } from "react-intersection-observer";
 import { useWindowSize } from "usehooks-ts";
 
 export default function Carousel({ data }) {
-  const { width, height } = useWindowSize();
+  const sizeHook = useWindowSize();
+  const width = sizeHook?.width || 0;
   const options = { loop: true };
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay()]);
 
