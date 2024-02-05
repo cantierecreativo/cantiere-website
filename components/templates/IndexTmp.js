@@ -27,8 +27,8 @@ export default function IndexTmp({ locale, page, items, pagination }) {
       <div className="absolute z-0 w-full">
         <Icon name={"shapeStar"} className="fill-violet-dark/10" />
       </div>
-      {/* <HeroText locale={locale} page={page} /> */}
-      <HeroOrange locale={locale} page={page} />
+      <HeroText locale={locale} page={page} />
+      {/* <HeroOrange locale={locale} page={page} /> */}
       <div className="container z-10 relative pb-10 lg:pb-24">
         <div
           className={`${
