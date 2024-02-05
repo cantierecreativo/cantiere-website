@@ -86,7 +86,6 @@ export default function Breadcrumbs({
                 </div>
               </li>
             )}
-            {console.log("parent:", page)}
             {page.model !== "homepage" && (
               <li
                 className={`${breadcrumbItemClass} truncate text-xs max-w-[300px]`}

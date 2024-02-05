@@ -32,8 +32,6 @@ export default function Carousel({ data }) {
         }}
         navigation={false}
         modules={[Autoplay, Pagination, Navigation, A11y, Parallax]}
-        // onSlideChange={(info) => console.log("slide change", info)}
-        onSwiper={(swiper) => console.log(swiper)}
       >
         {data.map((slide, i) => {
           const { id, image, title, text } = slide;
