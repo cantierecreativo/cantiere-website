@@ -88,24 +88,40 @@ export default function Carousel({ data }) {
                           <div ref={ref}>
                             {inView && (
                               <motion.div
-                                className="max-w-[80vw] p-10 rounded-xl overflow-hidden"
-                                initial={{ opacity: 0, scale: 5 }}
-                                animate={{ opacity: 1, scale: 1 }}
+                                className="max-w-[80vw] 2xl:max-w-[60vw] p-10 rounded-xl overflow-hidden"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
                                 transition={{ duration: 0.5 }}
                               >
-                                <motion.div
+                                {/* <motion.div
                                   initial={{ opacity: 0, y: 200 }}
                                   animate={{ opacity: 1, y: 0 }}
                                   transition={{ duration: 0.6, delay: 0.5 }}
                                   className="m-10 box-decoration-clone font-bold  text-white shadow-title  text-lg md:shadow-title-xl 2xl:shadow-title-2xl  text-xl md:text-4xl xl:text-4xl"
                                 >
                                   {title}
-                                </motion.div>
+                                </motion.div> */}
+                                <div className="m-10 box-decoration-clone">
+                                  {title.split(" ").map((el, i) => (
+                                    <motion.span
+                                      className=" text-white shadow-title md:shadow-title-xl 2xl:shadow-title-2xl  text-xl md:text-4xl lg:text-6xl xl:text-7xl"
+                                      initial={{ opacity: 0 }}
+                                      animate={{ opacity: 1 }}
+                                      transition={{
+                                        duration: 1,
+                                        delay: i / 10,
+                                      }}
+                                      key={i}
+                                    >
+                                      {` ${el}`}
+                                    </motion.span>
+                                  ))}
+                                </div>
                                 <motion.div
                                   initial={{ opacity: 0, y: 200 }}
                                   animate={{ opacity: 1, y: 0 }}
                                   transition={{ duration: 0.6, delay: 1 }}
-                                  className="m-10  text-md md:text-lg xl:text-xl 2xl:text-2xl box-decoration-clone text-white  shadow-title md:shadow-title-lg  "
+                                  className="m-10  text-md md:text-lg lg:text-xl xl:2text-xl 2xl:text-3xl box-decoration-clone text-white  shadow-title md:shadow-title-lg  "
                                 >
                                   {text}
                                 </motion.div>
