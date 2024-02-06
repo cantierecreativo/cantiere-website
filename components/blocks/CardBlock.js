@@ -3,6 +3,8 @@ import InternalLink from "components/links/InternalLink";
 import t from "lib/locales";
 
 export default function CardBlock({ data, showNumbers, l, n }) {
+console.log('data',data)
+  if (!data) return;
   return (
     <div
       key={data?.id}

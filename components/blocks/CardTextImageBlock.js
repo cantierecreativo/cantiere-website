@@ -1,7 +1,7 @@
 import { renderHTML } from "lib/utils";
 import { Image as DatoImage } from "react-datocms";
 
-export default function CardTextImageBlock({ data, showNumbers }) {
+export default function CardTextImageBlock({ data, showNumbers, n }) {
   return (
     <div
       key={data.id}
