@@ -83,11 +83,12 @@ export default function Carousel({ data }) {
                   <div className="h-full w-full absolute z-20 flex flex-col  justify-center items-center ">
                     <InView>
                       {({ inView, ref, entry }) => {
+                        //bg-black bg-opacity-20
                         return (
                           <div ref={ref}>
                             {inView && (
                               <motion.div
-                                className="max-w-[80vw] bg-black bg-opacity-20 p-10 rounded-xl overflow-hidden"
+                                className="max-w-[80vw] p-10 rounded-xl overflow-hidden"
                                 initial={{ opacity: 0, scale: 5 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.5 }}
