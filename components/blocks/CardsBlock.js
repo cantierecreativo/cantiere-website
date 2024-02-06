@@ -5,15 +5,9 @@ import CardTextImageBlock from "./CardTextImageBlock";
 import CardBlock from "./CardBlock";
 import CardTitleImageTextHover from "./CardTitleImageTextHoverBlock";
 
-function WhichCard({ card }) {
-  if (!card) return null;
-
-  const c = card.c || "";
-  const showNumbers = card.showNumbers || false;
-  const l = card.l || "";
-  const n = card.n || "";
-
-  switch (c?.model) {
+function WhichCard({ c, showNumbers=false, l, n=null }) {
+  if (!c || !c.model) return;
+  switch (c.model) {
     case "card":
       return (
         <CardBlock key={c.id} data={c} showNumbers={showNumbers} l={l} n={n} />
