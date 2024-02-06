@@ -6,14 +6,29 @@ import CardBlock from "./CardBlock";
 import CardTitleImageTextHover from "./CardTitleImageTextHoverBlock";
 
 function WhichCard({ card }) {
-  const { c, showNumbers, l, n } = card;
-  switch (c.model) {
+  if (!card) return null;
+
+  const c = card.c || "";
+  const showNumbers = card.showNumbers || false;
+  const l = card.l || "";
+  const n = card.n || "";
+
+  switch (c?.model) {
     case "card":
-      return <CardBlock key={c.id} data={c} showNumbers={showNumbers} l={l} n={n} />;
+      return (
+        <CardBlock key={c.id} data={c} showNumbers={showNumbers} l={l} n={n} />
+      );
     case "card_title_image_text_hover":
       return <CardTitleImageTextHover key={c.id} data={c} l={l} />;
     case "card_text_image":
-      return <CardTextImageBlock key={c.id} data={c} showNumbers={showNumbers} n={n} />;
+      return (
+        <CardTextImageBlock
+          key={c.id}
+          data={c}
+          showNumbers={showNumbers}
+          n={n}
+        />
+      );
   }
 }
 
@@ -22,10 +37,8 @@ function RenderCards(cards, showNumbers, l) {
     <div className="lg:grid lg:grid-cols-12">
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:col-span-10 lg:col-span-12 xl:col-start-2">
         {cards.map((c, n) => {
-          const card = { c, showNumbers, l, n }
-          return (
-            <WhichCard key={c.id} card={card} />
-          )
+          const card = { c, showNumbers, l, n };
+          return <WhichCard key={c.id} card={card} />;
         })}
       </div>
     </div>
@@ -61,7 +74,7 @@ export default function CardsBlock({ locale, record, page }) {
                   )}
                   {c.link && (
                     <InternalLink
-                      element={c.link.relatedElement}
+                      element={c.link?.relatedElement}
                       locale={locale}
                       label={c.link.title}
                     >
