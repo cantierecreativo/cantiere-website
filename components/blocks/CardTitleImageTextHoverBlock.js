@@ -16,7 +16,7 @@ export default function CardTitleImageTextHover({ data, showNumbers, l, n }) {
         label={data.link.title}
         className="group z-10"
       >
-        <div className="content-start relative">
+        <div className="content-start">
           {showNumbers && <div className="">{`0${n + 1}`}</div>}
           {(data.label || data.title) && (
             <div className="absolute top-8 left-8 z-[3]">
@@ -30,6 +30,11 @@ export default function CardTitleImageTextHover({ data, showNumbers, l, n }) {
                   {data.title}
                 </h2>
               )}
+              {data.text &&
+                <div className={`mt-6 text-white opacity-0 group-hover:opacity-90 motion-safe:duration-700`}>
+                  {renderHTML(data.text)}
+                </div>
+              }
             </div>)}
           {data.image && (
             <DatoImage
@@ -41,7 +46,7 @@ export default function CardTitleImageTextHover({ data, showNumbers, l, n }) {
           )}
           {data.text &&
             <div className={`absolute inset-0 overflow-hidden p-8 ${data.label ? "pt-28":"pt-20"} text-white bg-gradient-to-b from-violet from-40% to-cyan-500 to-90% z-[2] opacity-0 group-hover:opacity-90 motion-safe:duration-700 after:absolute after:z-[-1] after:opacity-40 after:-top-40 after:-left-40 after:w-80 after:h-80 after:bg-pink after:rounded-full after:blur-2xl`}>
-              {renderHTML(data.text)}
+
             </div>
           }
           {data.link && (
