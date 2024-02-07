@@ -104,7 +104,7 @@ export default function Carousel({ data }) {
                                 <div className="m-10 box-decoration-clone">
                                   {title.split(" ").map((el, i) => (
                                     <motion.span
-                                      className=" text-white shadow-title md:shadow-title-xl 2xl:shadow-title-2xl  text-xl md:text-4xl lg:text-6xl xl:text-7xl"
+                                      className=" text-white shadow-title md:shadow-title-xl 2xl:shadow-title-2xl  text-xl md:text-2xl lg:text-3xl xl:text-4xl"
                                       initial={{ opacity: 0 }}
                                       animate={{ opacity: 1 }}
                                       transition={{
@@ -121,7 +121,7 @@ export default function Carousel({ data }) {
                                   initial={{ opacity: 0, y: 200 }}
                                   animate={{ opacity: 1, y: 0 }}
                                   transition={{ duration: 0.6, delay: 1 }}
-                                  className="m-10  text-md md:text-lg lg:text-xl xl:2text-xl 2xl:text-3xl box-decoration-clone text-white  shadow-title md:shadow-title-lg  "
+                                  className="m-10 text-md lg:text-lg xl:text-xl 2xl:text-2xl box-decoration-clone text-white  shadow-title md:shadow-title-lg  "
                                 >
                                   {text}
                                 </motion.div>
