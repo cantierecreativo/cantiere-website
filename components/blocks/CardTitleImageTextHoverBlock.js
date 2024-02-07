@@ -31,7 +31,7 @@ export default function CardTitleImageTextHover({ data, showNumbers, l, n }) {
                 </h2>
               )}
               {data.text &&
-                <div className={`mt-6 text-white opacity-0 group-hover:opacity-90 motion-safe:duration-700`}>
+                <div className={`mt-6 text-white opacity-0 group-hover:opacity-90 motion-safe:duration-700 card`}>
                   {renderHTML(data.text)}
                 </div>
               }

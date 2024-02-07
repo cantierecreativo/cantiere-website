@@ -35,24 +35,32 @@
     @apply text-xl lg:text-3xl;
   }
 
+  .card ul,
   .prose ul {
     @apply my-2 pl-4 xl:my-4;
   }
 
+  .card ol,
   .prose ol {
     @apply my-2 xl:my-4;
     counter-reset: my-awesome-counter;
   }
 
+  .card ul li,
   .prose ul li {
     @apply relative py-[3px] after:absolute after:top-[12px] xl:after:top-[12px] after:-left-4 after:h-[7px] after:w-[7px] after:rotate-45 after:rounded-full after:bg-blue xl:my-1;
   }
+  .card ul li {
+    @apply after:bg-white;
+  }
 
+  .card ol li,
   .prose ol li {
     @apply relative py-[3px] pl-4 before:absolute before:-left-0 before:pr-1 before:font-bold before:text-blue xl:pl-6 xl:py-1;
     counter-increment: my-awesome-counter;
   }
 
+  .card ol li:before,
   .prose ol li:before {
     content: counter(my-awesome-counter) ". ";
   }
@@ -97,7 +105,6 @@
     @apply no-underline;
   }
 }
-
 
 .padding-left-container {
   @apply pl-6 md:pl-[calc(((100vw-780px)/2)+2.5rem)] lg:pl-[calc(((100vw-885px)/2)+2.5rem)] xl:pl-[calc(((100vw-1040px)/2)+2.5rem)] 3xl:pl-[calc(((100vw-1305px)/2)+2.5rem)];
@@ -265,13 +272,12 @@ strong {
   background: white;
 }
 
-
-.swiper-pagination-bullet  {
+.swiper-pagination-bullet {
   width: 15px !important;
   height: 15px !important;
 }
 
-.swiper-pagination-bullet.active{
+.swiper-pagination-bullet.active {
   background: white;
   width: 15px;
   height: 15px;
@@ -279,7 +285,5 @@ strong {
 }
 
 .swiper-pagination {
-
   bottom: 10rem !important;
-
 }
