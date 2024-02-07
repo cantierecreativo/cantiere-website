@@ -31,8 +31,7 @@ function RenderCards(cards, showNumbers, l) {
     <div className="lg:grid lg:grid-cols-12">
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:col-span-10 lg:col-span-12 xl:col-start-2">
         {cards.map((c, n) => {
-          const card = { c, showNumbers, l, n };
-          return <WhichCard key={c.id} card={card} />;
+          return <WhichCard key={c.id} c={c} showNumbers={showNumbers} l={l} n={n} />;
         })}
       </div>
     </div>
