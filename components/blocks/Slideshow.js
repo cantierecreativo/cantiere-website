@@ -108,7 +108,7 @@ export default function Carousel({ data }) {
                                       initial={{ opacity: 0 }}
                                       animate={{ opacity: 1 }}
                                       transition={{
-                                        duration: 1,
+                                        duration: 2,
                                         delay: i / 10,
                                       }}
                                       key={i}
