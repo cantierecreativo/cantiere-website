@@ -1,7 +1,12 @@
 import { renderHTML, convertToSlug } from "lib/utils";
 
-export default function TitleTextBlock({ locale, record }) {
+export default function TitleTextBlock({ locale, record, color="black" }) {
   const { title, text, labelMenu } = record;
+
+  const colorText = {
+    black: "text-black",
+    white: "text-white"
+   };
   return (
     <>
       <section
@@ -9,9 +14,9 @@ export default function TitleTextBlock({ locale, record }) {
         className="container margin-scroll-standard"
       >
         <div className="grid gap-4 md:gap-6 lg:grid-cols-12 lg:gap-x-0">
-          <div className="lg:col-span-10 lg:col-start-2 grid gap-9 xl:gap-12">
+          <div className={`lg:col-span-10 lg:col-start-2 grid gap-9 xl:gap-12 ${colorText[color]}`}>
             {title && (
-              <h2 className="xl:text-5xl max-w-prose text-3xl">{title}</h2>
+              <h2 className="xl:text-5xl max-w-prose text-3xl font-bold">{title}</h2>
             )}
             {text && (
               <div className="max-w-prose xl:text-xl">
