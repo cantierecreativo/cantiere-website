@@ -7,8 +7,8 @@ import { Image as DatoImage } from "react-datocms";
 import Button from "components/blocks/Button";
 
 export default function SectionProjects({ page, locale, site }) {
-  const { titleProject, textProject } = page;
-  const record = { title: titleProject, text: textProject }
+  const { titleProject, textProject, labelProject } = page;
+  const record = { label: labelProject, title: titleProject, text: textProject }
   return (
     <div className="bg-blue">
       <section className="vertical-spaces container ">
