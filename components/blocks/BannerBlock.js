@@ -59,21 +59,23 @@ export default function BannerBlock({ locale, record }) {
             id={`${convertToSlug(labelMenu)}`}
             className="bg-blue text-white bg-cover relative overflow-hidden lg:py-12 margin-scroll-standard"
           >
-            <div className="container py-16 2xl:py-40 xl:py-28 relative z-10 grid gap-8 lg:gap-x-0 lg:grid-cols-12 items-start">
-              <div className="lg:col-span-7 lg:col-start-2">
-                <h2 className="text-3xl xl:text-5xl">{title}</h2>
+            <div className="container py-16 2xl:py-40 xl:py-28 relative z-10">
+              <div className="text-center lg:max-w-[70%] mx-auto text-balance">
+                {prefix &&
+                  <div className="text-xl">{prefix}</div>
+                }
+                  <h2 className="font-bold text-4xl xl:text-6xl mt-4">{title}</h2>
                 {text && (
-                  <h3 className="pt-5 pb-10 text-lg lg:pb-0 xl:text-xl xl:pt-10">
+                  <h3 className="pt-5text-lg xl:text-xl mt-6">
                     {renderHTML(text)}
                   </h3>
                 )}
               </div>
-              <div className="lg:col-span-3 lg:col-start-10 lg:justify-end lg:flex lg:mt-2 xl:-translate-x-14 xl:translate-y-[8px]">
+              <div className="text-center mt-20">
                 <DynamicLink record={link} locale={locale} className={"group"}>
-                  <Button
-                    label={link?.cta ? link.cta : t("more", locale)}
-                    bg="white"
-                  />
+                    <div className="inline-block group text-4xl px-36 py-6 rounded-full after:bg-white border-white fill-black group-hover:fill-white group-hover:after:top-full after:bottom-0 border duration-300 after:z-0 after:absolute after:left-0 after:right-0 after:top-0 relative after:motion-safe:duration-300 overflow-hidden">
+                      <span className="relative z-[1] text-black group-hover:text-white motion-safe:duration-300">{link?.cta ? link.cta : t("more", locale)}</span>
+                  </div>
                 </DynamicLink>
               </div>
             </div>
