@@ -6,6 +6,7 @@ import PostContent from "components/PostContent";
 import Icon from "components/layout/Icon";
 import BannerBlock from "components/blocks/BannerBlock";
 import SectionProjects from "components/sections/SectionProjects";
+import SectionBlog from "components/sections/SectionBlog";
 // import SectionAbout from "components/sections/SectionAbout";
 // import SectionHighlightProject from "components/sections/SectionHighlightProject";
 // import SectionLastNews from "components/sections/SectionLastNews";
@@ -47,6 +48,7 @@ export default function Home({ locale, site, page, lastNews }) {
       </div> */}
       {/* <SectionHighlightProject project={highlightProject} locale={locale} /> */}
       <SectionProjects page={page} locale={locale} site={site} />
+      <SectionBlog page={page} locale={locale} site={site} />
       <BannerBlock record={page.blocksFooter[0]} locale={locale} />
 
       <ContactForm locale={locale} />
