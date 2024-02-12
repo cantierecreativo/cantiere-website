@@ -46,39 +46,7 @@ export default function Carousel({ data }) {
                     objectPosition="50% 50%"
                   />
 
-                  <div className="h-full w-full absolute z-10  bg-[#4637F1] bg-opacity-90">
-                    {/* <InView>
-                      {({ inView, ref, entry }) => (
-                        <div className="h-full w-full" ref={ref}>
-                          {inView && !isMobile && (
-                            <div className="mt-[10vh] flex justify-end items-end">
-                              <motion.div
-                                initial={{ opacity: 0, x: 500 }}
-                                animate={{ opacity: 0.7, x: 0 }}
-                                transition={{ duration: 0.6, delay: 0.5 }}
-                              >
-                                <Icon
-                                  className="mx-4  h-[80vh] max-h-full fill-violet mix-blend-hue"
-                                  name="shapeSingle"
-                                />
-                              </motion.div>
-
-                              <motion.div
-                                initial={{ opacity: 0, x: 500 }}
-                                animate={{ opacity: 0.7, x: 0 }}
-                                transition={{ duration: 0.6, delay: 0 }}
-                              >
-                                <Icon
-                                  className="mx-4   h-[80vh] max-h-full fill-violet mix-blend-hue"
-                                  name="shapeSingle"
-                                />
-                              </motion.div>
-                            </div>
-                          )}
-                        </div>
-                      )}
-                    </InView> */}
-                  </div>
+                  <div className="h-full w-full absolute z-10  bg-[#4637F1] bg-opacity-90" />
 
                   <div className="h-full w-full absolute z-20 flex flex-col  justify-center items-center ">
                     <InView>

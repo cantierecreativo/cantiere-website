@@ -6,20 +6,17 @@ import PostContent from "components/PostContent";
 import Icon from "components/layout/Icon";
 import BannerBlock from "components/blocks/BannerBlock";
 import SectionProjects from "components/sections/SectionProjects";
-import SectionBlog from "components/sections/SectionBlog";
-// import SectionAbout from "components/sections/SectionAbout";
-// import SectionHighlightProject from "components/sections/SectionHighlightProject";
-// import SectionLastNews from "components/sections/SectionLastNews";
-// import Carousel from "components/blocks/Carousel";
 import Slideshow from "components/blocks/Slideshow";
-import ContactForm from "components/form/ContactForm";
+import SectionBlog from "components/sections/SectionBlog";
+import SectionHighlightProject from "components/sections/SectionHighlightProject";
+// import SectionAbout from "components/sections/SectionAbout";
 
 export default function Home({ locale, site, page, lastNews }) {
-  const { mainBlocks, carousel } = page; //blueBlocks, orangeBlocks, highlightProject,
+  const { mainBlocks, carousel, blueBlocks, orangeBlocks, highlightProject } =
+    page;
   return (
     <Layout site={site} locale={locale} page={page} headerTxt="white">
       {!carousel && <HeroHp page={page} locale={locale} />}
-      {/* {carousel && <Carousel data={carousel} />} */}
       {carousel && <Slideshow data={carousel} />}
       <div
         aria-hidden="true"
@@ -35,10 +32,10 @@ export default function Home({ locale, site, page, lastNews }) {
           <PostContent key={b.id} record={b} locale={locale} page={page} />
         ))}
       </div>
-      {/* <div className="bg-red relative -mt-20 lg:-mt-28 xl:-mt-32 2xl:-mt-44">
+      {/* <div className="bg-blue relative -mt-20 lg:-mt-28 xl:-mt-32 2xl:-mt-44">
         <Icon
-          name={"shapeOrange"}
-          className="h-full w-auto absolute right-0 top-0"
+          name={"shapeDouble"}
+          className="h-full w-auto absolute right-0 top-0 fill-white"
         />
         <div className="vertical-spaces">
           {orangeBlocks.map((b) => (
@@ -46,12 +43,10 @@ export default function Home({ locale, site, page, lastNews }) {
           ))}
         </div>
       </div> */}
-      {/* <SectionHighlightProject project={highlightProject} locale={locale} /> */}
+      <SectionHighlightProject project={highlightProject} locale={locale} />
       <SectionProjects page={page} locale={locale} site={site} />
       <SectionBlog page={page} locale={locale} site={site} />
       <BannerBlock record={page.blocksFooter[0]} locale={locale} />
-
-      <ContactForm locale={locale} />
     </Layout>
   );
 }

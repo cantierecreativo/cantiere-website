@@ -37,7 +37,7 @@ export default function HeroOrange({ locale, page }) {
             className="w-2/3 aspect-square lg:w-4/5 xl:w-[60vw] h-full absolute md:relative md:bottom-auto bottom-0"
           >
             <Image
-              alt="shape violet"
+              alt="shape"
               src="/shape/shape-violet.svg"
               layout="fill"
               objectFit="contain"
