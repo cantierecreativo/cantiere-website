@@ -18,7 +18,7 @@ export default function Footer({ locale, site }) {
         data-datocms-noindex
         className=" bg-white z-30 relative"
       >
-        <div className="container-fluid py-6 pt-8 xl:pt-16">
+        <div className="container py-6 pt-8 xl:pt-16">
           <nav className="grid grid-cols-2 md:flex md:gap-4 gap-2 gap-y-8 justify-between pb-6   xl:grid xl:grid-cols-5">
             {menu.menuFirstLevels.slice(0, 4).map((item) => (
               <>
@@ -54,7 +54,7 @@ export default function Footer({ locale, site }) {
                 )}
               </>
             ))}
-            <div>
+            <div className="">
               <div className="font-bold text-sm py-1 pb-3">
                 {t("contacts", locale)}
               </div>
@@ -178,15 +178,16 @@ export default function Footer({ locale, site }) {
             </div>
           </nav> */}
 
-          <div className="pt-6">
-            <div className="lg:flex lg:justify-center lg:gap-6 text-xs">
-              <div className="">{info.join(" - ")}</div>
+          <div className="mt-6 pt-6 border-t border-dashed	border-black">
+            <div className="lg:flex lg:justify-between lg:gap-6 text-xs">
+              <div className="">{info.join(" - ")}
               <ExternalLink
                 url="https://www.datocms.com"
                 label="DatoCMS Headless CMS"
               >
-                Made with DatoCMS
+                <span> - </span>Made with DatoCMS
               </ExternalLink>
+              </div>
               <div className="">
                 <Link
                   href={`https://www.iubenda.com/privacy-policy/${t(
