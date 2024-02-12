@@ -10,7 +10,7 @@ export default function HeroOrange({ locale, page }) {
         <div className="container pt-32 pb-8 md:pt-40 lg:pt-48 lg:pb-16 z-10 relative h-full min-h-[200px]">
           <div className="grid gap-6 lg:grid-cols-12 lg:gap-x-0">
             <div className="grid gap-4 md:gap-6 lg:gap-12 lg:col-span-9 xl:col-span-8 lg:col-start-2 xl:col-start-2">
-              <h1 className="text-3xl md:text-4xl xl:text-6xl max-w-prose font-bold">
+              <h1 className="text-3xl md:text-4xl xl:text-6xl max-w-prose font-bold font-bold">
                 {title}
               </h1>
               {subtitle && (

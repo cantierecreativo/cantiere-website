@@ -1,7 +1,4 @@
 import InternalLink from "components/links/InternalLink";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/splide/css/core";
-import TitleButton from "components/blocks/TitleButton";
 import TitleTextBlock from "components/blocks/TitleTextBlock";
 import { Image as DatoImage } from "react-datocms";
 import Button from "components/blocks/Button";
