@@ -51,15 +51,14 @@ export function BlogCard({ item, locale, containerClasses = "", itemClasses = ""
 export default function SectionBlog({ page, locale, site }) {
   const { titleBlog } = page;
   return (
-    <>
-      <section className="vertical-spaces container">
-        <TitleButton
-          title={titleBlog}
-          text=""
-          element={site.articlesIndex}
-          locale={locale}
-        />
-      </section>
+    <section className="vertical-spaces container">
+      <TitleButton
+        title={titleBlog}
+        text=""
+        element={site.articlesIndex}
+        locale={locale}
+      />
+
       <div className="-mt-12 xl:-mt-20 py-6 lg:pb-24 pb-16 xl:py-0 xl:pb-12">
         <div className="container">
 
@@ -92,6 +91,6 @@ export default function SectionBlog({ page, locale, site }) {
           </div>
         </div>
       </div >
-    </>
+    </section>
   );
 }
