@@ -11,7 +11,7 @@ export default function Technology({ locale, site, page }) {
       site={site}
       locale={locale}
       page={page}
-      headerTxt="black"
+      headerTxt="white"
       parent={site.technologiesIndex}
     >
       <ModularTmp locale={locale} page={page}>

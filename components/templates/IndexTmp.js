@@ -1,5 +1,4 @@
 import HeroText from "components/hero/HeroText";
-import HeroOrange from "components/hero/HeroOrange";
 import Icon from "components/layout/Icon";
 import WhichCard from "components/cards/WhichCard";
 import PostContent from "components/PostContent";
@@ -38,7 +37,6 @@ export default function IndexTmp({ locale, page, items, pagination }) {
         <Icon name={"shapeStar"} className="fill-violet-dark/10" />
       </div>
       <HeroText locale={locale} page={page} />
-      {/* <HeroOrange locale={locale} page={page} /> */}
       <div className="container z-10 relative pb-10 lg:pb-24">
 
         {page.id == 684735 &&

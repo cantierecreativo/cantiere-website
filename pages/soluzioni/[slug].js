@@ -11,7 +11,7 @@ export default function Solution({ locale, site, page }) {
       site={site}
       locale={locale}
       page={page}
-      headerTxt="black"
+      headerTxt="white"
       parent={site.solutionsIndex}
     >
       <ModularTmp locale={locale} page={page}>

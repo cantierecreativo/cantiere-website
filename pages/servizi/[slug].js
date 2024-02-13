@@ -11,7 +11,7 @@ export default function Service({ locale, site, page }) {
       site={site}
       locale={locale}
       page={page}
-      headerTxt="black"
+      headerTxt="white"
       parent={site.servicesIndex}
     >
       <ModularTmp locale={locale} page={page}>
