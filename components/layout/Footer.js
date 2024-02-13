@@ -6,6 +6,8 @@ import { resolveLink } from "lib/utils";
 import Script from "next/script";
 import ExternalLink from "components/links/ExternalLink";
 import InternalLink from "components/links/InternalLink";
+import SocialList from "components/blocks/SocialList";
+
 
 export default function Footer({ locale, site }) {
   const { menu, allSolutions, allServices, allTechnologies, allMethods } = site;
@@ -178,15 +180,18 @@ export default function Footer({ locale, site }) {
             </div>
           </nav> */}
 
-          <div className="mt-6 pt-6 border-t border-dashed	border-black">
-            <div className="lg:flex lg:justify-between lg:gap-6 text-xs">
+          <div className="mt-3 pt-3 border-t border-dashed border-black flex flex-col sm:flex-row md:flex-wrap justify-between gap-4 text-base md:text-lg">
+            <SocialList />
+          </div>
+          <div className="mt-3 pt-6 border-t border-dashed	border-black">
+            <div className="lg:flex lg:justify-between space-y-3 lg:space-y-0 lg:gap-6 text-xs">
               <div className="">{info.join(" - ")}
-              <ExternalLink
-                url="https://www.datocms.com"
-                label="DatoCMS Headless CMS"
-              >
-                <span> - </span>Made with DatoCMS
-              </ExternalLink>
+                <ExternalLink
+                  url="https://www.datocms.com"
+                  label="DatoCMS Headless CMS"
+                >
+                  <span> - </span>Made with DatoCMS
+                </ExternalLink>
               </div>
               <div className="">
                 <Link
