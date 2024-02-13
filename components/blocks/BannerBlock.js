@@ -62,18 +62,18 @@ export default function BannerBlock({ locale, record }) {
             <div className="container py-16 2xl:py-40 xl:py-28 relative z-10">
               <div className="text-center lg:max-w-[70%] mx-auto text-balance">
                 {prefix &&
-                  <div className="text-xl">{prefix}</div>
+                  <div className="text-lg lg:text-xl">{prefix}</div>
                 }
-                  <h2 className="font-bold text-4xl xl:text-6xl mt-4">{title}</h2>
+                  <h2 className="font-bold text-3xl lg:text-4xl xl:text-6xl mt-4">{title}</h2>
                 {text && (
-                  <h3 className="pt-5text-lg xl:text-xl mt-6">
+                  <h3 className="pt-5 text-base lg:text-lg xl:text-xl mt-6">
                     {renderHTML(text)}
                   </h3>
                 )}
               </div>
-              <div className="text-center mt-20">
+              <div className="text-center mt-12 lg:mt-16 xl:mt-20">
                 <DynamicLink record={link} locale={locale} className={"group"}>
-                    <div className="inline-block group text-4xl px-36 py-6 rounded-full after:bg-white border-white fill-black group-hover:fill-white group-hover:after:top-full after:bottom-0 border duration-300 after:z-0 after:absolute after:left-0 after:right-0 after:top-0 relative after:motion-safe:duration-300 overflow-hidden">
+                    <div className="inline-block group text-2xl md:text-3xl lg:text-4xl px-16 py-4 md:px-28 md:py-5 lg:px-36 lg:py-6 rounded-full after:bg-white border-white fill-black group-hover:fill-white group-hover:after:top-full after:bottom-0 border duration-300 after:z-0 after:absolute after:left-0 after:right-0 after:top-0 relative after:motion-safe:duration-300 overflow-hidden">
                       <span className="relative z-[1] text-black group-hover:text-white motion-safe:duration-300">{link?.cta ? link.cta : t("more", locale)}</span>
                   </div>
                 </DynamicLink>
