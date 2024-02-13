@@ -60,16 +60,16 @@ export default function SectionBlog({ page, locale, site }) {
       />
 
       <div className="-mt-12 xl:-mt-20 py-6 lg:pb-24 pb-16 xl:py-0 xl:pb-12">
-        <div className="container">
+        <div className="xl:container">
 
-          <div className="space-y-16 xl:space-y-0 lg:grid lg:grid-cols-2 lg:gap-8 lg:mx-[calc(100%/12)]">
+          <div className="space-y-16 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-8 lg:mx-[calc(100%/12)]">
             {/* <div className="space-y-16 md:space-y-0 md:flex md:justify-between items-stretch md:gap-16 lg:gap-x-16 lg:gap-y-8 lg:mx-[calc(100%/12)]"> */}
             <BlogCard
               item={page.articles[0]}
               locale={locale}
               imgClasses={`lg:overflow-hidden lg:max-h-[330px] xl:max-h-[385px] 3xl:max-h-[490px]`}
             />
-            <div className="space-y-16 xl:space-y-6 w-full lg:gap-8">
+            <div className="space-y-16 lg:space-y-6 w-full lg:gap-8">
               {page.articles.map((a, i) => {
                 // const colSpanClass = i === 0 ? "row-span-2" : ""
                 // const flexClass = i !== 0 ? "flex h-full" : ""
