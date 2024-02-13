@@ -14,8 +14,9 @@ import "swiper/css/bundle";
 
 export default function Carousel({ data }) {
   return (
-    <header className={`relative`}>
+    <header className={`relative bg-blue`}>
       <Swiper
+        speed={1000}
         autoplay={{
           delay: 6000,
           disableOnInteraction: false,
@@ -33,20 +34,21 @@ export default function Carousel({ data }) {
 
           return (
             <div
-              className="w-full h-[60vh] md:h-screen max-h-full"
+              className="w-full h-[60vh] md:h-screen max-h-full "
               key={`slide-${id}`}
             >
               <SwiperSlide>
-                <div className="relative w-full h-[60vh] md:h-screen max-h-full">
-                  <Image
-                    className="h-full w-full"
-                    data={image.responsiveImage}
-                    layout="fill"
-                    objectFit="cover"
-                    objectPosition="50% 50%"
-                  />
-
-                  <div className="h-full w-full absolute z-10  bg-[#4637F1] bg-opacity-90" />
+                <div className="relative w-full h-[60vh] lg:h-[90vh] max-h-full">
+                  <div className="absolute top-[70px] md:top-[90px] left-[15px] right-[15px] bottom-[15px] lg:left-[30px] lg:right-[30px] lg:bottom-[30px] overflow-hidden">
+                    <Image
+                      className="h-full w-full"
+                      data={image.responsiveImage}
+                      layout="fill"
+                      objectFit="cover"
+                      objectPosition="50% 50%"
+                    />
+                    <div className="h-full w-full absolute z-10  bg-[#4637F1] bg-opacity-80" />
+                  </div>
 
                   <div className="h-full w-full absolute z-20 flex flex-col  justify-center items-center ">
                     <InView>
@@ -56,7 +58,7 @@ export default function Carousel({ data }) {
                           <div ref={ref}>
                             {inView && (
                               <motion.div
-                                className="max-w-[80vw] 2xl:max-w-[60vw] p-10 rounded-xl overflow-hidden"
+                                className="container px-8 lg:px-10 rounded-xl overflow-hidden"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ duration: 0.5 }}
@@ -69,15 +71,15 @@ export default function Carousel({ data }) {
                                 >
                                   {title}
                                 </motion.div> */}
-                                <div className="m-10 box-decoration-clone">
+                                <div className="my-10 box-decoration-clone xl:max-w-[60%]">
                                   {title.split(" ").map((el, i) => (
                                     <motion.span
-                                      className=" text-white shadow-title md:shadow-title-xl 2xl:shadow-title-2xl  text-xl md:text-2xl lg:text-3xl xl:text-4xl"
+                                      className="font-bold text-white shadow-title md:shadow-title-xl 2xl:shadow-title-2xl text-3xl md:text-4xl lg:text-5xl "
                                       initial={{ opacity: 0 }}
                                       animate={{ opacity: 1 }}
                                       transition={{
-                                        duration: 2,
-                                        delay: i / 10,
+                                        duration: 1.25,
+                                        delay: i / 7,
                                       }}
                                       key={i}
                                     >
@@ -86,10 +88,10 @@ export default function Carousel({ data }) {
                                   ))}
                                 </div>
                                 <motion.div
-                                  initial={{ opacity: 0, y: 200 }}
+                                  initial={{ opacity: 0, y: 50 }}
                                   animate={{ opacity: 1, y: 0 }}
-                                  transition={{ duration: 0.6, delay: 1 }}
-                                  className="m-10 text-md lg:text-lg xl:text-xl 2xl:text-2xl box-decoration-clone text-white  shadow-title md:shadow-title-lg  "
+                                  transition={{ duration: .75, delay: 1.25}}
+                                  className="xl:max-w-[60%] my-10 text-lg lg:text-xl xl:text-2xl 2xl:text-3xl box-decoration-clone text-white  shadow-title md:shadow-title-lg  "
                                 >
                                   {text}
                                 </motion.div>

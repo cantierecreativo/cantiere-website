@@ -285,5 +285,5 @@ strong {
 }
 
 .swiper-pagination {
-  bottom: 10rem !important;
+  @apply container px-8 !left-1/2 !-translate-x-1/2 !bottom-[10rem] !text-left;
 }
