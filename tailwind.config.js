@@ -17,7 +17,7 @@ module.exports = {
       bold: ["Buch", "serif"],
     },
     fontWeight: {
-      bold: '600',
+      bold: "600",
     },
     extend: {
       colors: {
@@ -31,7 +31,7 @@ module.exports = {
         },
         violet: {
           DEFAULT: "#564DF1",
-          light: "#A5A0F2",
+          light: "#9D95F2",
           dark: "#C8C5F3",
         },
         black: {
@@ -53,7 +53,7 @@ module.exports = {
         "3xl": ["39px", "47px"],
         "4xl": ["48px", "58px"],
         "5xl": ["60px", "72px"],
-        "6xl": ["76px", "91px"],
+        "6xl": ["76px", "72px"],
         "7xl": ["95px", "120px"],
       },
       screens: {

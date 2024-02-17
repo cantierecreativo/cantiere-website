@@ -1,7 +1,7 @@
 import ImageBlock from "components/blocks/ImageBlock";
 import VideoBlock from "components/blocks/VideoBlock";
 import PartnerBlock from "components/blocks/PartnerBlock";
-import TextBlock from "components/blocks/TextBlock";
+import RowsIconTextBlock from "components/blocks/RowsIconTextBlock";
 import DoubleCtaBlock from "components/blocks/DoubleCtaBlock";
 import BannerBlock from "components/blocks/BannerBlock";
 import CardsBlock from "components/blocks/CardsBlock";
@@ -40,7 +40,6 @@ export default function PostContent({
     case "video_block":
       return <VideoBlock record={record} locale={locale} />;
     case "text_block":
-      return <TextBlock record={record} locale={locale} />;
     case "article_text_block":
     case "header_block":
     case "title_text_block":
@@ -53,5 +52,7 @@ export default function PostContent({
       return <TextForm record={record} locale={locale} solutions={solutions} />;
     case "quote":
       return <Quote record={record} locale={locale} solutions={solutions} />;
+    case "rows_icon_text_block":
+      return <RowsIconTextBlock record={record} locale={locale} />;
   }
 }

@@ -103,7 +103,7 @@ export default function MenuMobile({ site, locale, page }) {
                       priority
                       src="/logos/white.svg"
                       alt="Logo Cantiere Creativo"
-                      layout="fill"
+                      className="w-full h-full"
                     />
                   </div>
                   <div
@@ -114,7 +114,7 @@ export default function MenuMobile({ site, locale, page }) {
                       priority
                       src="/logos/whiteMobile.svg"
                       alt="Logo Cantiere Creativo"
-                      layout="fill"
+                      className="w-full h-full"
                       objectFit="contain"
                       objectPosition="left"
                     />

@@ -51,6 +51,7 @@ export default function HeroPortfolio({ locale, page }) {
                       alt={cover.responsiveImage.alt}
                       title={cover.responsiveImage.title}
                       layout=""
+                      priority="true"
                     />
                   </div>
                 </div>

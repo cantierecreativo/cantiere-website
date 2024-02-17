@@ -4,7 +4,7 @@ import fetchData from "lib/dato";
 import ModularTmp from "components/templates/ModularTmp";
 import PostContent from "components/PostContent";
 
-export default function Service({ locale, site, page }) {
+export default function Service({ locale, site, page, index }) {
   const { blocks } = page;
   return (
     <Layout
@@ -14,7 +14,7 @@ export default function Service({ locale, site, page }) {
       headerTxt="white"
       parent={site.servicesIndex}
     >
-      <ModularTmp locale={locale} page={page}>
+      <ModularTmp locale={locale} page={page} blockFooter={index.blocks[0]}>
         <div className="vertical-spaces">
           {blocks.map((b) => (
             <PostContent key={b.id} record={b} locale={locale} page={page} />
@@ -47,6 +47,7 @@ export async function getStaticProps({ params, locale = "it", preview }) {
     props: {
       locale,
       page: response.service,
+      index: response.servicesIndex,
       site,
     },
   };

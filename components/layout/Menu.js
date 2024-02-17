@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { convertToSlug } from "lib/utils";
-import Icon from "./Icon";
 
 export default function Menu({ locale, page }) {
   const navItems = [];
@@ -23,36 +22,20 @@ export default function Menu({ locale, page }) {
 
   return (
     <>
-      <div className="z-30 xl:sticky lg:top-0">
-        {navItems.length > 0 && (
-          <div className="xl:absolute xl:pl-4 3xl:pl-[calc(((100vw-1920px)/2)+12px)] xl:pt-24 2xl:pt-36">
-            <div className="container">
-              <div className="grid lg:grid-cols-12 xl:max-h-[80vh] xl:overflow-y-auto">
-                <div className="lg:col-start-2 lg:col-span-10">
-                  <div className="lg:flex lg:flex-wrap gap-x-6 gap-y-3 py-6 custom-border-bottom xl:bg-[length:0px_0px] xl:block xl:max-w-[120px]">
-                    {navItems.map((n) => (
-                      <Link
-                        href={`#${convertToSlug(n)}`}
-                        className="text-xs group"
-                        key={convertToSlug(n)}
-                      >
-                        <div className="flex items-center py-2 xl:py-2 xl:items-start lg:gap-3 justify-between group-hover:text-blue duration-200">
-                          {n}
-                          <Icon
-                            name="arrow"
-                            size="15"
-                            className="rotate-90 flex-none xl:translate-y-px"
-                          />
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
+      {navItems.length > 0 && (
+        <ul className="flex flex-wrap mt-8 xl:mt-0 gap-x-2 gap-y-6 xl:gap-x-3 xl:gap-y-8">
+          {navItems.map((n) => (
+            <li key={convertToSlug(n)}>
+              <Link
+                href={`#${convertToSlug(n)}`}
+                className="text-sm group border border-violet-light hover:bg-violet-dark hover:text-violet duration-200 rounded-l-full px-5 py-2 pb-3 xl:text-base"
+              >
+                {n}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </>
   );
 }

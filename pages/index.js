@@ -43,9 +43,9 @@ export default function Home({ locale, site, page, lastNews }) {
           ))}
         </div>
       </div> */}
-      {highlightProject &&
+      {highlightProject && (
         <SectionHighlightProject project={highlightProject} locale={locale} />
-      }
+      )}
       <SectionProjects page={page} locale={locale} site={site} />
       <SectionBlog page={page} locale={locale} site={site} />
       <BannerBlock record={page.blocksFooter[0]} locale={locale} />
