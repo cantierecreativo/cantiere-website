@@ -19,7 +19,7 @@ export default function CardImageBlock({ locale, record, page }) {
                   page?.model === "homepage"
                     ? "md:text-4xl xl:text-6xl"
                     : "xl:text-5xl"
-                } max-w-prose text-3xl`}
+                } max-w-prose text-3xl font-bold`}
               >
                 {title}
               </h2>

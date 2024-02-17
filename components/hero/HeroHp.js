@@ -1,51 +1,34 @@
 import Icon from "components/layout/Icon";
 import { Image as DatoImage } from "react-datocms";
 import { renderHTML } from "lib/utils";
+import Menu from "components/layout/Menu";
 
-export default function HeroHp({ page }) {
+export default function HeroHp({ page, locale }) {
   const { title, image, abstract } = page;
   return (
     <>
       <header className="text-white bg-blue relative pt-20">
-        <div className="pl-6 md:pl-10 pt-8 md:pt-12 lg:pt-0 xl:pl-[calc((100vw-1100px)/2)]">
-          <div className="grid gap-7 pb-8 lg:grid-cols-2 lg:pb-0 lg:items-center lg:gap-0">
-            <div className="xl:hidden grid gap-7">
-              <h1 className="text-3xl md:text-5xl max-w-prose md:pr-12 pr-6 lg:block lg:pr-0 z-20">
+        <div className="pl-6 md:pl-10 pt-8 md:pt-12 lg:pt-0 xl:pl-[calc((100vw-1100px)/2)] 3xl:pl-[calc((100vw-1355px)/2)] lg:pl-[calc((100vw-946px)/2)]">
+          <div className="grid gap-7 lg:grid-cols-2 lg:pb-0 lg:items-center lg:gap-0 pt-8 ">
+            <div className="grid gap-3 xl:pl-20 xl:pr-8 xl:gap-12">
+              <h1 className="text-3xl xl:text-6xl font-bold md:text-5xl max-w-prose md:pr-12 pr-6 lg:block lg:pr-0 z-20">
                 {title}
               </h1>
-              <h2 className="text-lg md:text-lg max-w-prose md:pr-12 pr-6 lg:block lg:pr-0 z-20 xl:hidden">
+              <h2 className="text-lg md:text-lg max-w-prose md:pr-12 pr-6 lg:block lg:pr-0 z-20 xl:text-xl">
                 {renderHTML(abstract)}
               </h2>
+              <Menu page={page} locale={locale} />
             </div>
-            <div className="flex relative xl:col-start-2">
-              <Icon
-                className="w-[41.2%] h-full fill-violet lg:absolute lg:right-full lg:top-0 lg:w-[75%] xl:w-[50%]"
-                name="shapeSingle"
+            <div className="mt-8 xl:w-full xl:h-full aspect-square relative my-6 md:my-0">
+              <DatoImage
+                priority="true"
+                className="rounded-l-full"
+                data={image.responsiveImage}
+                alt={image.responsiveImage.alt}
+                title={image.responsiveImage.title}
+                layout="fill"
+                objectFit="cover"
               />
-              <div className="w-[58.8%] lg:w-full aspect-[5/7] xl:aspect-[5/5] relative">
-                <DatoImage
-                  className="rounded-l-full"
-                  data={image.responsiveImage}
-                  alt={image.responsiveImage.alt}
-                  title={image.responsiveImage.title}
-                  layout="fill"
-                  objectFit="cover"
-                  objectPosition="right"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          className="hidden container z-20 xl:block absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 left"
-        >
-          <div className="xl:grid grid-cols-12">
-            <div className="text-5xl 2xl:text-5xl 3xl:text-6xl 2xl:max-w-md 3xl:max-w-xl col-span-6 xl:col-span-7 2xl:col-span-8 3xl:col-span-7 3xl:col-start-2 col-start-2">
-              {title}
-            </div>
-            <div className="text-lg mt-8 max-w-md 2xl:text-lg 3xl:text-xl 3xl:mt-12 3xl:max-w-xl col-span-6 xl:col-span-7 2xl:col-span-8 3xl:col-span-7 3xl:col-start-2 col-start-2">
-              {renderHTML(abstract)}
             </div>
           </div>
         </div>

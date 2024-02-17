@@ -30,30 +30,29 @@ function renderImage(image) {
 }
 
 export function PartnerList({ partners, direction }) {
-  const directionClass = direction === "left" ? "animate-card-loop-left" : "animate-card-loop-right"
+  const directionClass =
+    direction === "left" ? "animate-card-loop-left" : "animate-card-loop-right";
 
   return (
     <div className={`w-full ${directionClass}`}>
       <div className="grid grid-cols-4 border-b border-gray border-dotted">
-        {
-          partners.map((p) => (
-            <div key={p.id} className="p-2 xl:p-6 xl:px-10 px-4 border-logo">
-              <div key={p.id} className="relative aspect-[5/3]">
-                {renderImage(p.image)}
-              </div>
+        {partners.map((p) => (
+          <div key={p.id} className="p-2 xl:p-6 xl:px-10 px-4 border-logo">
+            <div key={p.id} className="relative aspect-[5/3]">
+              {renderImage(p.image)}
             </div>
-          ))
-        }
+          </div>
+        ))}
       </div>
     </div>
-  )
+  );
 }
 export default function PartnerBlock({ locale, page, record }) {
   const { partners } = record;
-  const tot = partners.length
-  const half = tot / 2
-  const firstHalf = partners.slice(0, half)
-  const lastHalf = partners.slice(half, tot)
+  const tot = partners.length;
+  const half = tot / 2;
+  const firstHalf = partners.slice(0, half);
+  const lastHalf = partners.slice(half, tot);
 
   return (
     <>
@@ -89,13 +88,13 @@ export default function PartnerBlock({ locale, page, record }) {
           </div>
         ) : (
           <div className="w-full overflow-hidden">
-              <div className="flex w-[200%]">
-                <PartnerList partners={firstHalf} direction="left"/>
-                <PartnerList partners={firstHalf} direction="left"/>
+            <div className="flex w-[200%]">
+              <PartnerList partners={firstHalf} direction="left" />
+              <PartnerList partners={firstHalf} direction="left" />
             </div>
             <div className="flex w-[200%] -mt-[1px]">
-                <PartnerList partners={lastHalf} direction="right"/>
-                <PartnerList partners={lastHalf} direction="right"/>
+              <PartnerList partners={lastHalf} direction="right" />
+              <PartnerList partners={lastHalf} direction="right" />
             </div>
           </div>
         )}

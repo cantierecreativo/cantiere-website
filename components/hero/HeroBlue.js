@@ -25,7 +25,11 @@ export default function HeroBlue({ locale, page }) {
               )}
               <div aria-hidden="true" className="md:inline-block">
                 <div className="py-5 rounded-full px-2 border border-white hidden md:inline-block w:auto">
-                  <Icon name="arrow" className="rotate-90 fill-white" size="22" />
+                  <Icon
+                    name="arrow"
+                    className="rotate-90 fill-white"
+                    size="22"
+                  />
                 </div>
               </div>
             </div>
@@ -42,6 +46,7 @@ export default function HeroBlue({ locale, page }) {
               objectFit="contain"
               objectPosition="right"
               alt="shape blue"
+              priority="true"
             />
           </div>
         </div>

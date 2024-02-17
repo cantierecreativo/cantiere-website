@@ -4,8 +4,9 @@ import t from "lib/locales";
 import CardTextImageBlock from "./CardTextImageBlock";
 import CardBlock from "./CardBlock";
 import CardTitleImageTextHover from "./CardTitleImageTextHoverBlock";
+import CardTitleImageText from "./CardTitleImageText";
 
-function WhichCard({ c, showNumbers=false, l, n=null }) {
+function WhichCard({ c, showNumbers = false, l, n = null, inLine }) {
   if (!c || !c.model) return;
   switch (c.model) {
     case "card":
@@ -13,25 +14,57 @@ function WhichCard({ c, showNumbers=false, l, n=null }) {
         <CardBlock key={c.id} data={c} showNumbers={showNumbers} l={l} n={n} />
       );
     case "card_title_image_text_hover":
-      return <CardTitleImageTextHover key={c.id} data={c} l={l} />;
+      return inLine ? (
+        <CardTitleImageTextHover key={c.id} data={c} l={l} />
+      ) : (
+        <CardTitleImageText key={c.id} data={c} l={l} />
+      );
     case "card_text_image":
-      return (
+      return inLine ? (
         <CardTextImageBlock
           key={c.id}
           data={c}
           showNumbers={showNumbers}
           n={n}
         />
+      ) : (
+        <CardTitleImageText key={c.id} data={c} l={l} />
       );
   }
 }
 
-function RenderCards(cards, showNumbers, l) {
-  return (
+function RenderCards(cards, showNumbers, l, inLine) {
+  return inLine ? (
     <div className="lg:grid lg:grid-cols-12">
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:col-span-10 lg:col-span-12 xl:col-start-2">
         {cards.map((c, n) => {
-          return <WhichCard key={c.id} c={c} showNumbers={showNumbers} l={l} n={n} />;
+          return (
+            <WhichCard
+              key={c.id}
+              c={c}
+              showNumbers={showNumbers}
+              l={l}
+              n={n}
+              inLine={inLine}
+            />
+          );
+        })}
+      </div>
+    </div>
+  ) : (
+    <div className="lg:grid lg:grid-cols-12">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:col-span-10 lg:col-span-12 xl:col-start-2">
+        {cards.map((c, n) => {
+          return (
+            <WhichCard
+              key={c.id}
+              c={c}
+              showNumbers={showNumbers}
+              l={l}
+              n={n}
+              inLine={inLine}
+            />
+          );
         })}
       </div>
     </div>
@@ -45,49 +78,32 @@ export default function CardsBlock({ locale, record, page }) {
       id={`${convertToSlug(labelMenu)}`}
       className="container margin-scroll-standard"
     >
-      {!inLine ? (
-        <div className="lg:grid lg:grid-cols-12 pb-8 xl:pb-16">
-          <div className="grid gap-10 lg:col-span-12 custom-border-bottom pb-10">
-            {cards.map((c, n) => (
-              <div
+      <div className="lg:grid lg:grid-cols-12">
+        <div
+          className={`${
+            !inLine
+              ? "lg:col-span-10 lg:col-start-2"
+              : "md:grid-cols-2 lg:grid-cols-3 lg:col-span-12"
+          } grid gap-4 xl:col-span-10 xl:col-start-2`}
+        >
+          {cards.map((c, n) => {
+            return (
+              <WhichCard
                 key={c.id}
-                className="grid gap-5 pt-8 lg:pt-10 md:grid-cols-2 content-start lg:gap-x-0 lg:grid-cols-12 md:gap-8 custom-border-top after:hidden"
-              >
-                <div className="md:col-span-2 lg:col-start-2 lg:col-span-1">
-                  {showNumbers && `0${n + 1}`}
-                </div>
-                <div className="grid gap-5 content-start lg:col-start-3 lg:col-span-4">
-                  {c.title && <h2 className="text-blue text-2xl">{c.title}</h2>}
-                </div>
-                <div className="grid gap-5 content-start lg:col-start-8 lg:col-span-4">
-                  {c.text && (
-                    <h3 className="lg:text-lg max-w-prose">
-                      {renderHTML(c.text)}
-                    </h3>
-                  )}
-                  {c.link && (
-                    <InternalLink
-                      element={c.link?.relatedElement}
-                      locale={locale}
-                      label={c.link.title}
-                    >
-                      <div className="underline-default after:bg-black inline-block mt-4">
-                        {c.link?.cta ? c.cta : t("more", locale)}
-                      </div>
-                    </InternalLink>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
+                c={c}
+                showNumbers={showNumbers}
+                l={locale}
+                n={n}
+                inLine={inLine}
+              />
+            );
+          })}
         </div>
-      ) : (
-        RenderCards(cards, showNumbers, locale)
-      )}
+      </div>
     </section>
   ) : (
     <section className="container">
-      {inLine ? RenderCards(cards, showNumbers, locale) : <></>}
+      {RenderCards(cards, showNumbers, locale, inLine)}
     </section>
   );
 }
