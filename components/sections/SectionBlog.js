@@ -3,8 +3,13 @@ import TitleButton from "components/blocks/TitleButton";
 import { Image as DatoImage } from "react-datocms";
 import Button from "components/blocks/Button";
 
-
-export function BlogCard({ item, locale, containerClasses = "", itemClasses = "", imgClasses = "" }) {
+export function BlogCard({
+  item,
+  locale,
+  containerClasses = "",
+  itemClasses = "",
+  imgClasses = "",
+}) {
   return (
     <div key={item.id} className={containerClasses}>
       <InternalLink
@@ -13,7 +18,7 @@ export function BlogCard({ item, locale, containerClasses = "", itemClasses = ""
         locale={locale}
         label={item.subtitle}
       >
-        <div className={`relative ${itemClasses}`} >
+        <div className={`relative ${itemClasses}`}>
           <div className={`mb-5 ${imgClasses}`}>
             <DatoImage
               className={``}
@@ -27,25 +32,23 @@ export function BlogCard({ item, locale, containerClasses = "", itemClasses = ""
             <h2 className="text-base lg:text-lg text-black md:text-xl mb-4 lg:mb-6 font-bold group-hover:underline">
               {item.title}
             </h2>
-            <div className="flex gap-3">
-              {item.tags && item.tags.map((t) => {
-                return (
-                  <div key={t.id}>
-                    {t.title}
-                  </div>
-                )
-              })}
-              {item.date &&
+            <div className="flex gap-2 flex-wrap lg:gap-y-1">
+              {item.tags &&
+                item.tags.map((t) => {
+                  return <div key={t.id}>{t.title}</div>;
+                })}
+              {item.date && (
                 <>
                   <div>|</div>
                   <div>{item.date.split("-").reverse().join("/")}</div>
-                </>}
+                </>
+              )}
             </div>
           </div>
         </div>
       </InternalLink>
     </div>
-  )
+  );
 }
 
 export default function SectionBlog({ page, locale, site }) {
@@ -59,20 +62,16 @@ export default function SectionBlog({ page, locale, site }) {
         locale={locale}
       />
 
-      <div className="-mt-12 xl:-mt-20 py-6 lg:pb-24 pb-16 xl:py-0 xl:pb-12">
+      <div className="py-6 lg:pb-24 pb-16 xl:py-0 xl:pb-12">
         <div className="xl:container">
-
           <div className="space-y-16 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-8 lg:mx-[calc(100%/12)]">
-            {/* <div className="space-y-16 md:space-y-0 md:flex md:justify-between items-stretch md:gap-16 lg:gap-x-16 lg:gap-y-8 lg:mx-[calc(100%/12)]"> */}
             <BlogCard
               item={page.articles[0]}
               locale={locale}
-              imgClasses={`lg:overflow-hidden lg:max-h-[330px] xl:max-h-[385px] 3xl:max-h-[490px]`}
+              imgClasses={`lg:overflow-hidden lg:max-h-[330px] xl:max-h-[382px] 3xl:max-h-[490px]`}
             />
             <div className="space-y-16 lg:space-y-6 w-full lg:gap-8">
               {page.articles.map((a, i) => {
-                // const colSpanClass = i === 0 ? "row-span-2" : ""
-                // const flexClass = i !== 0 ? "flex h-full" : ""
                 {
                   if (i !== 0) {
                     return (
@@ -81,16 +80,16 @@ export default function SectionBlog({ page, locale, site }) {
                         locale={locale}
                         containerClasses={``}
                         itemClasses={`lg:flex lg:gap-x-5`}
-                        imgClasses={`basis-[40%]`}
+                        imgClasses={`mb-0 basis-[40%] flex-none`}
                       />
-                    )
+                    );
                   }
                 }
               })}
             </div>
           </div>
         </div>
-      </div >
+      </div>
     </section>
   );
 }

@@ -69,6 +69,7 @@ module.exports = {
       backgroundImage: {
         "banner-blue": "url('/background/gradient.svg')",
         "banner-contact": "url('/background/contactBanner.svg')",
+        "arrow-icon": "url('/icons/arrow.svg')",
       },
       keyframes: {
         card_loop_left: {

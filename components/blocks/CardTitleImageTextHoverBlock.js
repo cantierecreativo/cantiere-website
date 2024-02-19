@@ -7,7 +7,7 @@ export default function CardTitleImageTextHover({ data, showNumbers, l, n }) {
   return (
     <div
       key={data.id}
-      className="grid gap-5 lg:gap-x-0 text-black border relative "
+      className="grid gap-5 lg:gap-x-0 text-black border border-black/20 relative border-dotted"
     >
       <InternalLink
         element={data.link.relatedElement}

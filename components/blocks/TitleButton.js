@@ -17,7 +17,7 @@ export default function TitleButton({ locale, title, text = null, element }) {
             </h3>
           )}
         </div>
-        <div className="lg:col-span-3 lg:flex lg:justify-end lg:items-start lg:translate-y-2 xl:translate-y-7">
+        <div className="lg:col-span-4 lg:flex lg:justify-end lg:items-start lg:translate-y-2 xl:translate-y-7">
           <InternalLink
             element={element}
             locale={locale}

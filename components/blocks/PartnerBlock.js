@@ -7,7 +7,7 @@ function renderImage(image) {
   if (image.format !== "svg") {
     return (
       <DatoImage
-        className="md:saturate-0 md:hover:saturate-100 md:scale-90 md:hover:scale-100 motion-safe:transition-all motion-safe:duration-500"
+        className="md:saturate-0 md:hover:saturate-100 md:scale-75 md:hover:scale-90 motion-safe:transition-all motion-safe:duration-500"
         data={image.responsiveImage}
         alt={image.responsiveImage.alt}
         title={image.responsiveImage.title}
@@ -18,7 +18,7 @@ function renderImage(image) {
   } else {
     return (
       <Image
-        className="md:saturate-0 md:hover:saturate-100 md:scale-90 md:hover:scale-100 motion-safe:transition-all motion-safe:duration-500"
+        className="md:saturate-0 md:hover:saturate-100 md:scale-75 md:hover:scale-90 motion-safe:transition-all motion-safe:duration-500"
         src={image.url}
         alt={image.alt}
         title={image.title}

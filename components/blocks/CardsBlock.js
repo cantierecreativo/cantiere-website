@@ -34,26 +34,9 @@ function WhichCard({ c, showNumbers = false, l, n = null, inLine }) {
 }
 
 function RenderCards(cards, showNumbers, l, inLine) {
-  return inLine ? (
+  return (
     <div className="lg:grid lg:grid-cols-12">
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:col-span-10 lg:col-span-12 xl:col-start-2">
-        {cards.map((c, n) => {
-          return (
-            <WhichCard
-              key={c.id}
-              c={c}
-              showNumbers={showNumbers}
-              l={l}
-              n={n}
-              inLine={inLine}
-            />
-          );
-        })}
-      </div>
-    </div>
-  ) : (
-    <div className="lg:grid lg:grid-cols-12">
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:col-span-10 lg:col-span-12 xl:col-start-2">
+      <div className="grid gap-4 md:grid-cols-2 xl:gap-8 lg:grid-cols-3 xl:col-span-10 lg:col-span-12 xl:col-start-2">
         {cards.map((c, n) => {
           return (
             <WhichCard

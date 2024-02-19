@@ -2,11 +2,11 @@ import Link from "next/link";
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import MenuMobile from "components/layout/MenuMobile";
-import Breadcrumbs from "./Breadcrumbs";
 import { resolveLink, IsActive } from "lib/utils";
 import Image from "next/image";
 import t from "lib/locales";
 import { useState, useEffect } from "react";
+import Icon from "./Icon";
 
 function RenderNavItem(item, locale, scroll, setTriangle, headerTxt) {
   const classNameActive =
@@ -113,6 +113,7 @@ function Header(props) {
   let headerClass = "";
   let setTriangle = "";
   let setBorder = "";
+  let setFillIcon = "";
 
   if (headerTxt === "white") {
     logoSrc = scroll ? "/logos/color.svg" : "/logos/white.svg";
@@ -132,8 +133,16 @@ function Header(props) {
   } else setTriangle = "triangle-black";
 
   if (headerTxt === "white") {
-    setBorder = scroll ? "after:bg-black" : "after:bg-white";
-  } else setBorder = "after:bg-black";
+    setBorder = scroll
+      ? "after:bg-blue text-white group-hover:text-black"
+      : "bg-blue text-black after:bg-white group-hover:text-white";
+  } else setBorder = "after:bg-blue text-white group-hover:text-black";
+
+  if (headerTxt === "white") {
+    setFillIcon = scroll
+      ? "fill-white group-hover:fill-black"
+      : "fill-black group-hover:fill-white";
+  } else setFillIcon = "fill-white group-hover:fill-black";
 
   if (headerTxt === "white") {
     headerClass = scroll
@@ -145,7 +154,9 @@ function Header(props) {
   return (
     <>
       <header
-        className={`${headerClass} fixed top-0 left-0 right-0 z-40 duration-200`}
+        className={`${headerClass} ${
+          scroll ? "border-b border-black" : ""
+        } fixed top-0 left-0 right-0 z-40 duration-200`}
       >
         <Popover className="">
           <div className="">
@@ -208,16 +219,27 @@ function Header(props) {
                     ))}
                   </div>
                   <div className="hidden items-center space-x-3 lg:flex xl:space-x-6 xl:absolute xl:right-6">
-                    <div className={`${setBorder} underline-default`}>
-                      <Link
-                        href={t("contact-us-url", locale)}
-                        title={t("contact-us-label", locale)}
+                    <Link
+                      href={t("contact-us-url", locale)}
+                      title={t("contact-us-label", locale)}
+                      className="group"
+                    >
+                      <div
+                        className={`${setBorder} flex items-center gap-1 px-6 rounded-full py-2 pr-4 group group-hover:after:top-full after:bottom-0 border-black border duration-300 after:z-0 after:absolute after:left-0 after:right-0 after:top-0 relative after:motion-safe:duration-300 overflow-hidden`}
                       >
-                        {t("contact-us-label", locale)}
-                      </Link>
-                    </div>
-                    {/* <LanguageSwitcher page={page} locale={locale} /> */}
+                        <span className="relative z-[1] motion-safe:duration-100">
+                          {t("contact-us-label", locale)}
+                        </span>
+                        <Icon
+                          name={"arrow"}
+                          className={`${setFillIcon} z-[1]`}
+                          size={24}
+                          fill={setFillIcon}
+                        />
+                      </div>
+                    </Link>
                   </div>
+                  {/* <LanguageSwitcher page={page} locale={locale} /> */}
                 </Popover.Group>
               </div>
             </div>

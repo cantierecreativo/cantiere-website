@@ -20,7 +20,7 @@ export default function Home({ locale, site, page, lastNews }) {
       {carousel && <Slideshow data={carousel} />}
       <div
         aria-hidden="true"
-        className="w-full z-0 top-[1300px] xl:top-[1600px] 2xl:top-[1800px] hidden lg:absolute lg:block"
+        className="w-full z-0 top-[800px] 2xl:top-[1000px] hidden lg:absolute lg:block"
       >
         <Icon
           name={"shapeDouble"}
@@ -32,17 +32,6 @@ export default function Home({ locale, site, page, lastNews }) {
           <PostContent key={b.id} record={b} locale={locale} page={page} />
         ))}
       </div>
-      {/* <div className="bg-blue relative -mt-20 lg:-mt-28 xl:-mt-32 2xl:-mt-44">
-        <Icon
-          name={"shapeDouble"}
-          className="h-full w-auto absolute right-0 top-0 fill-white"
-        />
-        <div className="vertical-spaces">
-          {orangeBlocks.map((b) => (
-            <PostContent key={b.id} record={b} locale={locale} page={page} />
-          ))}
-        </div>
-      </div> */}
       {highlightProject && (
         <SectionHighlightProject project={highlightProject} locale={locale} />
       )}

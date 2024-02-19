@@ -1,7 +1,7 @@
 import { renderHTML, convertToSlug } from "lib/utils";
 
 export default function TitleTextBlock({ locale, record, color = "black" }) {
-  const { title, text, labelMenu } = record;
+  const { title, left = true, text, labelMenu } = record;
 
   const colorText = {
     black: "text-black",
@@ -15,7 +15,9 @@ export default function TitleTextBlock({ locale, record, color = "black" }) {
       >
         <div className="grid gap-4 md:gap-6 lg:grid-cols-12 lg:gap-x-0">
           <div
-            className={`lg:col-span-10 lg:col-start-2 grid gap-9 xl:gap-12 ${colorText[color]}`}
+            className={`lg:col-span-10 lg:col-start-2 grid gap-9 xl:gap-10 ${
+              colorText[color]
+            } ${left ? "" : "text-center"}`}
           >
             {record.label && (
               <label className="text-lg xl:text-xl max-w-prose">
@@ -28,9 +30,11 @@ export default function TitleTextBlock({ locale, record, color = "black" }) {
               </h2>
             )}
             {text && (
-              <div className="max-w-prose xl:text-xl">
+              <div className="xl:text-xl">
                 <div
-                  className="grid gap-6 formatted-text xl:gap-8 paragraph"
+                  className={`${
+                    left ? "" : "max-w-[600px] mx-auto"
+                  } grid gap-6 formatted-text xl:gap-8 paragraph max-w-prose`}
                   dangerouslySetInnerHTML={{ __html: text }}
                 />
               </div>

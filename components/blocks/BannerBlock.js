@@ -62,7 +62,7 @@ export default function BannerBlock({ locale, record }) {
             <div className="container py-16 2xl:py-40 xl:py-28 relative z-10">
               <div className="text-center lg:max-w-[70%] mx-auto text-balance">
                 {prefix && <div className="text-lg lg:text-xl">{prefix}</div>}
-                <h2 className="font-bold text-3xl lg:text-4xl xl:text-6xl mt-4">
+                <h2 className="font-bold text-3xl lg:text-4xl xl:text-5xl mt-4">
                   {title}
                 </h2>
                 {text && (

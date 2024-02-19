@@ -12,10 +12,10 @@ export default function SectionProjects({ page, locale, site }) {
   };
   return (
     <div className="bg-blue">
-      <section className="vertical-spaces container ">
+      <section className="vertical-spaces">
         <TitleTextBlock record={record} locale={locale} color="white" />
       </section>
-      <div className="-mt-12 xl:-mt-20 py-6 lg:pb-24 pb-16 xl:py-0 xl:pb-12 container">
+      <div className="-mt-12 xl:-mt-20 py-6 lg:pb-24 pb-16 xl:pb-32">
         <div className="container">
           <div className="space-y-16 md:space-y-0 md:grid md:grid-cols-2 md:gap-16 lg:gap-24 lg:mx-[calc(100%/12)]">
             {page.projects.map((p, i) => {
@@ -51,10 +51,10 @@ export default function SectionProjects({ page, locale, site }) {
                         title={p.previewImage.responsiveImage.title}
                         objectFit="cover"
                       />
-                      <h2 className="py-2 md:pb-4 uppercase text-black font-bold text-sm tracking-wide text-white">
+                      <h2 className="py-2 md:pt-4 xl:text-lg text-sm tracking-wide text-white/90">
                         {p.subtitle}
                       </h2>
-                      <h3 className="text-xl text-blue md:text-xl lg:text-2xl mb-4 lg:mb-6 text-white">
+                      <h3 className="text-xl font-bold lg:text-xl mb-4 lg:mb-6 text-white">
                         {p.title}
                       </h3>
                       <Button bg="white" />
