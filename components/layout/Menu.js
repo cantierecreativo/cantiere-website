@@ -28,7 +28,7 @@ export default function Menu({ locale, page }) {
             <li key={convertToSlug(n)}>
               <Link
                 href={`#${convertToSlug(n)}`}
-                className="text-sm group border border-violet-light hover:bg-violet-dark hover:text-violet duration-200 rounded-l-full px-5 py-2 pb-3 xl:text-base"
+                className="text-sm group border border-violet-light hover:bg-white hover:text-violet duration-200 rounded-l-full px-5 py-2 pb-3 xl:text-base"
               >
                 {n}
               </Link>

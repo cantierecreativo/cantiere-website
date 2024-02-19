@@ -12,11 +12,11 @@ export default function CardTitleImageText({ data, showNumbers, l, n }) {
       {data.image && (
         <div className="aspect-[7/8] relative">
           <DatoImage
-            className=""
+            className="w-full h-full"
             data={data.image.responsiveImage}
             alt={data.image.responsiveImage.alt}
             title={data.image.responsiveImage.title}
-            objectFit="cover w-full h-full"
+            objectFit="cover"
           />
         </div>
       )}

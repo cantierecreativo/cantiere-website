@@ -225,15 +225,6 @@ function Header(props) {
           <MenuMobile site={site} page={page} locale={locale} />
         </Popover>
       </header>
-      {page.model !== "homepage" && (
-        <Breadcrumbs
-          page={page}
-          grandParent={grandParent}
-          parent={parent}
-          locale={locale}
-          color={headerTxt}
-        />
-      )}
     </>
   );
 }

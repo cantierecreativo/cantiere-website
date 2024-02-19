@@ -18,9 +18,9 @@ export default function CardTitleImageTextHover({ data, showNumbers, l, n }) {
         <div className="content-start">
           {showNumbers && <div className="">{`0${n + 1}`}</div>}
           {(data.label || data.title) && (
-            <div className="absolute top-8 left-8 z-[3]">
+            <div className="absolute top-8 left-8 z-[3] right-8">
               {data.label && (
-                <div className="text-lg lg:text-base  motion-safe:duration-500 text-black group-hover:text-white">
+                <div className="text-lg lg:text-base mb-4 motion-safe:duration-500 text-black group-hover:text-white">
                   {data.label}
                 </div>
               )}
