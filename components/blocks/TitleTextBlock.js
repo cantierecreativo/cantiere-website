@@ -25,9 +25,10 @@ export default function TitleTextBlock({ locale, record, color = "black" }) {
               </label>
             )}
             {title && (
-              <h2 className="xl:text-5xl max-w-prose text-3xl font-bold">
-                {title}
-              </h2>
+              <h2
+                className="xl:text-5xl max-w-prose text-3xl font-bold title"
+                dangerouslySetInnerHTML={{ __html: title }}
+              />
             )}
             {text && (
               <div className="xl:text-xl">

@@ -298,3 +298,7 @@ strong {
 .swiper .swiper-button-prev {
   @apply hidden;
 }
+
+.title strong {
+  @apply text-blue;
+}

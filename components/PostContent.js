@@ -19,6 +19,7 @@ export default function PostContent({
   page = null,
   solutions = null,
 }) {
+  // return record.model;
   switch (record.model) {
     case "image_block":
     case "article_image_block":
