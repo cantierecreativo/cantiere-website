@@ -2,7 +2,7 @@ import HeroText from "components/hero/HeroText";
 import Icon from "components/layout/Icon";
 import WhichCard from "components/cards/WhichCard";
 import PostContent from "components/PostContent";
-import Pagination from "components/layout/Pagination";
+// import Pagination from "components/layout/Pagination";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 
