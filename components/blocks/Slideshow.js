@@ -49,6 +49,7 @@ export default function Carousel({ data }) {
                       layout="fill"
                       objectFit="cover"
                       objectPosition="50% 50%"
+                      priority={i === 0 ? true : false}
                     />
                     {/* <div className="h-full w-full absolute z-10  bg-[#4637F1] bg-opacity-80" /> */}
                   </div>

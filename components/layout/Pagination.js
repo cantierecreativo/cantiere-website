@@ -62,7 +62,7 @@ export default function Pagination({
     <div className="grid lg:grid-cols-12">
       <nav
         aria-label={t("pagination", locale)}
-        className="lg:col-start-2 lg:justify-start lg:col-span-10 content-start flex custom-border-top mt-8 flex-wrap gap-2 font-bold text-base py-8 lg:pt-16 justify-between items-center"
+        className="lg:col-start-2 lg:justify-center lg:col-span-10 content-start flex custom-border-top mt-8 flex-wrap gap-2 font-bold text-base py-8 lg:pt-16 justify-between items-center"
       >
         {current > 1 ? (
           <>

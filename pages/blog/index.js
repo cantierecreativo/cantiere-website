@@ -1,12 +1,12 @@
 import Layout from "components/layout/Layout";
 import * as queries from "lib/queries";
 import fetchData from "lib/dato";
-import IndexTmp from "components/templates/IndexTmp";
+import BlogTmp from "components/templates/BlogTmp";
 
 export default function ArticlesIndex({ locale, site, page, items }) {
   return (
     <Layout site={site} locale={locale} page={page}>
-      <IndexTmp locale={locale} items={items.news} page={page} pagination />
+      <BlogTmp locale={locale} items={items.news} page={page} pagination />
     </Layout>
   );
 }

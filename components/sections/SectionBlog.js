@@ -2,6 +2,7 @@ import InternalLink from "components/links/InternalLink";
 import TitleButton from "components/blocks/TitleButton";
 import { Image as DatoImage } from "react-datocms";
 import Button from "components/blocks/Button";
+import Masonry from "react-masonry-css";
 
 export function BlogCard({
   item,
@@ -9,6 +10,7 @@ export function BlogCard({
   containerClasses = "",
   itemClasses = "",
   imgClasses = "",
+  n,
 }) {
   return (
     <div key={item.id} className={containerClasses}>
@@ -19,20 +21,22 @@ export function BlogCard({
         label={item.subtitle}
       >
         <div className={`relative ${itemClasses}`}>
-          <div className={`mb-5 ${imgClasses}`}>
-            <DatoImage
-              className={``}
-              data={item.cover.responsiveImage}
-              alt={item.cover.responsiveImage.alt}
-              title={item.cover.responsiveImage.title}
-              layout=""
-            />
-          </div>
+          {item.cover && (
+            <div className={`mb-5 ${imgClasses}`}>
+              <DatoImage
+                className={``}
+                data={item.cover.responsiveImage}
+                alt={item.cover.responsiveImage.alt}
+                title={item.cover.responsiveImage.title}
+                layout=""
+              />
+            </div>
+          )}
           <div className="basis-[60%]">
-            <h2 className="text-base lg:text-lg text-black md:text-xl mb-4 lg:mb-6 font-bold group-hover:underline">
+            <h2 className="text-lg text-black md:text-xl mb-4 duration-200 lg:mb-4 font-bold group-hover:underline-offset-2	group-hover:underline">
               {item.title}
             </h2>
-            <div className="flex gap-2 flex-wrap lg:gap-y-1">
+            <div className="flex gap-2 flex-wrap lg:gap-y-1 text-sm">
               {item.tags &&
                 item.tags.map((t) => {
                   return <div key={t.id}>{t.title}</div>;
