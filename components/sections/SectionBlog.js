@@ -33,14 +33,11 @@ export function BlogCard({
             </div>
           )}
           <div className="basis-[60%]">
-            <h2 className="text-lg text-black md:text-xl mb-4 duration-200 lg:mb-4 font-bold group-hover:underline-offset-2	group-hover:underline">
+            <h2 className="text-lg text-black md:text-xl mb-4 duration-400 lg:mb-4 font-bold group-hover:underline-offset-4	group-hover:underline">
               {item.title}
             </h2>
             <div className="flex gap-2 flex-wrap lg:gap-y-1 text-sm">
-              {item.tags &&
-                item.tags.map((t) => {
-                  return <div key={t.id}>{t.title}</div>;
-                })}
+              {item.tags && <div>{item.tags[0].title}</div>}
               {item.date && (
                 <>
                   <div>|</div>
