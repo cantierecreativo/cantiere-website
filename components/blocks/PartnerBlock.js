@@ -7,7 +7,7 @@ function renderImage(image) {
   if (image.format !== "svg") {
     return (
       <DatoImage
-        className="md:saturate-0 md:hover:saturate-100 md:scale-75 md:hover:scale-90 motion-safe:transition-all motion-safe:duration-500"
+        className="md:saturate-0 md:hover:saturate-100 md:scale-50 md:hover:scale-75 motion-safe:transition-all motion-safe:duration-500"
         data={image.responsiveImage}
         alt={image.responsiveImage.alt}
         title={image.responsiveImage.title}
@@ -18,7 +18,7 @@ function renderImage(image) {
   } else {
     return (
       <Image
-        className="md:saturate-0 md:hover:saturate-100 md:scale-75 md:hover:scale-90 motion-safe:transition-all motion-safe:duration-500"
+        className="md:saturate-0 md:hover:saturate-100 md:scale-50 md:hover:scale-75 motion-safe:transition-all motion-safe:duration-500"
         src={image.url}
         alt={image.alt}
         title={image.title}
@@ -37,7 +37,7 @@ export function PartnerList({ partners, direction }) {
     <div className={`w-full ${directionClass}`}>
       <div className="grid grid-cols-4 border-b border-gray border-dotted">
         {partners.map((p) => (
-          <div key={p.id} className="p-2 xl:p-6 xl:px-10 px-4 border-logo">
+          <div key={p.id} className="border-logo">
             <div key={p.id} className="relative aspect-[5/3]">
               {renderImage(p.image)}
             </div>

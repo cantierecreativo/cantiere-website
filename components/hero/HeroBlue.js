@@ -1,6 +1,7 @@
 import Icon from "components/layout/Icon";
 import { renderHTML } from "lib/utils";
 import Image from "next/image";
+import Menu from "components/layout/Menu";
 
 export default function HeroBlue({ locale, page }) {
   const { title, subtitle, abstract, text } = page;
@@ -23,6 +24,7 @@ export default function HeroBlue({ locale, page }) {
                   {renderHTML(abstract || text)}
                 </h2>
               )}
+              <Menu page={page} locale={locale} />
               <div aria-hidden="true" className="md:inline-block">
                 <div className="py-5 rounded-full px-2 border border-white hidden md:inline-block w:auto">
                   <Icon

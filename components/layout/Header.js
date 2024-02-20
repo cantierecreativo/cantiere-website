@@ -45,7 +45,7 @@ function RenderNavItem(item, locale, scroll, setTriangle, headerTxt) {
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 translate-y-1"
             >
-              <Popover.Panel className="absolute z-10 -ml-4 mt-6 w-auto max-w-md transform px-2 sm:px-0 lg:-left-6 lg:ml-0">
+              <Popover.Panel className="absolute z-10 -ml-4 mt-5 w-auto max-w-md transform px-2 sm:px-0 lg:-left-6 lg:ml-0">
                 <div className="absolute left-1/2 -top-1 scale-150 rotate-180" />
                 <div className="overflow-hidden">
                   <ul className="relative bg-white text-lg border border-black/80 py-4 text-black min-w-[200px] px-6 gap-1">
@@ -113,6 +113,7 @@ function Header(props) {
   let headerClass = "";
   let setTriangle = "";
   let setBorder = "";
+  let setMenuMobile = "";
   let setFillIcon = "";
 
   if (headerTxt === "white") {
@@ -137,6 +138,12 @@ function Header(props) {
       ? "after:bg-blue text-white group-hover:text-black"
       : "bg-blue text-black after:bg-white group-hover:text-white";
   } else setBorder = "after:bg-blue text-white group-hover:text-black";
+
+  if (headerTxt === "white") {
+    setMenuMobile = scroll
+      ? "after:bg-blue text-black group-hover:text-black"
+      : "text-white after:bg-white group-hover:text-white";
+  } else setMenuMobile = "after:bg-blue text-black group-hover:text-black";
 
   if (headerTxt === "white") {
     setFillIcon = scroll
@@ -193,7 +200,7 @@ function Header(props) {
                 <div className="flex items-center lg:hidden">
                   <Popover.Button className="inline-flex items-center justify-center">
                     <div
-                      className={`${setBorder} ${
+                      className={`${setMenuMobile} ${
                         scroll ? "-translate-y-1" : ""
                       } underline-default`}
                     >

@@ -104,6 +104,7 @@ export default function MenuMobile({ site, locale, page }) {
                       src="/logos/white.svg"
                       alt="Logo Cantiere Creativo"
                       className="w-full h-full"
+                      layout="fill"
                     />
                   </div>
                   <div
@@ -117,6 +118,7 @@ export default function MenuMobile({ site, locale, page }) {
                       className="w-full h-full"
                       objectFit="contain"
                       objectPosition="left"
+                      layout="fill"
                     />
                   </div>
                   <div className="flex items-center lg:hidden">

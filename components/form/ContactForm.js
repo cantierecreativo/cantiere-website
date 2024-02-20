@@ -5,7 +5,13 @@ import FormMessage from "components/form/FormMessage";
 import Link from "next/link";
 import Icon from "components/layout/Icon";
 
-function Multiselect({ items, onSelect, onRemove, selectedValues }) {
+function Multiselect({
+  items,
+  onSelect,
+  onRemove,
+  selectedValues,
+  variantOnSize = false,
+}) {
   const selected = selectedValues?.split("|") || [];
   return (
     <div className="my-5">
@@ -21,11 +27,13 @@ function Multiselect({ items, onSelect, onRemove, selectedValues }) {
                 : onSelect([...selected, item].join("|"));
             }}
             key={item}
-            className={`uppercase font-semibold py-4 px-4 rounded-full tracking-wide shadow-md ${
+            className={`font-semibold py-5 px-5 rounded-md ${
               selected.includes(item) ? "bg-blue text-white" : "bg-white "
-            } border-2   m-2`}
+            } border-[2px] m-2 hover:border-blue ${
+              variantOnSize ? "lg:w-40" : ""
+            }`}
           >
-            {item}
+            <span>{item}</span>
           </button>
         );
       })}
@@ -39,18 +47,18 @@ export default function ContactForm({ locale, solutions }) {
     "h-4 w-4 shrink-0 rounded-full bg-white text-blue accent-blue";
 
   const aree = [
-    "WEB DESIGN",
+    "Web Design",
     "SEO",
-    "MARKETING",
-    "E-COMMERCE",
-    "APP",
+    "Marketing",
+    "E-Commerce",
+    "App",
     "UI/UX",
-    "MANUTENZIONE",
-    "RESTYLE",
-    "CONSULENZA",
-    "AREA PRIVATA",
+    "Manutenzione",
+    "Restyle",
+    "Consulenza",
+    "Area Privata",
     "GDPR",
-    "ACCESSIBILITÁ",
+    "Accessibilitá",
   ];
 
   const budgets = ["<= 5k", "DA 5 A 10K", "DA 10 A 20K", ">20K"];
@@ -85,7 +93,7 @@ export default function ContactForm({ locale, solutions }) {
     <div className="mt-10 py-10">
       <form className="pt-4 lg:pt-0 relative" onSubmit={handleSubmit(onSubmit)}>
         <div className="pb-8">
-          <div className="text-xl font-semibold">Sono interessato a:</div>
+          <div className="text-xl font-bold">Sono interessato a:</div>
           <div className="flex flex-wrap">
             <Controller
               control={control}
@@ -103,7 +111,7 @@ export default function ContactForm({ locale, solutions }) {
         </div>
 
         <div className="pb-8">
-          <div className="text-xl font-semibold">
+          <div className="text-xl font-bold">
             Pensavo ad un budget intorno a:
           </div>
           <div className="flex flex-wrap">
@@ -116,111 +124,116 @@ export default function ContactForm({ locale, solutions }) {
                   onSelect={onChange}
                   onRemove={onChange}
                   selectedValues={value}
+                  variantOnSize
                 />
               )}
             />
           </div>
         </div>
 
-        <div className="text-xl font-semibold">Le mie info sono:</div>
-        <div className="py-8">
-          <div>
-            <label htmlFor="fullName" className="label">
-              {t("formFullName", locale)}
-            </label>
+        <div className="xl:w-1/2">
+          <div className="text-xl font-bold">Le mie info sono:</div>
+          <div className="py-8">
+            <div>
+              <label htmlFor="fullName" className="label">
+                {t("formFullName", locale)}
+              </label>
+            </div>
+            <input
+              className="form-input input mt-2 p-4  rounded-md border-2 border-gray-300 block w-full "
+              type="text"
+              name="fullName"
+              id="fullName"
+              placeholder={t("formFullName", locale)}
+              required={true}
+              {...register("Nome & Cognome")}
+            />
           </div>
-          <input
-            className="form-input input mt-2 p-4  rounded-md border-2 border-gray-300 block w-full "
-            type="text"
-            name="fullName"
-            id="fullName"
-            placeholder={t("formFullName", locale)}
-            required={true}
-            {...register("Nome & Cognome")}
-          />
-        </div>
-        <div className="pb-8">
-          <div>
-            <label htmlFor="email" className="label">
-              Email
-            </label>
+          <div className="pb-8">
+            <div>
+              <label htmlFor="email" className="label">
+                Email
+              </label>
+            </div>
+            <input
+              className="form-input input mt-2 p-4  rounded-md border-2 border-gray-300 block w-full"
+              type="email"
+              name="email"
+              id="email"
+              placeholder={t("formEmail", locale)}
+              required={true}
+              {...register("Email")}
+            />
           </div>
-          <input
-            className="form-input input mt-2 p-4  rounded-md border-2 border-gray-300 block w-full"
-            type="email"
-            name="email"
-            id="email"
-            placeholder={t("formEmail", locale)}
-            required={true}
-            {...register("Email")}
-          />
-        </div>
 
-        <div className="">
-          <div>
-            <label htmlFor="message" className="label">
-              {t("formMessage", locale)}
-            </label>
+          <div className="">
+            <div>
+              <label htmlFor="message" className="label">
+                {t("formMessage", locale)}
+              </label>
+            </div>
+            <small>
+              Scrivici una nota i paraci brevemente del tup progetto.
+            </small>
+            <textarea
+              type="text"
+              name="message"
+              id="message"
+              placeholder={t("formMessage", locale)}
+              required={true}
+              className="form-input input mt-2 p-2  rounded-md border-2 border-gray-300 block w-full h-24"
+              {...register("Messaggio")}
+            />
           </div>
-          <small>Scrivici una nota i paraci brevemente del tup progetto.</small>
-          <textarea
-            type="text"
-            name="message"
-            id="message"
-            placeholder={t("formMessage", locale)}
-            required={true}
-            className="form-input input mt-2 p-2  rounded-md border-2 border-gray-300 block w-full h-24"
-            {...register("Messaggio")}
-          />
-        </div>
-        <div className="text-xs py-1">
-          <span>{t("requiredFields", locale)}</span>
-        </div>
-        <fieldset
-          className="mt-9 pt-4 flex pr-2 lg:pt-0 lg:mb-6"
-          role="group"
-          aria-label={t("formPrivacyFieldsetLabel")}
-        >
-          <legend className="sr-only">
-            {t("formPrivacyFieldsetLabel", locale)}
-          </legend>
-          <input
-            id="privacyCheckbox"
-            type="checkbox"
-            value=""
-            required={true}
-            className={checkboxClass}
-          />
-          <label htmlFor="privacyCheckbox" className="ml-2 text-xs">
-            {t("formPrivacyPolicy", locale)}
-            <Link
-              title={"Privacy Policy"}
-              href={`https://www.iubenda.com/privacy-policy/${t(
-                "cookiePolicyId",
-                locale
-              )}`}
-              className="iubenda-nostyle no-brand iubenda-embed iubenda-noiframe duration-200 underline font-extra-bold"
-            >
-              {"Privacy Policy"}*
-            </Link>
-          </label>
-        </fieldset>
-        <div className="flex mt-10 justify-end">
-          {!result && (
-            <button
-              type="submit"
-              className="self-end py-4 uppercase font-semibold  px-5 rounded-full tracking-wide shadow-md bg-blue text-white border-2 border-blue m-2 flex items-center justify-center"
-            >
-              {t("formSend", locale)}
-              <Icon
-                name="arrow"
-                className={`z-10 relative`}
-                size="40"
-                fill="white"
-              />
-            </button>
-          )}
-          {result && <FormMessage status={result} locale={locale} />}
+          <div className="text-xs py-1">
+            <span>{t("requiredFields", locale)}</span>
+          </div>
+          <fieldset
+            className="mt-9 pt-4 flex pr-2 lg:pt-0 lg:mb-6"
+            role="group"
+            aria-label={t("formPrivacyFieldsetLabel")}
+          >
+            <legend className="sr-only">
+              {t("formPrivacyFieldsetLabel", locale)}
+            </legend>
+            <input
+              id="privacyCheckbox"
+              type="checkbox"
+              value=""
+              required={true}
+              className={checkboxClass}
+            />
+            <label htmlFor="privacyCheckbox" className="ml-2 text-xs">
+              {t("formPrivacyPolicy", locale)}
+              <Link
+                title={"Privacy Policy"}
+                href={`https://www.iubenda.com/privacy-policy/${t(
+                  "cookiePolicyId",
+                  locale
+                )}`}
+                className="iubenda-nostyle no-brand iubenda-embed iubenda-noiframe duration-200 underline font-extra-bold"
+              >
+                {"Privacy Policy"}*
+              </Link>
+            </label>
+          </fieldset>
+          <div className="flex mt-10 bg-blue group rounded-md justify-between border-black border after:bg-white after:absolute after:top-0 after:left-0 after:right-0 after:h-0 after:duration-300 hover:after:h-full relative ">
+            {!result && (
+              <button
+                type="submit"
+                className="flex text-white hover:text-black justify-between w-full xl:text-lg items-center px-6 py-4 font-bold z-[1] relative"
+              >
+                {t("formSend", locale)}
+                <Icon
+                  name="arrow"
+                  className={`z-10 relative group-hover:fill-black`}
+                  size="40"
+                  fill="white"
+                />
+              </button>
+            )}
+            {result && <FormMessage status={result} locale={locale} />}
+          </div>
         </div>
       </form>
     </div>
