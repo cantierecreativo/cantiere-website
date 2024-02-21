@@ -38,7 +38,7 @@ export function BlogCard({
               {item.title}
             </h2>
             <div className="flex gap-2 flex-wrap lg:gap-y-1 text-sm capitalize">
-              {item.tags && <div>{item.tags[0].title}</div>}
+              {item.tags.length > 0 && <div>{item.tags[0].title}</div>}
               {item.date && (
                 <>
                   <div>|</div>
