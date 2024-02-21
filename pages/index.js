@@ -36,7 +36,13 @@ export default function Home({ locale, site, page, lastNews }) {
         <SectionHighlightProject project={highlightProject} locale={locale} />
       )}
       <SectionProjects page={page} locale={locale} site={site} />
-      <SectionBlog page={page} locale={locale} site={site} />
+      <SectionBlog
+        page={page}
+        locale={locale}
+        site={site}
+        articles={page.articles}
+        titleBlog={page.titleBlog}
+      />
       <BannerBlock record={page.blocksFooter[0]} locale={locale} />
     </Layout>
   );
