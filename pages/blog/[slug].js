@@ -17,19 +17,21 @@ function Article({ locale, site, page, articles }) {
           <div className="container py-8 lg:grid lg:grid-cols-12 lg:pb-24">
             <div className="grid gap-4 content-start lg:col-start-2 lg:col-span-10 border-dashed border-t border-black/25 pt-8">
               <div className="text-xl text-black font-bold pb-3">Tag</div>
-              {page.tags.map((t) => (
-                <InternalLink
-                  key={t.id}
-                  element={t}
-                  locale={locale}
-                  label={t.title}
-                  className={"group"}
-                >
-                  <div className="group border border-[#E8E8E8] bg-[#E8E8E8] hover:border-violet duration-200 rounded-l-full px-5 py-2 pb-3 xl:text-base truncate ... max-w-[80vw] inline-block">
-                    {t.title}
-                  </div>
-                </InternalLink>
-              ))}
+              <div className="flex gap-4 flex-wrap">
+                {page.tags.map((t) => (
+                  <InternalLink
+                    key={t.id}
+                    element={t}
+                    locale={locale}
+                    label={t.title}
+                    className={"group"}
+                  >
+                    <div className="group border border-[#E8E8E8] bg-[#E8E8E8] hover:border-violet duration-200 rounded-l-full px-5 py-2 pb-3 xl:text-base truncate ... max-w-[80vw] inline-block">
+                      {t.title}
+                    </div>
+                  </InternalLink>
+                ))}
+              </div>
             </div>
           </div>
         )}
