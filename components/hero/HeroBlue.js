@@ -1,6 +1,6 @@
 import Icon from "components/layout/Icon";
 import { renderHTML } from "lib/utils";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Menu from "components/layout/Menu";
 
 export default function HeroBlue({ locale, page }) {

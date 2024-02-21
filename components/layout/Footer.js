@@ -1,13 +1,12 @@
 import { Fragment } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import t from "lib/locales";
 import { resolveLink } from "lib/utils";
 import Script from "next/script";
 import ExternalLink from "components/links/ExternalLink";
 import InternalLink from "components/links/InternalLink";
 import SocialList from "components/blocks/SocialList";
-
 
 export default function Footer({ locale, site }) {
   const { menu, allSolutions, allServices, allTechnologies, allMethods } = site;
@@ -22,8 +21,8 @@ export default function Footer({ locale, site }) {
       >
         <div className="container py-6 pt-8 xl:pt-16">
           <nav className="grid grid-cols-2 md:flex md:gap-4 gap-2 gap-y-8 justify-between pb-6   xl:grid xl:grid-cols-5">
-            {menu.menuFirstLevels.slice(0, 4).map((item) => (
-              <>
+            {menu.menuFirstLevels.slice(0, 4).map((item, n) => (
+              <div key={n}>
                 {item.label ? (
                   item.hide ? null : (
                     <InternalLink
@@ -40,8 +39,8 @@ export default function Footer({ locale, site }) {
                     <div className="font-bold text-sm py-1 pb-3">
                       {item.mainLabel}
                     </div>
-                    {item.menuItems.map((item) => (
-                      <div key={item.id}>
+                    {item.menuItems.map((item, n) => (
+                      <div key={item.id + n}>
                         <InternalLink
                           locale={locale}
                           element={item.link}
@@ -54,7 +53,7 @@ export default function Footer({ locale, site }) {
                     ))}
                   </div>
                 )}
-              </>
+              </div>
             ))}
             <div className="">
               <div className="font-bold text-sm py-1 pb-3">
@@ -185,7 +184,8 @@ export default function Footer({ locale, site }) {
           </div>
           <div className="mt-3 pt-6 border-t border-dashed	border-black">
             <div className="lg:flex lg:justify-between space-y-3 lg:space-y-0 lg:gap-6 text-xs">
-              <div className="">{info.join(" - ")}
+              <div className="">
+                {info.join(" - ")}
                 <ExternalLink
                   url="https://www.datocms.com"
                   label="DatoCMS Headless CMS"

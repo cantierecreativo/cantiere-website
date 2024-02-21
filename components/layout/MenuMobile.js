@@ -4,7 +4,7 @@ import Icon from "components/layout/Icon";
 import { Fragment } from "react";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { resolveLink, IsActive } from "lib/utils";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import t from "lib/locales";
 
 function RenderMobileNavItem(item, locale) {

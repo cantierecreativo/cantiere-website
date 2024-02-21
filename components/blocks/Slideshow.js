@@ -34,12 +34,8 @@ export default function Carousel({ data }) {
       >
         {data.map((slide, i) => {
           const { id, image, title, text } = slide;
-
           return (
-            <div
-              className="w-full h-[60vh] md:h-screen max-h-full "
-              key={`slide-${id}`}
-            >
+            <div key={i} className="w-full h-[60vh] md:h-screen max-h-full">
               <SwiperSlide>
                 <div className="relative w-full h-[80vh] lg:h-[90vh] max-h-full">
                   <div className="absolute top-[70px] md:top-[90px] left-0 right-0 bottom-0 overflow-hidden">

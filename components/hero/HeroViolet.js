@@ -1,6 +1,6 @@
 import Icon from "components/layout/Icon";
 import { renderHTML } from "lib/utils";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 export default function HeroOrange({ locale, page }) {
   const { title, subtitle, abstract } = page;

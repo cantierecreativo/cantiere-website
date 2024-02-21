@@ -1,5 +1,5 @@
 import { Image as DatoImage } from "react-datocms";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { renderHTML } from "lib/utils";
 import ExternalLink from "components/links/ExternalLink";
 

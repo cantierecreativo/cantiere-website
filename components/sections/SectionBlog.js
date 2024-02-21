@@ -85,6 +85,7 @@ export default function SectionBlog({
                   if (i !== 0) {
                     return (
                       <BlogCard
+                        key={a.id}
                         item={a}
                         locale={locale}
                         containerClasses={``}

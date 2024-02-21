@@ -2,7 +2,7 @@ import { renderHTML, convertToSlug } from "lib/utils";
 import { Image as DatoImage } from "react-datocms";
 import InternalLink from "../links/InternalLink";
 import t from "lib/locales";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 export default function RowsIconTextBlock({ locale, record }) {
   const { title, text, rows, labelMenu, dark } = record;

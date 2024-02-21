@@ -1,6 +1,6 @@
 import { Image as DatoImage } from "react-datocms";
 import { convertToSlug } from "lib/utils";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 export default function ImageBlock({ record }) {
   const { labelMenu, description, image } = record;

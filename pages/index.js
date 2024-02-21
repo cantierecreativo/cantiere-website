@@ -9,7 +9,6 @@ import SectionProjects from "components/sections/SectionProjects";
 import Slideshow from "components/blocks/Slideshow";
 import SectionBlog from "components/sections/SectionBlog";
 import SectionHighlightProject from "components/sections/SectionHighlightProject";
-// import SectionAbout from "components/sections/SectionAbout";
 
 export default function Home({ locale, site, page, lastNews }) {
   const { mainBlocks, carousel, blueBlocks, orangeBlocks, highlightProject } =

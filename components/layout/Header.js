@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import MenuMobile from "components/layout/MenuMobile";
 import { resolveLink, IsActive } from "lib/utils";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import t from "lib/locales";
 import { useState, useEffect } from "react";
 import Icon from "./Icon";

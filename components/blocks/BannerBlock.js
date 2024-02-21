@@ -1,6 +1,6 @@
 import DynamicLink from "components/links/DynamicLink";
 import { renderHTML, convertToSlug } from "lib/utils";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Button from "./Button";
 import t from "lib/locales";
 import InternalLink from "components/links/InternalLink";
