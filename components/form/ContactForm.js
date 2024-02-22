@@ -173,7 +173,7 @@ export default function ContactForm({ locale, solutions }) {
               </label>
             </div>
             <small>
-              Scrivici una nota i paraci brevemente del tup progetto.
+              Scrivici una nota o parlaci brevemente del tuo progetto.
             </small>
             <textarea
               type="text"
