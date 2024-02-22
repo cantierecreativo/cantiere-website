@@ -29,8 +29,8 @@ export default function Gallery({ locale, record }) {
                       <DatoImage
                         className=""
                         data={i.image.responsiveImage}
-                        alt={i.image.responsiveImage.alt}
-                        title={i.image.responsiveImage.title}
+                        alt={i.image.responsiveImage?.alt || ""}
+                        title={i.image.responsiveImage?.title || ""}
                         layout=""
                       />
                     </div>

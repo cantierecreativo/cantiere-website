@@ -8,13 +8,13 @@ export default function CardTextImageBlock({ data, showNumbers, n }) {
       className="grid gap-5 lg:gap-x-0 text-black custom-border relative content-start"
     >
       <div className="custom-border-right" />
-      {data.image && (
+      {data.image?.responsiveImage && (
         <div className="relative aspect-[4/3]">
           <DatoImage
             className=""
             data={data.image.responsiveImage}
-            alt={data.image.responsiveImage.alt}
-            title={data.image.responsiveImage.title}
+            alt={data.image.responsiveImage?.alt || ""}
+            title={data.image.responsiveImage?.title || ""}
           />
         </div>
       )}

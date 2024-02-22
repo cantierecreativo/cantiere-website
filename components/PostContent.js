@@ -23,7 +23,7 @@ export default function PostContent({
   switch (record.model) {
     case "image_block":
     case "article_image_block":
-      return <ImageBlock record={record} locale={locale} />;
+      return <ImageBlock record={record} locale={locale}  />;
     case "video_block":
       return <VideoBlock record={record} locale={locale} />;
     case "partner_block":

@@ -16,8 +16,8 @@ export default function ImageBlock({ record }) {
               <DatoImage
                 className=""
                 data={image.responsiveImage}
-                alt={image.responsiveImage.alt}
-                title={image.responsiveImage.title}
+                alt={image.responsiveImage?.alt || ""}
+                title={image.responsiveImage?.title || ""}
                 layout="responsive"
                 objectFit="contain"
                 objectPosition="left"

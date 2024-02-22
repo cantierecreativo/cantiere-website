@@ -9,13 +9,13 @@ export default function CardTitleImageText({ data, showNumbers, l, n }) {
       key={data.id}
       className="grid gap-6 md:grid-cols-2 items-center border-b border-black pb-8 mb-8 md:pb-12"
     >
-      {data.image && (
+      {data.image?.responsiveImage && (
         <div className="aspect-[7/8] relative">
           <DatoImage
             className="w-full h-full"
-            data={data.image.responsiveImage}
-            alt={data.image.responsiveImage.alt}
-            title={data.image.responsiveImage.title}
+            data={data.image?.responsiveImage}
+            alt={data.image?.responsiveImage?.alt || ""}
+            title={data.image?.responsiveImage?.title || ""}
             objectFit="cover"
           />
         </div>
