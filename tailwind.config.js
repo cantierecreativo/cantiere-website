@@ -53,7 +53,7 @@ module.exports = {
         "3xl": ["39px", "47px"],
         "4xl": ["48px", "58px"],
         "5xl": ["60px", "72px"],
-        "6xl": ["76px", "72px"],
+        "6xl": ["76px", "82px"],
         "7xl": ["95px", "120px"],
       },
       screens: {
