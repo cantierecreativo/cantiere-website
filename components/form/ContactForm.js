@@ -217,7 +217,7 @@ export default function ContactForm({ locale, solutions }) {
               </Link>
             </label>
           </fieldset>
-          <div className="flex mt-10 bg-blue group rounded-md justify-between border-black border after:bg-white after:absolute after:top-0 after:left-0 after:right-0 after:h-0 after:duration-300 hover:after:h-full relative ">
+          <div className="flex mt-10 bg-blue group rounded-md justify-between after:bg-white after:absolute after:top-0 after:left-0 after:right-0 after:h-0 after:duration-300 hover:after:h-full relative ">
             {!result && (
               <button
                 type="submit"
