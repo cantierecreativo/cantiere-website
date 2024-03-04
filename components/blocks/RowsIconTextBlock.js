@@ -28,7 +28,7 @@ export default function RowsIconTextBlock({ locale, record }) {
           <div className="grid gap-4 mt-6 border-b border-white">
             {rows.map((r) => (
               <div
-                className="grid gap-6 py-6 md:py-10 border-t border-white md:grid-cols-3"
+                className="grid gap-6 py-6 md:py-10 lg:py-16 border-t border-white md:grid-cols-3"
                 key={r.id}
               >
                 <div className="w-20 h-20 relative">
@@ -45,7 +45,7 @@ export default function RowsIconTextBlock({ locale, record }) {
                   <div className="text-xl md:text-2xl lg:text-3xl max-w-prose font-bold">
                     {r.title}
                   </div>
-                  <div className="">{renderHTML(r.text)}</div>
+                  <div className="text-lg">{renderHTML(r.text)}</div>
                   {r.link && (
                     <InternalLink
                       element={r.link}
