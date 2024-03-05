@@ -80,9 +80,8 @@ export default function ContactForm({ locale, solutions }) {
         method: "POST",
         body: formData,
       }
-    );
-    // const json = await res.json();
-    // console.log("json", json);
+    ).then((res) => res.json());
+
     if (res.status == "success") {
       setResult("success");
     } else {
