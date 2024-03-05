@@ -34,7 +34,7 @@ export async function getStaticProps({ params, locale = "it", preview }) {
   return {
     props: {
       locale,
-      page: response.work,
+      page: response?.work || null,
       site,
     },
   };
