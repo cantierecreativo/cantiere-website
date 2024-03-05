@@ -58,8 +58,8 @@ export async function getStaticProps({ params, locale = "it", preview }) {
   return {
     props: {
       locale,
-      page: response.articleTag,
-      allItems: { news },
+      page: response?.articleTag || null,
+      allItems: { news: news ? news : null },
       site,
     },
   };
