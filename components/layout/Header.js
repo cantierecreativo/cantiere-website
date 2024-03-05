@@ -2,11 +2,11 @@ import Link from "next/link";
 import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import MenuMobile from "components/layout/MenuMobile";
-import Breadcrumbs from "./Breadcrumbs";
 import { resolveLink, IsActive } from "lib/utils";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import t from "lib/locales";
 import { useState, useEffect } from "react";
+import Icon from "./Icon";
 
 function RenderNavItem(item, locale, scroll, setTriangle, headerTxt) {
   const classNameActive =
@@ -18,7 +18,7 @@ function RenderNavItem(item, locale, scroll, setTriangle, headerTxt) {
     : `${
         headerTxt === "white" ? "after:bg-white" : "after:bg-black"
       } group gap-2 inline-flex items-center text-sm xl:text-base focus:ring-orange relative whitespace-nowrap underline-on-hover inline-block`;
-  const classDropdownItem = "my-1 after:bg-blue inline-block";
+  const classDropdownItem = "my-2 after:bg-blue inline-block";
 
   if (item.menuItems?.length > 0) {
     return (
@@ -45,17 +45,17 @@ function RenderNavItem(item, locale, scroll, setTriangle, headerTxt) {
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 translate-y-1"
             >
-              <Popover.Panel className="absolute z-10 -ml-4 mt-6 w-auto max-w-md transform px-2 sm:px-0 lg:-left-6 lg:ml-0">
+              <Popover.Panel className="absolute z-10 -ml-4 mt-5 w-auto max-w-md transform px-2 sm:px-0 lg:-left-6 lg:ml-0">
                 <div className="absolute left-1/2 -top-1 scale-150 rotate-180" />
                 <div className="overflow-hidden">
-                  <ul className="relative bg-white text-lg border border-black/80 py-4 text-black min-w-[200px] px-6 gap-1">
+                  <ul className="relative bg-white text-lg border border-black/80 py-4 text-black min-w-[200px] px-6">
                     {item.menuItems.map((item) => (
                       <li key={item.id}>
                         <Link
                           href={resolveLink(item.link, locale)}
                           title={item.link.title}
                           onClick={() => close()}
-                          className={`group text-sm xl:text-base focus:ring-orange underline-on-hover after:bg-black ${
+                          className={`group text-sm xl:text-base focus:ring-orange whitespace-nowrap underline-on-hover after:bg-black ${
                             IsActive(item, locale) == true
                               ? classNameActive
                               : ""
@@ -113,6 +113,8 @@ function Header(props) {
   let headerClass = "";
   let setTriangle = "";
   let setBorder = "";
+  let setMenuMobile = "";
+  let setFillIcon = "";
 
   if (headerTxt === "white") {
     logoSrc = scroll ? "/logos/color.svg" : "/logos/white.svg";
@@ -132,22 +134,36 @@ function Header(props) {
   } else setTriangle = "triangle-black";
 
   if (headerTxt === "white") {
-    setBorder = scroll ? "after:bg-black" : "after:bg-white";
-  } else setBorder = "after:bg-black";
+    setBorder = scroll
+      ? "after:bg-blue text-white group-hover:text-black"
+      : "bg-blue text-black after:bg-white group-hover:text-white";
+  } else setBorder = "after:bg-blue text-white group-hover:text-black";
+
+  if (headerTxt === "white") {
+    setMenuMobile = scroll
+      ? "after:bg-blue text-black group-hover:text-black"
+      : "text-white after:bg-white group-hover:text-white";
+  } else setMenuMobile = "after:bg-blue text-black group-hover:text-black";
+
+  if (headerTxt === "white") {
+    setFillIcon = scroll
+      ? "fill-white group-hover:fill-black"
+      : "fill-black group-hover:fill-white";
+  } else setFillIcon = "fill-white group-hover:fill-black";
 
   if (headerTxt === "white") {
     headerClass = scroll
-      ? "bg-white text-black py-2 custom-border-bottom"
+      ? "bg-white text-black py-2 "
       : "bg-transparent text-white py-5";
   } else
-    headerClass = scroll
-      ? "py-2 bg-white custom-border-bottom"
-      : "py-5 bg-transparent text-black ";
+    headerClass = scroll ? "py-2 bg-white " : "py-5 bg-transparent text-black ";
 
   return (
     <>
       <header
-        className={`${headerClass} fixed top-0 left-0 right-0 z-40 duration-200`}
+        className={`${headerClass} ${
+          scroll ? "border-b border-black" : ""
+        } fixed top-0 left-0 right-0 z-40 duration-200`}
       >
         <Popover className="">
           <div className="">
@@ -184,7 +200,7 @@ function Header(props) {
                 <div className="flex items-center lg:hidden">
                   <Popover.Button className="inline-flex items-center justify-center">
                     <div
-                      className={`${setBorder} ${
+                      className={`${setMenuMobile} ${
                         scroll ? "-translate-y-1" : ""
                       } underline-default`}
                     >
@@ -210,16 +226,27 @@ function Header(props) {
                     ))}
                   </div>
                   <div className="hidden items-center space-x-3 lg:flex xl:space-x-6 xl:absolute xl:right-6">
-                    <div className={`${setBorder} underline-default`}>
-                      <Link
-                        href={t("contact-us-url", locale)}
-                        title={t("contact-us-label", locale)}
+                    <Link
+                      href={t("contact-us-url", locale)}
+                      title={t("contact-us-label", locale)}
+                      className="group"
+                    >
+                      <div
+                        className={`${setBorder} flex items-center gap-1 px-6 rounded-full py-2 pr-4 group group-hover:after:top-full after:bottom-0 border-black border duration-300 after:z-0 after:absolute after:left-0 after:right-0 after:top-0 relative after:motion-safe:duration-300 overflow-hidden`}
                       >
-                        {t("contact-us-label", locale)}
-                      </Link>
-                    </div>
-                    {/* <LanguageSwitcher page={page} locale={locale} /> */}
+                        <span className="relative z-[1] motion-safe:duration-100">
+                          {t("contact-us-label", locale)}
+                        </span>
+                        <Icon
+                          name={"arrow"}
+                          className={`${setFillIcon} z-[1]`}
+                          size={24}
+                          fill={setFillIcon}
+                        />
+                      </div>
+                    </Link>
                   </div>
+                  {/* <LanguageSwitcher page={page} locale={locale} /> */}
                 </Popover.Group>
               </div>
             </div>
@@ -227,15 +254,6 @@ function Header(props) {
           <MenuMobile site={site} page={page} locale={locale} />
         </Popover>
       </header>
-      {page.model !== "homepage" && (
-        <Breadcrumbs
-          page={page}
-          grandParent={grandParent}
-          parent={parent}
-          locale={locale}
-          color={headerTxt}
-        />
-      )}
     </>
   );
 }

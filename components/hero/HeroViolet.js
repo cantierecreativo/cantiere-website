@@ -1,6 +1,6 @@
 import Icon from "components/layout/Icon";
 import { renderHTML } from "lib/utils";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 export default function HeroOrange({ locale, page }) {
   const { title, subtitle, abstract } = page;
@@ -10,7 +10,7 @@ export default function HeroOrange({ locale, page }) {
         <div className="container pt-32 pb-8 md:pt-40 lg:pt-48 lg:pb-16 z-10 relative h-full min-h-[200px]">
           <div className="grid gap-6 lg:grid-cols-12 lg:gap-x-0">
             <div className="grid gap-4 md:gap-6 lg:gap-12 lg:col-span-9 xl:col-span-8 lg:col-start-2 xl:col-start-2">
-              <h1 className="text-3xl md:text-4xl xl:text-6xl max-w-prose">
+              <h1 className="text-3xl md:text-4xl xl:text-6xl max-w-prose font-bold">
                 {title}
               </h1>
               {subtitle && (
@@ -37,7 +37,7 @@ export default function HeroOrange({ locale, page }) {
             className="w-2/3 aspect-square lg:w-4/5 xl:w-[60vw] h-full absolute md:relative md:bottom-auto bottom-0"
           >
             <Image
-              alt="shape violet"
+              alt="shape"
               src="/shape/shape-violet.svg"
               layout="fill"
               objectFit="contain"

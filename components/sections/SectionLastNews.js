@@ -7,11 +7,11 @@ export default function SectionLastNews({ locale, items, site }) {
       <section className="vertical-spaces container">
         <TitleButton
           title="Blog"
-          element={site.articlesIndex}
+          element={site?.articlesIndex}
           locale={locale}
         />
         <div className="custom-border-bottom">
-          {items.map((n) => (
+          {items?.map((n) => (
             <WhichCard key={n.id} record={n} locale={locale} />
           ))}
         </div>

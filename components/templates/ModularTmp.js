@@ -1,17 +1,28 @@
-import Menu from "components/layout/Menu";
-import HeroOrange from "components/hero/HeroOrange";
+import HeroBlue from "components/hero/HeroBlue";
+import HeroHp from "components/hero/HeroHp";
 import HeroPortfolio from "components/hero/HeroPortfolio";
+import DoubleElements from "components/layout/DoubleElements";
+import BannerBlock from "components/blocks/BannerBlock";
 
-export default function ModularTmp({ locale, page, children }) {
+export default function ModularTmp({ locale, page, children, blockFooter }) {
   return (
     <>
       {page.model === "work" ? (
         <HeroPortfolio locale={locale} page={page} />
+      ) : page.model === "service" ? (
+        <HeroHp page={page} locale={locale} />
       ) : (
-        <HeroOrange locale={locale} page={page} />
+        <HeroBlue locale={locale} page={page} />
       )}
-      <Menu page={page} locale={locale} />
       <div className="prose">{children}</div>
+      {page.projectsCaseStudiesLinks && (
+        <DoubleElements
+          locale={locale}
+          elements={page.projectsCaseStudiesLinks}
+          title={page.elementsTitle}
+        />
+      )}
+      {blockFooter && <BannerBlock record={blockFooter} locale={locale} />}
     </>
   );
 }

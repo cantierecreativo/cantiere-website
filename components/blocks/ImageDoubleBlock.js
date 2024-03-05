@@ -16,8 +16,8 @@ export default function ImageDoubleBlock({ record }) {
                 <DatoImage
                   className=""
                   data={i.image.responsiveImage}
-                  alt={i.image.responsiveImage.alt}
-                  title={i.image.responsiveImage.title}
+                  alt={i.image.responsiveImage?.alt || ""}
+                  title={i.image.responsiveImage?.title || ""}
                   layout="responsive"
                 />
                 {i.caption && (

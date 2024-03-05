@@ -16,6 +16,9 @@ module.exports = {
       sans: ["Leicht", "sans-serif"],
       bold: ["Buch", "serif"],
     },
+    fontWeight: {
+      bold: "600",
+    },
     extend: {
       colors: {
         gray: {
@@ -28,7 +31,7 @@ module.exports = {
         },
         violet: {
           DEFAULT: "#564DF1",
-          light: "#A5A0F2",
+          light: "#9D95F2",
           dark: "#C8C5F3",
         },
         black: {
@@ -50,7 +53,7 @@ module.exports = {
         "3xl": ["39px", "47px"],
         "4xl": ["48px", "58px"],
         "5xl": ["60px", "72px"],
-        "6xl": ["76px", "91px"],
+        "6xl": ["76px", "82px"],
         "7xl": ["95px", "120px"],
       },
       screens: {
@@ -66,7 +69,31 @@ module.exports = {
       backgroundImage: {
         "banner-blue": "url('/background/gradient.svg')",
         "banner-contact": "url('/background/contactBanner.svg')",
+        "arrow-icon": "url('/icons/arrow.svg')",
+      },
+      keyframes: {
+        card_loop_left: {
+          "0%": {
+            transform: "translateX(0)",
+          },
+          "100%": {
+            transform: "translateX(-100%)",
+          },
+        },
+        card_loop_right: {
+          "0%": {
+            transform: "translateX(-100%)",
+          },
+          "100%": {
+            transform: "translateX(0)",
+          },
+        },
+      },
+      animation: {
+        "card-loop-left": "card_loop_left 20s linear infinite",
+        "card-loop-right": "card_loop_right 20s linear infinite",
       },
     },
+    plugins: [require("@tailwindcss/forms")],
   },
 };

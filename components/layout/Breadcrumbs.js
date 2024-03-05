@@ -23,7 +23,11 @@ export default function Breadcrumbs({
     >
       <div className="container">
         <div className="lg:grid-cols-12 lg:grid">
-          <ol className="flex items-center gap-1 lg:col-start-2 lg:col-span-10">
+          <ol
+            className={`flex items-center gap-1 xl:col-start-2 xl:col-span-10 ${
+              color === "white" ? "text-white" : "text-black"
+            }`}
+          >
             <li className={breadcrumbItemClass}>
               <div className="flex items-center gap-1">
                 <Link
@@ -35,13 +39,15 @@ export default function Breadcrumbs({
                   <Icon
                     name="home"
                     size="15"
-                    className={color === "black" ? "fill-black" : "fill-blue"}
+                    className={color === "white" ? "fill-white" : "fill-blue"}
                   />
                 </Link>
                 {page.model !== "homepage" && (
                   <Icon
                     name="down"
-                    className="-rotate-90 fill-siena"
+                    className={`-rotate-90 ${
+                      color === "white" ? "fill-white" : "fill-black"
+                    }`}
                     size="23"
                   />
                 )}
@@ -60,7 +66,9 @@ export default function Breadcrumbs({
                   </InternalLink>
                   <Icon
                     name="down"
-                    className="-rotate-90 fill-siena"
+                    className={`-rotate-90 ${
+                      color === "white" ? "fill-white" : "fill-black"
+                    }`}
                     size="23"
                   />
                 </div>
@@ -80,13 +88,14 @@ export default function Breadcrumbs({
                   </InternalLink>
                   <Icon
                     name="down"
-                    className="-rotate-90 fill-siena"
+                    className={`-rotate-90 ${
+                      color === "white" ? "fill-white" : "fill-black"
+                    }`}
                     size="23"
                   />
                 </div>
               </li>
             )}
-            {console.log("parent:", page)}
             {page.model !== "homepage" && (
               <li
                 className={`${breadcrumbItemClass} truncate text-xs max-w-[300px]`}

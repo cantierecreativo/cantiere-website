@@ -1,6 +1,6 @@
 import { Image as DatoImage } from "react-datocms";
 import { convertToSlug } from "lib/utils";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 export default function ImageBlock({ record }) {
   const { labelMenu, description, image } = record;
@@ -16,8 +16,8 @@ export default function ImageBlock({ record }) {
               <DatoImage
                 className=""
                 data={image.responsiveImage}
-                alt={image.responsiveImage.alt}
-                title={image.responsiveImage.title}
+                alt={image.responsiveImage?.alt || ""}
+                title={image.responsiveImage?.title || ""}
                 layout="responsive"
                 objectFit="contain"
                 objectPosition="left"

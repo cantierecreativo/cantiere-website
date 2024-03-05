@@ -3,6 +3,7 @@ import Icon from "components/layout/Icon";
 export default function Button({ label, bg, reverse = false }) {
   const colorButton = {
     blue: "after:bg-blue border-blue fill-white group-hover:fill-blue group-hover:after:top-full after:bottom-0",
+    blueWhite: "after:bg-blue border-blue fill-white group-hover:fill-blue group-hover:after:top-full after:bottom-0 before:absolute before:left-0 before:top-0 before:right-0 before:bottom-0 before:bg-white group-hover:before:bottom-0",
     black:
       "after:bg-black border-black fill-white group-hover:fill-black group-hover:after:top-full after:bottom-0",
     white:

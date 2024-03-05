@@ -1,5 +1,5 @@
 import { Image as DatoImage } from "react-datocms";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { renderHTML } from "lib/utils";
 import ExternalLink from "components/links/ExternalLink";
 
@@ -7,7 +7,7 @@ function renderImage(image) {
   if (image.format !== "svg") {
     return (
       <DatoImage
-        className=""
+        className="md:scale-50"
         data={image.responsiveImage}
         alt={image.responsiveImage.alt}
         title={image.responsiveImage.title}
@@ -18,7 +18,7 @@ function renderImage(image) {
   } else {
     return (
       <Image
-        className=""
+        className="md:scale-50"
         src={image.url}
         alt={image.alt}
         title={image.title}
@@ -29,11 +29,34 @@ function renderImage(image) {
   }
 }
 
+export function PartnerList({ partners, direction }) {
+  const directionClass =
+    direction === "left" ? "animate-card-loop-left" : "animate-card-loop-right";
+
+  return (
+    <div className={`w-full ${directionClass}`}>
+      <div className="grid grid-cols-4 border-b border-gray border-dotted">
+        {partners.map((p) => (
+          <div key={p.id} className="border-logo">
+            <div key={p.id} className="relative aspect-[5/3]">
+              {renderImage(p.image)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 export default function PartnerBlock({ locale, page, record }) {
   const { partners } = record;
+  const tot = partners.length;
+  const half = tot / 2;
+  const firstHalf = partners.slice(0, half);
+  const lastHalf = partners.slice(half, tot);
+
   return (
     <>
-      <section className="container">
+      <section className="">
         {page.model === "partners_index" ? (
           <div className="lg:grid lg:grid-cols-12">
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:col-span-10 lg:col-start-2 items-start">
@@ -64,14 +87,15 @@ export default function PartnerBlock({ locale, page, record }) {
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-4 border-b border-gray border-dotted">
-            {partners.map((p) => (
-              <div key={p.id} className="p-2 xl:p-6 xl:px-10 px-4 border-logo">
-                <div key={p.id} className="relative aspect-[5/3]">
-                  {renderImage(p.image)}
-                </div>
-              </div>
-            ))}
+          <div className="w-full overflow-hidden">
+            <div className="flex w-[200%]">
+              <PartnerList partners={firstHalf} direction="left" />
+              <PartnerList partners={firstHalf} direction="left" />
+            </div>
+            <div className="flex w-[200%] -mt-[1px]">
+              <PartnerList partners={lastHalf} direction="right" />
+              <PartnerList partners={lastHalf} direction="right" />
+            </div>
           </div>
         )}
       </section>

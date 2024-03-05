@@ -12,7 +12,7 @@ export default function CasteStudy({ locale, site, page }) {
       locale={locale}
       page={page}
       parent={site.caseStudiesIndex}
-      headerTxt="black"
+      headerTxt="white"
     >
       <ModularTmp locale={locale} page={page}>
         <div className="vertical-spaces">

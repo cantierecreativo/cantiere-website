@@ -12,7 +12,7 @@ export default function Contact({ locale, site, page, solutions }) {
       locale={locale}
       page={page}
       parent={site.newsIndex}
-      headerTxt="black"
+      headerTxt="white"
     >
       <ContactTmp locale={locale} page={page}>
         <div className="vertical-spaces prose">

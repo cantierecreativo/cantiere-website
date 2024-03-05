@@ -5,7 +5,6 @@ import React from "react";
 // import ReactPlayer from "react-player/youtube";
 
 export default function VideoPlayer({ record }) {
-  // return console.log("record:", record);
   const mp4Url = record.internalVideo.video?.mp4Url
     ? record.internalVideo.video?.mp4Url
     : record.internalVideo.url;

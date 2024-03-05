@@ -7,13 +7,7 @@ import PostContent from "components/PostContent";
 export default function Work({ locale, site, page }) {
   const { blocks } = page;
   return (
-    <Layout
-      site={site}
-      locale={locale}
-      page={page}
-      parent={site.worksIndex}
-      headerTxt="colored"
-    >
+    <Layout site={site} locale={locale} page={page} parent={site.worksIndex}>
       <ModularTmp locale={locale} page={page}>
         <div className="vertical-spaces">
           {blocks.map((b) => (
@@ -40,7 +34,7 @@ export async function getStaticProps({ params, locale = "it", preview }) {
   return {
     props: {
       locale,
-      page: response.work,
+      page: response?.work || null,
       site,
     },
   };

@@ -44,11 +44,11 @@ export default function WorkCard({
                 layout=""
               />
             )}
-            <div className="text-gray-dark font-bold text-xs uppercase lg:text-sm md:pt-2">
+            <div className="text-blue font-bold text-xs uppercase lg:text-sm md:pt-2">
               {subtitle}
             </div>
-            <h2 className="text-blue text-xl lg:text-2xl">{title}</h2>
-            <Button bg="border" />
+            <h2 className="text-black text-xl lg:text-2xl font-bold">{title}</h2>
+            {/* <Button bg="border" /> */}
           </InternalLink>
         </div>
       </div>

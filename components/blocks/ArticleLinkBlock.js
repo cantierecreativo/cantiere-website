@@ -11,7 +11,7 @@ export default function ArticleLinkBlock({ locale, record }) {
         <div className="grid gap-4 md:gap-6 lg:grid-cols-12 lg:gap-x-0">
           <div className="lg:col-span-10 lg:col-start-2 grid gap-6 xl:gap-10">
             {title && (
-              <h2 className="text-3xl md:text-4xl xl:text-6xl max-w-prose">
+              <h2 className="text-3xl md:text-4xl xl:text-6xl max-w-prose font-bold">
                 {title}
               </h2>
             )}

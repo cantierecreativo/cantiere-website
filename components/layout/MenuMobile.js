@@ -4,7 +4,7 @@ import Icon from "components/layout/Icon";
 import { Fragment } from "react";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { resolveLink, IsActive } from "lib/utils";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import t from "lib/locales";
 
 function RenderMobileNavItem(item, locale) {
@@ -103,6 +103,7 @@ export default function MenuMobile({ site, locale, page }) {
                       priority
                       src="/logos/white.svg"
                       alt="Logo Cantiere Creativo"
+                      className="w-full h-full"
                       layout="fill"
                     />
                   </div>
@@ -114,9 +115,10 @@ export default function MenuMobile({ site, locale, page }) {
                       priority
                       src="/logos/whiteMobile.svg"
                       alt="Logo Cantiere Creativo"
-                      layout="fill"
+                      className="w-full h-full"
                       objectFit="contain"
                       objectPosition="left"
+                      layout="fill"
                     />
                   </div>
                   <div className="flex items-center lg:hidden">

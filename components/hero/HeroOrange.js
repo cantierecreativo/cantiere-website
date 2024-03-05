@@ -1,16 +1,16 @@
 import Icon from "components/layout/Icon";
 import { renderHTML } from "lib/utils";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 export default function HeroOrange({ locale, page }) {
-  const { title, subtitle, abstract } = page;
+  const { title, subtitle, abstract, text } = page;
   return (
     <>
       <header className="bg-red text-black relative md:mb-8 lg:mb-16 xl:mb-0">
         <div className="container pt-32 pb-8 md:pt-40 lg:pt-48 lg:pb-16 z-10 relative h-full min-h-[200px]">
           <div className="grid gap-6 lg:grid-cols-12 lg:gap-x-0">
             <div className="grid gap-4 md:gap-6 lg:gap-12 lg:col-span-9 xl:col-span-8 lg:col-start-2 xl:col-start-2">
-              <h1 className="text-3xl md:text-4xl xl:text-6xl max-w-prose">
+              <h1 className="text-3xl md:text-4xl xl:text-6xl max-w-prose font-bold font-bold">
                 {title}
               </h1>
               {subtitle && (
@@ -18,9 +18,9 @@ export default function HeroOrange({ locale, page }) {
                   {renderHTML(subtitle)}
                 </h2>
               )}
-              {abstract && (
+              {(abstract || text) && (
                 <h2 className="text-lg max-w-prose xl:text-xl">
-                  {renderHTML(abstract)}
+                  {renderHTML(abstract || text)}
                 </h2>
               )}
               <div aria-hidden="true" className="md:inline-block">
