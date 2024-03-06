@@ -9,7 +9,7 @@ import InternalLink from "components/links/InternalLink";
 import SocialList from "components/blocks/SocialList";
 
 export default function Footer({ locale, site }) {
-  const { menu, allSolutions, allServices, allTechnologies, allMethods } = site;
+  const { footerMenu } = site;
   const year = new Date().getFullYear();
   const info = ["©" + year + " Cantiere Creativo Srl", "P.Iva 05210970488"];
   return (
@@ -21,40 +21,41 @@ export default function Footer({ locale, site }) {
       >
         <div className="container py-6 pt-8 xl:pt-16">
           <nav className="grid grid-cols-2 md:flex md:gap-4 gap-2 gap-y-8 justify-between pb-6   xl:grid xl:grid-cols-5">
-            {menu.menuFirstLevels.slice(0, 4).map((item, n) => (
-              <div key={n}>
-                {item.label ? (
-                  item.hide ? null : (
-                    <InternalLink
-                      locale={locale}
-                      element={item.link}
-                      label={item.label}
-                      className="font-bold text-sm block py-1.5"
-                    >
-                      {item.label}
-                    </InternalLink>
-                  )
-                ) : (
-                  <div className="">
-                    <div className="font-bold text-sm py-1 pb-3">
-                      {item.mainLabel}
-                    </div>
-                    {item.menuItems.map((item, n) => (
-                      <div key={item.id + n}>
-                        <InternalLink
-                          locale={locale}
-                          element={item.link}
-                          label={item.label}
-                          className="text-sm block py-1.5"
-                        >
-                          {item.label}
-                        </InternalLink>
+            {footerMenu.menuFirstLevels.length > 0 &&
+              footerMenu.menuFirstLevels.map((item, n) => (
+                <div key={n}>
+                  {item.label ? (
+                    item.hide ? null : (
+                      <InternalLink
+                        locale={locale}
+                        element={item.link}
+                        label={item.label}
+                        className="font-bold text-sm block py-1.5"
+                      >
+                        {item.label}
+                      </InternalLink>
+                    )
+                  ) : (
+                    <div className="">
+                      <div className="font-bold text-sm py-1 pb-3">
+                        {item.mainLabel}
                       </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
+                      {item.menuItems.map((item, n) => (
+                        <div key={item.id + n}>
+                          <InternalLink
+                            locale={locale}
+                            element={item.link}
+                            label={item.label}
+                            className="text-sm block py-1.5"
+                          >
+                            {item.label}
+                          </InternalLink>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
             <div className="">
               <div className="font-bold text-sm py-1 pb-3">
                 {t("contacts", locale)}
@@ -82,102 +83,6 @@ export default function Footer({ locale, site }) {
               </ExternalLink>
             </div>
           </nav>
-          {/* <nav className="xl:grid xl:grid-cols-5 grid grid-cols-2 md:flex md:gap-4 gap-2 gap-y-8 justify-between py-6 custom-border-bottom">
-            <div className="">
-              <div className="font-bold text-sm py-1 pb-3">
-                {t("solutions", locale)}
-              </div>
-              {allSolutions.map((item) => (
-                <div key={item.id}>
-                  <InternalLink
-                    locale={locale}
-                    element={item}
-                    label={item.title}
-                    className="text-sm block py-1.5"
-                  >
-                    {item.menuLabel}
-                  </InternalLink>
-                </div>
-              ))}
-            </div>
-            <div>
-              <div className="font-bold text-sm py-1 pb-3">
-                {t("services", locale)}
-              </div>
-              {allServices.map((item) => (
-                <div key={item.id}>
-                  <InternalLink
-                    locale={locale}
-                    element={item}
-                    label={item.title}
-                    className="text-sm block py-1.5"
-                  >
-                    {item.menuLabel}
-                  </InternalLink>
-                </div>
-              ))}
-            </div>
-            <div>
-              <div className="font-bold text-sm py-1 pb-3">
-                {t("technologies", locale)}
-              </div>
-              {allTechnologies.map((item) => (
-                <div key={item.id}>
-                  <InternalLink
-                    locale={locale}
-                    element={item}
-                    label={item.title}
-                    className="text-sm block py-1.5"
-                  >
-                    {item.menuLabel}
-                  </InternalLink>
-                </div>
-              ))}
-            </div>
-            <div>
-              <div className="font-bold text-sm py-1 pb-3">
-                {t("methods", locale)}
-              </div>
-              {allMethods.map((item) => (
-                <div key={item.id}>
-                  <InternalLink
-                    locale={locale}
-                    element={item}
-                    label={item.title}
-                    className="text-sm block py-1.5"
-                  >
-                    {item.menuLabel}
-                  </InternalLink>
-                </div>
-              ))}
-            </div>
-            <div>
-              <div className="font-bold text-sm py-1 pb-3">
-                {t("contacts", locale)}
-              </div>
-              <ExternalLink
-                url="mailto:info@cantierecreativo.net"
-                label="Email"
-                className="text-sm block py-1.5"
-              >
-                info@cantierecreativo.net
-              </ExternalLink>
-              <ExternalLink
-                url="https://goo.gl/maps/1ryVbBc5zSoimBr57"
-                label="Google Maps"
-                className="text-sm block py-1.5"
-              >
-                Via Botticini 3 - 50143 Firenze (FI)
-              </ExternalLink>
-              <ExternalLink
-                url="tel:+390555387851"
-                label={t("phone", locale)}
-                className="text-sm block py-1.5"
-              >
-                Tel: +39 055 5387851 (Lun-Ven, 9-13 e 14-18)
-              </ExternalLink>
-            </div>
-          </nav> */}
 
           <div className="mt-3 pt-3 border-t border-dashed border-black flex flex-col sm:flex-row md:flex-wrap justify-between gap-4 text-base md:text-lg">
             <SocialList />
