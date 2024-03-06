@@ -17,7 +17,7 @@ function RenderMobileNavItem(item, locale) {
       <Disclosure className="relative">
         {({ open, close }) => (
           <>
-            <Disclosure.Button className={"group"}>
+            <Disclosure.Button className={"group py-5 block w-full"}>
               <div
                 className={`${
                   IsActive(item, locale) == true ? classNameActive : ""
@@ -36,10 +36,10 @@ function RenderMobileNavItem(item, locale) {
               leaveFrom="transform opacity-100"
               leaveTo="transform opacity-0"
             >
-              <Disclosure.Panel className="pt-4">
+              <Disclosure.Panel className="pb-8">
                 <div className="relative grid gap-2">
                   {item.menuItems.map((item) => (
-                    <Link
+                    <a
                       key={item.id}
                       href={resolveLink(item.link, locale)}
                       title={item.link.title}
@@ -49,7 +49,7 @@ function RenderMobileNavItem(item, locale) {
                       } ${classNameItem}`}
                     >
                       <span className={classDropdownItem}>{item.label}</span>
-                    </Link>
+                    </a>
                   ))}
                 </div>
               </Disclosure.Panel>
@@ -64,7 +64,7 @@ function RenderMobileNavItem(item, locale) {
       key={item.id}
       href={resolveLink(item.link, locale)}
       title={item.title}
-      className="group"
+      className="group py-5 block"
     >
       <span
         className={`${
@@ -136,7 +136,7 @@ export default function MenuMobile({ site, locale, page }) {
                 <nav className="my-5 pb-12">
                   {navItems.map((item) => (
                     <div
-                      className="py-5 border-b border-dotted border-violet-light relative"
+                      className="border-b border-dotted border-violet-light relative"
                       key={item.id}
                     >
                       {RenderMobileNavItem(item, locale)}
