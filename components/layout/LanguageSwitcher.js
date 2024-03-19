@@ -5,7 +5,7 @@ import t from "lib/locales";
 
 function LanguageSwitcher({ page, locale }) {
   const locales = ["it", "en"];
-  const alts = page.alts;
+  const alts = page?.alts || [];
   return (
     <>
       {locales &&
