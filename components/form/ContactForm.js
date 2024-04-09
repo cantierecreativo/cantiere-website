@@ -152,7 +152,7 @@ export default function ContactForm({ locale, solutions }) {
           <div className="pb-8">
             <div>
               <label htmlFor="email" className="label">
-                Email
+                Email *
               </label>
             </div>
             <input
