@@ -193,7 +193,19 @@ export default function DastContent({ content, locale, page }) {
       renderLinkToRecord={({ record, children }) => {
         return (
           <InternalLink element={record} label={record.title} locale={locale}>
-            <span className="underline">{children}</span>
+            <span className="underline underline-offset-4 underline-blue">
+              {children}
+            </span>
+          </InternalLink>
+        );
+      }}
+      renderLink={({ record, children }) => {
+        return "CIAOOOOO";
+        return (
+          <InternalLink element={record} label={record.title} locale={locale}>
+            <span className="underline underline-offset-4 underline-blue">
+              {children}
+            </span>
           </InternalLink>
         );
       }}
