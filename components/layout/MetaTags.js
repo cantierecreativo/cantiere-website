@@ -8,10 +8,14 @@ export default function MetaTags({ site, page }) {
   const locales = ["it"];
   const localeDefault = "it";
   const linkEng = alts?.find((alt) => alt.locale === "en")?.value || null;
-
+  // console.log("ps", page.seo);
   return (
     <Head>
-      {renderMetaTags(page.seo.concat(site.site.favicon))}
+      {page && page.seo ? (
+        renderMetaTags(page.seo.concat(site.site.favicon))
+      ) : (
+        <div></div>
+      )}
       {locales &&
         locales.map((l, i) => {
           const link = alts?.find((alt) => alt.locale === l)?.value || null;
