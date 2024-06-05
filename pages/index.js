@@ -14,16 +14,14 @@ export default function Home({ locale, site, page, lastNews }) {
   const { mainBlocks, carousel, highlightProject } = page;
   return (
     <Layout site={site} locale={locale} page={page} headerTxt="white">
+      <strong>dev</strong>
       {!carousel && <HeroHp page={page} locale={locale} />}
       {carousel && <Slideshow data={carousel} />}
       <div
         aria-hidden="true"
         className="w-full z-0 top-[800px] 2xl:top-[1000px] hidden lg:absolute lg:block"
       >
-        <Icon
-          name={"shapeDouble"}
-          className="w-full fill-violet-dark/10 rotate-180"
-        />
+        <Icon name={"shapeDouble"} className="w-full fill-violet-dark/10 rotate-180" />
       </div>
       <div className="vertical-spaces">
         {mainBlocks.map((b) => (
