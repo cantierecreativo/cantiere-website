@@ -162,3 +162,11 @@ http://cantiere-website-2023.netlify.app https://www.cantierecreativo.net
 http://cantiere.agency/ https://www.cantierecreativo.net
 http://www.cantiere.agency/ https://www.cantierecreativo.net
 http://cantiere-website-2023.netlify.app/ https://www.cantierecreativo.net
+
+https://cantiere.agency/* https://www.cantierecreativo.net/:splat
+https://www.cantiere.agency/* https://www.cantierecreativo.net/:splat
+https://cantiere-website-2023.netlify.app/* https://www.cantierecreativo.net/:splat
+
+http://cantiere.agency/* https://www.cantierecreativo.net/:splat
+http://www.cantiere.agency/* https://www.cantierecreativo.net/:splat
+http://cantiere-website-2023.netlify.app/* https://www.cantierecreativo.net/:splat
