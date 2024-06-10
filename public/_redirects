@@ -1,3 +1,21 @@
+https://cantiere.agency https://www.cantierecreativo.net 301!
+https://www.cantiere.agency https://www.cantierecreativo.net 301!
+https://cantiere-website-2023.netlify.app https://www.cantierecreativo.net 301!
+https://cantiere.agency/ https://www.cantierecreativo.net 301!
+https://www.cantiere.agency/ https://www.cantierecreativo.net 301!
+https://cantiere-website-2023.netlify.app/ https://www.cantierecreativo.net 301!
+http://cantiere.agency https://www.cantierecreativo.net 301!
+http://www.cantiere.agency https://www.cantierecreativo.net 301!
+http://cantiere-website-2023.netlify.app https://www.cantierecreativo.net 301!
+http://cantiere.agency/ https://www.cantierecreativo.net 301!
+http://www.cantiere.agency/ https://www.cantierecreativo.net 301!
+http://cantiere-website-2023.netlify.app/ https://www.cantierecreativo.net 301!
+https://cantiere.agency/* https://www.cantierecreativo.net/:splat 301!
+https://www.cantiere.agency/* https://www.cantierecreativo.net/:splat 301!
+https://cantiere-website-2023.netlify.app/* https://www.cantierecreativo.net/:splat 301!
+http://cantiere.agency/* https://www.cantierecreativo.net/:splat 301!
+http://www.cantiere.agency/* https://www.cantierecreativo.net/:splat 301!
+http://cantiere-website-2023.netlify.app/* https://www.cantierecreativo.net/:splat 301!
 /chi-siamo/eventi/ /chi-siamo
 /servizi/digital-transformation/ /soluzioni/digital-strategy
 /servizi/composable-wcm/ /soluzioni/composable-wcm
@@ -15,7 +33,6 @@
 /stai-investendo-in-tecnologia-nel-modo-piu-efficiente/ /
 /smart-working-davvero-smart/ /metodo/full-remote
 /headless-cms/ /tecnologie/headless
-
 /guidelines/ https://guidelines.cantierecreativo.net/
 /guidelines/intro/ https://guidelines.cantierecreativo.net/
 /guidelines/comunicazione/ /contatti
@@ -39,7 +56,6 @@
 /guidelines/codice/codice-best-practices/ /metodo/qualita
 /guidelines/metodologia/it-time-material/ /metodo
 /guidelines/comunicazione/press-kit/ /
-
 /metodo-di-lavoro/ /metodo/
 /faq/ /
 /progetti/ /portfolio
@@ -57,7 +73,6 @@
 /progetti/olianas/ /portfolio/
 /progetti/la-tavernaccia/ /portfolio/
 /progetti/da-petrolgas-a-progetto-a-noleggi/ /portfolio/
-
 /blog/2015/01/04/sviluppo-single-page-application/ /blog
 /blog/2016/01/26/retrospettiva-agenzia-web-2015/ /blog
 /blog/2014/01/23/sognando-su-flowdock/ /blog
@@ -121,7 +136,6 @@
 /blog/2014/01/23/sognando-su-flowdock /blog/2014-01-23-sognando-su-flowdock
 /en/portfolio/- /en
 /en/technologies/test-driven-development /en
-
 /portfolio/software-open-source-team-digitale	/portfolio/sviluppo-dipartimento-trasformazione-digitale
 /en/case-studies/how-arduino-sped-up-their-educational-projects	/en/case-studies/arduino-educational-projects
 /it/case-studies/casestudy-istituto-neuroscienze	/case-studies/istituto-neuroscienze
@@ -146,27 +160,3 @@
 /blog/digital-partner-tutto-cio-che-devi-sapere/	/blog/digital-partner-cosa-sapere
 /blog/perche-next-js-e-la-tecnologia-giusta-per-la-seo/	/blog/perche-next-js-tecnologia-giusta-seo
 /en	/
-
-https://cantiere.agency https://www.cantierecreativo.net
-https://www.cantiere.agency https://www.cantierecreativo.net
-https://cantiere-website-2023.netlify.app https://www.cantierecreativo.net
-
-https://cantiere.agency/ https://www.cantierecreativo.net
-https://www.cantiere.agency/ https://www.cantierecreativo.net
-https://cantiere-website-2023.netlify.app/ https://www.cantierecreativo.net
-
-http://cantiere.agency https://www.cantierecreativo.net
-http://www.cantiere.agency https://www.cantierecreativo.net
-http://cantiere-website-2023.netlify.app https://www.cantierecreativo.net
-
-http://cantiere.agency/ https://www.cantierecreativo.net
-http://www.cantiere.agency/ https://www.cantierecreativo.net
-http://cantiere-website-2023.netlify.app/ https://www.cantierecreativo.net
-
-https://cantiere.agency/* https://www.cantierecreativo.net/:splat
-https://www.cantiere.agency/* https://www.cantierecreativo.net/:splat
-https://cantiere-website-2023.netlify.app/* https://www.cantierecreativo.net/:splat
-
-http://cantiere.agency/* https://www.cantierecreativo.net/:splat
-http://www.cantiere.agency/* https://www.cantierecreativo.net/:splat
-http://cantiere-website-2023.netlify.app/* https://www.cantierecreativo.net/:splat
