@@ -148,7 +148,7 @@
 /en	/
 
 https://cantiere.agency / 301!
-https://cantiere.agency/_* /:splat 301!
+https://cantiere.agency/* /:splat 301!
 
 https://www.cantiere.agency / 301!
 https://www.cantiere.agency/* /:splat 301!
