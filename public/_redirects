@@ -58,11 +58,6 @@
 /progetti/la-tavernaccia/ /portfolio/
 /progetti/da-petrolgas-a-progetto-a-noleggi/ /portfolio/
 
-https://www.cantiere.agency/_ /:splat 301!
-https://cantiere.agency/_ /:splat 301!
-https://cantiere-website-2023.netlify.app/_ /:splat 301!
-https://cantiere-agency.netlify.app/_ /:splat 301!
-
 /blog/2015/01/04/sviluppo-single-page-application/ /blog
 /blog/2016/01/26/retrospettiva-agenzia-web-2015/ /blog
 /blog/2014/01/23/sognando-su-flowdock/ /blog
@@ -152,4 +147,13 @@ https://cantiere-agency.netlify.app/_ /:splat 301!
 /blog/perche-next-js-e-la-tecnologia-giusta-per-la-seo/	/blog/perche-next-js-tecnologia-giusta-seo
 /en	/
 
-https://cantiere.agency /
+https://cantiere.agency / 301!
+https://cantiere.agency/_* /:splat 301!
+
+https://www.cantiere.agency / 301!
+https://www.cantiere.agency/* /:splat 301!
+
+https://cantiere-website-2023.netlify.app/* /:splat 301!
+
+https://cantiere-agency.netlify.app/ / 301!
+https://cantiere-agency.netlify.app/* /:splat 301!
