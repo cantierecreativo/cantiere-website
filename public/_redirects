@@ -147,13 +147,6 @@
 /blog/perche-next-js-e-la-tecnologia-giusta-per-la-seo/	/blog/perche-next-js-tecnologia-giusta-seo
 /en	/
 
-https://cantiere.agency / 301!
-https://cantiere.agency/* /:splat 301!
-
-https://www.cantiere.agency / 301!
-https://www.cantiere.agency/* /:splat 301!
-
-https://cantiere-website-2023.netlify.app/* /:splat 301!
-
-https://cantiere-agency.netlify.app/ / 301!
-https://cantiere-agency.netlify.app/* /:splat 301!
+https://cantiere.agency https://www.cantierecreativo.net
+https://www.cantiere.agency https://www.cantierecreativo.net
+https://cantiere-website-2023.netlify.app https://www.cantierecreativo.net
