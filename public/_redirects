@@ -158,7 +158,9 @@ http://cantiere-website-2023.netlify.app/* https://www.cantierecreativo.net/:spl
 /blog/perche-next-js-e-la-tecnologia-giusta-per-la-seo/	/blog/perche-next-js-tecnologia-giusta-seo
 /en	/
 /en/* /
+/it/* /
 /en/*/* /
+/it/*/* /
 
 /portfolio/- /portfolio
 /portfolio/mdt-2018 /portfolio/mdt
@@ -185,9 +187,20 @@ http://cantiere-website-2023.netlify.app/* https://www.cantierecreativo.net/:spl
 /servizi/accessibility /servizi/accessibilita
 /blog/2015-05-11-what-when-we-talk-about-startups /blog/startup-di-cosa-parliamo
 /blog/come-creare-un-blog-multilingua-in-next-js /blog/creare-un-blog-multilingua-next-js
-/blog/2015-09-20-our-criticisms-of-angularjs /blog/2015-02-13-sviluppo-con-angularjs
+/blog/2015-09-20-our-criticisms-of-angularjs /blog
+/tutorial-sito-statico-react-netlify /blog
+/blog/2019/01/04/tutorial-per-creare-un-sito-statico-con-sistema-di-autenticazione-con-react-e-netlify-identity/ /blog
+/blog/2017/06/13/perche-non-useremo-slack/ /blog
+/blog/single-page-application-development/ /blog
+/blog/%5Bslug%5D/ /blog
+/it/blog/2014/2/11/social-network-del-futuro /blog
+/servizi/%5Bslug%5D /servizi
+/it/portfolio /portfolio
 /blog/how-we-helped-the-italian-public-administration /blog
+/it/blog/2012/12/21/il-nostro-2012-in-una-infografica-na /blog
 /about /chi-siamo
+/it/portfolio/ctn-groupe /portfolio
+/tecnologie/%5Bslug%5D /servizi/prodotti-digitali
 /blog/2015-06-05-ruby-node-go-vantaggi-sviluppo-backend /blog/
 /it/home /
 /metodo/how-we-work /metodo/come-lavoriamo
