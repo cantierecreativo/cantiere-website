@@ -5,7 +5,7 @@ export default function Document() {
   return (
     <Html lang="it">
       <Head>
-        <Script async src="https://s.widgetwhats.com/wwwa.js" data-wwwa="24811"></Script>
+        <script async src="https://s.widgetwhats.com/wwwa.js" data-wwwa="24811"></script>
       </Head>
       <body>
         <Main />
