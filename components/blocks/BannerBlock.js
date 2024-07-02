@@ -1,4 +1,5 @@
 import DynamicLink from "components/links/DynamicLink";
+import ExternalLink from "components/links/ExternalLink";
 import { renderHTML, convertToSlug } from "lib/utils";
 import Image from "next/legacy/image";
 import Button from "./Button";
@@ -29,16 +30,28 @@ export default function BannerBlock({ locale, record }) {
                     {renderHTML(text)}
                   </h3>
                 )}
-                <InternalLink
-                  element={link.relatedElement}
-                  locale={locale}
-                  label={link.relatedElement.title}
-                >
-                  <Button
-                    bg="white"
-                    label={link?.cta ? link.cta : t("more", locale)}
-                  />
-                </InternalLink>
+
+                <DynamicLink record={link} locale={locale} className={"group"}>
+                  <Button bg="white" label={link?.cta ? link.cta : t("more", locale)} />
+                </DynamicLink>
+                {/* {link.model == "external_link" ? (
+                  <ExternalLink
+                    url={link.url}
+                    label={link.label}
+                    locale={locale}
+                    className={className}
+                  >
+                    <Button bg="white" label={link?.cta ? link.cta : t("more", locale)} />
+                  </ExternalLink>
+                ) : (
+                  <InternalLink
+                    element={link.relatedElement}
+                    locale={locale}
+                    label={link?.relatedElement?.title || ""}
+                  >
+                    <Button bg="white" label={link?.cta ? link.cta : t("more", locale)} />
+                  </InternalLink>
+                )} */}
               </div>
               <div className="xl:w-full xl:h-full aspect-square relative my-6 md:my-0">
                 <DatoImage

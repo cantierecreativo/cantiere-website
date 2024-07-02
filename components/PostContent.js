@@ -12,18 +12,14 @@ import ImageDoubleBlock from "components/blocks/ImageDoubleBlock";
 import NumbersBlock from "components/blocks/NumbersBlock";
 import TextForm from "components/blocks/TextForm";
 import Quote from "components/blocks/Quote";
+import { stringify } from "postcss";
 
-export default function PostContent({
-  record,
-  locale,
-  page = null,
-  solutions = null,
-}) {
+export default function PostContent({ record, locale, page = null, solutions = null }) {
   // return record.model;
   switch (record.model) {
     case "image_block":
     case "article_image_block":
-      return <ImageBlock record={record} locale={locale}  />;
+      return <ImageBlock record={record} locale={locale} />;
     case "video_block":
       return <VideoBlock record={record} locale={locale} />;
     case "partner_block":

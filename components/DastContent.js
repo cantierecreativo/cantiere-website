@@ -59,11 +59,7 @@ export default function DastContent({ content, locale, page }) {
             return (
               <div className={blockPadding}>
                 <div className="px-6 md:px-10 lg:container lg:grid lg:grid-cols-12 xl:px-0">
-                  <WorkCard
-                    record={record}
-                    locale={locale}
-                    fromStructuredText
-                  />
+                  <WorkCard record={record} locale={locale} fromStructuredText />
                 </div>
               </div>
             );
@@ -125,8 +121,7 @@ export default function DastContent({ content, locale, page }) {
       }}
       customRules={[
         renderRule(isHeading, ({ node, children, key }) => {
-          const Tag =
-            (node.level === 1) | (node.level === 2) ? "h2" : "h" + node.level;
+          const Tag = (node.level === 1) | (node.level === 2) ? "h2" : "h" + node.level;
           const textSize = getTextSizeForHeading(node.level);
           return (
             <div
@@ -142,10 +137,7 @@ export default function DastContent({ content, locale, page }) {
         }),
         renderRule(isParagraph, ({ children, key, ancestors }) => {
           {
-            if (
-              ancestors[0].type === "listItem" &&
-              ancestors[0].children.length === 1
-            ) {
+            if (ancestors[0].type === "listItem" && ancestors[0].children.length === 1) {
               return <React.Fragment key={key}>{children}</React.Fragment>;
             }
           }

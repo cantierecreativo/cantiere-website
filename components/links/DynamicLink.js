@@ -5,6 +5,7 @@ import t from "lib/locales";
 import Link from "next/link";
 
 export default function DynamicLink({ record, locale, children, className }) {
+  console.log("record.linkContactForm", record.linkContactForm);
   return record.model === "internal_link" ? (
     record.linkContactForm === false ? (
       <InternalLink
