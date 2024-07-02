@@ -10,11 +10,7 @@ export default function InternalLink({
   slug = null,
 }) {
   return (
-    <Link
-      href={resolveLink(element, locale, slug)}
-      title={label}
-      className={className}
-    >
+    <Link href={resolveLink(element, locale, slug)} title={label} className={className}>
       {children}
     </Link>
   );

@@ -17,12 +17,7 @@ export default function Contact({ locale, site, page, solutions }) {
       <ContactTmp locale={locale} page={page}>
         <div className="vertical-spaces prose">
           {page.blocks.map((b) => (
-            <PostContent
-              key={b.id}
-              record={b}
-              locale={locale}
-              solutions={solutions}
-            />
+            <PostContent key={b.id} record={b} locale={locale} solutions={solutions} />
           ))}
         </div>
       </ContactTmp>
