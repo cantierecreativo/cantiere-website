@@ -1,8 +1,8 @@
 module.exports = {
   reactStrictMode: true,
-  output: "export",
+  // output: "export",
   images: {
-    unoptimized: true,
+    // unoptimized: true,
     domains: ["www.datocms-assets.com", "image.mux.com"],
   },
 };
