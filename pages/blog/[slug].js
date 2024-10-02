@@ -69,7 +69,7 @@ export async function getStaticPaths() {
   const paths = allArticles.map(({ slug }) => ({
     params: { slug },
   }));
-  return { paths, fallback: false };
+  return { paths, fallback: "blocking" };
 }
 
 export async function getStaticProps({ params, locale = "it", preview }) {
