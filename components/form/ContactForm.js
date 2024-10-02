@@ -59,6 +59,8 @@ export default function ContactForm({ locale, solutions }) {
     "Area Privata",
     "GDPR",
     "Accessibilitá",
+    "DatoCMS",
+    "Branding",
   ];
 
   const budgets = ["<= 5k", "DA 5 A 10K", "DA 10 A 20K", ">20K"];
@@ -146,6 +148,7 @@ export default function ContactForm({ locale, solutions }) {
               id="fullName"
               placeholder={t("formFullName", locale)}
               required={true}
+              autoComplete="name"
               {...register("Nome & Cognome")}
             />
           </div>
@@ -162,7 +165,25 @@ export default function ContactForm({ locale, solutions }) {
               id="email"
               placeholder={t("formEmail", locale)}
               required={true}
+              autoComplete="email"
               {...register("Email")}
+            />
+          </div>
+          <div className="pb-8">
+            <div>
+              <label htmlFor="phone" className="label">
+                Numero di telefono
+              </label>
+            </div>
+            <input
+              className="form-input input mt-2 p-4  rounded-md border-2 border-gray-300 block w-full"
+              type="text"
+              name="phone"
+              id="phone"
+              placeholder="Telefono"
+              required={false}
+              autoComplete="tel"
+              {...register("Telefono")}
             />
           </div>
 
