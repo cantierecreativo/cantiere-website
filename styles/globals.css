@@ -322,3 +322,25 @@ strong {
 .my-masonry-grid_column > div {
   @apply mb-12 xl:mb-20;
 }
+
+.custom-select {
+  position: relative;
+  width: 100%;
+  padding: 10px 20px;
+  appearance: none;
+  background: transparent;
+}
+
+.custom-select-contain::after {
+  content: "";
+  box-sizing: border-box;
+  border-style: solid;
+  border-color: black;
+  border-width: 0px 2px 2px 0px;
+  transform: rotate(45deg);
+  transition: border-width 150ms ease-in-out;
+  position: absolute;
+  left: auto;
+  z-index: -1;
+  @apply top-9 right-6 md:right-[260px] h-4 w-4 lg:right-[170px];
+}

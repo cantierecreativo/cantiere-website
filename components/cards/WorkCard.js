@@ -14,10 +14,10 @@ export default function WorkCard({
       <div
         className={`${
           oneColumn
-            ? "md:col-span-2 lg:grid-cols-12"
+            ? "md:col-span-1"
             : fromStructuredText
             ? "lg:col-span-8 lg:col-start-2 xl:col-span-6 xl:col-start-2 xl:px-0"
-            : "md:col-span-1 lg:grid-cols-6"
+            : "md:col-span-1"
         } lg:grid`}
       >
         <div
@@ -47,8 +47,9 @@ export default function WorkCard({
             <div className="text-blue font-bold text-xs uppercase lg:text-sm md:pt-2">
               {subtitle}
             </div>
-            <h2 className="text-black text-xl lg:text-2xl font-bold">{title}</h2>
-            {/* <Button bg="border" /> */}
+            <h2 className="text-black text-xl lg:text-2xl font-bold">
+              {title}
+            </h2>
           </InternalLink>
         </div>
       </div>

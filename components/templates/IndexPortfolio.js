@@ -5,12 +5,14 @@ import PostContent from "components/PostContent";
 import Pagination from "components/layout/Pagination";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
+import InternalLink from "components/links/InternalLink";
+import Link from "next/link";
 
 export default function IndexPortfolio({ locale, page, works }) {
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState(0);
   const [filter, setFilter] = useState("");
-  const pageSize = 12;
+  const pageSize = 24;
 
   const path = locale === "it" ? "/portfolio" : "/en/portfolio";
 
@@ -55,48 +57,56 @@ export default function IndexPortfolio({ locale, page, works }) {
   const start = currentPage * pageSize;
   const paged = list.length > 0 ? list.slice(start, start + pageSize) : list;
 
+  const handleFilterChange = (e) => {
+    const selectedFilter = e.target.value;
+    setFilter(selectedFilter);
+    const url = getFilterUrl(selectedFilter, currentPage + 1);
+    router.push(url);
+  };
+
   return (
     <div className="overflow-hidden">
       <div className="absolute z-0 w-full">
         <Icon name={"shapeStar"} className="fill-violet-dark/10" />
       </div>
-      <HeroText locale={locale} page={page} />
-      <div className="container z-10 relative pb-10 lg:pb-24">
-        {page.id == 684735 && (
-          <div className="grid grid-cols-12 my-10 md:my-16">
-            <div className="flex flex-wrap gap-x-5 gap-y-3 md:gap-6 lg:col-start-2 col-span-12 lg:col-span-11 border-t border-t-black/25 pt-8 md:pt-14 ">
-              <div
-                className={`rounded-l-full xl:text-lg whitespace-nowrap border-2 ${
-                  filter === "" ? "border-blue px-7" : "border-black/70 px-5"
-                }  py-2 hover:border-blue hover:text-blue  cursor-pointer motion-safe:duration-300`}
-              >
-                <a href={getFilterUrl("", currentPage + 1)}>Tutti</a>
-              </div>
-              {uniqueCategories.map((cat) => {
-                return (
-                  <div
-                    key={cat.id}
-                    className={`rounded-l-full xl:text-lg whitespace-nowrap border-2 ${
-                      cat.slug === filter
-                        ? "border-blue px-7"
-                        : "border-black/70 px-5"
-                    }  py-2 hover:border-blue hover:text-blue  cursor-pointer motion-safe:duration-300`}
-                  >
-                    <a href={getFilterUrl(cat?.slug || "", currentPage + 1)}>
+      <header className="container pt-32 pb-8 md:pt-40 lg:pb-16 z-10 relative">
+        <div className="gap-6 lg:flex lg:gap-x-0 border-b border-b-black/25 items-center justify-between">
+          <h1 className="text-3xl md:text-4xl xl:text-6xl max-w-prose font-bold">
+            {page.title}
+          </h1>
+          {page.id == 684735 && (
+            <div className="mb-10 lg:mb-6 lg:w-1/2 xl:w-[560px]">
+              <div className="pt-6 custom-select-contain md:flex md:items-center md:gap-12 relative md:justify-between">
+                <select
+                  value={filter}
+                  onChange={handleFilterChange}
+                  className="border-2 border-black/70 p-2 w-full custom-select md:w-2/3 lg:w-[75%] cursor-pointer"
+                >
+                  <option value="">Filtra i progetti per categoria</option>
+                  {uniqueCategories.map((cat) => (
+                    <option key={cat.id} value={cat.slug}>
                       {cat.title}
-                    </a>
-                  </div>
-                );
-              })}
+                    </option>
+                  ))}
+                </select>
+                <Link
+                  className="hidden md:block"
+                  title="Cacella i filtri"
+                  href={"/portfolio"}
+                >
+                  Vedi Tutti
+                </Link>
+              </div>
             </div>
-          </div>
-        )}
-
+          )}
+        </div>
+      </header>
+      <div className="container z-10 relative pb-10 lg:pb-24">
         <div
           className={`${
             page.model.includes("article")
               ? ""
-              : "md:grid-cols-2 lg:gap-x-0 grid gap-y-16 gap-x-8 py-6 lg:gap-y-16 xl:gap-y-20"
+              : "md:grid-cols-2 lg:grid-cols-3 grid gap-y-16 gap-x-6 py-6 lg:gap-y-16 xl:gap-y-20"
           }`}
         >
           {paged.map((i) => (
