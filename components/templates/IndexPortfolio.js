@@ -1,18 +1,16 @@
-import HeroText from "components/hero/HeroText";
 import Icon from "components/layout/Icon";
 import WhichCard from "components/cards/WhichCard";
 import PostContent from "components/PostContent";
 import Pagination from "components/layout/Pagination";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
-import InternalLink from "components/links/InternalLink";
 import Link from "next/link";
 
 export default function IndexPortfolio({ locale, page, works }) {
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState(0);
   const [filter, setFilter] = useState("");
-  const pageSize = 24;
+  const pageSize = 24000;
 
   const path = locale === "it" ? "/portfolio" : "/en/portfolio";
 
@@ -70,17 +68,17 @@ export default function IndexPortfolio({ locale, page, works }) {
         <Icon name={"shapeStar"} className="fill-violet-dark/10" />
       </div>
       <header className="container pt-32 pb-8 md:pt-40 lg:pb-16 z-10 relative">
-        <div className="gap-6 lg:flex lg:gap-x-0 border-b border-b-black/25 items-center justify-between">
+        <div className="gap-6 lg:flex lg:gap-x-0 border-b border-b-black/25 items-center justify-between lg:items-end lg:pb-6">
           <h1 className="text-3xl md:text-4xl xl:text-6xl max-w-prose font-bold">
             {page.title}
           </h1>
           {page.id == 684735 && (
-            <div className="mb-10 lg:mb-6 lg:w-1/2 xl:w-[560px]">
-              <div className="pt-6 custom-select-contain md:flex md:items-center md:gap-12 relative md:justify-between">
+            <div className="mt-6 mb-10 lg:mb-2 md:flex md:items-center md:gap-8">
+              <div className="inline-block relative custom-select-contain">
                 <select
                   value={filter}
                   onChange={handleFilterChange}
-                  className="border-2 border-black/70 p-2 w-full custom-select md:w-2/3 lg:w-[75%] cursor-pointer"
+                  className="border border-black/70 p-2 appearance-none bg-transparent inline-block w-auto cursor-pointer px-6 pr-16"
                 >
                   <option value="">Filtra i progetti per categoria</option>
                   {uniqueCategories.map((cat) => (
@@ -89,14 +87,14 @@ export default function IndexPortfolio({ locale, page, works }) {
                     </option>
                   ))}
                 </select>
-                <Link
-                  className="hidden md:block"
-                  title="Cacella i filtri"
-                  href={"/portfolio"}
-                >
-                  Vedi Tutti
-                </Link>
               </div>
+              <Link
+                className="hidden md:block underline-offset-8 hover:underline"
+                title="Cacella i filtri"
+                href={"/portfolio"}
+              >
+                Vedi Tutti
+              </Link>
             </div>
           )}
         </div>
@@ -106,7 +104,7 @@ export default function IndexPortfolio({ locale, page, works }) {
           className={`${
             page.model.includes("article")
               ? ""
-              : "md:grid-cols-2 lg:grid-cols-3 grid gap-y-16 gap-x-6 py-6 lg:gap-y-16 xl:gap-y-20"
+              : "md:grid-cols-2 lg:grid-cols-3 grid gap-y-16 gap-x-6 py-6 lg:gap-y-16 xl:gap-y-16"
           }`}
         >
           {paged.map((i) => (

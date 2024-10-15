@@ -323,14 +323,6 @@ strong {
   @apply mb-12 xl:mb-20;
 }
 
-.custom-select {
-  position: relative;
-  width: 100%;
-  padding: 10px 20px;
-  appearance: none;
-  background: transparent;
-}
-
 .custom-select-contain::after {
   content: "";
   box-sizing: border-box;
@@ -342,5 +334,5 @@ strong {
   position: absolute;
   left: auto;
   z-index: -1;
-  @apply top-9 right-6 md:right-[260px] h-4 w-4 lg:right-[170px];
+  @apply top-4 right-6 h-2 w-2;
 }

@@ -44,10 +44,7 @@ export default function WorkCard({
                 layout=""
               />
             )}
-            <div className="text-blue font-bold text-xs uppercase lg:text-sm md:pt-2">
-              {subtitle}
-            </div>
-            <h2 className="text-black text-xl lg:text-2xl font-bold">
+            <h2 className="text-black text-[23px] mt-2 font-bold group-hover:underline underline-offset-8">
               {title}
             </h2>
           </InternalLink>
