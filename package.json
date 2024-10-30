@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "articles": "node scripts/getArticles.mjs",
+    "build": "yarn articles && next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.13",
+    "@netlify/functions": "^2.8.2",
     "@netlify/plugin-nextjs": "5.7.1",
     "@splidejs/react-splide": "^0.7.12",
     "@splidejs/splide": "^4.1.4",
