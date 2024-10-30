@@ -5,6 +5,7 @@ import EditorialTmp from "components/templates/EditorialTmp";
 import DastContent from "components/DastContent";
 import InternalLink from "components/links/InternalLink";
 import SectionBlog from "components/sections/SectionBlog";
+import { getAllArticles } from "lib/utils";
 
 function Article({ locale, site, page, articles }) {
   return (
@@ -50,26 +51,18 @@ function Article({ locale, site, page, articles }) {
   );
 }
 
-async function getAllArticlesPaged(query, offset, locale, results) {
-  const response = await fetchData(query, { locale, offset });
-  const allArticles = [...results, ...response.allArticles];
-  if (response.allArticles.length === 100) {
-    return getAllArticlesPaged(query, offset + 100, locale, allArticles);
-  }
-  return allArticles;
-}
-
 export async function getStaticPaths() {
-  const allArticles = await getAllArticlesPaged(
-    queries.getAllArticlesPaged,
-    0,
-    "it",
-    []
-  );
-  const paths = allArticles.map(({ slug }) => ({
-    params: { slug },
-  }));
-  return { paths, fallback: false };
+  if (process.env.NEXT_PUBLIC_ENV === "development") {
+    return { paths: [], fallback: "blocking" };
+  }
+
+  const allEvents = getAllArticles(locale);
+  return {
+    paths: allEvents.map(({ slug }) => ({
+      params: { slug },
+    })),
+    fallback: false,
+  };
 }
 
 export async function getStaticProps({ params, locale = "it", preview }) {
