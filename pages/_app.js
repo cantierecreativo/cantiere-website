@@ -16,11 +16,16 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       {IUBENDA_SITE_ID && process.env.NEXT_PUBLIC_ENV !== "staging" && (
-        <Script id="iubenda-cs" src="//cdn.iubenda.com/cs/iubenda_cs.js" />
+        <Script
+          id="iubenda-cs"
+          src="//cdn.iubenda.com/cs/iubenda_cs.js"
+          strategy="beforeInteractive"
+        />
       )}
       {IUBENDA_SITE_ID && process.env.NEXT_PUBLIC_ENV !== "staging" && (
         <Script
-          id="iubenda"
+          id="iubenda-config"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
             var _iub = _iub || [];
@@ -62,6 +67,7 @@ function MyApp({ Component, pageProps }) {
       {IUBENDA_SITE_ID && process.env.NEXT_PUBLIC_ENV !== "staging" && (
         <Script
           id="active-modal-cookie"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);`,
           }}
@@ -71,6 +77,7 @@ function MyApp({ Component, pageProps }) {
       {GTM && process.env.NEXT_PUBLIC_ENV !== "staging" && (
         <Script
           type="plain/text"
+          id="google-analytics"
           className="_iub_cs_activate"
           data-iub-purposes="4"
           src={`https://www.googletagmanager.com/gtag/js?id=${GTM}`}
@@ -101,6 +108,7 @@ function MyApp({ Component, pageProps }) {
           <script
             type="plain/text"
             className="_iub_cs_activate"
+            id="google-tag-manager"
             data-iub-purposes="4"
             dangerouslySetInnerHTML={{
               __html: `
