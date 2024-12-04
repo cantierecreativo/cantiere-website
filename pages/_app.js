@@ -15,7 +15,6 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <Component {...pageProps} />
       {IUBENDA_SITE_ID && process.env.NEXT_PUBLIC_ENV !== "staging" && (
         <Script id="iubenda-cs" src="//cdn.iubenda.com/cs/iubenda_cs.js" />
       )}
@@ -127,6 +126,8 @@ function MyApp({ Component, pageProps }) {
           </noscript>
         </>
       )}
+
+      <Component {...pageProps} />
     </>
   );
 }
