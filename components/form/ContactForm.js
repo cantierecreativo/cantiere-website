@@ -245,6 +245,7 @@ export default function ContactForm({ locale, solutions }) {
           <div className="flex mt-10 bg-blue border border-black group rounded-md justify-between after:bg-white after:absolute after:top-0 after:left-0 after:right-0 after:h-0 after:duration-300 hover:after:h-full relative ">
             {!result && (
               <button
+                id="btn-form"
                 type="submit"
                 className="flex text-white hover:text-black justify-between w-full xl:text-lg items-center px-6 py-4 font-bold z-[1] relative"
               >
