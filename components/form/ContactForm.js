@@ -93,7 +93,11 @@ export default function ContactForm({ locale, solutions }) {
 
   return (
     <div className="mt-10 py-10">
-      <form className="pt-4 lg:pt-0 relative" onSubmit={handleSubmit(onSubmit)}>
+      <form
+        id="contact-form"
+        className="pt-4 lg:pt-0 relative"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <div className="pb-8">
           <div className="text-xl font-bold">Sono interessato a:</div>
           <div className="flex flex-wrap">
