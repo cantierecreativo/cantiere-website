@@ -52,13 +52,14 @@ function Article({ locale, site, page, articles }) {
 }
 
 export async function getStaticPaths() {
+  const locale = "it";
   if (process.env.NEXT_PUBLIC_ENV === "development") {
     return { paths: [], fallback: "blocking" };
   }
 
-  const allEvents = getAllArticles(locale);
+  const allArticles = getAllArticles(locale);
   return {
-    paths: allEvents.map(({ slug }) => ({
+    paths: allArticles.map(({ slug }) => ({
       params: { slug },
     })),
     fallback: false,
