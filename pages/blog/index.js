@@ -13,21 +13,47 @@ export default function ArticlesIndex({ locale, site, page, items }) {
 }
 
 export async function getStaticProps({ locale = "it", preview }) {
-  const response = await fetchData(queries.getArticlesIndex, { locale }, preview);
-
-  const allArticles = getAllArticles(locale);
-  const count = allArticles.length;
-  // console.log("allArticles ->", allArticles.length);
-
-  const maxPages = Math.ceil(count / 24);
+  const response = await fetchData(
+    queries.getArticlesIndex,
+    { locale },
+    preview
+  );
   let news = {};
-  let page = 0;
+  if (preview) {
+    const {
+      _allArticlesMeta: { count },
+    } = await fetchData(queries.getArticlesCount, { locale }, preview);
 
-  while (page < maxPages) {
-    const offset = page * 24;
-    const articles = allArticles.slice(offset, 24);
-    news[page + 1] = articles;
-    page++;
+    const maxPages = Math.ceil(count / 24);
+
+    let page = 0;
+
+    while (page < maxPages) {
+      const { allArticles } = await fetchData(
+        queries.getAllArticlesPaged,
+        {
+          locale,
+          offset: page * 24,
+          first: 24,
+        },
+        preview
+      );
+      news[page + 1] = allArticles;
+      p++;
+    }
+  } else {
+    const allArticles = getAllArticles(locale);
+    const count = allArticles.length;
+
+    const maxPages = Math.ceil(count / 24);
+    let page = 0;
+
+    while (page < maxPages) {
+      const offset = page * 24;
+      const articles = allArticles.slice(offset, 24);
+      news[page + 1] = articles;
+      page++;
+    }
   }
 
   const site = await fetchData(queries.site, { locale });

@@ -36,3 +36,5 @@ yarn-error.log*
 # Local Netlify folder
 .netlify
 .history
+src/data/all_articles_en.json
+src/data/all_articles_it.json
