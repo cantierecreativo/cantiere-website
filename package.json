@@ -17,6 +17,7 @@
     "@splidejs/splide": "^4.1.4",
     "@tailwindcss/line-clamp": "^0.4.4",
     "dayjs": "^1.11.7",
+    "dotenv": "^16.4.7",
     "embla-carousel-autoplay": "^8.0.0-rc19",
     "embla-carousel-react": "^8.0.0-rc19",
     "framer-motion": "^10.18.0",

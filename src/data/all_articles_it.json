@@ -1,6 +1,424 @@
 [
   {
     "model": "article",
+    "id": "QxJn1fHuQ46j7SUoOvXXtg",
+    "title": "European Accessibility Act 2025: Come mettersi in regola",
+    "slugs": [
+      {
+        "locale": "it",
+        "value": "european-accessibility-act-2025-come-mettersi-in-regola"
+      }
+    ],
+    "seo": [
+      {
+        "tag": "title",
+        "attributes": null,
+        "content": "European Accessibility Act 2025: Come mettersi in regola"
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:title",
+          "content": "European Accessibility Act 2025: Come mettersi in regola"
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:title",
+          "content": "European Accessibility Act 2025: Come mettersi in regola"
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "description",
+          "content": "Costruiamo grandi progetti insieme! Cantiere Creativo è un'agenzia di sviluppo in cui si lavora con passione e trasparenza."
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:description",
+          "content": "Costruiamo grandi progetti insieme! Cantiere Creativo è un'agenzia di sviluppo in cui si lavora con passione e trasparenza."
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:description",
+          "content": "Costruiamo grandi progetti insieme! Cantiere Creativo è un'agenzia di sviluppo in cui si lavora con passione e trasparenza."
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:image",
+          "content": "https://www.datocms-assets.com/9862/1733223733-pexels-jakubzerdzicki-29606842.jpg?auto=format&fit=max&w=1200"
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:image:width",
+          "content": "1200"
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:image:height",
+          "content": "800"
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:image",
+          "content": "https://www.datocms-assets.com/9862/1733223733-pexels-jakubzerdzicki-29606842.jpg?auto=format&fit=max&w=1200"
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:locale",
+          "content": "it"
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:type",
+          "content": "article"
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:site_name",
+          "content": "Cantiere Creativo"
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "article:modified_time",
+          "content": "2024-12-03T11:02:22Z"
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "article:publisher",
+          "content": "https://www.facebook.com/cantierecreativo/"
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:card",
+          "content": "summary"
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:site",
+          "content": "@teamcantiere"
+        },
+        "content": null
+      }
+    ],
+    "previewLarge": false,
+    "slug": "european-accessibility-act-2025-come-mettersi-in-regola",
+    "date": "2024-12-10",
+    "tags": [
+      {
+        "id": "5798092",
+        "title": "Accessibilità",
+        "slug": "accessibilita",
+        "model": "article_tag"
+      },
+      {
+        "id": "680535",
+        "title": "Cantiere",
+        "slug": "cantiere",
+        "model": "article_tag"
+      },
+      {
+        "id": "clwtwhgESn2sZdrPT29cDQ",
+        "title": "Digital partner",
+        "slug": "digital-partner",
+        "model": "article_tag"
+      }
+    ],
+    "author": {
+      "id": "120946501",
+      "name": "Antonello Zanini",
+      "image": {
+        "responsiveImage": {
+          "aspectRatio": 1,
+          "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoIFAgLDhYVDhgNDg0NEBYNDg0OFxgZGBYVFiEaHysjGh0oHRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHBAQHDskIyg7NTIvLzI1Oy8vLy8vNS8vLy8vLzU2Ly8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABgAGAMBIgACEQEDEQH/xAAZAAEBAAMBAAAAAAAAAAAAAAAABQQGBwL/xAAdEAACAgIDAQAAAAAAAAAAAAAAAQMEAhEGEzEh/8QAGAEBAAMBAAAAAAAAAAAAAAAABAMFBgL/xAAaEQADAAMBAAAAAAAAAAAAAAAAAQIDERIE/9oADAMBAAIRAxEAPwDc56awjZJiqJzsr2LuDTJavxYzNbRU+SXwPiJ0ZVenh2g9V7cbk3sAM0PtnLmdnO5+dYZJk6HlimtegGj8sJS0Dm60Z0vLOjX0AA8mKXTI3dbP/9k=",
+          "height": 50,
+          "sizes": "50px",
+          "src": "https://www.datocms-assets.com/9862/1649341344-antonello-zanini.jpg?auto=format%2Ccompress&fit=crop&h=50&w=50",
+          "srcSet": "https://www.datocms-assets.com/9862/1649341344-antonello-zanini.jpg?auto=format%2Ccompress&fit=crop&h=50&w=50 50w,https://www.datocms-assets.com/9862/1649341344-antonello-zanini.jpg?auto=format%2Ccompress&dpr=1.5&fit=crop&h=50&w=50 75w,https://www.datocms-assets.com/9862/1649341344-antonello-zanini.jpg?auto=format%2Ccompress&dpr=2&fit=crop&h=50&w=50 100w,https://www.datocms-assets.com/9862/1649341344-antonello-zanini.jpg?auto=format%2Ccompress&dpr=3&fit=crop&h=50&w=50 150w,https://www.datocms-assets.com/9862/1649341344-antonello-zanini.jpg?auto=format%2Ccompress&dpr=4&fit=crop&h=50&w=50 200w",
+          "webpSrcSet": "",
+          "width": 50,
+          "alt": null,
+          "title": null
+        }
+      },
+      "email": "",
+      "githubId": ""
+    },
+    "cover": {
+      "responsiveImage": {
+        "aspectRatio": 0.9090454772613693,
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBhAIEhEODxILDhEPDg0NDREOFg0YFxYZGBYVIhUmHy0jGh0oHSEWMDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0PEg4OHC8cFhwvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABkAFgMBIgACEQEDEQH/xAAaAAABBQEAAAAAAAAAAAAAAAAFAAECBAYD/8QAHRAAAQUBAQEBAAAAAAAAAAAAAAECAwQRBYEyMf/EABcBAQEBAQAAAAAAAAAAAAAAAAIEAwD/xAAZEQEAAgMAAAAAAAAAAAAAAAAAAhEBAxL/2gAMAwEAAhEDEQA/AJ8azsmGjmmyLTNcSq5JjR3IFSv4Sa4liARbut3BwZciesnoxRR8ivOkbE/S5e6SJHgMq/pG/wDIYYG3F9lr3aIotEb063//2Q==",
+        "height": 2001,
+        "sizes": "(min-width:500px) 40vw, 60vw",
+        "src": "https://www.datocms-assets.com/9862/1733223733-pexels-jakubzerdzicki-29606842.jpg?ar64=MTA6MTE&auto=format%2Ccompress&fit=crop",
+        "srcSet": "https://www.datocms-assets.com/9862/1733223733-pexels-jakubzerdzicki-29606842.jpg?ar64=MTA6MTE&auto=format%2Ccompress&dpr=0.25&fit=crop 454w,https://www.datocms-assets.com/9862/1733223733-pexels-jakubzerdzicki-29606842.jpg?ar64=MTA6MTE&auto=format%2Ccompress&dpr=0.5&fit=crop 909w,https://www.datocms-assets.com/9862/1733223733-pexels-jakubzerdzicki-29606842.jpg?ar64=MTA6MTE&auto=format%2Ccompress&dpr=0.75&fit=crop 1364w,https://www.datocms-assets.com/9862/1733223733-pexels-jakubzerdzicki-29606842.jpg?ar64=MTA6MTE&auto=format%2Ccompress&fit=crop 1819w,https://www.datocms-assets.com/9862/1733223733-pexels-jakubzerdzicki-29606842.jpg?ar64=MTA6MTE&auto=format%2Ccompress&dpr=1.5&fit=crop 2728w",
+        "webpSrcSet": "",
+        "width": 1819,
+        "alt": null,
+        "title": null
+      }
+    },
+    "abstract": "<p>L&rsquo;European Accessibility Act rappresenta uno spartiacque nel panorama digitale dell&rsquo;UE. A partire da fine giugno del 2025, tutti i prodotti e servizi digitali immessi sul mercato europeo dovranno rispettare specifici requisiti di accessibilit&agrave;. La mancata conformit&agrave; potr&agrave; comportare sanzioni severe, fino a diverse migliaia di euro.</p>\n<p>Se la tua azienda non ha ancora preso provvedimenti per adeguarsi alla normativa, il momento di agire &egrave; adesso!</p>\n<p>In questo articolo scoprirai di cosa tratta la Direttiva Europea sull&rsquo;Accessibilit&agrave;, chi coinvolge, quali sono le sue principali disposizioni e come mettersi in regola.</p>"
+  },
+  {
+    "model": "article",
+    "id": "bKXkT_xkTAaWkkdilmWq0A",
+    "title": "IA generativa nei CMS: il futuro della creazione dei contenuti",
+    "slugs": [
+      {
+        "locale": "it",
+        "value": "ia-generativa-nei-cms-il-futuro-della-creazione-dei-contenuti"
+      }
+    ],
+    "seo": [
+      {
+        "tag": "title",
+        "attributes": null,
+        "content": "IA generativa nei CMS: il futuro della creazione dei contenuti"
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:title",
+          "content": "IA generativa nei CMS: il futuro della creazione dei contenuti"
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:title",
+          "content": "IA generativa nei CMS: il futuro della creazione dei contenuti"
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "description",
+          "content": "Costruiamo grandi progetti insieme! Cantiere Creativo è un'agenzia di sviluppo in cui si lavora con passione e trasparenza."
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:description",
+          "content": "Costruiamo grandi progetti insieme! Cantiere Creativo è un'agenzia di sviluppo in cui si lavora con passione e trasparenza."
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:description",
+          "content": "Costruiamo grandi progetti insieme! Cantiere Creativo è un'agenzia di sviluppo in cui si lavora con passione e trasparenza."
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:image",
+          "content": "https://www.datocms-assets.com/9862/1733220970-a-black-keyboard-with-a-blue-b.jpg?auto=format&fit=max&w=1200"
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:image:width",
+          "content": "1200"
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:image:height",
+          "content": "750"
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:image:alt",
+          "content": "Tastiera con tasto AI"
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:image",
+          "content": "https://www.datocms-assets.com/9862/1733220970-a-black-keyboard-with-a-blue-b.jpg?auto=format&fit=max&w=1200"
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:image:alt",
+          "content": "Tastiera con tasto AI"
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:locale",
+          "content": "it"
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:type",
+          "content": "article"
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "og:site_name",
+          "content": "Cantiere Creativo"
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "article:modified_time",
+          "content": "2024-12-03T10:33:19Z"
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "property": "article:publisher",
+          "content": "https://www.facebook.com/cantierecreativo/"
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:card",
+          "content": "summary"
+        },
+        "content": null
+      },
+      {
+        "tag": "meta",
+        "attributes": {
+          "name": "twitter:site",
+          "content": "@teamcantiere"
+        },
+        "content": null
+      }
+    ],
+    "previewLarge": true,
+    "slug": "ia-generativa-nei-cms-il-futuro-della-creazione-dei-contenuti",
+    "date": "2024-12-03",
+    "tags": [
+      {
+        "id": "JG9vv5dDSaO_ls93x8wv-w",
+        "title": "IA",
+        "slug": "ia",
+        "model": "article_tag"
+      },
+      {
+        "id": "680525",
+        "title": "DatoCMS",
+        "slug": "datocms",
+        "model": "article_tag"
+      }
+    ],
+    "author": {
+      "id": "120946501",
+      "name": "Antonello Zanini",
+      "image": {
+        "responsiveImage": {
+          "aspectRatio": 1,
+          "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoIFAgLDhYVDhgNDg0NEBYNDg0OFxgZGBYVFiEaHysjGh0oHRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHBAQHDskIyg7NTIvLzI1Oy8vLy8vNS8vLy8vLzU2Ly8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABgAGAMBIgACEQEDEQH/xAAZAAEBAAMBAAAAAAAAAAAAAAAABQQGBwL/xAAdEAACAgIDAQAAAAAAAAAAAAAAAQMEAhEGEzEh/8QAGAEBAAMBAAAAAAAAAAAAAAAABAMFBgL/xAAaEQADAAMBAAAAAAAAAAAAAAAAAQIDERIE/9oADAMBAAIRAxEAPwDc56awjZJiqJzsr2LuDTJavxYzNbRU+SXwPiJ0ZVenh2g9V7cbk3sAM0PtnLmdnO5+dYZJk6HlimtegGj8sJS0Dm60Z0vLOjX0AA8mKXTI3dbP/9k=",
+          "height": 50,
+          "sizes": "50px",
+          "src": "https://www.datocms-assets.com/9862/1649341344-antonello-zanini.jpg?auto=format%2Ccompress&fit=crop&h=50&w=50",
+          "srcSet": "https://www.datocms-assets.com/9862/1649341344-antonello-zanini.jpg?auto=format%2Ccompress&fit=crop&h=50&w=50 50w,https://www.datocms-assets.com/9862/1649341344-antonello-zanini.jpg?auto=format%2Ccompress&dpr=1.5&fit=crop&h=50&w=50 75w,https://www.datocms-assets.com/9862/1649341344-antonello-zanini.jpg?auto=format%2Ccompress&dpr=2&fit=crop&h=50&w=50 100w,https://www.datocms-assets.com/9862/1649341344-antonello-zanini.jpg?auto=format%2Ccompress&dpr=3&fit=crop&h=50&w=50 150w,https://www.datocms-assets.com/9862/1649341344-antonello-zanini.jpg?auto=format%2Ccompress&dpr=4&fit=crop&h=50&w=50 200w",
+          "webpSrcSet": "",
+          "width": 50,
+          "alt": null,
+          "title": null
+        }
+      },
+      "email": "",
+      "githubId": ""
+    },
+    "cover": {
+      "responsiveImage": {
+        "aspectRatio": 0.909149072296865,
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBhQNDg8VCQ0ODg8HDgYHFhYNFggYFxMZGCITFhUaHysjGh0oHRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OEA0QEC8cFhwvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABkAFgMBIgACEQEDEQH/xAAaAAACAgMAAAAAAAAAAAAAAAAEBQADAQIH/8QAHBAAAgMAAwEAAAAAAAAAAAAAAAECAwQREjEy/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAL/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDmOLK2xqsrUQPBfEZy0R6FJUqrgyUz1x5IAhy3OLDZaZdRbR6Fy+QNZXNshU/SAf/Z",
+        "height": 1563,
+        "sizes": "(min-width:500px) 40vw, 60vw",
+        "src": "https://www.datocms-assets.com/9862/1733220970-a-black-keyboard-with-a-blue-b.jpg?ar64=MTA6MTE&auto=format%2Ccompress&fit=crop",
+        "srcSet": "https://www.datocms-assets.com/9862/1733220970-a-black-keyboard-with-a-blue-b.jpg?ar64=MTA6MTE&auto=format%2Ccompress&dpr=0.25&fit=crop 355w,https://www.datocms-assets.com/9862/1733220970-a-black-keyboard-with-a-blue-b.jpg?ar64=MTA6MTE&auto=format%2Ccompress&dpr=0.5&fit=crop 710w,https://www.datocms-assets.com/9862/1733220970-a-black-keyboard-with-a-blue-b.jpg?ar64=MTA6MTE&auto=format%2Ccompress&dpr=0.75&fit=crop 1065w,https://www.datocms-assets.com/9862/1733220970-a-black-keyboard-with-a-blue-b.jpg?ar64=MTA6MTE&auto=format%2Ccompress&fit=crop 1421w,https://www.datocms-assets.com/9862/1733220970-a-black-keyboard-with-a-blue-b.jpg?ar64=MTA6MTE&auto=format%2Ccompress&dpr=1.5&fit=crop 2131w",
+        "webpSrcSet": "",
+        "width": 1421,
+        "alt": "Tastiera con tasto AI",
+        "title": "Tastiera con tasto AI"
+      }
+    },
+    "abstract": "<p>L'IA generativa &egrave; entrata a gamba tesa nel mondo della produzione di contenuti, offrendo opportunit&agrave; senza precedenti per innovare e ottimizzare i processi creativi. Creare immagini con intelligenza artificiale non &egrave; pi&ugrave; un sogno e lo stesso vale per testi, musica e video.</p>\n<div><span class=\" author-d-1gg9uz65z1iz85zgdz68zmqkz84zo2qowz82z5mwnz73zz77z4z80z0z66zz89zx2cfz67zz74zv9z70zpz71zcz83z6z77zaz72zl5\">In questo articolo, capirai meglio il valore dell'intelligenza artificiale e scoprirai le sue applicazioni nei CMS, dove pu&ograve; davvero fare la differenza grazie alla sua capacit&agrave; di generare contenuti. Partiamo!</span></div>"
+  },
+  {
+    "model": "article",
     "id": "Iw3bVsVTTt-wdIvN5lEriw",
     "title": "Digital partner vs web agency: quale scegliere e perchè",
     "slugs": [
@@ -3653,7 +4071,7 @@
       "image": {
         "responsiveImage": {
           "aspectRatio": 1,
-          "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoTEggLDw4RDhgNDg4TCxENFg4NFxYZGCIVIhUmHysjGh0oKRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHBAQHDspGyg7Oy81LzYvOy8vNS8vOy81Ly8vLy81Ly8vLy8vNS8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABgAGAMBIgACEQEDEQH/xAAZAAEBAAMBAAAAAAAAAAAAAAAABQQGBwP/xAAfEAACAgEEAwAAAAAAAAAAAAAAAQMEAgYTITEFERL/xAAZAQABBQAAAAAAAAAAAAAAAAAEAQIDBQb/xAAaEQACAwEBAAAAAAAAAAAAAAABAgADERIE/9oADAMBAAIRAxEAPwDcZ6HzGyTFQTnZdsXcGmS1fhxnfKKjydcQxLjk9K/j8d0GRXtxOTtABuDdmNNx2c1n17hknyT4tXbtntgGk81agZFUCZsur9j1ywACPUpYyNgNn//Z",
+          "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoIFAgLDhYVDhgNDg0NEBYNDg0OFxgZGBYVFiEaHysjGh0oHRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHBAQHDskIyg7NTIvLzI1Oy8vLy8vNS8vLy8vLzU2Ly8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABgAGAMBIgACEQEDEQH/xAAZAAEBAAMBAAAAAAAAAAAAAAAABQQGBwL/xAAdEAACAgIDAQAAAAAAAAAAAAAAAQMEAhEGEzEh/8QAGAEBAAMBAAAAAAAAAAAAAAAABAMFBgL/xAAaEQADAAMBAAAAAAAAAAAAAAAAAQIDERIE/9oADAMBAAIRAxEAPwDc56awjZJiqJzsr2LuDTJavxYzNbRU+SXwPiJ0ZVenh2g9V7cbk3sAM0PtnLmdnO5+dYZJk6HlimtegGj8sJS0Dm60Z0vLOjX0AA8mKXTI3dbP/9k=",
           "height": 50,
           "sizes": "50px",
           "src": "https://www.datocms-assets.com/9862/1649341344-antonello-zanini.jpg?auto=format%2Ccompress&fit=crop&h=50&w=50",
@@ -4075,7 +4493,7 @@
       "image": {
         "responsiveImage": {
           "aspectRatio": 1,
-          "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgXFQoVDiINFQ0ZDhQOFQ0YFxYZGCIVFhUdHysjGh0oIiEWJDUlKC0vMjIyHSI4PTcwPCsxMi8BCgsLDg0OHBAQHDsoIigvLzU1NTU1Ly81NS8vLzs1Ly8vLzUvNS8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABgAGAMBIgACEQEDEQH/xAAZAAADAAMAAAAAAAAAAAAAAAAABgcBBAX/xAAeEAABBAIDAQAAAAAAAAAAAAAAAQIDBAYRBRMhEv/EABcBAQEBAQAAAAAAAAAAAAAAAAMBBAD/xAAZEQADAQEBAAAAAAAAAAAAAAAAAQIRAwT/2gAMAwEAAhEDEQA/AJzjNXuseoO0XHfMrdILGKzwMtohQI5Ye1qmXpT0Xz9XhsUKis14ZOhFZia1NIA028JXV6QbiLa1brHKvg1WMpbA5qIAEuU2JxSxsYuFyOK2xNgACSlh1StP/9k=",
+          "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICA4LFQ8SFRgPERUVDRUPDQ0NFxUeGBcVFiEaHysjJh0oKRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHBAQHC8nIig7OzsvLy81Ly8vNS8yOzU1Ly81Ly8vLzUvLzUvMi8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABgAGAMBIgACEQEDEQH/xAAYAAADAQEAAAAAAAAAAAAAAAAABgcEAf/EAB0QAAEEAgMAAAAAAAAAAAAAAAABAgMEBhEFExT/xAAWAQEBAQAAAAAAAAAAAAAAAAADBAL/xAAaEQADAQEBAQAAAAAAAAAAAAAAAQIRAyEx/9oADAMBAAIRAxEAPwCd41Ak1gdoqKNlQUsUnhZaRCgMli7WqTdH6U8IWG6hXVmgNcVmNrU0gDS/DNc1pC+Gs+e81yjXYyaOu5iABi1tAxTTeDFwuQQ3GJs4ACT8Dq3p/9k=",
           "height": 50,
           "sizes": "50px",
           "src": "https://www.datocms-assets.com/9862/1675352158-federica-insinga.jpg?auto=format%2Ccompress&fit=crop&h=50&w=50",
@@ -6733,7 +7151,7 @@
       "image": {
         "responsiveImage": {
           "aspectRatio": 1,
-          "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICA4LFQ8SFRgPERUVDRUPDQ0NFxUeGBcVFiEaHysjJh0oKRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHBAQHC8nIig7OzsvLy81Ly8vNS8yOzU1Ly81Ly8vLzUvLzUvMi8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABgAGAMBIgACEQEDEQH/xAAYAAADAQEAAAAAAAAAAAAAAAAABgcEAf/EAB0QAAEEAgMAAAAAAAAAAAAAAAABAgMEBhEFExT/xAAWAQEBAQAAAAAAAAAAAAAAAAADBAL/xAAaEQADAQEBAQAAAAAAAAAAAAAAAQIRAyEx/9oADAMBAAIRAxEAPwCd41Ak1gdoqKNlQUsUnhZaRCgMli7WqTdH6U8IWG6hXVmgNcVmNrU0gDS/DNc1pC+Gs+e81yjXYyaOu5iABi1tAxTTeDFwuQQ3GJs4ACT8Dq3p/9k=",
+          "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICBERDhERFxANDQ0YDhUOFhYVGB8ZGCIfFiEaHyslGh0oHSEWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHBAQHDUlIigvLy8vLy8vLy81Ly8vLzsvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABgAGAMBIgACEQEDEQH/xAAYAAADAQEAAAAAAAAAAAAAAAAABgcEAf/EAB4QAAEEAwADAAAAAAAAAAAAAAABAgMEBQYREhMU/8QAFwEAAwEAAAAAAAAAAAAAAAAAAQIDBP/EABoRAAMBAQEBAAAAAAAAAAAAAAABAiEDMRH/2gAMAwEAAhEDEQA/AJzrNZJbA7xY/wAZWirqs8DLSIUCOWL2NUzdHpfg8NdCsrOAborMTWpw4VmsBXpCcPa+a8xyjXY2dldzUOAC5TYvPPox4XYobjE6AAPKwWnp/9k=",
           "height": 50,
           "sizes": "50px",
           "src": "https://www.datocms-assets.com/9862/1675352158-federica-insinga.jpg?auto=format%2Ccompress&fit=crop&h=50&w=50",
@@ -7161,7 +7579,7 @@
       "image": {
         "responsiveImage": {
           "aspectRatio": 1,
-          "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgWDQoXDhgQGBUVDhchDREYGhoZJhYVFhUaHysjJh0oHSEiJTUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHBAQHC8pGygvNTUvLy8vLy81NS8vLy81Ly8vLy8vLy8vLy8vNS8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABgAGAMBIgACEQEDEQH/xAAZAAADAAMAAAAAAAAAAAAAAAAABgcBBAX/xAAfEAABBAICAwAAAAAAAAAAAAAAAQIDBAYhBRESExT/xAAYAQACAwAAAAAAAAAAAAAAAAABAwACBP/EABgRAAMBAQAAAAAAAAAAAAAAAAABAhED/9oADAMBAAIRAxEAPwCc4zVSWxsdouO8ZW6FjFZ4GW0Qf45Yfa1TL0p6N4dXhs0Kqs60B0IrMTWp0hkdNPAV1ekF4i1815jlXQ12MobA5qIAAuU2X5JY2MXC5HDbYnYAAyUsJUrT/9k=",
+          "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICA4LFQ8SFRgPERUVDRUPDQ0NFxUeGBcVFiEaHysjJh0oKRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHBAQHC8nIig7OzsvLy81Ly8vNS8yOzU1Ly81Ly8vLzUvLzUvMi8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABgAGAMBIgACEQEDEQH/xAAYAAADAQEAAAAAAAAAAAAAAAAABgcEAf/EAB0QAAEEAgMAAAAAAAAAAAAAAAABAgMEBhEFExT/xAAWAQEBAQAAAAAAAAAAAAAAAAADBAL/xAAaEQADAQEBAQAAAAAAAAAAAAAAAQIRAyEx/9oADAMBAAIRAxEAPwCd41Ak1gdoqKNlQUsUnhZaRCgMli7WqTdH6U8IWG6hXVmgNcVmNrU0gDS/DNc1pC+Gs+e81yjXYyaOu5iABi1tAxTTeDFwuQQ3GJs4ACT8Dq3p/9k=",
           "height": 50,
           "sizes": "50px",
           "src": "https://www.datocms-assets.com/9862/1675352158-federica-insinga.jpg?auto=format%2Ccompress&fit=crop&h=50&w=50",
@@ -9784,7 +10202,7 @@
       "image": {
         "responsiveImage": {
           "aspectRatio": 1,
-          "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgXFQoVDiINFQ0ZDhQOFQ0YFxYZGCIVFhUdHysjGh0oIiEWJDUlKC0vMjIyHSI4PTcwPCsxMi8BCgsLDg0OHBAQHDsoIigvLzU1NTU1Ly81NS8vLzs1Ly8vLzUvNS8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABgAGAMBIgACEQEDEQH/xAAZAAADAAMAAAAAAAAAAAAAAAAABgcBBAX/xAAeEAABBAIDAQAAAAAAAAAAAAAAAQIDBAYRBRMhEv/EABcBAQEBAQAAAAAAAAAAAAAAAAMBBAD/xAAZEQADAQEBAAAAAAAAAAAAAAAAAQIRAwT/2gAMAwEAAhEDEQA/AJzjNXuseoO0XHfMrdILGKzwMtohQI5Ye1qmXpT0Xz9XhsUKis14ZOhFZia1NIA028JXV6QbiLa1brHKvg1WMpbA5qIAEuU2JxSxsYuFyOK2xNgACSlh1StP/9k=",
+          "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICA4LFQ8SFRgPERUVDRUPDQ0NFxUeGBcVFiEaHysjJh0oKRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHBAQHC8nIig7OzsvLy81Ly8vNS8yOzU1Ly81Ly8vLzUvLzUvMi8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABgAGAMBIgACEQEDEQH/xAAYAAADAQEAAAAAAAAAAAAAAAAABgcEAf/EAB0QAAEEAgMAAAAAAAAAAAAAAAABAgMEBhEFExT/xAAWAQEBAQAAAAAAAAAAAAAAAAADBAL/xAAaEQADAQEBAQAAAAAAAAAAAAAAAQIRAyEx/9oADAMBAAIRAxEAPwCd41Ak1gdoqKNlQUsUnhZaRCgMli7WqTdH6U8IWG6hXVmgNcVmNrU0gDS/DNc1pC+Gs+e81yjXYyaOu5iABi1tAxTTeDFwuQQ3GJs4ACT8Dq3p/9k=",
           "height": 50,
           "sizes": "50px",
           "src": "https://www.datocms-assets.com/9862/1675352158-federica-insinga.jpg?auto=format%2Ccompress&fit=crop&h=50&w=50",
@@ -11378,8 +11796,8 @@
       },
       {
         "id": "7022510",
-        "title": "graphiql",
-        "slug": "graphiql",
+        "title": "graphql",
+        "slug": "graphql",
         "model": "article_tag"
       }
     ],
@@ -11976,7 +12394,7 @@
       "image": {
         "responsiveImage": {
           "aspectRatio": 1,
-          "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoPEA8LEA0SDg8NDhYUExENDhEYFxMZGBYVIhUaHysjJh0oHRUiJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHA0NHDscFhwvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABgAGAMBIgACEQEDEQH/xAAYAAADAQEAAAAAAAAAAAAAAAAABQYEAf/EABwQAAEFAQEBAAAAAAAAAAAAAAABAgMEEQWBcf/EABYBAAMAAAAAAAAAAAAAAAAAAAIDBP/EABgRAAMBAQAAAAAAAAAAAAAAAAABAhES/9oADAMBAAIRAxEAPwC167mvRSdjVqTjnr2GJGpKwXNt+g9MfMzhV1XZgGWtZbiAF0xTmdF/Ss7EpKx3Gx2l+nQKuERq6weUumxyoAAGoQl3Wn//2Q==",
+          "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoQEhALCg4NDhEODQ0NDhENDg0NFxQZGBYTIhUdHysjGh0oHRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHA0NHDsdFhwvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABgAGAMBIgACEQEDEQH/xAAYAAADAQEAAAAAAAAAAAAAAAAABQYBA//EAB4QAAEEAgMBAAAAAAAAAAAAAAABAgMEBREhcYEU/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgME/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAIBEgMhMf/aAAwDAQACEQMRAD8AtMvp6KTsTW/QPcvYjSNSVguItv0F2Krk0U9XjQHKtZbpDB3YlOXYrydvcSkrHfbHaXs0DZRQxweUsq1ymgA4RSE9P//Z",
           "height": 50,
           "sizes": "50px",
           "src": "https://www.datocms-assets.com/8220/1548849206-matteo-nicoletti.jpg?auto=format%2Ccompress&fit=crop&h=50&w=50",
@@ -14158,7 +14576,7 @@
     "cover": {
       "responsiveImage": {
         "aspectRatio": 0.9094790777113578,
-        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBg8RDQ0NDQ0ODg8NDg0NERENFg0YFxYZGBYVFhUaHysjGh0oHRUiMDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHRANHDscFhwvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABkAFgMBIgACEQEDEQH/xAAZAAEAAgMAAAAAAAAAAAAAAAAEAAMBAgX/xAAbEAADAAMBAQAAAAAAAAAAAAAAAQIDBBEyEv/EABcBAQADAAAAAAAAAAAAAAAAAAIBBAX/xAAZEQADAAMAAAAAAAAAAAAAAAAAAQIDEyH/2gAMAwEAAhEDEQA/ACZmulNNNGdilwK8nBJcNyM9B9yuUQr2bVMgGh7qOhddQfLUqTew+x4JT4WoxSDzZ5+jIPP6IBseqT//2Q==",
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBhIOFA4SEQ0RDg0NDQ4NDR0NFggYFx8ZGCIVIiEaKysjGh0oHRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OGg0QHC8cFhwvLy8vLy81NS8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABkAFgMBIgACEQEDEQH/xAAYAAADAQEAAAAAAAAAAAAAAAAAAwQFAv/EABsQAAMBAAMBAAAAAAAAAAAAAAABAgMEEjIR/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgYE/8QAGxEAAwACAwAAAAAAAAAAAAAAAAECAxEEExT/2gAMAwEAAhEDEQA/AJ9tl9E1tLRPyLJXq0NY1ooZ46OuZslQEXJvtQAeNC86Na4TQjaJUlFk/I8AVPRnjJRnbVHYBO/oAO2Pso//2Q==",
         "height": 1171,
         "sizes": "(min-width:500px) 40vw, 60vw",
         "src": "https://www.datocms-assets.com/9862/1579520536-cover-quadrata.jpg?ar64=MTA6MTE&auto=format%2Ccompress&fit=crop",
@@ -14372,7 +14790,7 @@
     "cover": {
       "responsiveImage": {
         "aspectRatio": 0.9092592592592592,
-        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwoHCggIBggICAYGDg4QBwYHCBEJDQcNFxMZGBYVIhUaHysjGh0oHRUWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg4OEQ0NEC8cFh0vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABkAFgMBIgACEQEDEQH/xAAXAAEBAQEAAAAAAAAAAAAAAAABAgAH/8QAFhABAQEAAAAAAAAAAAAAAAAAAAER/8QAFwEBAAMAAAAAAAAAAAAAAAAAAAEDBP/EABgRAQADAQAAAAAAAAAAAAAAAAACESEB/9oADAMBAAIRAxEAPwDplSqpGOBBYTbWp00CyPMOsCkp/9k=",
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgODwgGCAgLBgcIDg0QBwYHCBEJDQgNFx8ZGBYfFhUaHysjGh0oHSEWJDUlKC0vMjIyGSI4PTcwPCsxMi8BCgsLDg0OHA0NGi8cFhwvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABkAFgMBIgACEQEDEQH/xAAXAAEBAQEAAAAAAAAAAAAAAAACAAEH/8QAFhABAQEAAAAAAAAAAAAAAAAAAAER/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEE/8QAGBEBAAMBAAAAAAAAAAAAAAAAAAECERL/2gAMAwEAAhEDEQA/AOm2jqomMlKFqFpi8NsZhURKysTUEy//2Q==",
         "height": 1080,
         "sizes": "(min-width:500px) 40vw, 60vw",
         "src": "https://www.datocms-assets.com/9862/1575300166-boboli-cover.jpg?ar64=MTA6MTE&auto=format%2Ccompress&fit=crop",
@@ -16394,7 +16812,7 @@
     "cover": {
       "responsiveImage": {
         "aspectRatio": 0.90875,
-        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLEhUWDhgLFg0VGR0hFg0RGh8lGBYaFhUmHy0lJikoKRUWJDUlKC0vMjIyHSU4PTcwPCsxMi8BCgsLDg0OHRAPHC8dIh0vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABkAFgMBIgACEQEDEQH/xAAaAAACAwEBAAAAAAAAAAAAAAAABgMFBwQC/8QAIRAAAQQABgMAAAAAAAAAAAAAAQACAwUEBhESISIyM0P/xAAXAQEBAQEAAAAAAAAAAAAAAAADBAIB/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAECEgP/2gAMAwEAAhEDEQA/AE7A5dma0cFSWeXZ3Q8NKdItjQNAFLI9jm6EBTz0GqjH8TT4qB2mwoWi2sUG9vUIWthaK+O9cHAEroluuoOqW/oFPL4BchIopI8XN+RI0AoVBbe8ISZQDP/Z",
+        "base64": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAgLEgoXDhUVFQ0XDikNDxUOFx8lGBYVFhUdHysjGikoHRoWJDUlKC0vMjIyGSU4PTcwPCsxMi8BCgsLDg0OHQ4PHC8dFhwvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vL//AABEIABkAFgMBIgACEQEDEQH/xAAZAAACAwEAAAAAAAAAAAAAAAAAAwQGBwX/xAAhEAABBAEDBQAAAAAAAAAAAAABAAIDBRIEESEGIjIzQ//EABYBAQEBAAAAAAAAAAAAAAAAAAMCBP/EABgRAAMBAQAAAAAAAAAAAAAAAAABAhIR/9oADAMBAAIRAxEAPwCnaHp+VrRwm2fT07oeGlXGLFoGwCZI9jm7EBBNmioRkOqqNVA7bAoWh2sUObTiEKthZRCju3BwBKkS3PaDuq79Any+AUQirpirm+Ie0AoXAuPc1CVSgus//9k=",
         "height": 800,
         "sizes": "(min-width:500px) 40vw, 60vw",
         "src": "https://www.datocms-assets.com/9862/1550167719-uffizi.jpg?ar64=MTA6MTE&auto=format%2Ccompress&fit=crop",
