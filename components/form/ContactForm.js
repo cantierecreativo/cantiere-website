@@ -4,6 +4,7 @@ import t from "lib/locales";
 import FormMessage from "components/form/FormMessage";
 import Link from "next/link";
 import Icon from "components/layout/Icon";
+import { useRouter } from "next/router";
 
 function Multiselect({
   items,
@@ -13,6 +14,7 @@ function Multiselect({
   variantOnSize = false,
 }) {
   const selected = selectedValues?.split("|") || [];
+
   return (
     <div className="my-5">
       {items.map((item) => {
@@ -43,6 +45,9 @@ function Multiselect({
 
 export default function ContactForm({ locale, solutions }) {
   // console.log("solutions", solutions);
+
+  const router = useRouter();
+
   const checkboxClass =
     "h-4 w-4 shrink-0 rounded-full bg-white text-blue accent-blue";
 
@@ -85,7 +90,8 @@ export default function ContactForm({ locale, solutions }) {
     ).then((res) => res.json());
 
     if (res.status == "success") {
-      setResult("success");
+      // setResult("success");
+      router.push("/grazie");
     } else {
       setResult("error");
     }
