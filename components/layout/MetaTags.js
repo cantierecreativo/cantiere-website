@@ -33,7 +33,7 @@ export default function MetaTags({ site, page }) {
         })}
       <link
         href={`${siteUrl}${resolveLink(page, localeDefault, linkEng)}`}
-        hrefLang="x-default"
+        // hrefLang="x-default"
         rel="alternate"
         type="text/html"
       />
