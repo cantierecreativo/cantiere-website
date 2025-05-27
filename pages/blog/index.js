@@ -7,7 +7,7 @@ import { getAllArticles } from "lib/utils";
 export default function ArticlesIndex({ locale, site, page, items }) {
   return (
     <Layout site={site} locale={locale} page={page}>
-      <BlogTmp locale={locale} items={items.news} page={page} pagination />
+      <BlogTmp locale={locale} items={items} page={page} pagination />
     </Layout>
   );
 }
@@ -18,49 +18,27 @@ export async function getStaticProps({ locale = "it", preview }) {
     { locale },
     preview
   );
-  let news = {};
+  let articles = [];
   if (preview) {
-    const {
-      _allArticlesMeta: { count },
-    } = await fetchData(queries.getArticlesCount, { locale }, preview);
-
-    const maxPages = Math.ceil(count / 24);
-
-    let page = 0;
-
-    while (page < maxPages) {
-      const { allArticles } = await fetchData(
-        queries.getAllArticlesPaged,
-        {
-          locale,
-          offset: page * 24,
-          first: 24,
-        },
-        preview
-      );
-      news[page + 1] = allArticles;
-      p++;
-    }
+    const { allArticles } = await fetchData(
+      queries.getAllArticlesPaged,
+      {
+        locale,
+        offset: 0,
+        first: 500,
+      },
+      preview
+    );
+    articles = allArticles;
   } else {
-    const allArticles = getAllArticles(locale);
-    const count = allArticles.length;
-
-    const maxPages = Math.ceil(count / 24);
-    let page = 0;
-
-    while (page < maxPages) {
-      const offset = page * 24;
-      const articles = allArticles.slice(offset, 24);
-      news[page + 1] = articles;
-      page++;
-    }
+    articles = getAllArticles(locale);
   }
 
   const site = await fetchData(queries.site, { locale });
   return {
     props: {
       locale,
-      items: { news },
+      items: articles,
       site,
       page: response.articlesIndex,
     },

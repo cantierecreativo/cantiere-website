@@ -15,7 +15,11 @@ const breakpointColumnsObj = {
 export default function BlogTmp({ locale, page, items, pagination }) {
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState(null);
-  const [selectedTab, setSelectedTab] = useState(0);
+  const [selected, setSelected] = useState([]);
+  const count = items.length;
+  const maxPages = Array.from({ length: Math.ceil(count / 24) }, (_, i) =>
+    (i + 1).toString()
+  );
   useEffect(() => {
     let page = "1";
     const urlParams = new URLSearchParams(window.location.search);
@@ -25,6 +29,10 @@ export default function BlogTmp({ locale, page, items, pagination }) {
       page = pageParams;
     }
 
+    const end = page * 24;
+    const start = end - 24;
+
+    setSelected(items.slice(start, end));
     setCurrentPage(page);
   }, [router, items]);
 
@@ -43,7 +51,7 @@ export default function BlogTmp({ locale, page, items, pagination }) {
               columnClassName="my-masonry-grid_column"
             >
               {currentPage &&
-                items[currentPage].map((i, n) => (
+                selected.map((i, n) => (
                   <BlogCard
                     key={n}
                     item={i}
@@ -58,9 +66,10 @@ export default function BlogTmp({ locale, page, items, pagination }) {
             </Masonry>
           </div>
         </div>
+
         {pagination && Object.keys(items).length > 1 && (
           <Pagination
-            pages={Object.keys(items)}
+            pages={maxPages}
             currentPage={currentPage}
             locale={locale}
           />
