@@ -99,7 +99,7 @@ export default function Pagination({
               {num !== currentPage ? (
                 <div aria-label={`page ${num}`}>
                   <Link
-                    className={buttonClass + " hidden md:block"}
+                    className={buttonClass + " block"}
                     href={`${pathname}?${fParams}page=${num}`}
                     key={num}
                   >
