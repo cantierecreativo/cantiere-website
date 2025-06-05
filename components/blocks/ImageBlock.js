@@ -1,9 +1,10 @@
 import { Image as DatoImage } from "react-datocms";
-import { convertToSlug } from "lib/utils";
+import { convertToSlug, cleanFileName } from "lib/utils";
 import Image from "next/legacy/image";
 
 export default function ImageBlock({ record }) {
   const { labelMenu, description, image } = record;
+  const fallbackAlt = cleanFileName(image.filename);
   return (
     <>
       <div
@@ -16,8 +17,8 @@ export default function ImageBlock({ record }) {
               <DatoImage
                 className=""
                 data={image.responsiveImage}
-                alt={image.responsiveImage?.alt || ""}
-                title={image.responsiveImage?.title || ""}
+                alt={image.responsiveImage?.alt || fallbackAlt}
+                title={image.responsiveImage?.title || fallbackAlt}
                 layout="responsive"
                 objectFit="contain"
                 objectPosition="left"
