@@ -38,6 +38,12 @@ export default function MetaTags({ site, page }) {
             />;
           }
         })}
+      <link
+        href={`${siteUrl}/`}
+        // hrefLang="x-default"
+        rel="alternate"
+        type="text/html"
+      />
     </Head>
   );
 }
