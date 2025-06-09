@@ -14,7 +14,12 @@ import TextForm from "components/blocks/TextForm";
 import Quote from "components/blocks/Quote";
 import { stringify } from "postcss";
 
-export default function PostContent({ record, locale, page = null, solutions = null }) {
+export default function PostContent({
+  record,
+  locale,
+  page = null,
+  solutions = null,
+}) {
   // return record.model;
   switch (record.model) {
     case "image_block":
