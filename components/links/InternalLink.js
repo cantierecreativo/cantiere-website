@@ -9,9 +9,14 @@ export default function InternalLink({
   locale,
   slug = null,
 }) {
+  let page = element;
+  if (element.model === "article_link_block") {
+    page = element.element.relatedElement;
+  }
+
   return (
     <Link
-      href={resolveLink(element, locale, slug)}
+      href={resolveLink(page, locale, slug)}
       title={label}
       className={className}
     >

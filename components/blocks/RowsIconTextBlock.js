@@ -26,40 +26,42 @@ export default function RowsIconTextBlock({ locale, record }) {
             </h3>
           )}
           <div className="grid gap-4 mt-6 border-b border-white">
-            {rows.map((r) => (
-              <div
-                className="grid gap-6 py-6 md:py-10 lg:py-16 border-t border-white md:grid-cols-3"
-                key={r.id}
-              >
-                <div className="w-20 h-20 relative">
-                  <Image
-                    aria-hidden="true"
-                    src={r.icon.url}
-                    objectFit="contain"
-                    layout="fill"
-                    alt={title}
-                    className="w-full h-full"
-                  />
-                </div>
-                <div className="md:col-span-2 grid gap-6">
-                  <div className="text-xl md:text-2xl lg:text-3xl max-w-prose font-bold">
-                    {r.title}
+            {rows.map((r) => {
+              return (
+                <div
+                  className="grid gap-6 py-6 md:py-10 lg:py-16 border-t border-white md:grid-cols-3"
+                  key={r.id}
+                >
+                  <div className="w-20 h-20 relative">
+                    <Image
+                      aria-hidden="true"
+                      src={r.icon.url}
+                      objectFit="contain"
+                      layout="fill"
+                      alt={title}
+                      className="w-full h-full"
+                    />
                   </div>
-                  <div className="text-lg">{renderHTML(r.text)}</div>
-                  {r.link && (
-                    <InternalLink
-                      element={r.link}
-                      locale={locale}
-                      label={r.link.title}
-                    >
-                      <div className="underline-default after:bg-white inline-block">
-                        {t("more", locale)}
-                      </div>
-                    </InternalLink>
-                  )}
+                  <div className="md:col-span-2 grid gap-6">
+                    <div className="text-xl md:text-2xl lg:text-3xl max-w-prose font-bold">
+                      {r.title}
+                    </div>
+                    <div className="text-lg">{renderHTML(r.text)}</div>
+                    {r.link && (
+                      <InternalLink
+                        element={r.link.relatedElement || r.link}
+                        locale={locale}
+                        label={r.link.title}
+                      >
+                        <div className="underline-default after:bg-white inline-block">
+                          {t("more", locale)}
+                        </div>
+                      </InternalLink>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
