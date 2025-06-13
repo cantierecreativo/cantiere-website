@@ -3,6 +3,7 @@ import { Image as DatoImage } from "react-datocms";
 import ExternalLink from "components/links/ExternalLink";
 import Button from "components/blocks/Button";
 import t from "lib/locales";
+import { cleanFileName } from "lib/utils";
 
 export default function HeroPortfolio({ locale, page }) {
   const { title, urlWebsite, abstract, cover, teamMembers } = page;
@@ -48,8 +49,14 @@ export default function HeroPortfolio({ locale, page }) {
                     <DatoImage
                       className="rounded-t-full"
                       data={cover.responsiveImage}
-                      alt={cover.responsiveImage.alt}
-                      title={cover.responsiveImage.title}
+                      alt={
+                        cover.responsiveImage.alt ||
+                        cleanFileName(cover.filename)
+                      }
+                      title={
+                        cover.responsiveImage.title ||
+                        cleanFileName(cover.filename)
+                      }
                       layout=""
                       priority="true"
                     />

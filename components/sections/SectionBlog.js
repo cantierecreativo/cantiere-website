@@ -4,6 +4,7 @@ import { Image as DatoImage } from "react-datocms";
 import Button from "components/blocks/Button";
 import Masonry from "react-masonry-css";
 import { formatDate } from "lib/utils";
+import { cleanFileName } from "lib/utils";
 
 export function BlogCard({
   item,
@@ -13,6 +14,8 @@ export function BlogCard({
   imgClasses = "",
   n,
 }) {
+  const fallbackAlt = cleanFileName(item.cover?.filename);
+
   return (
     <div key={item.id} className={containerClasses}>
       <InternalLink
@@ -27,8 +30,8 @@ export function BlogCard({
               <DatoImage
                 className={``}
                 data={item.cover.responsiveImage}
-                alt={item.cover.responsiveImage.alt}
-                title={item.cover.responsiveImage.title}
+                alt={item.cover.responsiveImage.alt || fallbackAlt}
+                title={item.cover.responsiveImage.title || fallbackAlt}
                 layout=""
               />
             </div>

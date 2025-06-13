@@ -2,6 +2,7 @@ import InternalLink from "components/links/InternalLink";
 import { Image as DatoImage } from "react-datocms";
 import { renderHTML } from "lib/utils";
 import t from "lib/locales";
+import { cleanFileName } from "lib/utils";
 
 export default function StandardCard({ locale, record }) {
   const { title, cover, abstract } = record;
@@ -20,8 +21,12 @@ export default function StandardCard({ locale, record }) {
                 <DatoImage
                   className=""
                   data={cover.responsiveImage}
-                  alt={cover.responsiveImage.alt}
-                  title={cover.responsiveImage.title}
+                  alt={
+                    cover.responsiveImage.alt || cleanFileName(cover.filename)
+                  }
+                  title={
+                    cover.responsiveImage.title || cleanFileName(cover.filename)
+                  }
                   layout=""
                 />
               )}

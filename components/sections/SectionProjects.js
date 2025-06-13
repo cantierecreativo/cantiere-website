@@ -2,9 +2,11 @@ import InternalLink from "components/links/InternalLink";
 import TitleTextBlock from "components/blocks/TitleTextBlock";
 import { Image as DatoImage } from "react-datocms";
 import Button from "components/blocks/Button";
+import { cleanFileName } from "lib/utils";
 
 export default function SectionProjects({ page, locale, site }) {
   const { titleProject, textProject, labelProject } = page;
+
   const record = {
     label: labelProject,
     title: titleProject,
@@ -28,6 +30,9 @@ export default function SectionProjects({ page, locale, site }) {
                 index != 0 && index % 3 === 0
                   ? p.previewImage.wideresponsiveImage
                   : p.previewImage.responsiveImage;
+
+              const fallbackAlt = cleanFileName(p.previewImage.filename);
+
               return (
                 <div key={p.id} className={`block w-full ${colSpanClass}`}>
                   <InternalLink
@@ -40,15 +45,19 @@ export default function SectionProjects({ page, locale, site }) {
                       <DatoImage
                         className={`mb-2 hidden md:block ${maxHClass}`}
                         data={image}
-                        alt={p.previewImage.responsiveImage.alt}
-                        title={p.previewImage.responsiveImage.title}
+                        alt={p.previewImage.responsiveImage.alt || fallbackAlt}
+                        title={
+                          p.previewImage.responsiveImage.title || fallbackAlt
+                        }
                         objectFit="cover"
                       />
                       <DatoImage
                         className={`mb-2 md:hidden`}
                         data={p.previewImage.responsiveImage}
-                        alt={p.previewImage.responsiveImage.alt}
-                        title={p.previewImage.responsiveImage.title}
+                        alt={p.previewImage.responsiveImage.alt || fallbackAlt}
+                        title={
+                          p.previewImage.responsiveImage.title || fallbackAlt
+                        }
                         objectFit="cover"
                       />
                       <h2 className="py-2 md:pt-4 xl:text-lg text-sm tracking-wide text-white/90">

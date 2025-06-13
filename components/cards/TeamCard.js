@@ -1,5 +1,6 @@
 import { Image as DatoImage } from "react-datocms";
 import ExternalLink from "components/links/ExternalLink";
+import { cleanFileName } from "lib/utils";
 
 export default function TeamCard({ locale, record }) {
   const { name, role, image, description, linkedinUrl, email } = record;
@@ -11,8 +12,10 @@ export default function TeamCard({ locale, record }) {
             <DatoImage
               className=""
               data={image.responsiveImage}
-              alt={image.responsiveImage.alt}
-              title={image.responsiveImage.title}
+              alt={image.responsiveImage.alt || cleanFileName(image.filename)}
+              title={
+                image.responsiveImage.title || cleanFileName(image.filename)
+              }
               layout=""
             />
           )}

@@ -2,6 +2,7 @@ import { renderHTML, formatDate } from "lib/utils";
 import { Image as DatoImage } from "react-datocms";
 import InternalLink from "components/links/InternalLink";
 import Icon from "components/layout/Icon";
+import { cleanFileName } from "lib/utils";
 
 export default function HeroBlog({ locale, page }) {
   const { title, text, date, author, abstract, tags, cover, model } = page;
@@ -54,8 +55,14 @@ export default function HeroBlog({ locale, page }) {
                     <DatoImage
                       className="rounded-full w-[50px] h-[50px]"
                       data={author.image.responsiveImage}
-                      alt={author.image.responsiveImage.alt}
-                      title={author.image.responsiveImage.title}
+                      alt={
+                        author.image.responsiveImage.alt ||
+                        cleanFileName(author.image.filename)
+                      }
+                      title={
+                        author.image.responsiveImage.title ||
+                        cleanFileName(author.image.filename)
+                      }
                     />
                   )}
                   <span className="font-bold text-xs">{author.name}</span>
@@ -68,8 +75,12 @@ export default function HeroBlog({ locale, page }) {
                 <DatoImage
                   className=""
                   data={cover.responsiveImage}
-                  alt={cover.responsiveImage.alt}
-                  title={cover.responsiveImage.title}
+                  alt={
+                    cover.responsiveImage.alt || cleanFileName(cover.filename)
+                  }
+                  title={
+                    cover.responsiveImage.title || cleanFileName(cover.filename)
+                  }
                   layout=""
                 />
               </div>

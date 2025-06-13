@@ -7,6 +7,7 @@ import { Image as DatoImage } from "react-datocms";
 import { motion } from "framer-motion";
 import { InView } from "react-intersection-observer";
 import { useWindowSize } from "usehooks-ts";
+import { cleanFileName } from "lib/utils";
 
 export default function Carousel({ data }) {
   const sizeHook = useWindowSize();
@@ -93,8 +94,14 @@ export default function Carousel({ data }) {
                                 <DatoImage
                                   className="rounded-l-full"
                                   data={image.responsiveImage}
-                                  alt={image.responsiveImage.alt}
-                                  title={image.responsiveImage.title}
+                                  alt={
+                                    image.responsiveImage.alt ||
+                                    cleanFileName(image.filename)
+                                  }
+                                  title={
+                                    image.responsiveImage.title ||
+                                    cleanFileName(image.filename)
+                                  }
                                   layout="fill"
                                   objectFit="cover"
                                   objectPosition="right"

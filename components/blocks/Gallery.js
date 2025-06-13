@@ -1,6 +1,7 @@
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
 import "@splidejs/splide/css/core";
 import { Image as DatoImage } from "react-datocms";
+import { cleanFileName } from "lib/utils";
 
 export default function Gallery({ locale, record }) {
   const { images } = record;
@@ -29,8 +30,14 @@ export default function Gallery({ locale, record }) {
                       <DatoImage
                         className=""
                         data={i.image.responsiveImage}
-                        alt={i.image.responsiveImage?.alt || ""}
-                        title={i.image.responsiveImage?.title || ""}
+                        alt={
+                          i.image.responsiveImage?.alt ||
+                          cleanFileName(i.image.filename)
+                        }
+                        title={
+                          i.image.responsiveImage?.title ||
+                          cleanFileName(i.image.filename)
+                        }
                         layout=""
                       />
                     </div>

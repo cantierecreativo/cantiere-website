@@ -1,6 +1,7 @@
 import InternalLink from "components/links/InternalLink";
 import { Image as DatoImage } from "react-datocms";
 import Button from "components/blocks/Button";
+import { cleanFileName } from "lib/utils";
 
 export default function WorkCard({
   locale,
@@ -39,8 +40,14 @@ export default function WorkCard({
               <DatoImage
                 className=""
                 data={chooseImage.responsiveImage}
-                alt={chooseImage.responsiveImage.alt}
-                title={chooseImage.responsiveImage.title}
+                alt={
+                  chooseImage.responsiveImage.alt ||
+                  cleanFileName(chooseImage.filename)
+                }
+                title={
+                  chooseImage.responsiveImage.title ||
+                  cleanFileName(chooseImage.filename)
+                }
                 layout=""
               />
             )}

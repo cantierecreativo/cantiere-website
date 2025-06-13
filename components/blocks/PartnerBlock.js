@@ -2,15 +2,18 @@ import { Image as DatoImage } from "react-datocms";
 import Image from "next/legacy/image";
 import { renderHTML } from "lib/utils";
 import ExternalLink from "components/links/ExternalLink";
+import { cleanFileName } from "lib/utils";
 
 function renderImage(image) {
+  const fallbackAlt = cleanFileName(image.filename);
+
   if (image.format !== "svg") {
     return (
       <DatoImage
         className="md:scale-50"
         data={image.responsiveImage}
-        alt={image.responsiveImage.alt}
-        title={image.responsiveImage.title}
+        alt={image.responsiveImage.alt || fallbackAlt}
+        title={image.responsiveImage.title || fallbackAlt}
         layout="fill"
         objectFit="contain"
       />
@@ -20,8 +23,8 @@ function renderImage(image) {
       <Image
         className="md:scale-50"
         src={image.url}
-        alt={image.alt}
-        title={image.title}
+        alt={image.alt || fallbackAlt}
+        title={image.title || fallbackAlt}
         layout="fill"
         objectFit="contain"
       />

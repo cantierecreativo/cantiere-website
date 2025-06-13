@@ -2,9 +2,11 @@ import { renderHTML, convertToSlug } from "lib/utils";
 import { Image as DatoImage } from "react-datocms";
 import InternalLink from "../links/InternalLink";
 import t from "lib/locales";
+import { cleanFileName } from "lib/utils";
 
 export default function CardImageBlock({ locale, record, page }) {
   const { title, text, related, labelMenu } = record;
+
   return (
     <>
       <section
@@ -60,8 +62,14 @@ export default function CardImageBlock({ locale, record, page }) {
                       <DatoImage
                         className="rounded-full my-2 mb-4 lg:m-0"
                         data={c.cover.responsiveImage}
-                        alt={c.cover.responsiveImage.alt}
-                        title={c.cover.responsiveImage.title}
+                        alt={
+                          c.cover.responsiveImage.alt ||
+                          cleanFileName(c.cover.filename)
+                        }
+                        title={
+                          c.cover.responsiveImage.title ||
+                          cleanFileName(c.cover.filename)
+                        }
                         layout=""
                       />
                     </div>

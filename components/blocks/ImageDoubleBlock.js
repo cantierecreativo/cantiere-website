@@ -1,5 +1,6 @@
 import { Image as DatoImage } from "react-datocms";
 import { convertToSlug } from "lib/utils";
+import { cleanFileName } from "lib/utils";
 
 export default function ImageDoubleBlock({ record }) {
   const { labelMenu, images } = record;
@@ -16,8 +17,14 @@ export default function ImageDoubleBlock({ record }) {
                 <DatoImage
                   className=""
                   data={i.image.responsiveImage}
-                  alt={i.image.responsiveImage?.alt || ""}
-                  title={i.image.responsiveImage?.title || ""}
+                  alt={
+                    i.image.responsiveImage?.alt ||
+                    cleanFileName(i.image.filename)
+                  }
+                  title={
+                    i.image.responsiveImage?.title ||
+                    cleanFileName(i.image.filename)
+                  }
                   layout="responsive"
                 />
                 {i.caption && (

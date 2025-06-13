@@ -1,5 +1,6 @@
 import { renderHTML } from "lib/utils";
 import { Image as DatoImage } from "react-datocms";
+import { cleanFileName } from "lib/utils";
 
 export default function CardTextImageBlock({ data, showNumbers, n }) {
   return (
@@ -13,8 +14,14 @@ export default function CardTextImageBlock({ data, showNumbers, n }) {
           <DatoImage
             className=""
             data={data.image.responsiveImage}
-            alt={data.image.responsiveImage?.alt || ""}
-            title={data.image.responsiveImage?.title || ""}
+            alt={
+              data.image.responsiveImage?.alt ||
+              cleanFileName(data.image.filename)
+            }
+            title={
+              data.image.responsiveImage?.title ||
+              cleanFileName(data.image.filename)
+            }
           />
         </div>
       )}

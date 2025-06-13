@@ -5,9 +5,12 @@ import Button from "./Button";
 import t from "lib/locales";
 import InternalLink from "components/links/InternalLink";
 import { Image as DatoImage } from "react-datocms";
+import { cleanFileName } from "lib/utils";
 
 export default function BannerBlock({ locale, record }) {
   const { title, text, link, labelMenu, image, prefix } = record;
+  const fallbackAlt = image && cleanFileName(image?.filename);
+
   return (
     <>
       {image ? (
@@ -40,8 +43,8 @@ export default function BannerBlock({ locale, record }) {
                 <DatoImage
                   className="rounded-l-full w-full h-full"
                   data={image.responsiveImage}
-                  alt={image.responsiveImage.alt}
-                  title={image.responsiveImage.title}
+                  alt={image.responsiveImage.alt || fallbackAlt}
+                  title={image.responsiveImage.title || fallbackAlt}
                   objectFit="cover"
                   layout="fill"
                 />

@@ -9,6 +9,7 @@ import {
 } from "swiper/modules";
 import { Image } from "react-datocms";
 //import 'swiper/css';
+import { cleanFileName } from "lib/utils";
 
 export default function Carousel({ slides, locale }) {
   return (
@@ -38,6 +39,8 @@ export default function Carousel({ slides, locale }) {
                     <Image
                       className="h-full w-full duration-300 group-hover:scale-105"
                       data={image.responsiveImage}
+                      alt={title || cleanFileName(image.filename)}
+                      title={title || cleanFileName(image.filename)}
                     />
                   </div>
 

@@ -2,6 +2,7 @@ import Icon from "components/layout/Icon";
 import { Image as DatoImage } from "react-datocms";
 import { renderHTML } from "lib/utils";
 import Menu from "components/layout/Menu";
+import { cleanFileName } from "lib/utils";
 
 export default function HeroHp({ page, locale }) {
   const { title, image, abstract } = page;
@@ -24,8 +25,10 @@ export default function HeroHp({ page, locale }) {
                 priority="true"
                 className="rounded-l-full"
                 data={image.responsiveImage}
-                alt={image.responsiveImage.alt}
-                title={image.responsiveImage.title}
+                alt={image.responsiveImage.alt || cleanFileName(image.filename)}
+                title={
+                  image.responsiveImage.title || cleanFileName(image.filename)
+                }
                 layout="fill"
                 objectFit="cover"
               />

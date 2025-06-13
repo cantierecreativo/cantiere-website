@@ -2,8 +2,11 @@ import InternalLink from "components/links/InternalLink";
 import Button from "./Button";
 import { Image as DatoImage } from "react-datocms";
 import { renderHTML } from "lib/utils";
+import { cleanFileName } from "lib/utils";
 
 export default function CardTitleImageTextHover({ data, showNumbers, l, n }) {
+  const fallbackAlt = cleanFileName(data.image.filename);
+
   return (
     <div
       key={data.id}
@@ -42,8 +45,8 @@ export default function CardTitleImageTextHover({ data, showNumbers, l, n }) {
             <DatoImage
               className="absolute top-0 -z-[1]"
               data={data.image.responsiveImage}
-              alt={data.image.responsiveImage.alt}
-              title={data.image.responsiveImage.title}
+              alt={data.image.responsiveImage.alt || fallbackAlt}
+              title={data.image.responsiveImage.title || fallbackAlt}
             />
           )}
           {data.text && (
