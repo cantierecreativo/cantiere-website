@@ -14,7 +14,7 @@ export default function Home({ locale, site, page, lastNews }) {
   const { mainBlocks, carousel, highlightProject } = page;
   return (
     <Layout site={site} locale={locale} page={page} headerTxt="white">
-      {carousel && <h1 className="fixed -top-[100%]">{page.title}</h1>}
+      {carousel && <h1 className="fixed ">{page.title}</h1>}
       {!carousel && <HeroHp page={page} locale={locale} />}
       {carousel && <Slideshow data={carousel} />}
       <div
