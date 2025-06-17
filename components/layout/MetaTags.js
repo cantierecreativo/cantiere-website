@@ -12,37 +12,23 @@ export default function MetaTags({ site, page }) {
   return (
     <Head>
       {renderMetaTags(page.seo.concat(site.site.favicon))}
-      {locales &&
-        locales.map((l, i) => {
-          const link = alts?.find((alt) => alt.locale === l)?.value || null;
-          const prefixSlug = resolveLink(page, l, link);
-          const shareUrl = `${siteUrl}${prefixSlug}`;
-          const hrefLang = l === localeDefault ? "x-default" : l;
-          if (page.model === "homepage" || link !== null) {
+      {locales.length > 1 &&
+        locales.map((l) => {
+          const link = alts?.find((alt) => alt.locale === l)?.value;
+          if (page.model === "homepage" || link) {
+            const shareUrl = `${siteUrl}${resolveLink(page, l, link)}`;
+            const hrefLang = l === localeDefault ? "x-default" : l;
             return (
               <link
                 key={l}
-                href={shareUrl}
-                hrefLang={l}
-                title={page.title}
                 rel={localeDefault === l ? "canonical" : "alternate"}
-                type="text/html"
+                href={shareUrl}
+                hrefLang={hrefLang}
               />
             );
           }
+          return null;
         })}
-      <link
-        href={`${siteUrl}${resolveLink(page, localeDefault, linkEng)}`}
-        // hrefLang="x-default"
-        rel="canonical"
-        type="text/html"
-      />
-      <link
-        href={`${siteUrl}/`}
-        // hrefLang="x-default"
-        rel="alternate"
-        type="text/html"
-      />
     </Head>
   );
 }
