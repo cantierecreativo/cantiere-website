@@ -14,7 +14,7 @@ export function BlogCard({
   imgClasses = "",
   n,
 }) {
-  const fallbackAlt = cleanFileName(item.cover?.filename);
+  const fallbackAlt = item ? cleanFileName(item?.cover?.filename) : "";
 
   return (
     <div key={item.id} className={containerClasses}>

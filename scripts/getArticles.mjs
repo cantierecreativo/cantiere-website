@@ -79,6 +79,7 @@ const query = `query allArticlesQuery($locale: SiteLocale, $skip: IntType) {
       githubId
     }
     cover {
+      filename
       responsiveImage(
         sizes: "(min-width:500px) 40vw, 60vw"
         imgixParams: {auto: [format, compress], fit: crop, ar: "10:11"}
@@ -128,8 +129,14 @@ async function allArticles(locale = "it") {
   const en = await allArticles(LANGS[1]);
 
   console.info("SAVE EVENTS TO JSON");
-  fs.writeFileSync(`src/data/all_articles_${LANGS[0]}.json`, JSON.stringify(it, null, 2));
-  fs.writeFileSync(`src/data/all_articles_${LANGS[1]}.json`, JSON.stringify(en, null, 2));
+  fs.writeFileSync(
+    `src/data/all_articles_${LANGS[0]}.json`,
+    JSON.stringify(it, null, 2)
+  );
+  fs.writeFileSync(
+    `src/data/all_articles_${LANGS[1]}.json`,
+    JSON.stringify(en, null, 2)
+  );
 
   //TODO write to file
   const elapsed = Date.now() - start;
