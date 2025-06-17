@@ -12,22 +12,18 @@ export default function MetaTags({ site, page }) {
   return (
     <Head>
       {renderMetaTags(page.seo.concat(site.site.favicon))}
-      {locales.length > 1 &&
+      {locales &&
         locales.map((l) => {
           const link = alts?.find((alt) => alt.locale === l)?.value;
-          if (page.model === "homepage" || link) {
-            const shareUrl = `${siteUrl}${resolveLink(page, l, link)}`;
-            const hrefLang = l === localeDefault ? "x-default" : l;
-            return (
-              <link
-                key={l}
-                rel={localeDefault === l ? "canonical" : "alternate"}
-                href={shareUrl}
-                hrefLang={hrefLang}
-              />
-            );
-          }
-          return null;
+          const shareUrl = `${siteUrl}${resolveLink(page, l, link)}`;
+          const hrefLang = l === localeDefault ? "x-default" : l;
+          return (
+            <link
+              key={l}
+              rel={localeDefault === l ? "canonical" : "alternate"}
+              href={shareUrl}
+            />
+          );
         })}
     </Head>
   );
