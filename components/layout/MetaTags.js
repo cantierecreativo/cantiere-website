@@ -29,15 +29,14 @@ export default function MetaTags({ site, page }) {
                 type="text/html"
               />
             );
-          } else {
-            <link
-              href={`${siteUrl}${resolveLink(page, localeDefault, linkEng)}`}
-              // hrefLang="x-default"
-              rel="canonical"
-              type="text/html"
-            />;
           }
         })}
+      <link
+        href={`${siteUrl}${resolveLink(page, localeDefault, linkEng)}`}
+        // hrefLang="x-default"
+        rel="canonical"
+        type="text/html"
+      />
       <link
         href={`${siteUrl}/`}
         // hrefLang="x-default"
