@@ -15,7 +15,7 @@ import "swiper/css/effect-fade";
 import "swiper/css/bundle";
 import { cleanFileName } from "lib/utils";
 
-export default function Carousel({ data }) {
+export default function Carousel({ data, pageTitle }) {
   return (
     <header className={`relative bg-blue`}>
       <Swiper
@@ -65,6 +65,11 @@ export default function Carousel({ data }) {
                                 animate={{ opacity: 1 }}
                                 transition={{ duration: 0.5 }}
                               >
+                                {pageTitle && i == 0 && (
+                                  <h1 className="font-bold text-white shadow-title md:shadow-title-xl 2xl:shadow-title-2xl text-3xl ">
+                                    {pageTitle}
+                                  </h1>
+                                )}
                                 <div className="mb-6 box-decoration-clone xl:max-w-[60%]">
                                   {title.split(" ").map((el, i) => (
                                     <motion.span

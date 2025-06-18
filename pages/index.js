@@ -16,7 +16,7 @@ export default function Home({ locale, site, page, lastNews }) {
     <Layout site={site} locale={locale} page={page} headerTxt="white">
       {carousel && <h1 className="fixed ">{page.title}</h1>}
       {!carousel && <HeroHp page={page} locale={locale} />}
-      {carousel && <Slideshow data={carousel} />}
+      {carousel && <Slideshow data={carousel} pageTitle={page.title} />}
       <div
         aria-hidden="true"
         className="w-full z-0 top-[800px] 2xl:top-[1000px] hidden lg:absolute lg:block"
