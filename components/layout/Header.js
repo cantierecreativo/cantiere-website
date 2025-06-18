@@ -179,7 +179,7 @@ function Header(props) {
                     <Image
                       priority
                       src={logoSrc}
-                      alt="Logo Cantiere Creativo"
+                      alt="Cantiere Creativo - Il tuo partner digitale"
                       layout="fill"
                     />
                   </div>
@@ -190,7 +190,7 @@ function Header(props) {
                     <Image
                       priority
                       src={logoSrcMobile}
-                      alt="Logo Cantiere Creativo"
+                      alt="Cantiere Creativo - Il tuo partner digitale"
                       layout="fill"
                       objectFit="contain"
                       objectPosition="left"
