@@ -3,10 +3,14 @@ import * as queries from "lib/queries";
 import fetchData from "lib/dato";
 import IndexTmp from "components/templates/IndexTmp";
 import BlogTmp from "components/templates/BlogTmp";
+import Head from "next/head";
 
 function TagsArticle({ locale, site, page, allItems }) {
   return (
     <Layout site={site} locale={locale} page={page} parent={site.articlesIndex}>
+      <Head>
+        <meta name="robots" content="noindex" />
+      </Head>
       <BlogTmp locale={locale} items={allItems.news} page={page} pagination />
     </Layout>
   );
