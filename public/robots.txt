@@ -2,8 +2,5 @@
 User-agent: *
 Allow: /
 
-# Host
-Host: https://cantierecreativo.net
-
 # Sitemaps
 Sitemap: https://cantierecreativo.net/sitemap.xml

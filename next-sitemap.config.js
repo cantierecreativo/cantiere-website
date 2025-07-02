@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: "https://cantierecreativo.net",
+  siteUrl: "https://www.cantierecreativo.net",
   generateRobotsTxt: true,
   sitemapSize: 10000,
   generateIndexSitemap: false,
