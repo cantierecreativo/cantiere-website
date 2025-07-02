@@ -1,10 +1,9 @@
 # *
 User-agent: *
 Allow: /
-Disallow: /server
 
 # Host
-Host: https://www.cantierecreativo.net/
+Host: https://cantierecreativo.net
 
 # Sitemaps
-Sitemap: https://www.cantierecreativo.net/sitemap.xml
+Sitemap: https://cantierecreativo.net/sitemap.xml
