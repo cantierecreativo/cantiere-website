@@ -5,14 +5,15 @@ import ModularTmp from "components/templates/ModularTmp";
 import PostContent from "components/PostContent";
 
 export default function Work({ locale, site, page }) {
-  const { blocks } = page;
+  const { blocks } = page || {};
   return (
     <Layout site={site} locale={locale} page={page} parent={site.worksIndex}>
       <ModularTmp locale={locale} page={page}>
         <div className="vertical-spaces">
-          {blocks.map((b) => (
-            <PostContent key={b.id} record={b} locale={locale} page={page} />
-          ))}
+          {blocks &&
+            blocks.map((b) => (
+              <PostContent key={b.id} record={b} locale={locale} page={page} />
+            ))}
         </div>
       </ModularTmp>
     </Layout>
