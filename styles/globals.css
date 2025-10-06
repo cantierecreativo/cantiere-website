@@ -336,3 +336,11 @@ strong {
   z-index: -1;
   @apply top-4 right-6 h-2 w-2;
 }
+
+.hero-contact a {
+  @apply underline;
+}
+
+.hero-contact h1 strong {
+  @apply text-blue-light block;
+}

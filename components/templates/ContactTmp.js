@@ -1,10 +1,10 @@
 import Menu from "components/layout/Menu";
-import HeroBlue from "components/hero/HeroBlue";
+import HeroContact from "components/hero/HeroContact";
 
 export default function ModularTmp({ locale, page, children }) {
   return (
     <>
-      <HeroBlue locale={locale} page={page} />
+      <HeroContact locale={locale} page={page} />
       <div className="prose">{children}</div>
     </>
   );

@@ -7,6 +7,7 @@ import Image from "next/legacy/image";
 import t from "lib/locales";
 import { useState, useEffect } from "react";
 import Icon from "./Icon";
+import ExternalLink from "components/links/ExternalLink";
 
 function RenderNavItem(item, locale, scroll, setTriangle, headerTxt) {
   const classNameActive =
@@ -245,8 +246,18 @@ function Header(props) {
                         />
                       </div>
                     </Link>
+                    <ExternalLink
+                      url="https://calendly.com/francesco-giovannetti-cantiere-creativo/meet?month=2025-10"
+                      className="group"
+                      locale={locale}
+                    >
+                      <div
+                        className={`flex items-center py-2 group group-hover:after:top-full underline underline-offset-8 after:bottom-0 duration-300 after:z-0 after:absolute after:left-0 after:right-0 after:top-0 relative after:motion-safe:duration-300 overflow-hidden`}
+                      >
+                        Prenota una video call
+                      </div>
+                    </ExternalLink>
                   </div>
-                  {/* <LanguageSwitcher page={page} locale={locale} /> */}
                 </Popover.Group>
               </div>
             </div>

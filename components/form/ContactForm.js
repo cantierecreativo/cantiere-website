@@ -15,32 +15,26 @@ function Multiselect({
 }) {
   const selected = selectedValues?.split("|") || [];
 
-  return (
-    <div className="my-5">
-      {items.map((item) => {
-        return (
-          <button
-            type="button"
-            onClick={() => {
-              selected.includes(item)
-                ? selected?.length === 1
-                  ? onRemove()
-                  : onSelect(selected.filter((i) => i !== item).join("|"))
-                : onSelect([...selected, item].join("|"));
-            }}
-            key={item}
-            className={`font-semibold py-5 px-5 rounded-md ${
-              selected.includes(item) ? "bg-blue text-white" : "bg-white "
-            } border-[2px] m-2 hover:border-blue ${
-              variantOnSize ? "lg:w-40" : ""
-            }`}
-          >
-            <span>{item}</span>
-          </button>
-        );
-      })}
-    </div>
-  );
+  return items.map((item) => {
+    return (
+      <button
+        type="button"
+        onClick={() => {
+          selected.includes(item)
+            ? selected?.length === 1
+              ? onRemove()
+              : onSelect(selected.filter((i) => i !== item).join("|"))
+            : onSelect([...selected, item].join("|"));
+        }}
+        key={item}
+        className={`font-semibold border-black py-5 px-5 ${
+          selected.includes(item) ? "bg-blue text-white" : ""
+        } border hover:border-blue ${variantOnSize ? "lg:w-40" : ""}`}
+      >
+        <span>{item}</span>
+      </button>
+    );
+  });
 }
 
 export default function ContactForm({ locale, solutions }) {
@@ -58,17 +52,13 @@ export default function ContactForm({ locale, solutions }) {
     "E-Commerce",
     "App",
     "UI/UX",
-    "Manutenzione",
-    "Restyle",
-    "Consulenza",
-    "Area Privata",
     "GDPR",
     "Accessibilitá",
     "DatoCMS",
     "Branding",
   ];
 
-  const budgets = ["<= 5k", "DA 5 A 10K", "DA 10 A 20K", ">20K"];
+  const budgets = ["Fino a 5K", "Da 5 a 20K", "Più di 20K"];
 
   const { register, handleSubmit, control } = useForm();
   const [result, setResult] = React.useState("");
@@ -98,15 +88,15 @@ export default function ContactForm({ locale, solutions }) {
   };
 
   return (
-    <div className="mt-10 py-10">
+    <div className="mt-10 p-4 lg:p-12 bg-gray-light border border-black rounded-2xl">
       <form
         id="contact-form"
         className="pt-4 lg:pt-0 relative"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="pb-8">
+        <div className="pb-8 lg:pb-12">
           <div className="text-xl font-bold">Sono interessato a:</div>
-          <div className="flex flex-wrap">
+          <div className="flex flex-wrap gap-2 mt-4">
             <Controller
               control={control}
               name="Servizio"
@@ -126,7 +116,7 @@ export default function ContactForm({ locale, solutions }) {
           <div className="text-xl font-bold">
             Pensavo ad un budget intorno a:
           </div>
-          <div className="flex flex-wrap">
+          <div className="flex flex-wrap mt-4 gap-2">
             <Controller
               control={control}
               name="Budget"
@@ -143,7 +133,7 @@ export default function ContactForm({ locale, solutions }) {
           </div>
         </div>
 
-        <div className="xl:w-1/2">
+        <div className="xl:w-1/2 pt-6">
           <div className="text-xl font-bold">Le mie info sono:</div>
           <div className="py-8">
             <div>
