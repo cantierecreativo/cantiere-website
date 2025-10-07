@@ -5,7 +5,9 @@ export default function ModularTmp({ locale, page, children }) {
   return (
     <>
       <HeroContact locale={locale} page={page} />
-      <div className="prose">{children}</div>
+      <div id="contattaci" className="prose">
+        {children}
+      </div>
     </>
   );
 }

@@ -12,6 +12,7 @@ function Multiselect({
   onRemove,
   selectedValues,
   variantOnSize = false,
+  multiple = true,
 }) {
   const selected = selectedValues?.split("|") || [];
 
@@ -20,15 +21,19 @@ function Multiselect({
       <button
         type="button"
         onClick={() => {
-          selected.includes(item)
-            ? selected?.length === 1
-              ? onRemove()
-              : onSelect(selected.filter((i) => i !== item).join("|"))
-            : onSelect([...selected, item].join("|"));
+          if (multiple) {
+            selected.includes(item)
+              ? selected?.length === 1
+                ? onRemove()
+                : onSelect(selected.filter((i) => i !== item).join("|"))
+              : onSelect([...selected, item].join("|"));
+          } else {
+            onSelect(item);
+          }
         }}
         key={item}
-        className={`font-semibold border-black py-5 px-5 ${
-          selected.includes(item) ? "bg-blue text-white" : ""
+        className={`font-semibold border-black py-5 px-5 rounded-md ${
+          selected.includes(item) ? "bg-blue text-white" : "bg-white/50"
         } border hover:border-blue ${variantOnSize ? "lg:w-40" : ""}`}
       >
         <span>{item}</span>
@@ -127,6 +132,7 @@ export default function ContactForm({ locale, solutions }) {
                   onRemove={onChange}
                   selectedValues={value}
                   variantOnSize
+                  multiple={false}
                 />
               )}
             />

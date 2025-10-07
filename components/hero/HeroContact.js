@@ -42,15 +42,17 @@ export default function HeroContact({ locale, page }) {
               {heroText && (
                 <h2 className="text-lg xl:text-xl">{renderHTML(heroText)}</h2>
               )}
-              <div aria-hidden="true" className="md:inline-block md:pt-20">
-                <div className="py-5 rounded-full px-2 border border-white hidden md:inline-block w:auto">
-                  <Icon
-                    name="arrow"
-                    className="rotate-90 fill-white"
-                    size="22"
-                  />
+              <a href="#contattaci">
+                <div aria-hidden="true" className="md:inline-block md:pt-20">
+                  <div className="py-5 rounded-full px-2 border border-white hidden md:inline-block w:auto">
+                    <Icon
+                      name="arrow"
+                      className="rotate-90 fill-white"
+                      size="22"
+                    />
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         </div>
