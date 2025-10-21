@@ -44,6 +44,7 @@ module.exports = {
         yellow: "#E4FF86",
         pink: "#FF6FFF",
         green: "#00D5A1",
+        accent: "#F6F69C",
       },
       fontSize: {
         xs: ["0.8125rem", "1rem"],

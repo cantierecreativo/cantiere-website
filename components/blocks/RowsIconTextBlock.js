@@ -29,7 +29,7 @@ export default function RowsIconTextBlock({ locale, record }) {
             {rows.map((r) => {
               return (
                 <div
-                  className="grid gap-6 py-6 md:py-10 lg:py-16 border-t border-white md:grid-cols-3"
+                  className="grid gap-6 py-6 md:py-10 lg:py-16 border-t border-base md:grid-cols-3"
                   key={r.id}
                 >
                   <div className="w-20 h-20 relative">

@@ -12,7 +12,8 @@ import ImageDoubleBlock from "components/blocks/ImageDoubleBlock";
 import NumbersBlock from "components/blocks/NumbersBlock";
 import TextForm from "components/blocks/TextForm";
 import Quote from "components/blocks/Quote";
-import { stringify } from "postcss";
+import CarouselQuote from "components/blocks/CarouselQuote";
+import FAQBlock from "./blocks/FAQBlock";
 
 export default function PostContent({
   record,
@@ -59,5 +60,9 @@ export default function PostContent({
       return <Quote record={record} locale={locale} solutions={solutions} />;
     case "rows_icon_text_block":
       return <RowsIconTextBlock record={record} locale={locale} />;
+    case "carousel_quote":
+      return <CarouselQuote record={record} locale={locale} />;
+    case "block_faq":
+      return <FAQBlock record={record} locale={locale} />;
   }
 }

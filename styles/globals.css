@@ -356,14 +356,6 @@ strong {
   background-clip: text; /* per Firefox */
 }
 
-/* .card-violet {
-  background: linear-gradient(
-    335deg,
-    #8f87f0 28.76%,
-    rgba(112, 97, 240, 0.27) 81.13%
-  );
-} */
-
 .swiper-projects .swiper-slide-active {
   @apply motion-safe:duration-500 !scale-[0.8];
 }
@@ -386,4 +378,8 @@ strong {
   html {
     font-size: 125%; /* Increase base size to 20px for larger screens */
   }
+}
+
+.pagination.is-active {
+  @apply bg-accent;
 }
