@@ -1,10 +1,10 @@
 import Script from "next/script";
 import "/styles/globals.css";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 import t from "lib/locales";
 
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_2;
 const IUBENDA_SITE_ID = process.env.NEXT_PUBLIC_IUBENDA_SITE_ID;
 
 function MyApp({ Component, pageProps }) {
