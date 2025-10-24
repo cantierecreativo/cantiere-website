@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 import t from "lib/locales";
 
-const GTM_2 = process.env.NEXT_PUBLIC_GTM_2;
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_2;
 const IUBENDA_SITE_ID = process.env.NEXT_PUBLIC_IUBENDA_SITE_ID;
 
 function MyApp({ Component, pageProps }) {
@@ -12,21 +12,33 @@ function MyApp({ Component, pageProps }) {
   const pathname = router.pathname;
   const locale = pathname.indexOf("en") !== -1 ? "en" : "it";
 
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      if (window.dataLayer) {
+        window.dataLayer.push({
+          event: "page_view",
+          page_path: url,
+        });
+      }
+    };
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => router.events.off("routeChangeComplete", handleRouteChange);
+  }, [router.events]);
+
   return (
     <>
       {IUBENDA_SITE_ID && process.env.NEXT_PUBLIC_ENV !== "staging" && (
-        <Script
-          id="iubenda-cs"
-          src="//cdn.iubenda.com/cs/iubenda_cs.js"
-          strategy="beforeInteractive"
-        />
-      )}
-      {IUBENDA_SITE_ID && process.env.NEXT_PUBLIC_ENV !== "staging" && (
-        <Script
-          id="iubenda-config"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
+        <>
+          <Script
+            id="iubenda-cs"
+            src="//cdn.iubenda.com/cs/iubenda_cs.js"
+            strategy="beforeInteractive"
+          />
+          <Script
+            id="iubenda-config"
+            strategy="beforeInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
             var _iub = _iub || [];
             _iub.csConfiguration = {
               "askConsentAtCookiePolicyUpdate":true,
@@ -59,45 +71,15 @@ function MyApp({ Component, pageProps }) {
                 "textColor":"#000000"
               }
             }`,
-          }}
-        />
-      )}
-
-      {IUBENDA_SITE_ID && process.env.NEXT_PUBLIC_ENV !== "staging" && (
-        <Script
-          id="active-modal-cookie"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);`,
-          }}
-        />
-      )}
-
-      {GTM_2 && process.env.NEXT_PUBLIC_ENV !== "staging" && (
-        <>
-          <Script
-            id="gtm-base"
-            strategy="afterInteractive"
-            className="_iub_cs_activate"
-            data-iub-purposes="4"
-            dangerouslySetInnerHTML={{
-              __html: `
-          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),service:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','GTM-${GTM_2}');
-        `,
             }}
           />
-          <noscript>
-            <iframe
-              src={`https://www.googletagmanager.com/ns.html?id=GTM-${GTM_2}`}
-              height="0"
-              width="0"
-              style={{ display: "none", visibility: "hidden" }}
-            ></iframe>
-          </noscript>
+          <Script
+            id="active-modal-cookie"
+            strategy="beforeInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);`,
+            }}
+          />
         </>
       )}
 
