@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }) {
     const handleRouteChange = (url) => {
       if (window.dataLayer) {
         window.dataLayer.push({
-          event: "page_view",
+          event: "virtual_pageview",
           page_path: url,
         });
       }
