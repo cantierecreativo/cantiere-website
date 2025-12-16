@@ -19,6 +19,7 @@ export default function PostContent({
   locale,
   page = null,
   solutions = null,
+  textColor = "black",
 }) {
   // return record.model;
   switch (record.model) {
@@ -45,7 +46,9 @@ export default function PostContent({
     case "article_text_block":
     case "header_block":
     case "title_text_block":
-      return <TitleTextBlock record={record} locale={locale} />;
+      return (
+        <TitleTextBlock record={record} locale={locale} color={textColor} />
+      );
     case "image_double_block":
       return <ImageDoubleBlock record={record} locale={locale} />;
     case "numbers_block":

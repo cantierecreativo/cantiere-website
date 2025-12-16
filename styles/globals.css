@@ -1,12 +1,12 @@
 @font-face {
-  font-family: "Buch";
-  src: url("/fonts/buch.woff2") format("woff2");
+  font-family: "BasicSans";
+  src: url("/fonts/basicSans.woff2") format("woff2");
   font-style: normal;
   font-weight: normal;
 }
 @font-face {
-  font-family: "Leicht";
-  src: url("/fonts/leicht.woff2") format("woff2");
+  font-family: "Geist";
+  src: url("/fonts/geist.woff2") format("woff2");
   font-style: normal;
   font-weight: normal;
 }
@@ -94,7 +94,7 @@
   }
 
   .vertical-spaces {
-    @apply grid gap-16 py-20 lg:py-28 xl:py-32 xl:gap-32 2xl:gap-36 2xl:py-44 z-10 relative;
+    @apply space-y-16 py-20 lg:py-28 xl:py-32 xl:space-y-32 2xl:space-y-36 2xl:py-44 z-10 relative;
   }
 
   .margin-scroll-standard {
@@ -343,4 +343,47 @@ strong {
 
 .hero-contact h1 strong {
   @apply text-blue-light block;
+}
+
+.gradient-violet {
+  background: linear-gradient(180deg, #6150f0 -41.68%, #c7c7ff 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(180deg, #fff 83.25%, #8a7fff 104.71%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* per Firefox */
+}
+
+/* .card-violet {
+  background: linear-gradient(
+    335deg,
+    #8f87f0 28.76%,
+    rgba(112, 97, 240, 0.27) 81.13%
+  );
+} */
+
+.swiper-projects .swiper-slide-active {
+  @apply motion-safe:duration-500 !scale-[0.8];
+}
+
+.bg-gradient-dark {
+  background: linear-gradient(
+    28deg,
+    rgba(82, 81, 245, 0.5) 13.97%,
+    rgba(112, 97, 240, 0) 37.46%
+  );
+}
+
+@media (min-width: 1536px) {
+  html {
+    font-size: 110%; /* Increase base size to 18px */
+  }
+}
+
+@media (min-width: 1920px) {
+  html {
+    font-size: 125%; /* Increase base size to 20px for larger screens */
+  }
 }

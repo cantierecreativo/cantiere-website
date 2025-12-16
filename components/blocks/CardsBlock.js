@@ -5,6 +5,21 @@ import CardTextImageBlock from "./CardTextImageBlock";
 import CardBlock from "./CardBlock";
 import CardTitleImageTextHover from "./CardTitleImageTextHoverBlock";
 import CardTitleImageText from "./CardTitleImageText";
+import { motion } from "framer-motion";
+
+const variants = {
+  offscreen: {
+    opacity: 0,
+    y: 100,
+  },
+  onscreen: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.75,
+    },
+  },
+};
 
 function WhichCard({ c, showNumbers = false, l, n = null, inLine }) {
   if (!c || !c.model) return;
@@ -35,21 +50,26 @@ function WhichCard({ c, showNumbers = false, l, n = null, inLine }) {
 
 function RenderCards(cards, showNumbers, l, inLine) {
   return (
-    <div className="lg:grid lg:grid-cols-12">
-      <div className="grid gap-4 md:grid-cols-2 xl:gap-8 lg:grid-cols-3 xl:col-span-10 lg:col-span-12 xl:col-start-2">
-        {cards.map((c, n) => {
-          return (
+    <div className="grid gap-4 md:grid-cols-2 xl:gap-8 lg:grid-cols-3 xl:col-span-10 lg:col-span-12 xl:col-start-2">
+      {cards.map((c, n) => {
+        return (
+          <motion.div
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true }}
+            variants={variants}
+            key={c.id}
+          >
             <WhichCard
-              key={c.id}
               c={c}
               showNumbers={showNumbers}
               l={l}
               n={n}
               inLine={inLine}
             />
-          );
-        })}
-      </div>
+          </motion.div>
+        );
+      })}
     </div>
   );
 }
@@ -71,14 +91,21 @@ export default function CardsBlock({ locale, record, page }) {
         >
           {cards.map((c, n) => {
             return (
-              <WhichCard
+              <motion.div
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{ once: true }}
+                variants={variants}
                 key={c.id}
-                c={c}
-                showNumbers={showNumbers}
-                l={locale}
-                n={n}
-                inLine={inLine}
-              />
+              >
+                <WhichCard
+                  c={c}
+                  showNumbers={showNumbers}
+                  l={locale}
+                  n={n}
+                  inLine={inLine}
+                />
+              </motion.div>
             );
           })}
         </div>

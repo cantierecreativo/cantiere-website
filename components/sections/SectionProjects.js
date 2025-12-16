@@ -1,10 +1,26 @@
+import { useRef } from "react";
 import InternalLink from "components/links/InternalLink";
 import TitleTextBlock from "components/blocks/TitleTextBlock";
 import { Image as DatoImage } from "react-datocms";
-import Button from "components/blocks/Button";
-import { cleanFileName } from "lib/utils";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import { motion, useScroll, useTransform } from "framer-motion";
+// import ExpoEffect from "components/swiper/ExpoEffect";
+import "swiper/css";
+import Icon from "components/layout/Icon";
+import Image from "next/image";
 
 export default function SectionProjects({ page, locale, site }) {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  const y1 = useTransform(scrollYProgress, [0, 1], [-50, 150]);
+  const rotate1 = useTransform(scrollYProgress, [0, 1], [0, 160]);
+  const x1 = useTransform(scrollYProgress, [0, 1], [0, 0]);
+
   const { titleProject, textProject, labelProject } = page;
 
   const record = {
@@ -13,67 +29,79 @@ export default function SectionProjects({ page, locale, site }) {
     text: textProject,
   };
   return (
-    <div className="bg-blue">
-      <section className="vertical-spaces">
+    <div ref={containerRef} className="bg-blue overflow-hidden relative">
+      <motion.div
+        aria-hidden="true"
+        style={{ y: y1, rotate: rotate1 }}
+        className="absolute w-[20%] lg:w-[15%] top-[6%] right-[0] left-auto pointer-events-none"
+      >
+        <Icon name="star" size="100%" fill="#B79CED" />
+      </motion.div>
+      <div
+        aria-hidden="true"
+        className="absolute w-[110%] h-[80vh] bottom-[0] left-1/2 -translate-x-1/2 pointer-events-none"
+      >
+        <Image
+          src="/icons/lineProject.svg"
+          alt="lineProject"
+          layout="fill"
+          objectFit="cover"
+          className="w-full h-full"
+        />
+      </div>
+      <section className="vertical-spaces text-center">
         <TitleTextBlock record={record} locale={locale} color="white" />
       </section>
-      <div className="-mt-12 xl:-mt-20 py-6 lg:pb-24 pb-16 xl:pb-32">
-        <div className="container">
-          <div className="space-y-16 md:space-y-0 md:grid md:grid-cols-2 md:gap-16 lg:gap-24 lg:mx-[calc(100%/12)]">
-            {page.projects.map((p, i) => {
-              const index = i + 1;
-              const colSpanClass =
-                index != 0 && index % 3 === 0 ? "col-span-2" : "";
-              const maxHClass =
-                index != 0 && index % 3 === 0 ? "aspect-[2/1]" : "";
-              const image =
-                index != 0 && index % 3 === 0
-                  ? p.previewImage.wideresponsiveImage
-                  : p.previewImage.responsiveImage;
-
-              const fallbackAlt = cleanFileName(p.previewImage.filename);
-
-              return (
-                <div key={p.id} className={`block w-full ${colSpanClass}`}>
-                  <InternalLink
-                    className={"group"}
-                    element={p}
-                    locale={locale}
-                    label={p.subtitle}
-                  >
-                    <div className="relative group-hover:-translate-y-2 duration-200">
-                      <DatoImage
-                        className={`mb-2 hidden md:block ${maxHClass}`}
-                        data={image}
-                        alt={p.previewImage.responsiveImage.alt || fallbackAlt}
-                        title={
-                          p.previewImage.responsiveImage.title || fallbackAlt
-                        }
-                        objectFit="cover"
-                      />
-                      <DatoImage
-                        className={`mb-2 md:hidden`}
-                        data={p.previewImage.responsiveImage}
-                        alt={p.previewImage.responsiveImage.alt || fallbackAlt}
-                        title={
-                          p.previewImage.responsiveImage.title || fallbackAlt
-                        }
-                        objectFit="cover"
-                      />
-                      <h2 className="py-2 md:pt-4 xl:text-lg text-sm tracking-wide text-white/90">
-                        {p.subtitle}
-                      </h2>
-                      <h3 className="text-xl font-bold lg:text-xl mb-4 lg:mb-6 text-white">
-                        {p.title}
-                      </h3>
-                      <Button bg="white" />
-                    </div>
-                  </InternalLink>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+      <div className="pb-12 md:pb-24">
+        <Swiper
+          modules={[Autoplay]}
+          centeredSlides={true}
+          loop={true}
+          spaceBetween={0}
+          autoplay={true}
+          speed={1000}
+          breakpoints={{
+            768: {
+              slidesPerView: 1.5,
+            },
+            1024: {
+              slidesPerView: 1.5,
+            },
+          }}
+          className="w-full swiper-projects"
+        >
+          {page.projects.map((p, i) => {
+            return (
+              <SwiperSlide key={p.id} className="">
+                <InternalLink
+                  className="block aspect-[8/5] relative rounded-2xl overflow-hidden"
+                  element={p}
+                  locale={locale}
+                  label={p.subtitle}
+                >
+                  <DatoImage
+                    className="h-full w-full"
+                    data={p.previewImage.responsiveImage}
+                    alt={p.previewImage.responsiveImage.alt || ""}
+                    title={p.previewImage.responsiveImage.title || ""}
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                  <div className="absolute w-[90%] bottom-0 p-6 md:p-12 z-30 text-center mx-auto left-1/2 -translate-x-1/2">
+                    <h2 className="mb-4 text-2xl font-bold text-white uppercase lg:text-3xl">
+                      {p.title}
+                    </h2>
+                    <h3 className="text-sm tracking-wide text-white/90 xl:text-lg">
+                      {p.subtitle}
+                    </h3>
+                  </div>
+                  <div className="bg-gradient-dark absolute inset-0 z-10" />
+                  <div className="bg-gray-800/50 absolute inset-0 z-20" />
+                </InternalLink>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
       </div>
     </div>
   );

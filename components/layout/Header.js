@@ -4,7 +4,6 @@ import { Popover, Transition } from "@headlessui/react";
 import MenuMobile from "components/layout/MenuMobile";
 import { resolveLink, IsActive } from "lib/utils";
 import Image from "next/legacy/image";
-import t from "lib/locales";
 import { useState, useEffect } from "react";
 import Icon from "./Icon";
 import ExternalLink from "components/links/ExternalLink";
@@ -15,10 +14,10 @@ function RenderNavItem(item, locale, scroll, setTriangle, headerTxt) {
   const classNameItem = scroll
     ? `${
         headerTxt === "white" ? "after:bg-black" : "after:bg-white"
-      } group gap-2 underline-on-hover inline-flex items-center text-sm xl:text-base focus:ring-orange relative whitespace-nowrap`
+      } group gap-1 tracking-wider inline-flex items-center text-sm relative whitespace-nowrap uppercase inline-block`
     : `${
         headerTxt === "white" ? "after:bg-white" : "after:bg-black"
-      } group gap-2 inline-flex items-center text-sm xl:text-base focus:ring-orange relative whitespace-nowrap underline-on-hover inline-block`;
+      } group gap-1 tracking-wider inline-flex items-center text-sm relative whitespace-nowrap uppercase inline-block`;
   const classDropdownItem = "my-2 after:bg-blue inline-block";
 
   if (item.menuItems?.length > 0) {
@@ -32,9 +31,7 @@ function RenderNavItem(item, locale, scroll, setTriangle, headerTxt) {
               } `}
             >
               <span>{item.mainLabel}</span>
-              <div
-                className={`${setTriangle} translate-y-[2px] duration-200`}
-              />
+              <div className={`${setTriangle} duration-200`} />
             </Popover.Button>
 
             <Transition
@@ -105,7 +102,7 @@ function Header(props) {
   const [scroll, setScroll] = useState(false);
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      setScroll(window.scrollY > 50);
+      setScroll(window.scrollY > 500);
     });
   }, []);
 
@@ -119,14 +116,10 @@ function Header(props) {
 
   if (headerTxt === "white") {
     logoSrc = scroll ? "/logos/color.svg" : "/logos/white.svg";
-    logoSrcMobile = scroll
-      ? "/logos/colorMobile.svg"
-      : "/logos/whiteMobile.svg";
+    logoSrcMobile = scroll ? "/logos/color.svg" : "/logos/white.svg";
   } else if (headerTxt === "black") {
     logoSrc = scroll ? "/logos/color.svg" : "/logos/black.svg";
-    logoSrcMobile = scroll
-      ? "/logos/colorMobile.svg"
-      : "/logos/blackMobile.svg";
+    logoSrcMobile = scroll ? "/logos/color.svg" : "/logos/black.svg";
   } else
     (logoSrc = "/logos/color.svg"), (logoSrcMobile = "/logos/colorMobile.svg");
 
@@ -142,7 +135,7 @@ function Header(props) {
 
   if (headerTxt === "white") {
     setMenuMobile = scroll
-      ? "after:bg-blue text-black group-hover:text-black"
+      ? "after:bg-blue text-blue group-hover:text-black"
       : "text-white after:bg-white group-hover:text-white";
   } else setMenuMobile = "after:bg-blue text-black group-hover:text-black";
 
@@ -154,7 +147,7 @@ function Header(props) {
 
   if (headerTxt === "white") {
     headerClass = scroll
-      ? "bg-white text-black py-2 "
+      ? "bg-transparent text-white py-5"
       : "bg-transparent text-white py-5";
   } else
     headerClass = scroll ? "py-2 bg-white " : "py-5 bg-transparent text-black ";
@@ -163,7 +156,7 @@ function Header(props) {
     <>
       <header
         className={`${headerClass} ${
-          scroll ? "border-b border-black" : ""
+          scroll ? "" : ""
         } fixed top-0 left-0 right-0 z-40 duration-200`}
       >
         <Popover className="">
@@ -186,7 +179,7 @@ function Header(props) {
                   </div>
                   <div
                     aria-hidden="true"
-                    className="lg:hidden relative h-6 w-40 lg:h-12 md:h-14 md:w-52 lg:w-[130px] flex-none"
+                    className="lg:hidden relative h-8 w-40 lg:h-12 md:h-14 md:w-52 lg:w-[130px] flex-none"
                   >
                     <Image
                       priority
@@ -213,7 +206,11 @@ function Header(props) {
                   as="nav"
                   className="hidden space-x-8 lg:flex lg:items-center lg:justify-between xl:w-full 3xl:pl-4"
                 >
-                  <div className="flex gap-4 items-center justify-between xl:gap-6 xl:absolute xl:left-1/2 xl:-translate-x-1/2">
+                  <div
+                    className={`xl:absolute xl:left-1/2 xl:-translate-x-1/2 rounded-full px-8 flex gap-4 justify-center items-center self-stretch relative h-full duration-300 ${
+                      scroll ? "bg-white/80 text-black" : "bg-[#2591D8]/40"
+                    } border border-white/10 backdrop-blur-sm top-0`}
+                  >
                     {navItems.map((item) => (
                       <div key={item.id}>
                         {RenderNavItem(
@@ -226,35 +223,22 @@ function Header(props) {
                       </div>
                     ))}
                   </div>
-                  <div className="hidden items-center space-x-3 lg:flex xl:space-x-6 xl:absolute xl:right-6">
-                    <Link
-                      href={t("contact-us-url", locale)}
-                      title={t("contact-us-label", locale)}
-                      className="group"
-                    >
-                      <div
-                        className={`${setBorder} flex items-center gap-1 px-6 rounded-full py-2 pr-4 group group-hover:after:top-full after:bottom-0 border-black border duration-300 after:z-0 after:absolute after:left-0 after:right-0 after:top-0 relative after:motion-safe:duration-300 overflow-hidden`}
-                      >
-                        <span className="relative z-[1] motion-safe:duration-100">
-                          {t("contact-us-label", locale)}
-                        </span>
-                        <Icon
-                          name={"arrow"}
-                          className={`${setFillIcon} z-[1]`}
-                          size={24}
-                          fill={setFillIcon}
-                        />
-                      </div>
-                    </Link>
+                  <div className="hidden items-center space-x-3 xl:flex xl:space-x-6 xl:absolute xl:right-6">
                     <ExternalLink
                       url="https://calendly.com/francesco-giovannetti-cantiere-creativo/meet?month=2025-10"
                       className="group"
                       locale={locale}
                     >
                       <div
-                        className={`flex items-center py-2 group group-hover:after:top-full underline underline-offset-8 after:bottom-0 duration-300 after:z-0 after:absolute after:left-0 after:right-0 after:top-0 relative after:motion-safe:duration-300 overflow-hidden`}
+                        className={`flex gap-x-2 items-center py-[12px] group duration-300 bg-blue/80 rounded-full px-6 uppercase text-sm tracking-wider font-serif font-bold border border-white/10 backdrop-blur-sm`}
                       >
                         Prenota una video call
+                        <Icon
+                          name="arrow"
+                          className={`z-10 relative group-hover:fill-black`}
+                          size="20"
+                          fill="white"
+                        />
                       </div>
                     </ExternalLink>
                   </div>

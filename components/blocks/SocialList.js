@@ -1,7 +1,7 @@
 import ExternalLink from "components/links/ExternalLink";
 
 export default function SocialList() {
-  const urlClass = "hover:text-blue duration-200";
+  const urlClass = "duration-200 hover:underline underline-offset-4";
 
   return (
     <>
