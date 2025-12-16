@@ -46,7 +46,7 @@ function RenderNavItem(item, locale, scroll, setTriangle, headerTxt) {
               <Popover.Panel className="absolute z-10 -ml-4 mt-5 w-auto max-w-md transform px-2 sm:px-0 lg:-left-6 lg:ml-0">
                 <div className="absolute left-1/2 -top-1 scale-150 rotate-180" />
                 <div className="overflow-hidden">
-                  <ul className="relative bg-white text-lg border border-black/80 py-4 text-black min-w-[200px] px-6">
+                  <ul className="relative bg-white/80 backdrop-blur-sm text-lg rounded-3xl border border-white py-4 text-black min-w-[200px] px-6">
                     {item.menuItems.map((item) => (
                       <li key={item.id}>
                         <Link

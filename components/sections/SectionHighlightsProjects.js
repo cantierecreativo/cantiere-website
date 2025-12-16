@@ -87,7 +87,12 @@ export default function SectionHighlightsProjects({ page, locale, site }) {
                   i === 2 ? "md:col-span-2" : ""
                 } block relative rounded-[36px] overflow-hidden bg-white border-black/15 border`}
               >
-                <InternalLink element={p} locale={locale} label={p.subtitle}>
+                <InternalLink
+                  element={p}
+                  locale={locale}
+                  label={p.subtitle}
+                  className="group"
+                >
                   <div
                     className={`${
                       i === 2 ? "h-[50vh]" : "h-[60vh] md:h-[30vh]"
@@ -103,7 +108,9 @@ export default function SectionHighlightsProjects({ page, locale, site }) {
                     />
                   </div>
                   <div className="p-6 space-y-4 py-8 bg-white">
-                    <h2 className="text-xl font-bold lg:text-2xl">{p.title}</h2>
+                    <h2 className="text-xl font-bold lg:text-2xl underline-offset-4 group-hover:underline">
+                      {p.title}
+                    </h2>
                     <h3 className="text-sm tracking-wide xl:text-base line-clamp-3">
                       {renderHTML(p.abstract)}
                     </h3>

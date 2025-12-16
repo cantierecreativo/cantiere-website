@@ -11,7 +11,7 @@ export default function CardTitleImageTextHover({ data, showNumbers, l, n }) {
   return (
     <div
       key={data.id}
-      className="grid gap-5 lg:gap-x-0 text-white rounded-[24px] bg-blue/20 relative p-4 xl:p-6 backdrop-blur-sm border border-white/30"
+      className="grid gap-5 lg:gap-x-0 text-white rounded-[24px] bg-blue/20 hover:bg-blue/40 motion-safe:duration-500 relative p-4 xl:p-6 backdrop-blur-sm border border-white/30"
     >
       <InternalLink
         element={data.link.relatedElement}
@@ -23,7 +23,7 @@ export default function CardTitleImageTextHover({ data, showNumbers, l, n }) {
           {showNumbers && <div className="">{`0${n + 1}`}</div>}
           {data.image && (
             <DatoImage
-              className="rounded-[12px]"
+              className="rounded-[12px] group-hover:scale-105 motion-safe:duration-500"
               data={data.image.responsiveImage}
               alt={data.image.responsiveImage.alt || fallbackAlt}
               title={data.image.responsiveImage.title || fallbackAlt}
@@ -40,13 +40,6 @@ export default function CardTitleImageTextHover({ data, showNumbers, l, n }) {
                 {data.title}
               </h2>
             )}
-            {/* {data.text && (
-              <div
-                className={`mt-6 text-white motion-safe:duration-700 card font-light`}
-              >
-                {renderHTML(data.text)}
-              </div>
-            )} */}
             {data.link && <Button bg="blue" />}
           </div>
         </div>

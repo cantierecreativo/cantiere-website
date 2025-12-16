@@ -42,7 +42,9 @@ export default function Button({ label, bg, big = false, reverse = false }) {
           >
             <Icon
               name="arrow"
-              className={`${reverse ? "rotate-180" : ""} z-10 relative`}
+              className={`${
+                reverse ? "rotate-180" : ""
+              } z-10 relative fill-white`}
               size="22"
             />
           </div>
