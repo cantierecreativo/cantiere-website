@@ -11,13 +11,8 @@ import ExternalLink from "components/links/ExternalLink";
 function RenderNavItem(item, locale, scroll, setTriangle, headerTxt) {
   const classNameActive =
     headerTxt === "white" ? "after:bg-white" : "after:bg-black";
-  const classNameItem = scroll
-    ? `${
-        headerTxt === "white" ? "after:bg-black" : "after:bg-white"
-      } group gap-1 tracking-wider inline-flex items-center text-sm relative whitespace-nowrap uppercase inline-block`
-    : `${
-        headerTxt === "white" ? "after:bg-white" : "after:bg-black"
-      } group gap-1 tracking-wider inline-flex items-center text-sm relative whitespace-nowrap uppercase inline-block`;
+  const classNameItem =
+    "after:bg-black group gap-1 tracking-wider inline-flex items-center font-bold text-sm relative whitespace-nowrap uppercase inline-block";
   const classDropdownItem = "my-2 after:bg-blue inline-block";
 
   if (item.menuItems?.length > 0) {
@@ -46,7 +41,7 @@ function RenderNavItem(item, locale, scroll, setTriangle, headerTxt) {
               <Popover.Panel className="absolute z-10 -ml-4 mt-5 w-auto max-w-md transform px-2 sm:px-0 lg:-left-6 lg:ml-0">
                 <div className="absolute left-1/2 -top-1 scale-150 rotate-180" />
                 <div className="overflow-hidden">
-                  <ul className="relative bg-white/80 backdrop-blur-sm text-lg rounded-3xl border border-white py-4 text-black min-w-[200px] px-6">
+                  <ul className="relative bg-white/90 backdrop-blur-sm! text-lg rounded-3xl border border-white py-4 text-black min-w-[200px] px-6">
                     {item.menuItems.map((item) => (
                       <li key={item.id}>
                         <Link
@@ -118,14 +113,14 @@ function Header(props) {
     logoSrc = scroll ? "/logos/color.svg" : "/logos/white.svg";
     logoSrcMobile = scroll ? "/logos/color.svg" : "/logos/white.svg";
   } else if (headerTxt === "black") {
-    logoSrc = scroll ? "/logos/color.svg" : "/logos/black.svg";
-    logoSrcMobile = scroll ? "/logos/color.svg" : "/logos/black.svg";
-  } else
-    (logoSrc = "/logos/color.svg"), (logoSrcMobile = "/logos/colorMobile.svg");
+    logoSrc = "/logos/color.svg";
+    logoSrcMobile = "/logos/color.svg";
+  } else {
+    logoSrc = scroll ? "/logos/color.svg" : "/logos/white.svg";
+    logoSrcMobile = scroll ? "/logos/color.svg" : "/logos/color.svg";
+  }
 
-  if (headerTxt === "white") {
-    setTriangle = scroll ? "triangle-black" : "triangle";
-  } else setTriangle = "triangle-black";
+  setTriangle = "triangle-black";
 
   if (headerTxt === "white") {
     setBorder = scroll
@@ -137,7 +132,7 @@ function Header(props) {
     setMenuMobile = scroll
       ? "after:bg-blue text-blue group-hover:text-black"
       : "text-white after:bg-white group-hover:text-white";
-  } else setMenuMobile = "after:bg-blue text-black group-hover:text-black";
+  } else setMenuMobile = "after:bg-blue text-blue group-hover:text-black";
 
   if (headerTxt === "white") {
     setFillIcon = scroll
@@ -149,8 +144,7 @@ function Header(props) {
     headerClass = scroll
       ? "bg-transparent text-white py-5"
       : "bg-transparent text-white py-5";
-  } else
-    headerClass = scroll ? "py-2 bg-white " : "py-5 bg-transparent text-black ";
+  } else headerClass = "py-5 bg-transparent text-black";
 
   return (
     <>
@@ -207,9 +201,7 @@ function Header(props) {
                   className="hidden space-x-8 lg:flex lg:items-center lg:justify-between xl:w-full 3xl:pl-4"
                 >
                   <div
-                    className={`xl:absolute xl:left-1/2 xl:-translate-x-1/2 rounded-full px-8 flex gap-4 justify-center items-center self-stretch relative h-full duration-300 ${
-                      scroll ? "bg-white/80 text-black" : "bg-[#2591D8]/40"
-                    } border border-white/10 backdrop-blur-sm top-0`}
+                    className={`xl:absolute xl:left-1/2 xl:-translate-x-1/2 rounded-full px-8 flex gap-4 justify-center items-center self-stretch relative h-full duration-300 bg-white/80 border border-white/10 text-black backdrop-blur-sm top-0 py-2`}
                   >
                     {navItems.map((item) => (
                       <div key={item.id}>
@@ -230,7 +222,7 @@ function Header(props) {
                       locale={locale}
                     >
                       <div
-                        className={`flex gap-x-2 items-center py-[12px] group duration-300 bg-blue/80 rounded-full px-6 uppercase text-sm tracking-wider font-serif font-bold border border-white/10 backdrop-blur-sm`}
+                        className={`flex gap-x-2 items-center py-[12px] group duration-300 bg-blue/80 rounded-full px-6 uppercase text-sm tracking-wider text-white font-serif font-bold border border-white/10 backdrop-blur-sm`}
                       >
                         Prenota una video call
                         <Icon

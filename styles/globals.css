@@ -333,8 +333,8 @@ strong {
   transition: border-width 150ms ease-in-out;
   position: absolute;
   left: auto;
-  z-index: -1;
-  @apply top-4 right-6 h-2 w-2;
+  z-index: 1;
+  @apply top-3.5 right-6 h-2 w-2;
 }
 
 .hero-contact a {
@@ -382,4 +382,15 @@ strong {
 
 .pagination.is-active {
   @apply bg-accent;
+}
+
+.card-work::before {
+  content: "";
+  @apply absolute top-0 left-0 right-0 bottom-0 z-10;
+  border-radius: 24px;
+  background: linear-gradient(
+    28deg,
+    rgba(82, 81, 245, 0.5) 13.97%,
+    rgba(112, 97, 240, 0) 37.46%
+  );
 }

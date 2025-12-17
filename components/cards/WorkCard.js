@@ -33,12 +33,12 @@ export default function WorkCard({
             label={title}
             locale={locale}
             className={
-              "group grid gap-2 lg:gap-4 hover:-translate-y-2 duration-200"
+              "group grid gap-2 lg:gap-4 hover:-translate-y-2 duration-200 card-work relative overflow-hidden rounded-[24px]"
             }
           >
             {chooseImage && (
               <DatoImage
-                className=""
+                className="brightness-50 z-0 grayscale-[0.7]"
                 data={chooseImage.responsiveImage}
                 alt={
                   chooseImage.responsiveImage.alt ||
@@ -51,7 +51,7 @@ export default function WorkCard({
                 layout=""
               />
             )}
-            <h2 className="text-black text-[23px] mt-2 font-bold group-hover:underline underline-offset-8">
+            <h2 className="text-white uppercase text-center absolute bottom-8 left-6 right-6 z-10 text-[23px] mt-2 font-bold group-hover:underline underline-offset-3">
               {title}
             </h2>
           </InternalLink>

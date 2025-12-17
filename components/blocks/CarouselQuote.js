@@ -46,7 +46,7 @@ export default function CarouselQuote({ locale, record }) {
                         />
                         <div className="space-y-4 max-w-[780px] mx-auto">
                           <div className="">
-                            <div className="text-2xl md:text-3xl lg:text-3xl py-4 max-w-prose lg:py-8">
+                            <div className="text-2xl md:text-3xl lg:text-3xl py-4 max-w-prose lg:py-8 font-bold">
                               {renderHTML(record.text)}
                             </div>
                             <div className="flex items-center pt-2 gap-4 justify-center">
