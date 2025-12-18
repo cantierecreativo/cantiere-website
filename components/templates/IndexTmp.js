@@ -41,7 +41,7 @@ export default function IndexTmp({ locale, page, items, pagination }) {
       <header className="bg-gradient-to-b from-violet/50 to-white">
         <motion.div
           style={{ x: x1 }}
-          className="absolute inset-0 w-full h-full pointer-events-none"
+          className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden"
         >
           <div className="absolute w-[150%] xl:w-[110%] h-[60vh] top-[35%] left-1/2 -translate-x-1/2">
             <Image
