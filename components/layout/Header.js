@@ -40,8 +40,8 @@ function RenderNavItem(item, locale, scroll, setTriangle, headerTxt) {
             >
               <Popover.Panel className="absolute z-10 -ml-4 mt-5 w-auto max-w-md transform px-2 sm:px-0 lg:-left-6 lg:ml-0">
                 <div className="absolute left-1/2 -top-1 scale-150 rotate-180" />
-                <div className="overflow-hidden">
-                  <ul className="relative bg-white/90 backdrop-blur-sm! text-lg rounded-3xl border border-white py-4 text-black min-w-[200px] px-6">
+                <div className="overflow-hidden shadow-[0_15px_25px_-15px_rgba(82,81,245,0.25)] rounded-3xl">
+                  <ul className="relative text-lg rounded-3xl overflow-hidden  shadow-[0_0_0_1px_#fff_inset] py-4 text-black min-w-[200px] px-6 after:absolute after:inset-0 after:backdrop-blur-md after:-z-10 after:bg-white/60 ">
                     {item.menuItems.map((item) => (
                       <li key={item.id}>
                         <Link
@@ -247,7 +247,7 @@ function Header(props) {
                   className="hidden space-x-8 lg:flex lg:items-center lg:justify-between xl:w-full 3xl:pl-4"
                 >
                   <div
-                    className={`xl:absolute xl:left-1/2 xl:-translate-x-1/2 rounded-full px-8 flex gap-4 justify-center items-center self-stretch relative h-full duration-300 bg-white/80 border border-white/10 text-black backdrop-blur-sm top-0 py-2`}
+                    className={`xl:absolute z-10 xl:left-1/2 xl:-translate-x-1/2 rounded-full px-8 flex gap-4 justify-center items-center self-stretch relative h-full motion-safe:duration-300  text-black top-0 py-2 after:shadow-[0_0_0_1px_#fff_inset] after:absolute after:inset-0 after:rounded-full  after:backdrop-blur-sm after:-z-10 after:bg-white/70 shadow-[0_15px_25px_-15px_rgba(82,81,245,0.25)]`}
                   >
                     {navItems.map((item) => (
                       <div key={item.id}>
