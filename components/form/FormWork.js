@@ -8,9 +8,9 @@ import Link from "next/link";
 export default function FormWork({ page, openPosition, locale, position }) {
   const labelClass = "sr-only";
   const inputClass =
-    "border-b-white border-b pb-2 lg:pt-2 lg:pb-2 w-full mx-0 placeholder-white text-base bg-transparent";
+    "border-b-black border-b pb-2 lg:pt-2 lg:pb-2 w-full mx-0 placeholder-black text-base bg-transparent";
   const selectClass =
-    "border-b-white border-b pb-2 px-0 lg:pt-2 lg:pb-2 w-full mx-0 text-violet";
+    "border-b-black border-b pb-2 px-0 lg:pt-2 lg:pb-2 w-full mx-0 text-violet";
   const checkboxClass =
     "h-4 w-4 shrink-0 rounded-full bg-white text-blue accent-blue";
 
@@ -175,10 +175,10 @@ export default function FormWork({ page, openPosition, locale, position }) {
           </Link>
         </label>
       </fieldset>
-      <button className="" type="submit">
+      <button type="submit">
         <div className="flex flex-row items-center pt-9 lg:pt-0">
           <p className="pr-6">{t("formSend", locale)}</p>
-          <Button bg="white" />
+          <Button icon="black" />
         </div>
       </button>
       <FormMessage status={result} locale={locale} />

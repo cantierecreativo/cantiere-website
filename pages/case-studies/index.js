@@ -5,7 +5,7 @@ import IndexTmp from "components/templates/IndexTmp";
 
 export default function CaseStudiesIndex({ locale, site, page, allItems }) {
   return (
-    <Layout site={site} locale={locale} page={page}>
+    <Layout site={site} locale={locale} page={page} headerTxt="black">
       <IndexTmp locale={locale} items={allItems} page={page} />
     </Layout>
   );

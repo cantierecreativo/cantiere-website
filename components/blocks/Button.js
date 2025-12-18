@@ -1,6 +1,12 @@
 import Icon from "components/layout/Icon";
 
-export default function Button({ label, bg, big = false, reverse = false }) {
+export default function Button({
+  label,
+  bg,
+  big = false,
+  reverse = false,
+  icon = "white",
+}) {
   const colorButton = {
     blue: "after:bg-blue border-blue fill-white group-hover:fill-blue group-hover:after:top-full after:bottom-0",
     blueWhite:
@@ -44,7 +50,7 @@ export default function Button({ label, bg, big = false, reverse = false }) {
               name="arrow"
               className={`${
                 reverse ? "rotate-180" : ""
-              } z-10 relative fill-white`}
+              } z-10 relative fill-${icon}`}
               size="22"
             />
           </div>

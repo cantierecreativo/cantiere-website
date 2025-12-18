@@ -34,7 +34,7 @@ export default function ImageBlock({ record }) {
                 variants={variants}
               >
                 <DatoImage
-                  className=""
+                  className="rounded-xl xl:rounded-[24px]"
                   data={image.responsiveImage}
                   alt={image.responsiveImage?.alt || fallbackAlt}
                   title={image.responsiveImage?.title || fallbackAlt}

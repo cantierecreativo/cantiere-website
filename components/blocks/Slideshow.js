@@ -19,9 +19,9 @@ import Icon from "../layout/Icon";
 
 export default function Carousel({ data, pageTitle }) {
   const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, 100]);
+  const y1 = useTransform(scrollY, [0, 500], [0, 150]);
   const rotate1 = useTransform(scrollY, [0, 500], [0, 20]);
-  const y2 = useTransform(scrollY, [0, 500], [0, -300]);
+  const y2 = useTransform(scrollY, [0, 500], [0, -200]);
   const rotate2 = useTransform(scrollY, [0, 500], [0, -50]);
   const y3 = useTransform(scrollY, [0, 500], [50, -100]);
 
@@ -41,7 +41,7 @@ export default function Carousel({ data, pageTitle }) {
         </motion.div>
         <motion.div
           style={{ y: y2, rotate: rotate2 }}
-          className="absolute top-[50%] left-[-5%] w-[25%] aspect-square z-10"
+          className="absolute top-[50%] left-[-5%] w-[20%] aspect-square z-10"
         >
           <Icon
             name="star"

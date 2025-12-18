@@ -16,7 +16,7 @@ export default function StandardCard({ locale, record }) {
             locale={locale}
             className={"group grid gap-2 lg:gap-4"}
           >
-            <div className="group-hover:-translate-y-2 duration-200 grid gap-2 lg:gap-4">
+            <div className="group-hover:-translate-y-2 duration-200 space-y-4">
               {cover && (
                 <DatoImage
                   className=""
@@ -30,7 +30,7 @@ export default function StandardCard({ locale, record }) {
                   layout=""
                 />
               )}
-              <h2 className="text-blue group-hover:text-black duration-200 text-xl lg:text-2xl">
+              <h2 className="text-blue group-hover:text-black font-bold duration-200 text-lg md:text-xl lg:text-2xl">
                 {title}
               </h2>
               <h3 className="">{renderHTML(abstract)}</h3>

@@ -75,7 +75,7 @@ export default function IndexPortfolio({ locale, page, works }) {
           style={{ x: x1 }}
           className="absolute inset-0 w-full h-full pointer-events-none"
         >
-          <div className="absolute w-[150%] xl:w-[110%] h-[60vh] top-[20%] left-1/2 -translate-x-1/2">
+          <div className="absolute w-[150%] xl:w-[110%] h-[60vh] top-[35%] left-1/2 -translate-x-1/2">
             <Image
               src="/icons/stroke1Violet.svg"
               alt="stroke1Violet"
@@ -134,7 +134,7 @@ export default function IndexPortfolio({ locale, page, works }) {
         </div>
       </header>
 
-      <div className="container z-10 relative -translate-y-[40vh]">
+      <div className="container z-10 relative -translate-y-[40vh] -mb-[40vh]">
         <div
           className={`${
             page.model.includes("article")

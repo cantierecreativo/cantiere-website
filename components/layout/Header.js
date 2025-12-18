@@ -164,25 +164,71 @@ function Header(props) {
                   className="flex items-center"
                 >
                   <div className="hidden lg:block relative h-5 w-[90px] lg:h-12 lg:w-[130px] flex-none">
-                    <Image
-                      priority
-                      src={logoSrc}
-                      alt="Cantiere Creativo - Il tuo partner digitale"
-                      layout="fill"
-                    />
+                    <div
+                      className={`absolute inset-0 transition-opacity duration-700 ${
+                        logoSrc === "/logos/white.svg"
+                          ? "opacity-100"
+                          : "opacity-0"
+                      }`}
+                    >
+                      <Image
+                        priority
+                        src="/logos/white.svg"
+                        alt="Cantiere Creativo - Il tuo partner digitale"
+                        layout="fill"
+                      />
+                    </div>
+                    <div
+                      className={`absolute inset-0 transition-opacity duration-700 ${
+                        logoSrc !== "/logos/white.svg"
+                          ? "opacity-100"
+                          : "opacity-0"
+                      }`}
+                    >
+                      <Image
+                        priority
+                        src="/logos/color.svg"
+                        alt="Cantiere Creativo - Il tuo partner digitale"
+                        layout="fill"
+                      />
+                    </div>
                   </div>
                   <div
                     aria-hidden="true"
                     className="lg:hidden relative h-8 w-40 lg:h-12 md:h-14 md:w-52 lg:w-[130px] flex-none"
                   >
-                    <Image
-                      priority
-                      src={logoSrcMobile}
-                      alt="Cantiere Creativo - Il tuo partner digitale"
-                      layout="fill"
-                      objectFit="contain"
-                      objectPosition="left"
-                    />
+                    <div
+                      className={`absolute inset-0 transition-opacity duration-700 ${
+                        logoSrcMobile === "/logos/white.svg"
+                          ? "opacity-100"
+                          : "opacity-0"
+                      }`}
+                    >
+                      <Image
+                        priority
+                        src="/logos/white.svg"
+                        alt="Cantiere Creativo - Il tuo partner digitale"
+                        layout="fill"
+                        objectFit="contain"
+                        objectPosition="left"
+                      />
+                    </div>
+                    <div
+                      className={`absolute inset-0 transition-opacity duration-700 ${
+                        logoSrcMobile !== "/logos/white.svg"
+                          ? "opacity-100"
+                          : "opacity-0"
+                      }`}
+                    >
+                      <Image
+                        priority
+                        src="/logos/color.svg"
+                        alt="Cantiere Creativo - Il tuo partner digitale"
+                        layout="fill"
+                        objectFit="contain"
+                        objectPosition="left"
+                      />
+                    </div>
                   </div>
                 </Link>
                 <div className="flex items-center lg:hidden">
@@ -222,12 +268,12 @@ function Header(props) {
                       locale={locale}
                     >
                       <div
-                        className={`flex gap-x-2 items-center py-[12px] group duration-300 bg-blue/80 rounded-full px-6 uppercase text-sm tracking-wider text-white font-serif font-bold border border-white/10 backdrop-blur-sm`}
+                        className={`flex gap-x-2 items-center py-[12px] group duration-300 bg-blue/80 hover:bg-blue rounded-full px-6 uppercase text-sm tracking-wider text-white font-serif font-bold border border-white/10 backdrop-blur-sm`}
                       >
                         Prenota una video call
                         <Icon
                           name="arrow"
-                          className={`z-10 relative group-hover:fill-black`}
+                          className={`z-10 relative`}
                           size="20"
                           fill="white"
                         />

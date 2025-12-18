@@ -108,7 +108,7 @@ export default function CardImageBlock({ locale, record, page }) {
                           {c.subtitle}
                         </div>
                       )}
-                      <h2 className="text-blue text-2xl max-w-prose custom-border-bottom pb-4">
+                      <h2 className="text-blue text-2xl max-w-prose custom-border-bottom pb-4 font-bold">
                         {c.title}
                       </h2>
 
