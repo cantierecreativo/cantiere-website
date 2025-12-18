@@ -19,10 +19,8 @@ export default function Job({ locale, site, page }) {
           <DastContent content={page.body} locale={locale} site={site} />
         </div>
       </EditorialTmp>
-      <div className="bg-blue text-white">
-        <div className="container py-12 relative z-10 xl:grid xl:grid-cols-12">
-          <FormWork locale={locale} openPosition="true" position={page.title} />
-        </div>
+      <div className="container py-12 relative z-10 xl:grid xl:grid-cols-12">
+        <FormWork locale={locale} openPosition="true" position={page.title} />
       </div>
     </Layout>
   );

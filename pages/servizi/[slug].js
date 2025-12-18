@@ -6,13 +6,7 @@ import PostContent from "components/PostContent";
 
 export default function Service({ locale, site, page }) {
   return (
-    <Layout
-      site={site}
-      locale={locale}
-      page={page}
-      headerTxt="white"
-      parent={site.servicesIndex}
-    >
+    <Layout site={site} locale={locale} page={page} parent={site.servicesIndex}>
       <ModularTmp
         locale={locale}
         page={page}

@@ -12,13 +12,15 @@ import ImageDoubleBlock from "components/blocks/ImageDoubleBlock";
 import NumbersBlock from "components/blocks/NumbersBlock";
 import TextForm from "components/blocks/TextForm";
 import Quote from "components/blocks/Quote";
-import { stringify } from "postcss";
+import CarouselQuote from "components/blocks/CarouselQuote";
+import FAQBlock from "./blocks/FAQBlock";
 
 export default function PostContent({
   record,
   locale,
   page = null,
   solutions = null,
+  textColor = "black",
 }) {
   // return record.model;
   switch (record.model) {
@@ -45,7 +47,9 @@ export default function PostContent({
     case "article_text_block":
     case "header_block":
     case "title_text_block":
-      return <TitleTextBlock record={record} locale={locale} />;
+      return (
+        <TitleTextBlock record={record} locale={locale} color={textColor} />
+      );
     case "image_double_block":
       return <ImageDoubleBlock record={record} locale={locale} />;
     case "numbers_block":
@@ -56,5 +60,9 @@ export default function PostContent({
       return <Quote record={record} locale={locale} solutions={solutions} />;
     case "rows_icon_text_block":
       return <RowsIconTextBlock record={record} locale={locale} />;
+    case "carousel_quote":
+      return <CarouselQuote record={record} locale={locale} />;
+    case "block_faq":
+      return <FAQBlock record={record} locale={locale} />;
   }
 }

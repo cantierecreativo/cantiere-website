@@ -7,7 +7,13 @@ import PostContent from "components/PostContent";
 export default function Work({ locale, site, page }) {
   const { blocks } = page || {};
   return (
-    <Layout site={site} locale={locale} page={page} parent={site.worksIndex}>
+    <Layout
+      site={site}
+      locale={locale}
+      page={page}
+      parent={site.worksIndex}
+      headerTxt="black"
+    >
       <ModularTmp locale={locale} page={page}>
         <div className="vertical-spaces">
           {blocks &&

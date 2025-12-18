@@ -9,7 +9,7 @@ export default function ModularTmp({ locale, page, children, blockFooter }) {
     <>
       {page.model === "work" ? (
         <HeroPortfolio locale={locale} page={page} />
-      ) : page.model === "service" ? (
+      ) : page.model.includes("service") ? (
         <HeroHp page={page} locale={locale} />
       ) : (
         <HeroBlue locale={locale} page={page} />

@@ -109,7 +109,7 @@ export default function MenuMobile({ site, locale, page }) {
                   </div>
                   <div
                     aria-hidden="true"
-                    className="lg:hidden relative h-6 w-40 lg:h-12 md:h-14 md:w-52 lg:w-[130px] flex-none"
+                    className="lg:hidden relative h-8 w-40 lg:h-12 md:h-14 md:w-52 lg:w-[130px] flex-none"
                   >
                     <Image
                       priority

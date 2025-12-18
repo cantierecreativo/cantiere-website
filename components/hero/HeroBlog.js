@@ -73,7 +73,7 @@ export default function HeroBlog({ locale, page }) {
             {cover && (
               <div className="mt-8 md:mt-0 ">
                 <DatoImage
-                  className=""
+                  className="rounded-xl xl:rounded-[24px]"
                   data={cover.responsiveImage}
                   alt={
                     cover.responsiveImage.alt || cleanFileName(cover.filename)

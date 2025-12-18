@@ -5,7 +5,7 @@ import IndexPortfolio from "components/templates/IndexPortfolio";
 
 export default function WorksIndex({ locale, site, page, works }) {
   return (
-    <Layout site={site} locale={locale} page={page}>
+    <Layout site={site} locale={locale} page={page} headerTxt="black">
       <IndexPortfolio locale={locale} works={works} page={page} />
     </Layout>
   );

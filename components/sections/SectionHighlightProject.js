@@ -8,7 +8,7 @@ export default function SectionHighlightProject({ locale, project }) {
   const { title, slug, subtitle, previewImage, abstract } = project;
   return (
     <>
-      <div className="bg-[url('/background/gradient.svg')] bg-cover text-white relative overflow-x-hidden">
+      <div className="text-white relative overflow-x-hidden">
         <div className="pt-12 md:py-0 padding-left-container">
           <div className="grid gap-7 pb-8 md:pb-0 md:items-center md:grid-cols-2 md:gap-0 lg:pb-0 lg:items-center lg:gap-0">
             <div className="grid gap-7 xl:max-w-sm xl:py-24 md:py-12 lg:py-20">
