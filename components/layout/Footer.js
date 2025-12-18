@@ -71,7 +71,7 @@ export default function Footer({ locale, site }) {
       <footer
         id="footer"
         data-datocms-noindex
-        className="bg-blue text-white z-30 relative overflow-hidden"
+        className="bg-blue text-white z-30 relative overflow-hidden pb-24 sm:pb-0"
       >
         <motion.div
           style={{ x: x1 }}
