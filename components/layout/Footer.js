@@ -276,6 +276,7 @@ export default function Footer({ locale, site }) {
                   href={`https://www.iubenda.com/privacy-policy/${t(
                     "cookiePolicyId"
                   )}`}
+                  target="_blank"
                   title={t("privacyPreferences", locale)}
                   className="iubenda-cs-preferences-link iubenda-nostyle no-brand iubenda-embed iubenda-noiframe duration-200 hover:underline underline-offset-2"
                 >
