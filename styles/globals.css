@@ -394,3 +394,11 @@ strong {
     rgba(112, 97, 240, 0) 37.46%
   );
 }
+
+.cardNumber {
+  background: linear-gradient(
+    16deg,
+    #5251f5 34.06%,
+    rgba(185, 179, 237, 0.8) 85.53%
+  );
+}

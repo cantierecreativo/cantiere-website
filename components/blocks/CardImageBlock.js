@@ -13,8 +13,8 @@ export default function CardImageBlock({ locale, record, page }) {
         id={`${convertToSlug(labelMenu)}`}
         className="container margin-scroll-standard"
       >
-        <div className="grid gap-4 md:gap-6 lg:grid-cols-12 lg:gap-x-0">
-          <div className="lg:col-span-10 lg:col-start-2 grid gap-6 xl:gap-8">
+        <div className="space-y-4 md:space-y-6 lg:w-10/12 lg:mx-auto">
+          <div className="space-y-6 xl:space-y-8 text-center">
             {title && (
               <h2
                 className={`${
@@ -30,7 +30,7 @@ export default function CardImageBlock({ locale, record, page }) {
               <div
                 className={`${
                   page?.model === "homepage" ? "text-lg" : ""
-                } max-w-prose xl:text-xl xl:max-w-2xl`}
+                } max-w-prose xl:text-xl xl:max-w-2xl mx-auto`}
               >
                 {renderHTML(text)}
               </div>
@@ -80,47 +80,51 @@ export default function CardImageBlock({ locale, record, page }) {
           </div>
         ) : (
           <>
-            <div className="border-t border-dotted border-white pb-8 mt-10 lg:mt-20 md:grid-cols-2 lg:gap-x-0 grid gap-8 lg:gap-y-16 xl:gap-y-20">
+            <div className="border-t border-dotted border-white pb-8 mt-10 lg:mt-20 flex flex-wrap justify-between">
               {related.map((c, n) => (
                 <div
                   key={c.id}
                   className={
-                    "content-start lg:grid-cols-6 grid gap-y-6 pb-8 xl:pb-12 border-b border-dotted border-white"
+                    "content-start lg:w-[48%] pb-8 xl:pb-12 border-b border-dotted border-white"
                   }
                 >
                   <InternalLink
                     element={c}
                     locale={locale}
                     label={c.title}
-                    className="group grid gap-2 lg:col-span-5 lg:col-start-2 content-start"
+                    className="group rounded-3xl overflow-hidden block"
                   >
                     {c.cover && (
                       <DatoImage
-                        className="group-hover:-translate-y-2 duration-200 mb-6"
+                        className="duration-500 group-hover:scale-110 z-0 relative"
                         data={c.cover.responsiveImage}
                         alt={c.cover.responsiveImage.alt}
                         title={c.cover.responsiveImage.title}
                       />
                     )}
-                    <div className="grid gap-4 group-hover:-translate-y-2 duration-200">
+                    <div className="space-y-4 duration-200 bg-violet p-8 text-white z-10 relative">
                       {c.subtitle && (
-                        <div className="text-gray-dark font-bold text-xs uppercase lg:text-sm">
+                        <div className="font-bold text-xs uppercase lg:text-sm">
                           {c.subtitle}
                         </div>
                       )}
-                      <h2 className="text-blue text-2xl max-w-prose custom-border-bottom pb-4 font-bold">
+                      <h2 className="text-2xl max-w-prose font-bold">
                         {c.title}
                       </h2>
-
-                      <div className="max-h-24 line-clamp-4">
+                      <div className="max-h-24 line-clamp-3">
                         <h3 className="max-w-prose">
                           {renderHTML(c.abstract)}
                         </h3>
                       </div>
-                      <div className="inline-block">
-                        <div className="underline-default inline-block after:bg-black md:mt-4">
-                          {t("more", locale)}
-                        </div>
+                      <div className="flex gap-2">
+                        {c.categories.map((item, index) => (
+                          <div
+                            className="bg-[#E8E8E8] font-bold text-black/50 text-sm rounded-full px-4 py-1"
+                            key={index}
+                          >
+                            {item.title}
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </InternalLink>
