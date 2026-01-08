@@ -70,15 +70,17 @@ export default function NumbersBlock({ record }) {
                     key={id}
                     className="lg:w-[30%] rounded-3xl p-12 flex flex-col gap-6 justify-end items-center relative bg-gradient-to-t from-[#5251f5] to-[#b9b3ed] bg-[linear-gradient(-74.16524839381304deg, #5251f5 0.00%, #b9b3ed 100.00%)]"
                   >
-                    <div className="bg-blue rounded-full absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 aspect-square w-[30%] flex items-center justify-center">
-                      <Image
-                        src={icon.url}
-                        alt={icon.alt}
-                        className="!w-1/2"
-                        width="10"
-                        height="10"
-                      />
-                    </div>
+                    {icon && (
+                      <div className="bg-blue rounded-full absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 aspect-square w-[30%] flex items-center justify-center">
+                        <Image
+                          src={icon.url}
+                          alt={icon.alt}
+                          className="!w-1/2"
+                          width="10"
+                          height="10"
+                        />
+                      </div>
+                    )}
                     <div className="space-y-[18px] pt-12 text-white">
                       <p className="text-base leading-[19px] text-center">
                         <span className="text-white text-base font-bold uppercase">
