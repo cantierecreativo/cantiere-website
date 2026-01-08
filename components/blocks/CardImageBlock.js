@@ -117,7 +117,7 @@ export default function CardImageBlock({ locale, record, page }) {
                         </h3>
                       </div>
                       <div className="flex gap-2">
-                        {c.categories.map((item, index) => (
+                        {c.categories?.map((item, index) => (
                           <div
                             className="bg-[#E8E8E8] font-bold text-black/50 text-sm rounded-full px-4 py-1"
                             key={index}
