@@ -50,7 +50,7 @@ export default function Button({
               name="arrow"
               className={`${
                 reverse ? "rotate-180" : ""
-              } z-10 relative fill-${icon}`}
+              } z-10 relative fill-${icon} ${icon === "white" ? "group-hover:fill-blue" : ""}`}
               size="22"
             />
           </div>

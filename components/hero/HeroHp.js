@@ -15,7 +15,7 @@ export default function HeroHp({ locale, page }) {
 
   return (
     <>
-      <header className="relative overflow-hidden bg-[radial-gradient(circle,_rgba(255,255,255,0.54)_20%,_rgba(112,97,240,0.54)_100%)] pb-[10vh] lg:pb-[30vh] xl:pb-[45vh]">
+      <header className="relative overflow-hidden bg-[radial-gradient(circle,_rgba(255,255,255,0.54)_20%,_rgba(112,97,240,0.54)_100%)] pb-[10vh] lg:pb-[30vh] xl:pb-[45vh] 2xl:pb-[55vh]">
         <motion.div
           style={{ x: x1 }}
           className="absolute inset-0 w-full h-full pointer-events-none"

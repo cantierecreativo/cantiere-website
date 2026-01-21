@@ -7,7 +7,7 @@ export default function PreviewCard({ record }) {
   return (
     <>
       <DatoImage
-        className="mb-3"
+        className="mb-3 rounded-3xl"
         data={previewImage.responsiveImage}
         alt={
           previewImage.responsiveImage.alt ||

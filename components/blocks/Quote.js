@@ -7,8 +7,8 @@ export default function Quote({ locale, record }) {
       <blockquote className="container">
         <div className="grid lg:grid-cols-12 gap-4">
           <div className="lg:col-start-2 lg:col-span-10">
-            <Icon name="quote" className="" fill="black" size="20" />
-            <div className="text-2xl md:text-3xl lg:text-4xl py-8 max-w-prose">
+            <Icon name="quote" className="fill-violet" size="40" />
+            <div className="text-2xl md:text-3xl font-bold lg:text-4xl py-8 max-w-prose">
               {renderHTML(record.text)}
             </div>
             <p className="text-violet text-base uppercase font-bold">

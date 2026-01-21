@@ -7,24 +7,25 @@ export default function CardBlock({ data, showNumbers, l, n }) {
   return (
     <div
       key={data?.id}
-      className="grid gap-5 lg:gap-x-0 text-black custom-border relative hover:-translate-y-2 duration-200"
+      className="grid gap-5 lg:gap-x-0 text-black relative hover:-translate-y-2 duration-200"
     >
-      {data.link &&
+      {data.link && (
         <InternalLink
           element={data?.link?.relatedElement}
           locale={l}
           label={data?.link?.title}
           className="group z-10"
         >
-          <div className="custom-border-right" />
-          <div className="grid gap-4 p-6 content-start lg:p-8 py-8 lg:pt-10 xl:pb-12 ">
+          <div className="grid gap-4 p-6 content-start lg:p-8 py-8 lg:pt-10 xl:pb-12 bg-violet-custom rounded-xl">
             {showNumbers && <div className="">{`0${n + 1}`}</div>}
             {data?.title && (
               <h2 className="text-2xl lg:text-xl xl:text-2xl duration-200 text-blue group-hover:text-black">
                 {data?.title}
               </h2>
             )}
-            {data?.text && <h3 className="">{renderHTML(data.text)}</h3>}
+            {data?.text && (
+              <h3 className="font-bold">{renderHTML(data.text)}</h3>
+            )}
             {data?.link && (
               <div className="inline-block">
                 <div className="underline-default after:bg-black inline-block mt-4">
@@ -34,14 +35,13 @@ export default function CardBlock({ data, showNumbers, l, n }) {
             )}
           </div>
         </InternalLink>
-      }
-      {!data.link &&
+      )}
+      {!data.link && (
         <>
-          <div className="custom-border-right" />
-          <div className="grid gap-4 p-6 content-start lg:p-8 py-8 lg:pt-10 xl:pb-12 ">
+          <div className="grid gap-4 p-6 content-start lg:p-8 py-8 lg:pt-10 xl:pb-12 bg-violet-custom rounded-xl">
             {showNumbers && <div className="">{`0${n + 1}`}</div>}
             {data?.title && (
-              <h2 className="text-2xl lg:text-xl xl:text-2xl duration-200 text-blue group-hover:text-black">
+              <h2 className="text-2xl font-bold lg:text-xl xl:text-2xl duration-200 text-blue group-hover:text-black">
                 {data?.title}
               </h2>
             )}
@@ -55,7 +55,7 @@ export default function CardBlock({ data, showNumbers, l, n }) {
             )}
           </div>
         </>
-      }
+      )}
     </div>
   );
 }

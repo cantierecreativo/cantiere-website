@@ -19,7 +19,7 @@ export default function BlogTmp({ locale, page, items, pagination }) {
   const [selected, setSelected] = useState([]);
   const count = items.length;
   const maxPages = Array.from({ length: Math.ceil(count / 24) }, (_, i) =>
-    (i + 1).toString()
+    (i + 1).toString(),
   );
   useEffect(() => {
     let page = "1";

@@ -30,7 +30,7 @@ export default function FormWork({ page, openPosition, locale, position }) {
       {
         method: "POST",
         body: formData,
-      }
+      },
     ).then((res) => res.json());
 
     if (res.status == "success") {
@@ -42,7 +42,7 @@ export default function FormWork({ page, openPosition, locale, position }) {
 
   return (
     <form
-      className="pt-4 lg:pt-0 lg:grid lg:grid-cols-2 lg:gap-x-10 xl:col-span-10 xl:col-start-2 xl:my-16 relative"
+      className="lg:grid lg:grid-cols-2 bg-violet-custom p-12 rounded-xl lg:gap-x-10 xl:col-span-10 xl:col-start-2 xl:my-16 relative"
       onSubmit={handleSubmit(onSubmit)}
     >
       <div className="pb-8">
@@ -167,7 +167,7 @@ export default function FormWork({ page, openPosition, locale, position }) {
             title={"Privacy Policy"}
             href={`https://www.iubenda.com/privacy-policy/${t(
               "cookiePolicyId",
-              locale
+              locale,
             )}`}
             className="iubenda-nostyle no-brand iubenda-embed iubenda-noiframe duration-200 underline font-extra-bold"
           >
@@ -175,10 +175,10 @@ export default function FormWork({ page, openPosition, locale, position }) {
           </Link>
         </label>
       </fieldset>
-      <button type="submit">
+      <button type="submit" className="group">
         <div className="flex flex-row items-center pt-9 lg:pt-0">
           <p className="pr-6">{t("formSend", locale)}</p>
-          <Button icon="black" />
+          <Button icon="black" bg="white" />
         </div>
       </button>
       <FormMessage status={result} locale={locale} />

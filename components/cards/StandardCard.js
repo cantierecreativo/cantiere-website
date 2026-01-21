@@ -19,7 +19,7 @@ export default function StandardCard({ locale, record }) {
             <div className="group-hover:-translate-y-2 duration-200 space-y-4">
               {cover && (
                 <DatoImage
-                  className=""
+                  className="rounded-3xl"
                   data={cover.responsiveImage}
                   alt={
                     cover.responsiveImage.alt || cleanFileName(cover.filename)

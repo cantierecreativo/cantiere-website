@@ -19,24 +19,23 @@ export default function DoubleCtaBlock({ locale, record }) {
                     label={l.link.relatedElement.title}
                     className="group relative hover:-translate-y-2 duration-200"
                   >
-                    <div className="custom-border py-10 grid gap-8 lg:text-center lg:gap-10 lg:py-16">
-                      <div className="custom-border-right" />
+                    <div className="bg-violet-custom p-4 py-10 space-y-6 lg:py-16 rounded-3xl">
                       {l.title && (
                         <div className="text-sm uppercase font-bold text-blue px-6">
                           {l.title}
                         </div>
                       )}
                       {l.text && (
-                        <div className="text-lg lg:text-xl xl:max-w-xs group-hover:text-blue duration-200 xl:mx-auto px-6">
+                        <div className="text-xl font-bold lg:text-2xl group-hover:text-blue duration-200 px-6">
                           {renderHTML(l.text)}
                         </div>
                       )}
-                      <div className="lg:flex lg:justify-center px-6">
+                      <div className="lg:flex px-6">
                         <Button label={t("more", locale)} bg="blue" />
                       </div>
                     </div>
                   </InternalLink>
-                )
+                ),
             )}
           </div>
         </div>

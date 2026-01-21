@@ -28,7 +28,7 @@ export function BlogCard({
           {item.cover && (
             <div className={`mb-5 ${imgClasses}`}>
               <DatoImage
-                className={``}
+                className={`rounded-3xl`}
                 data={item.cover.responsiveImage}
                 alt={item.cover.responsiveImage.alt || fallbackAlt}
                 title={item.cover.responsiveImage.title || fallbackAlt}

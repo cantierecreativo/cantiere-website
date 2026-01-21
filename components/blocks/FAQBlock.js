@@ -74,7 +74,7 @@ const FAQBlock = ({ record, locale }) => {
   return (
     <div className="standard-vertical-m bg-[#F7F6FE] py-16 xl:py-24">
       <div className="container">
-        <div className="bg-white">
+        <div className="bg-white rounded-3xl">
           <div className="grid gap-6 px-4 py-8 lg:p-10 xl:py-20 lg:flex lg:gap-16 xl:gap-24 xl:px-0 xl:w-10/12 xl:mx-auto">
             <div className="space-y-6 lg:w-1/3">
               {title && <h2 className="text-2xl xl:text-4xl">{title}</h2>}

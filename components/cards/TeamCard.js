@@ -10,7 +10,7 @@ export default function TeamCard({ locale, record }) {
         <div className="lg:col-start-2 lg:col-span-4 grid gap-2 content-start lg:gap-4">
           {image && (
             <DatoImage
-              className=""
+              className="rounded-3xl"
               data={image.responsiveImage}
               alt={image.responsiveImage.alt || cleanFileName(image.filename)}
               title={
@@ -22,7 +22,7 @@ export default function TeamCard({ locale, record }) {
           <div className="text-gray-dark font-bold text-xs uppercase lg:text-sm pt-2">
             {role}
           </div>
-          <h2 className="text-blue text-xl lg:text-2xl">{name}</h2>
+          <h2 className="text-blue text-xl font-bold lg:text-2xl">{name}</h2>
           <div className="custom-border-bottom after:hidden pb-2 mb-1"></div>
           <h3 className="">{description}</h3>
           <div className="flex gap-3 py-2 lg:gap-5">

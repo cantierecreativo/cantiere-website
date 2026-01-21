@@ -34,14 +34,14 @@ export default function IndexTmp({ locale, page, items, pagination }) {
   ];
 
   const { scrollY } = useScroll();
-  const x1 = useTransform(scrollY, [0, 500], [0, -60]);
+  const x1 = useTransform(scrollY, [0, 500], [40, -40]);
 
   return (
     <div className="overflow-hidden">
-      <header className="bg-gradient-to-b from-violet/50 to-white">
+      <header className="bg-gradient-to-b from-violet/50 to-white overflow-hidden relative">
         <motion.div
           style={{ x: x1 }}
-          className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden"
+          className="absolute inset-0 w-full h-full pointer-events-none"
         >
           <div className="absolute w-[150%] xl:w-[110%] h-[60vh] top-[35%] left-1/2 -translate-x-1/2">
             <Image

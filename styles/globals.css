@@ -402,3 +402,11 @@ strong {
     rgba(185, 179, 237, 0.8) 85.53%
   );
 }
+
+.bg-violet-custom {
+  background: linear-gradient(
+    335deg,
+    rgba(82, 81, 245, 0.1) 28.76%,
+    rgba(112, 97, 240, 0.05) 81.13%
+  );
+}
