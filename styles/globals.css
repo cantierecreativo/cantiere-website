@@ -431,9 +431,16 @@ strong {
   pointer-events: none;
   z-index: 99999;
   opacity: 0;
-  transition: opacity 0.15s ease, width 0.2s ease, height 0.2s ease,
-    margin 0.2s ease, background 0.2s ease;
-  box-shadow: 0 0 20px rgba(228, 255, 134, 0.6), 0 0 40px rgba(228, 255, 134, 0.3);
+  border: 1px solid gray;
+  transition:
+    opacity 0.15s ease,
+    width 0.2s ease,
+    height 0.2s ease,
+    margin 0.2s ease,
+    background 0.2s ease;
+  box-shadow:
+    0 0 20px rgba(228, 255, 134, 0.6),
+    0 0 40px rgba(228, 255, 134, 0.3);
 }
 
 .custom-cursor.is-visible {
@@ -441,10 +448,12 @@ strong {
 }
 
 .custom-cursor.is-hovering {
-  width: 40px;
-  height: 40px;
-  margin-left: -20px;
-  margin-top: -20px;
+  /* width: 20px; */
+  /* height: 20px; */
+  margin-left: -10px;
+  margin-top: -10px;
   background: rgba(228, 255, 134, 0.3);
-  box-shadow: 0 0 30px rgba(228, 255, 134, 0.5), 0 0 60px rgba(228, 255, 134, 0.2);
+  box-shadow:
+    0 0 30px rgba(228, 255, 134, 0.5),
+    0 0 60px rgba(228, 255, 134, 0.2);
 }

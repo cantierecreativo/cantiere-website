@@ -40,7 +40,7 @@ function RenderNavItem(item, locale, scroll, setTriangle, headerTxt) {
   const classNameActive =
     headerTxt === "white" ? "after:bg-white" : "after:bg-black";
   const classNameItem =
-    "after:bg-black group gap-1 tracking-wider inline-flex items-center font-bold text-sm relative whitespace-nowrap uppercase inline-block";
+    "after:bg-black group gap-1 tracking-wider inline-flex items-center font-bold text-sm relative whitespace-nowrap uppercase inline-block decoration-wavy decoration-violet underline-offset-4 decoration-3 font-bold group-hover:underline hover:underline";
   const classDropdownItem = "my-2 after:bg-blue inline-block";
 
   if (item.menuItems?.length > 0) {
@@ -83,7 +83,7 @@ function RenderNavItem(item, locale, scroll, setTriangle, headerTxt) {
                       <div className="flex gap-10">
                         {Object.keys(groups).map((tagId) => (
                           <div key={tagId} className="min-w-[160px]">
-                            <div className="w-full whitespace-nowrap font-bold uppercase text-blue mb-4 pb-1 hover:underline decoration-wavy decoration-violet underline-offset-8 decoration-4">
+                            <div className="w-full whitespace-nowrap font-bold uppercase text-blue mb-4 pb-1">
                               {groups[tagId].title}
                             </div>
                             <div className="space-y-2">

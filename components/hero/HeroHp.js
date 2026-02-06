@@ -11,7 +11,12 @@ export default function HeroHp({ locale, page }) {
 
   const { title, image, abstract, model } = page;
 
-  const menuLabel = model === "service" ? "Servizi" : "Chi siamo";
+  const menuLabel =
+    model === "service"
+      ? "Servizi"
+      : model === "company_service"
+        ? "Settori"
+        : "Chi siamo";
 
   return (
     <>
