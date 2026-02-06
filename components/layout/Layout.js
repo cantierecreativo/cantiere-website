@@ -2,6 +2,7 @@ import Header from "components/layout/Header";
 import Footer from "components/layout/Footer";
 import SkipLinks from "components/layout/SkipLinks";
 import MetaTags from "components/layout/MetaTags";
+import CustomCursor from "components/layout/CustomCursor";
 
 function Layout({
   children,
@@ -15,6 +16,7 @@ function Layout({
 }) {
   return (
     <>
+      <CustomCursor />
       {page !== "404" && <MetaTags site={site} page={page} locale={locale} />}
       <SkipLinks locale={locale} />
       <Header

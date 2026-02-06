@@ -35,7 +35,7 @@ function FooterButton({ icon, label, url, title }) {
             <div className="size-8 flex justify-center items-center">
               {icon}
             </div>
-            <span className="font-bold group-hover:underline underline-offset-4">
+            <span className="decoration-wavy decoration-violet underline-offset-8 decoration-4 font-bold group-hover:underline">
               {label}
             </span>
           </div>
@@ -141,8 +141,8 @@ export default function Footer({ locale, site }) {
                   fill="none"
                 >
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M38.8817 30.1447L33.9888 24.517C32.3421 22.622 29.473 22.422 27.5779 24.0687L25.951 25.482C25.3193 26.0319 24.3634 25.9637 23.8135 25.3335L16.7043 17.1549C16.1559 16.5232 16.2226 15.5658 16.8543 15.0174L18.4812 13.6025C20.3748 11.9559 20.5762 9.08524 18.9296 7.19167L14.0366 1.56248C13.2459 0.653565 12.1264 0.0945814 10.9236 0.0112645C9.7208 -0.0735672 8.53467 0.323342 7.62576 1.1141C5.95487 2.56684 3.70837 4.51946 2.08597 5.92979C0.310558 7.47191 -0.412025 9.90174 0.231788 12.1634C0.234817 12.1725 0.237819 12.1816 0.240849 12.1907C3.88407 24.1186 14.6425 36.5525 26.4039 42.2257C26.4099 42.2287 26.4175 42.2317 26.4236 42.2348C28.5853 43.2391 31.1347 42.8786 32.9329 41.3152C34.5568 39.9261 36.7776 37.9947 38.4333 36.5556C39.3438 35.7648 39.9012 34.6454 39.986 33.4441C40.0694 32.2413 39.6725 31.0551 38.8817 30.1447ZM31.7028 26.5045L36.5958 32.1322C36.8594 32.4352 36.9912 32.8306 36.9639 33.232C36.9351 33.6334 36.7488 34.0061 36.4458 34.2697C34.7961 35.7042 32.5829 37.6281 30.9545 39.0202C30.9514 39.0233 30.9484 39.0263 30.9454 39.0278C30.0532 39.8049 28.7883 39.9867 27.7142 39.4929C16.674 34.1651 6.56689 22.5129 3.1418 11.3212C2.82671 10.1941 3.18875 8.98526 4.07342 8.21723L9.61326 3.40151C9.91623 3.13793 10.3116 3.00463 10.7115 3.03341C11.113 3.06068 11.4856 3.24699 11.7492 3.54996L16.6422 9.17916C17.192 9.81085 17.1239 10.7667 16.4937 11.3166L14.8668 12.73C12.9717 14.3766 12.7717 17.2473 14.4184 19.1423C16.4286 21.454 19.5174 25.0078 21.5276 27.321C23.1742 29.2146 26.0448 29.4161 27.9384 27.7694L29.5654 26.3546C30.1971 25.8062 31.1545 25.8728 31.7028 26.5045Z"
                     fill="#5251F5"
                   />
@@ -254,7 +254,8 @@ export default function Footer({ locale, site }) {
               <div className="">
                 <Link
                   href={`https://www.iubenda.com/privacy-policy/${t(
-                    "cookiePolicyId"
+                    "cookiePolicyId",
+                    locale,
                   )}`}
                   title={`${t("externaLink", locale)} Privacy Policy`}
                   className="iubenda-nostyle no-brand iubenda-embed iubenda-noiframe duration-200 hover:underline underline-offset-2"
@@ -264,7 +265,8 @@ export default function Footer({ locale, site }) {
                 <span className="px-1"> - </span>
                 <Link
                   href={`https://www.iubenda.com/privacy-policy/${t(
-                    "cookiePolicyId"
+                    "cookiePolicyId",
+                    locale,
                   )}/cookie-policy`}
                   title={`${t("externaLink", locale)} Cookie Policy`}
                   className="iubenda-nostyle no-brand iubenda-embed iubenda-noiframe duration-200 hover:underline underline-offset-2"
@@ -274,7 +276,8 @@ export default function Footer({ locale, site }) {
                 <span className="px-1"> - </span>
                 <Link
                   href={`https://www.iubenda.com/privacy-policy/${t(
-                    "cookiePolicyId"
+                    "cookiePolicyId",
+                    locale,
                   )}`}
                   target="_blank"
                   title={t("privacyPreferences", locale)}

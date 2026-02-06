@@ -8,6 +8,34 @@ import { useState, useEffect } from "react";
 import Icon from "./Icon";
 import ExternalLink from "components/links/ExternalLink";
 
+// Helper function to group menu items by tag
+function groupByTag(menuItems) {
+  const groups = {};
+  const noTag = [];
+
+  menuItems.forEach((item) => {
+    if (item.tag) {
+      const tagId = item.tag.id;
+      if (!groups[tagId]) {
+        groups[tagId] = {
+          title: item.tag.title,
+          items: [],
+        };
+      }
+      groups[tagId].items.push(item);
+    } else {
+      noTag.push(item);
+    }
+  });
+
+  return { groups, noTag };
+}
+
+// Check if menu has items with tags (for mega menu)
+function hasTags(menuItems) {
+  return menuItems.some((item) => item.tag);
+}
+
 function RenderNavItem(item, locale, scroll, setTriangle, headerTxt) {
   const classNameActive =
     headerTxt === "white" ? "after:bg-white" : "after:bg-black";
@@ -16,6 +44,9 @@ function RenderNavItem(item, locale, scroll, setTriangle, headerTxt) {
   const classDropdownItem = "my-2 after:bg-blue inline-block";
 
   if (item.menuItems?.length > 0) {
+    const isMegaMenu = hasTags(item.menuItems);
+    const { groups, noTag } = groupByTag(item.menuItems);
+
     return (
       <Popover className="relative">
         {({ open, close }) => (
@@ -38,29 +69,80 @@ function RenderNavItem(item, locale, scroll, setTriangle, headerTxt) {
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 translate-y-1"
             >
-              <Popover.Panel className="absolute z-10 -ml-4 mt-5 w-auto max-w-md transform px-2 sm:px-0 lg:-left-6 lg:ml-0">
+              <Popover.Panel
+                className={`absolute z-10 mt-5 transform px-2 sm:px-0 ${
+                  isMegaMenu
+                    ? "left-1/2 -translate-x-1/2 w-auto"
+                    : "-ml-4 lg:-left-6 lg:ml-0 w-auto max-w-md"
+                }`}
+              >
                 <div className="absolute left-1/2 -top-1 scale-150 rotate-180" />
                 <div className="overflow-hidden shadow-[0_15px_25px_-15px_rgba(82,81,245,0.25)] rounded-3xl">
-                  <ul className="relative text-lg rounded-3xl overflow-hidden  shadow-[0_0_0_1px_#fff_inset] py-4 text-black min-w-[200px] px-6 after:absolute after:inset-0 after:backdrop-blur-md after:-z-10 after:bg-white/60 ">
-                    {item.menuItems.map((item) => (
-                      <li key={item.id}>
-                        <Link
-                          href={resolveLink(item.link, locale)}
-                          title={item.link.title}
-                          onClick={() => close()}
-                          className={`group text-sm xl:text-base focus:ring-orange whitespace-nowrap underline-on-hover after:bg-black ${
-                            IsActive(item, locale) == true
-                              ? classNameActive
-                              : ""
-                          } `}
-                        >
-                          <span className={classDropdownItem}>
-                            {item.label}
-                          </span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+                  {isMegaMenu ? (
+                    <div className="relative rounded-3xl overflow-hidden shadow-[0_0_0_1px_#fff_inset] py-6 px-8 text-black after:absolute after:inset-0 after:backdrop-blur-md after:-z-10 after:bg-white/80">
+                      <div className="flex gap-10">
+                        {Object.keys(groups).map((tagId) => (
+                          <div key={tagId} className="min-w-[160px]">
+                            <div className="w-full whitespace-nowrap font-bold uppercase text-blue mb-4 pb-1 hover:underline decoration-wavy decoration-violet underline-offset-8 decoration-4">
+                              {groups[tagId].title}
+                            </div>
+                            <div className="space-y-2">
+                              {groups[tagId].items.map((menuItem) => (
+                                <Link
+                                  key={menuItem.id}
+                                  href={resolveLink(menuItem.link, locale)}
+                                  title={menuItem.link?.title}
+                                  onClick={() => close()}
+                                  className="group text-sm xl:text-base hover:text-blue duration-200 block py-1"
+                                >
+                                  {menuItem.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                        {noTag.length > 0 && (
+                          <div className="min-w-[160px]">
+                            <div className="space-y-2">
+                              {noTag.map((menuItem) => (
+                                <Link
+                                  key={menuItem.id}
+                                  href={resolveLink(menuItem.link, locale)}
+                                  title={menuItem.link?.title}
+                                  onClick={() => close()}
+                                  className="group text-sm xl:text-base hover:text-blue duration-200 block py-1"
+                                >
+                                  {menuItem.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  ) : (
+                    // Standard dropdown
+                    <ul className="relative text-lg rounded-3xl overflow-hidden shadow-[0_0_0_1px_#fff_inset] py-4 text-black min-w-[200px] px-6 after:absolute after:inset-0 after:backdrop-blur-md after:-z-10 after:bg-white/60">
+                      {item.menuItems.map((menuItem) => (
+                        <li key={menuItem.id}>
+                          <Link
+                            href={resolveLink(menuItem.link, locale)}
+                            title={menuItem.link?.title}
+                            onClick={() => close()}
+                            className={`group text-sm xl:text-base focus:ring-orange whitespace-nowrap underline-on-hover after:bg-black ${
+                              IsActive(menuItem, locale) == true
+                                ? classNameActive
+                                : ""
+                            } `}
+                          >
+                            <span className={classDropdownItem}>
+                              {menuItem.label}
+                            </span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </Popover.Panel>
             </Transition>
@@ -96,9 +178,11 @@ function Header(props) {
 
   const [scroll, setScroll] = useState(false);
   useEffect(() => {
-    window.addEventListener("scroll", () => {
+    const handleScroll = () => {
       setScroll(window.scrollY > 500);
-    });
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   let logoSrc = "";
@@ -256,7 +340,7 @@ function Header(props) {
                           locale,
                           scroll,
                           setTriangle,
-                          headerTxt
+                          headerTxt,
                         )}
                       </div>
                     ))}

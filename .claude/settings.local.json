@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git fetch:*)",
+      "Bash(git checkout:*)",
+      "Bash(git merge:*)",
+      "Bash(git push:*)",
+      "WebFetch(domain:www.neversettle.it)",
+      "Bash(curl:*)",
+      "Bash(npx next lint:*)",
+      "Bash(npx next build:*)"
+    ]
+  }
+}

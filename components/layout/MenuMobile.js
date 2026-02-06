@@ -7,12 +7,42 @@ import { resolveLink, IsActive } from "lib/utils";
 import Image from "next/legacy/image";
 import t from "lib/locales";
 
+// Helper function to group menu items by tag
+function groupByTag(menuItems) {
+  const groups = {};
+  const noTag = [];
+
+  menuItems.forEach((item) => {
+    if (item.tag) {
+      const tagId = item.tag.id;
+      if (!groups[tagId]) {
+        groups[tagId] = {
+          title: item.tag.title,
+          items: [],
+        };
+      }
+      groups[tagId].items.push(item);
+    } else {
+      noTag.push(item);
+    }
+  });
+
+  return { groups, noTag };
+}
+
+function hasTags(menuItems) {
+  return menuItems.some((item) => item.tag);
+}
+
 function RenderMobileNavItem(item, locale) {
   const classNameActive = "font-bold";
   const classNameItem = "flex justify-between items-center text-lg text-white";
   const classDropdownItem = "block whitespace-nowrap text-violet-dark";
 
   if (item.menuItems?.length > 0) {
+    const isMegaMenu = hasTags(item.menuItems);
+    const { groups, noTag } = groupByTag(item.menuItems);
+
     return (
       <Disclosure className="relative">
         {({ open, close }) => (
@@ -37,21 +67,67 @@ function RenderMobileNavItem(item, locale) {
               leaveTo="transform opacity-0"
             >
               <Disclosure.Panel className="pb-8">
-                <div className="relative grid gap-2">
-                  {item.menuItems.map((item) => (
-                    <a
-                      key={item.id}
-                      href={resolveLink(item.link, locale)}
-                      title={item.link.title}
-                      onClick={() => close()}
-                      className={`${
-                        IsActive(item, locale) == true ? classNameActive : ""
-                      } ${classNameItem}`}
-                    >
-                      <span className={classDropdownItem}>{item.label}</span>
-                    </a>
-                  ))}
-                </div>
+                {isMegaMenu ? (
+                  <div className="relative grid gap-6">
+                    {Object.keys(groups).map((tagId) => (
+                      <div key={tagId}>
+                        <div className="text-xs font-bold uppercase tracking-widest text-yellow mb-2">
+                          {groups[tagId].title}
+                        </div>
+                        <div className="grid gap-1">
+                          {groups[tagId].items.map((menuItem) => (
+                            <Link
+                              key={menuItem.id}
+                              href={resolveLink(menuItem.link, locale)}
+                              title={menuItem.link?.title}
+                              className={`${classNameItem}`}
+                            >
+                              <span className={classDropdownItem}>
+                                {menuItem.label}
+                              </span>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                    {noTag.length > 0 && (
+                      <div className="grid gap-1">
+                        {noTag.map((menuItem) => (
+                          <Link
+                            key={menuItem.id}
+                            href={resolveLink(menuItem.link, locale)}
+                            title={menuItem.link?.title}
+                            className={`${classNameItem}`}
+                          >
+                            <span className={classDropdownItem}>
+                              {menuItem.label}
+                            </span>
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <div className="relative grid gap-2">
+                    {item.menuItems.map((menuItem) => (
+                      <Link
+                        key={menuItem.id}
+                        href={resolveLink(menuItem.link, locale)}
+                        title={menuItem.link?.title}
+                        onClick={() => close()}
+                        className={`${
+                          IsActive(menuItem, locale) == true
+                            ? classNameActive
+                            : ""
+                        } ${classNameItem}`}
+                      >
+                        <span className={classDropdownItem}>
+                          {menuItem.label}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </Disclosure.Panel>
             </Transition>
           </>

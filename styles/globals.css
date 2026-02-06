@@ -11,6 +11,10 @@
   font-weight: normal;
 }
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @layer base {
   html {
     @apply !scroll-smooth;
@@ -24,10 +28,6 @@
     @apply font-sans m-0 p-0 text-black text-base;
   }
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @layer components {
   .formatted-text p {
@@ -409,4 +409,42 @@ strong {
     rgba(82, 81, 245, 0.1) 28.76%,
     rgba(112, 97, 240, 0.05) 81.13%
   );
+}
+
+/* Custom Cursor Styles */
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  margin-top: -6px;
+  border-radius: 50%;
+  background: #e4ff86;
+  pointer-events: none;
+  z-index: 99999;
+  opacity: 0;
+  transition: opacity 0.15s ease, width 0.2s ease, height 0.2s ease,
+    margin 0.2s ease, background 0.2s ease;
+  box-shadow: 0 0 20px rgba(228, 255, 134, 0.6), 0 0 40px rgba(228, 255, 134, 0.3);
+}
+
+.custom-cursor.is-visible {
+  opacity: 1;
+}
+
+.custom-cursor.is-hovering {
+  width: 40px;
+  height: 40px;
+  margin-left: -20px;
+  margin-top: -20px;
+  background: rgba(228, 255, 134, 0.3);
+  box-shadow: 0 0 30px rgba(228, 255, 134, 0.5), 0 0 60px rgba(228, 255, 134, 0.2);
 }
