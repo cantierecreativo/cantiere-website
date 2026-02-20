@@ -53,7 +53,7 @@ export default function IndexTmp({ locale, page, items, pagination }) {
             />
           </div>
         </motion.div>
-        <div className="relative w-full h-[100vh] max-h-full z-20">
+        <div className="relative w-full h-[100vh] max-h-full z-0">
           <div className="h-[70%] w-full absolute z-20 flex flex-col justify-center items-center">
             <motion.div
               className="container px-8 lg:px-10 text-center space-y-4 xl:space-y-6"
