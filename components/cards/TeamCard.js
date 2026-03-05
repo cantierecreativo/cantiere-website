@@ -33,13 +33,6 @@ export default function TeamCard({ locale, record }) {
             >
               <span className="border-black border-b-2 pb-1">Linkedin</span>
             </ExternalLink>
-            <ExternalLink
-              url={`mailto:${email}`}
-              label="Email"
-              className="inline-block"
-            >
-              <span className="border-black border-b-2 pb-1">E-mail</span>
-            </ExternalLink>
           </div>
         </div>
       </div>
