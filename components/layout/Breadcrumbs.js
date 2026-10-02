@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Icon from "components/layout/Icon";
 import InternalLink from "components/links/InternalLink";
+import t from "lib/locales";
 
 export default function Breadcrumbs({
   page,
@@ -33,7 +34,7 @@ export default function Breadcrumbs({
                 <Link
                   href={`${locale === "en" ? "/en" : "/"}`}
                   className="duration-200 xl:hover:text-blue fill-white hover:fill-yellow"
-                  title="Homepage"
+                  title={t("homepage", locale)}
                   key="homepage"
                 >
                   <Icon

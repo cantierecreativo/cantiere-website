@@ -4,6 +4,7 @@ import { XIcon } from "@heroicons/react/outline";
 
 import VideoPlayer from "components/video/VideoPlayer";
 import VideoEmbedded from "components/video/VideoEmbedded";
+import t from "lib/locales";
 
 export default function VideoBlock({ locale, record }) {
   const [open, setOpen] = useState(false);
@@ -83,7 +84,7 @@ export default function VideoBlock({ locale, record }) {
                     className="rounded-md text-gray-dark-400 hover:text-gray-dark-500"
                     onClick={() => setOpen(false)}
                   >
-                    <span className="sr-only">Close</span>
+                    <span className="sr-only">{t("close", locale)}</span>
                     <XIcon className="h-6 w-6 text-white" aria-hidden="true" />
                   </button>
                 </div>

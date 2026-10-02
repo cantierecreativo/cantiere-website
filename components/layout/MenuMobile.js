@@ -230,7 +230,7 @@ export default function MenuMobile({ site, locale, page }) {
                       {t("contact-us-label", locale)}
                     </Link>
                   </div>
-                  {/* <LanguageSwitcher page={page} locale={locale} /> */}
+                  <LanguageSwitcher page={page} locale={locale} />
                 </div>
               </div>
             </div>

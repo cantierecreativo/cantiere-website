@@ -6,6 +6,7 @@ import DastContent from "components/DastContent";
 import InternalLink from "components/links/InternalLink";
 import SectionBlog from "components/sections/SectionBlog";
 import { getAllArticles } from "lib/utils";
+import t from "lib/locales";
 
 function Article({ locale, site, page, articles }) {
   return (
@@ -17,7 +18,7 @@ function Article({ locale, site, page, articles }) {
         {page.tags?.length > 0 && (
           <div className="container py-8 lg:grid lg:grid-cols-12 lg:pb-24">
             <div className="grid gap-4 content-start lg:col-start-2 lg:col-span-10 border-dashed border-t border-black/25 pt-8">
-              <div className="text-xl text-black font-bold pb-3">Tag</div>
+              <div className="text-xl text-black font-bold pb-3">{t("tag", locale)}</div>
               <div className="flex gap-4 flex-wrap">
                 {page.tags.map((t) => (
                   <InternalLink
@@ -42,7 +43,7 @@ function Article({ locale, site, page, articles }) {
             locale={locale}
             site={site}
             articles={articles}
-            titleBlog="Altri articoli"
+            titleBlog={t("otherArticles", locale)}
             titleBlogClass="text-xl xl:text-3xl max-w-prose font-bold lg:translate-y-3 xl:translate-y-5"
           />
         </div>
@@ -51,17 +52,15 @@ function Article({ locale, site, page, articles }) {
   );
 }
 
-export async function getStaticPaths() {
-  const locale = "it";
+export async function getStaticPaths({ locales }) {
   if (process.env.NEXT_PUBLIC_ENV === "development") {
     return { paths: [], fallback: "blocking" };
   }
 
-  const allArticles = getAllArticles(locale);
   return {
-    paths: allArticles.map(({ slug }) => ({
-      params: { slug },
-    })),
+    paths: locales.flatMap((locale) =>
+      getAllArticles(locale).map(({ slug }) => ({ params: { slug }, locale }))
+    ),
     fallback: false,
   };
 }
@@ -69,14 +68,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params, locale = "it", preview }) {
   const { slug } = params;
   const response = await fetchData(queries.getNews, { slug, locale }, preview);
-  if (!response.article) {
-    return {
-      redirect: {
-        destination: "/404",
-        permanent: false,
-      },
-    };
-  }
+  if (!response.article) return { notFound: true };
   const site = await fetchData(queries.site, { locale });
   return {
     props: {

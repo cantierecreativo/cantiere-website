@@ -7,6 +7,8 @@ import Image from "next/legacy/image";
 import { useState, useEffect } from "react";
 import Icon from "./Icon";
 import ExternalLink from "components/links/ExternalLink";
+import LanguageSwitcher from "components/layout/LanguageSwitcher";
+import t from "lib/locales";
 
 // Helper function to group menu items by tag
 function groupByTag(menuItems) {
@@ -244,7 +246,7 @@ function Header(props) {
                 <Link
                   href={prefix}
                   key="homepage"
-                  title="Homepage"
+                  title={t("homepage", locale)}
                   className="flex items-center"
                 >
                   <div className="hidden lg:block relative h-5 w-[90px] lg:h-12 lg:w-[130px] flex-none">
@@ -258,7 +260,7 @@ function Header(props) {
                       <Image
                         priority
                         src="/logos/white.svg"
-                        alt="Cantiere Creativo - Il tuo partner digitale"
+                        alt={t("logoAlt", locale)}
                         layout="fill"
                       />
                     </div>
@@ -272,7 +274,7 @@ function Header(props) {
                       <Image
                         priority
                         src="/logos/color.svg"
-                        alt="Cantiere Creativo - Il tuo partner digitale"
+                        alt={t("logoAlt", locale)}
                         layout="fill"
                       />
                     </div>
@@ -291,7 +293,7 @@ function Header(props) {
                       <Image
                         priority
                         src="/logos/white.svg"
-                        alt="Cantiere Creativo - Il tuo partner digitale"
+                        alt={t("logoAlt", locale)}
                         layout="fill"
                         objectFit="contain"
                         objectPosition="left"
@@ -307,7 +309,7 @@ function Header(props) {
                       <Image
                         priority
                         src="/logos/color.svg"
-                        alt="Cantiere Creativo - Il tuo partner digitale"
+                        alt={t("logoAlt", locale)}
                         layout="fill"
                         objectFit="contain"
                         objectPosition="left"
@@ -322,7 +324,7 @@ function Header(props) {
                         scroll ? "-translate-y-1" : ""
                       } underline-default`}
                     >
-                      <div className="">Menu</div>
+                      <div className="">{t("menu", locale)}</div>
                     </div>
                   </Popover.Button>
                 </div>
@@ -346,6 +348,7 @@ function Header(props) {
                     ))}
                   </div>
                   <div className="hidden items-center space-x-3 xl:flex xl:space-x-6 xl:absolute xl:right-6">
+                    <LanguageSwitcher page={page} locale={locale} />
                     <ExternalLink
                       url="https://calendly.com/francesco-giovannetti-cantiere-creativo/meet?month=2025-10"
                       className="group"
@@ -354,7 +357,7 @@ function Header(props) {
                       <div
                         className={`flex gap-x-2 items-center py-[12px] group duration-300 bg-blue/80 hover:bg-blue rounded-full px-6 uppercase text-sm tracking-wider text-white font-serif font-bold border border-white/10 backdrop-blur-sm`}
                       >
-                        Prenota una video call
+                        {t("bookCall", locale)}
                         <Icon
                           name="arrow"
                           className={`z-10 relative`}

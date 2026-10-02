@@ -9,8 +9,7 @@ const IUBENDA_SITE_ID = process.env.NEXT_PUBLIC_IUBENDA_SITE_ID;
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-  const pathname = router.pathname;
-  const locale = pathname.indexOf("en") !== -1 ? "en" : "it";
+  const locale = router.locale || "it";
 
   useEffect(() => {
     const handleRouteChange = (url) => {
