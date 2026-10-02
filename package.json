@@ -8,7 +8,11 @@
     "build": "yarn articles && next build",
     "postbuild": "next-sitemap",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "i18n:export": "node scripts/i18n/export.mjs",
+    "i18n:translate": "node scripts/i18n/translate.mjs",
+    "i18n:import": "node scripts/i18n/import.mjs",
+    "i18n:check": "node scripts/i18n/check.mjs"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.13",
@@ -37,12 +41,15 @@
     "usehooks-ts": "^2.9.5"
   },
   "devDependencies": {
+    "@anthropic-ai/sdk": "^0.131.0",
+    "@datocms/cma-client-node": "^6.1.3",
     "@tailwindcss/forms": "^0.5.7",
     "autoprefixer": "^10.4.14",
     "eslint": "^8.38.0",
     "eslint-config-next": "^13.3.0",
     "postcss": "^8.4.21",
     "prettier-plugin-tailwindcss": "^0.2.7",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.4.1",
+    "zod": "^4.6.5"
   }
 }
