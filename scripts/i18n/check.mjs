@@ -65,4 +65,35 @@ assert.deepEqual(payload.title, { it: "Sviluppo web", en: "EN:title" });
 assert.deepEqual(payload.seo.en, { title: "EN:seo.title", description: "EN:seo.description", image: "u1" });
 assert.deepEqual(payload.featured, { it: true, en: true }, "non-text localized fields mirror IT");
 assert.equal(payload.slug.en, "web-development-a-la-carte");
+// Structured text: spans and blocks inside the document.
+types.article = [f("body", "structured_text", true)];
+const article = {
+  body: {
+    it: {
+      schema: "dast",
+      document: {
+        type: "root",
+        children: [
+          { type: "paragraph", children: [{ type: "span", value: "Testo " }, { type: "span", marks: ["strong"], value: "in grassetto" }] },
+          { type: "block", item: block("st1", "card", { title: "Card nel testo", text: "", link_url: null, image: null }) },
+          { type: "paragraph", children: [{ type: "link", url: "https://x.it", children: [{ type: "span", value: "link" }] }] },
+        ],
+      },
+    },
+  },
+};
+const stStrings = await collectStrings(article, types.article, repo, uploadDefaults);
+assert.deepEqual(Object.keys(stStrings), [
+  "body.document.children.0.children.0.value",
+  "body.document.children.0.children.1.value",
+  "body.document.children.1.item.attributes.title",
+  "body.document.children.2.children.0.children.0.value",
+]);
+const stPayload = await localizedPayload(article, types.article, Object.fromEntries(Object.keys(stStrings).map((k) => [k, `EN:${k}`])), repo, () => null);
+assert.equal(stPayload.body.it.document.children[1].item, "st1", "IT blocks in structured text are kept by id");
+assert.equal(stPayload.body.en.document.children[1].item.id, undefined, "EN structured text blocks are new");
+assert.equal(stPayload.body.en.document.children[1].item.attributes.title, "EN:body.document.children.1.item.attributes.title");
+assert.equal(stPayload.body.en.document.children[0].children[1].marks[0], "strong", "marks are kept");
+assert.equal(stPayload.body.en.document.children[2].children[0].url, "https://x.it");
+assert.equal(article.body.it.document.children[1].item.id, "st1", "source structured text is not mutated");
 console.info("i18n check OK");

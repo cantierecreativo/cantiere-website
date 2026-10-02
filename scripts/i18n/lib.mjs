@@ -7,7 +7,6 @@ import {
   buildClient,
   duplicateBlockRecord,
   SchemaRepository,
-  visitBlocksInNonLocalizedFieldValue,
 } from "@datocms/cma-client-node";
 
 dotenv.config({ path: ".env.local" });
@@ -52,8 +51,14 @@ export const MODELS = [
   "footer_menu",
 ];
 
-// The frontend builds these two URLs from page.slug, so the EN slug must match labels.json.
-export const FIXED_EN_SLUGS = { about_index: "about", partners_index: "partners" };
+// The frontend builds these URLs from page.slug, so the EN slug must match labels.json.
+export const FIXED_EN_SLUGS = {
+  about_index: "about",
+  partners_index: "partners",
+  contacts_index: "contact-us",
+  methods_index: "methods",
+  jobs_index: "job-positions",
+};
 
 // Never translated, whatever their type: identifiers, URLs, person and customer names.
 const DENY = new Set([
@@ -134,23 +139,50 @@ async function collectValue(field, value, basePath, repo, uploadDefaults, out) {
       for (const [i, file] of value.entries()) await fileStrings(file, [...basePath, i], uploadDefaults, put);
       break;
     case "rich_text":
+      for (const [i, block] of value.entries()) await collectBlock(block, [...basePath, i], repo, uploadDefaults, out);
+      break;
     case "single_block":
-      await visitBlocksInNonLocalizedFieldValue(value, type, repo, async (block, blockPath) => {
-        if (typeof block === "string") throw new Error(`Block at ${blockPath.join(".")} is not nested: export with nested: true`);
-        const blockType = await repo.getRawItemTypeById(block.relationships.item_type.data.id);
-        for (const bf of await repo.getRawItemTypeFields(blockType)) {
-          // Nested modular fields are reached by the visitor itself.
-          if (["rich_text", "single_block"].includes(bf.attributes.field_type)) continue;
-          await collectValue(bf, block.attributes[bf.attributes.api_key], [...basePath, ...blockPath, "attributes", bf.attributes.api_key], repo, uploadDefaults, out);
-        }
-      });
+      await collectBlock(value, basePath, repo, uploadDefaults, out);
       break;
     case "structured_text":
-      // ponytail: no structured text in scope (blog excluded); handle span nodes here if the blog is added.
-      throw new Error(`structured_text field ${apiKey} not supported`);
+      await collectDast(value.document, [...basePath, "document"], repo, uploadDefaults, put, out);
+      break;
     default:
       break;
   }
+}
+
+// Block fields are never localized: every string/text field of the block is collected, recursively.
+async function collectBlock(block, basePath, repo, uploadDefaults, out) {
+  if (typeof block === "string") throw new Error(`Block at ${basePath.join(".")} is not nested: export with nested: true`);
+  const blockType = await repo.getRawItemTypeById(block.relationships.item_type.data.id);
+  for (const bf of await repo.getRawItemTypeFields(blockType)) {
+    const key = bf.attributes.api_key;
+    await collectValue(bf, block.attributes[key], [...basePath, "attributes", key], repo, uploadDefaults, out);
+  }
+}
+
+// Structured text: every span is a string to translate; blocks inside it are collected like any other block.
+// Spans of the same paragraph get consecutive keys, so the translator sees them in order.
+async function collectDast(node, path, repo, uploadDefaults, put, out) {
+  if (node.type === "span") put([...path, "value"], node.value);
+  if ((node.type === "block" || node.type === "inlineBlock") && node.item) {
+    await collectBlock(node.item, [...path, "item"], repo, uploadDefaults, out);
+  }
+  for (const [i, child] of (node.children ?? []).entries()) {
+    await collectDast(child, [...path, "children", i], repo, uploadDefaults, put, out);
+  }
+}
+
+// Copy of a structured text value with every block replaced by mapBlock(block).
+async function mapDastBlocks(value, mapBlock) {
+  const copy = structuredClone(value);
+  const walk = async (node) => {
+    if ((node.type === "block" || node.type === "inlineBlock") && typeof node.item === "object") node.item = await mapBlock(node.item);
+    for (const child of node.children ?? []) await walk(child);
+  };
+  await walk(copy.document);
+  return copy;
 }
 
 // Returns { "<path>": "<it text>" } for all localized fields of a nested record.
@@ -186,6 +218,9 @@ export async function localizedPayload(record, fields, translated, repo, slugFor
     } else if (type === "single_block") {
       it = itVal.id;
       en = await duplicateBlockRecord(structuredClone(itVal), repo);
+    } else if (type === "structured_text") {
+      it = await mapDastBlocks(itVal, (b) => b.id);
+      en = await mapDastBlocks(itVal, (b) => duplicateBlockRecord(structuredClone(b), repo));
     } else if (type === "slug") {
       en = slugFor();
     } else {
@@ -246,5 +281,6 @@ export function parseArgs(argv = process.argv.slice(2)) {
     dryRun: argv.includes("--dry-run"),
     force: argv.includes("--force"),
     verify: argv.includes("--verify"),
+    models: argv.find((a) => a.startsWith("--models="))?.split("=")[1].split(",") ?? null,
   };
 }
