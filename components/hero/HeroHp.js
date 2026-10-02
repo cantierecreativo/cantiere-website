@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { renderHTML } from "lib/utils";
 import { Image as DatoImage } from "react-datocms";
 import { cleanFileName } from "lib/utils";
+import t from "lib/locales";
 
 export default function HeroHp({ locale, page }) {
   const { scrollY } = useScroll();
@@ -13,10 +14,10 @@ export default function HeroHp({ locale, page }) {
 
   const menuLabel =
     model === "service"
-      ? "Servizi"
+      ? t("services", locale)
       : model === "company_service"
-        ? "Settori"
-        : "Chi siamo";
+        ? t("sectors", locale)
+        : t("about", locale);
 
   return (
     <>

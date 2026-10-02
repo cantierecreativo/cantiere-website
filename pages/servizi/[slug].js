@@ -22,13 +22,14 @@ export default function Service({ locale, site, page }) {
   );
 }
 
-export async function getStaticPaths() {
-  const response = await fetchData(queries.getAllServicesSlugs, {
-    locale: "it",
-  });
-  const paths = response.allServices.map(({ slug }) => ({
-    params: { slug },
-  }));
+export async function getStaticPaths({ locales }) {
+  const paths = [];
+  for (const locale of locales) {
+    const response = await fetchData(queries.getAllServicesSlugs, { locale });
+    paths.push(
+      ...response.allServices.map(({ slug }) => ({ params: { slug }, locale }))
+    );
+  }
   return { paths, fallback: false };
 }
 
@@ -39,6 +40,7 @@ export async function getStaticProps({ params, locale = "it", preview }) {
     { slug, locale },
     preview
   );
+  if (!response.service) return { notFound: true };
   const site = await fetchData(queries.site, { locale });
   return {
     props: {

@@ -55,7 +55,10 @@ export default function Footer({ locale, site }) {
 
   const { footerMenu } = site;
   const year = new Date().getFullYear();
-  const info = ["©" + year + " Cantiere Creativo Srl", "P.Iva 05210970488"];
+  const info = [
+    "©" + year + " Cantiere Creativo Srl",
+    `${t("vat", locale)} 05210970488`,
+  ];
   return (
     <>
       <div className="relative w-full aspect-[9/2]">
@@ -127,9 +130,9 @@ export default function Footer({ locale, site }) {
                   />
                 </svg>
               ),
-              label: "SCRIVICI",
-              url: "/contatti#contattaci",
-              title: "Scrivici",
+              label: t("writeUs", locale).toUpperCase(),
+              url: t("contact-us-url", locale),
+              title: t("writeUs", locale),
             })}
             {FooterButton({
               icon: (
@@ -148,9 +151,9 @@ export default function Footer({ locale, site }) {
                   />
                 </svg>
               ),
-              label: "CHIAMACI",
+              label: t("callUs", locale).toUpperCase(),
               url: "tel:390555387851",
-              title: "Chiama +390555387851",
+              title: `${t("callUs", locale)} +39 055 5387851`,
             })}
             {FooterButton({
               icon: (
@@ -231,7 +234,7 @@ export default function Footer({ locale, site }) {
                 label={t("phone", locale)}
                 className="text-sm block py-1.5 hover:underline underline-offset-2"
               >
-                Tel: +39 055 5387851 (Lun-Ven, 9-13 e 14-18)
+                {t("phoneHours", locale)}
               </ExternalLink>
             </div>
           </nav>

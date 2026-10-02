@@ -44,12 +44,12 @@ export default function InfoContactBlock({ locale, record }) {
                 className="text-lg block pt-1"
               >
                 <span className={urlClass}>
-                  Tel: +39 055 5387851 (Lun-Ven, 9-13 e 14-18)
+                  {t("phoneHours", locale)}
                 </span>
               </ExternalLink>
             </div>
             <div>
-              <p className="text-base">Social Media</p>
+              <p className="text-base">{t("socialMedia", locale)}</p>
               <div className="flex flex-col md:flex-row flex-wrap gap-1 pt-2 md:gap-x-4 grid-col-1 col-start-1 text-lg">
                 <SocialList/>
               </div>

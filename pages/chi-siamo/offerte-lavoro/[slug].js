@@ -26,19 +26,21 @@ export default function Job({ locale, site, page }) {
   );
 }
 
-export async function getStaticPaths() {
-  const response = await fetchData(queries.getAllSlugsJobs, {
-    locale: "it",
-  });
-  const paths = response.allJobs.map(({ slug }) => ({
-    params: { slug },
-  }));
+export async function getStaticPaths({ locales }) {
+  const paths = [];
+  for (const locale of locales) {
+    const response = await fetchData(queries.getAllSlugsJobs, { locale });
+    paths.push(
+      ...response.allJobs.map(({ slug }) => ({ params: { slug }, locale }))
+    );
+  }
   return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params, locale = "it", preview }) {
   const { slug } = params;
   const response = await fetchData(queries.getJob, { slug, locale }, preview);
+  if (!response.job) return { notFound: true };
   const site = await fetchData(queries.site, { locale });
   return {
     props: {
