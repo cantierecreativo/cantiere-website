@@ -87,7 +87,7 @@ const query = `query allArticlesQuery($locale: SiteLocale, $skip: IntType) {
         ...imgFrag
       }
     }
-    abstract(fallbackLocales: it, locale: it)
+    abstract(fallbackLocales: it, locale: $locale)
   }
 }
 
