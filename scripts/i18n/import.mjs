@@ -104,7 +104,9 @@ async function runVerify() {
 if (verify) {
   await runVerify();
 } else {
+  // Drafts (never published) are out of scope: their EN is left untouched.
   const todo = exports
+    .filter((x) => x.meta.status !== "draft")
     .filter((x) => !ids || ids.has(x.id))
     .filter((x) => dryRun || force || !fs.existsSync(`${IMPORTED_DIR}/${x.id}.json`));
   console.info(`${dryRun ? "Validating" : "Importing"} ${todo.length} records on environment "${environment}"`);
