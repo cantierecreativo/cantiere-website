@@ -34,9 +34,11 @@ const record = {
   },
 };
 
-const strings = await collectStrings(record, types.page, repo);
+const uploadDefaults = async () => ({ alt: "Alt di default", title: "Titolo di default" });
+const strings = await collectStrings(record, types.page, repo, uploadDefaults);
 assert.deepEqual(Object.keys(strings).sort(), [
   "blocks.0.attributes.cards.0.attributes.image.alt",
+  "blocks.0.attributes.cards.0.attributes.image.title",
   "blocks.0.attributes.cards.0.attributes.text",
   "blocks.0.attributes.cards.0.attributes.title",
   "blocks.0.attributes.title",
@@ -55,6 +57,8 @@ assert.equal(card.attributes.text, "EN:blocks.0.attributes.cards.0.attributes.te
 assert.equal(card.attributes.link_url, "https://x.it", "denylisted fields are copied as-is");
 assert.equal(card.attributes.image.alt, "EN:blocks.0.attributes.cards.0.attributes.image.alt");
 assert.equal(card.attributes.image.upload_id, "u2");
+assert.equal(strings["blocks.0.attributes.cards.0.attributes.image.title"], "Titolo di default", "missing title falls back to the asset default");
+assert.equal(card.attributes.image.title, "EN:blocks.0.attributes.cards.0.attributes.image.title");
 assert.equal(payload.blocks.en[0].attributes.cards[1].attributes.text, "/solo-un-path");
 assert.equal(record.blocks.it[0].attributes.cards[0].id, "c1", "source record is not mutated");
 assert.deepEqual(payload.title, { it: "Sviluppo web", en: "EN:title" });

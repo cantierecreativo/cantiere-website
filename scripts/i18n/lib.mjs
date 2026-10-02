@@ -86,8 +86,32 @@ export function getClient() {
   return { client, repo: new SchemaRepository(client), environment };
 }
 
+// Default alt/title of an asset, used when a file field has no alt/title of its own.
+// The `required_alt_title` validator falls back to these per locale, and they mostly exist only in IT.
+export function uploadDefaultsLoader(client) {
+  const cache = new Map();
+  return (uploadId) => {
+    if (!cache.has(uploadId)) {
+      cache.set(
+        uploadId,
+        client.uploads.find(uploadId).then(({ default_field_metadata: m }) => ({
+          alt: m.alt?.it || null,
+          title: m.title?.it || null,
+        }))
+      );
+    }
+    return cache.get(uploadId);
+  };
+}
+
+async function fileStrings(file, basePath, uploadDefaults, put) {
+  const defaults = file.alt && file.title ? {} : await uploadDefaults(file.upload_id);
+  put([...basePath, "alt"], file.alt || defaults.alt);
+  put([...basePath, "title"], file.title || defaults.title);
+}
+
 // Collects every translatable string of a field value into `out`, keyed by its dotted path.
-async function collectValue(field, value, basePath, repo, out) {
+async function collectValue(field, value, basePath, repo, uploadDefaults, out) {
   const { api_key: apiKey, field_type: type, validators } = field.attributes;
   if (value == null || DENY.has(apiKey)) return;
   const put = (p, s) => {
@@ -104,14 +128,10 @@ async function collectValue(field, value, basePath, repo, out) {
       put([...basePath, "description"], value.description);
       break;
     case "file":
-      put([...basePath, "alt"], value.alt);
-      put([...basePath, "title"], value.title);
+      await fileStrings(value, basePath, uploadDefaults, put);
       break;
     case "gallery":
-      value.forEach((f, i) => {
-        put([...basePath, i, "alt"], f.alt);
-        put([...basePath, i, "title"], f.title);
-      });
+      for (const [i, file] of value.entries()) await fileStrings(file, [...basePath, i], uploadDefaults, put);
       break;
     case "rich_text":
     case "single_block":
@@ -121,7 +141,7 @@ async function collectValue(field, value, basePath, repo, out) {
         for (const bf of await repo.getRawItemTypeFields(blockType)) {
           // Nested modular fields are reached by the visitor itself.
           if (["rich_text", "single_block"].includes(bf.attributes.field_type)) continue;
-          await collectValue(bf, block.attributes[bf.attributes.api_key], [...basePath, ...blockPath, "attributes", bf.attributes.api_key], repo, out);
+          await collectValue(bf, block.attributes[bf.attributes.api_key], [...basePath, ...blockPath, "attributes", bf.attributes.api_key], repo, uploadDefaults, out);
         }
       });
       break;
@@ -134,12 +154,12 @@ async function collectValue(field, value, basePath, repo, out) {
 }
 
 // Returns { "<path>": "<it text>" } for all localized fields of a nested record.
-export async function collectStrings(record, fields, repo) {
+export async function collectStrings(record, fields, repo, uploadDefaults) {
   const out = {};
   for (const field of fields) {
     if (!field.attributes.localized) continue;
     const apiKey = field.attributes.api_key;
-    await collectValue(field, record[apiKey]?.it, [apiKey], repo, out);
+    await collectValue(field, record[apiKey]?.it, [apiKey], repo, uploadDefaults, out);
   }
   return out;
 }
