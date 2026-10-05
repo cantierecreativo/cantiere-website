@@ -1,7 +1,7 @@
 import { renderHTML } from "lib/utils";
 import Image from "next/image";
 
-export default function HeroBlue({ page }) {
+export default function HeroBlue({ page, children }) {
   const { title, subtitle, abstract, text } = page;
   return (
     <>
@@ -22,6 +22,7 @@ export default function HeroBlue({ page }) {
               </h2>
             )}
           </div>
+          {children}
         </div>
         <div
           className={`absolute bottom-0 h-[20vh] lg:h-[35vh] left-1/2 -translate-x-1/2 w-full top-auto`}

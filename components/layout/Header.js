@@ -3,6 +3,7 @@ import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import MenuMobile from "components/layout/MenuMobile";
 import { resolveLink, IsActive } from "lib/utils";
+import { withLabMenu, CALENDLY_URL } from "lib/lab";
 import Image from "next/legacy/image";
 import { useState, useEffect } from "react";
 import Icon from "./Icon";
@@ -175,7 +176,7 @@ function RenderNavItem(item, locale, scroll, setTriangle, headerTxt) {
 
 function Header(props) {
   const { locale, site, page, headerTxt, grandParent, parent } = props;
-  const navItems = site.menu.menuFirstLevels;
+  const navItems = withLabMenu(site.menu.menuFirstLevels);
   const prefix = locale === "it" ? "/" : "/en";
 
   const [scroll, setScroll] = useState(false);
@@ -350,7 +351,7 @@ function Header(props) {
                   <div className="hidden items-center space-x-3 xl:flex xl:space-x-6 xl:absolute xl:right-6">
                     <LanguageSwitcher page={page} locale={locale} />
                     <ExternalLink
-                      url="https://calendly.com/francesco-giovannetti-cantiere-creativo/meet?month=2025-10"
+                      url={CALENDLY_URL}
                       className="group"
                       locale={locale}
                     >
