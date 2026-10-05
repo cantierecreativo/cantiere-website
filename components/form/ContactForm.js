@@ -42,7 +42,14 @@ function Multiselect({
   });
 }
 
-export default function ContactForm({ locale, solutions }) {
+export default function ContactForm({
+  locale,
+  solutions,
+  origin,
+  interests,
+  showBudget = true,
+  onSubmitted,
+}) {
   // console.log("solutions", solutions);
 
   const router = useRouter();
@@ -50,7 +57,7 @@ export default function ContactForm({ locale, solutions }) {
   const checkboxClass =
     "h-4 w-4 shrink-0 rounded-full bg-white text-blue accent-blue";
 
-  const aree = [
+  const defaultAree = [
     "Web Design",
     "SEO",
     "Marketing",
@@ -62,6 +69,8 @@ export default function ContactForm({ locale, solutions }) {
     "DatoCMS",
     "Branding",
   ];
+
+  const aree = interests || defaultAree;
 
   const budgets = [
     t("budgetLow", locale),
@@ -79,6 +88,7 @@ export default function ContactForm({ locale, solutions }) {
     for (const key in data) {
       formData.append(key, data[key]);
     }
+    if (origin) formData.append("Origine", origin);
 
     const res = await fetch(
       "https://hooks.zapier.com/hooks/catch/426384/31gd0se/",
@@ -89,6 +99,7 @@ export default function ContactForm({ locale, solutions }) {
     ).then((res) => res.json());
 
     if (res.status == "success") {
+      if (onSubmitted) onSubmitted();
       // setResult("success");
       router.push("/grazie");
     } else {
@@ -121,27 +132,29 @@ export default function ContactForm({ locale, solutions }) {
           </div>
         </div>
 
-        <div className="pb-8">
-          <div className="text-xl font-bold">
-            {t("budgetAround", locale)}
+        {showBudget && (
+          <div className="pb-8">
+            <div className="text-xl font-bold">
+              {t("budgetAround", locale)}
+            </div>
+            <div className="flex flex-wrap mt-4 gap-2">
+              <Controller
+                control={control}
+                name="Budget"
+                render={({ field: { onChange, onBlur, value, ref } }) => (
+                  <Multiselect
+                    items={budgets}
+                    onSelect={onChange}
+                    onRemove={onChange}
+                    selectedValues={value}
+                    variantOnSize
+                    multiple={false}
+                  />
+                )}
+              />
+            </div>
           </div>
-          <div className="flex flex-wrap mt-4 gap-2">
-            <Controller
-              control={control}
-              name="Budget"
-              render={({ field: { onChange, onBlur, value, ref } }) => (
-                <Multiselect
-                  items={budgets}
-                  onSelect={onChange}
-                  onRemove={onChange}
-                  selectedValues={value}
-                  variantOnSize
-                  multiple={false}
-                />
-              )}
-            />
-          </div>
-        </div>
+        )}
 
         <div className="xl:w-1/2 pt-6">
           <div className="text-xl font-bold">{t("myInfo", locale)}</div>

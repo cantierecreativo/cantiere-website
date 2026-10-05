@@ -1,7 +1,7 @@
 import { renderHTML, convertToSlug } from "lib/utils";
 import ContactForm from "../form/ContactForm";
 
-export default function TextForm({ locale, record, solutions }) {
+export default function TextForm({ locale, record, solutions, formProps = {} }) {
   const { labelMenu } = record;
   return (
     <>
@@ -21,7 +21,7 @@ export default function TextForm({ locale, record, solutions }) {
             </div>
           </div>
           <div className="md:col-start-3 md:col-span-8 lg:col-start-7 lg:col-span-5">
-            <ContactForm locale={locale} solutions={solutions} />
+            <ContactForm locale={locale} solutions={solutions} {...formProps} />
           </div>
         </div>
       </section>

@@ -4,6 +4,7 @@ import Icon from "components/layout/Icon";
 import { Fragment } from "react";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { resolveLink, IsActive } from "lib/utils";
+import { withLabMenu } from "lib/lab";
 import Image from "next/legacy/image";
 import t from "lib/locales";
 
@@ -154,7 +155,7 @@ function RenderMobileNavItem(item, locale) {
 }
 
 export default function MenuMobile({ site, locale, page }) {
-  const navItems = site.menu.menuFirstLevels;
+  const navItems = withLabMenu(site.menu.menuFirstLevels);
   return (
     <>
       <Transition
