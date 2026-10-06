@@ -15,12 +15,12 @@ const uffiziAtlas = {
   dataDate: "2026-09-17",
   atlasUrl: ATLAS_URL,
   media: {
-    poster: "/lab/atlante-uffizi/atlante-poster.jpg",
-    video: "/lab/atlante-uffizi/atlante-loop.mp4",
-    width: 1150,
-    height: 900,
-    alt: "The 3D plan of the Uffizi second floor in the atlas, with the list of rooms",
-    caption: "The atlas online (in Italian): second floor, 3D view",
+    poster: "/lab/atlante-uffizi/atlante-3d.jpg",
+    video: "/lab/atlante-uffizi/atlante-3d.mp4",
+    width: 1780,
+    height: 1108,
+    alt: "The 3D plan of the Uffizi second floor in the atlas: the view rotates, then separates the floors",
+    caption: "The atlas online (in Italian): 3D plan of the second floor",
   },
   seo: {
     title: "How we built the 3D atlas of the Uffizi with AI",

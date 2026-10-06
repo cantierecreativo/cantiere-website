@@ -2,7 +2,8 @@
 // Fonti: sessioni dell'agente del 17/09/2026 (orari locali), git log del repo dell'atlante,
 // rapporto di censimento (COVERAGE.md) e verifiche (VERIFICATION.md).
 
-export const ATLAS_URL = "https://mappa-uffizi.vercel.app";
+// URL di prova: va aggiornato quando l'atlante sarà sul suo dominio.
+export const ATLAS_URL = "https://atlante-uffizi.netlify.app";
 
 const atlanteUffizi = {
   model: "lab_project",
@@ -18,12 +19,12 @@ const atlanteUffizi = {
   dataDate: "2026-09-17",
   atlasUrl: ATLAS_URL,
   media: {
-    poster: "/lab/atlante-uffizi/atlante-poster.jpg",
-    video: "/lab/atlante-uffizi/atlante-loop.mp4",
-    width: 1150,
-    height: 900,
-    alt: "La pianta 3D del secondo piano degli Uffizi nell'atlante, con l'elenco delle sale",
-    caption: "L'atlante online: secondo piano, vista 3D",
+    poster: "/lab/atlante-uffizi/atlante-3d.jpg",
+    video: "/lab/atlante-uffizi/atlante-3d.mp4",
+    width: 1780,
+    height: 1108,
+    alt: "La pianta 3D del secondo piano degli Uffizi nell'atlante: la vista ruota, poi separa i piani",
+    caption: "L'atlante online: la pianta 3D del secondo piano",
   },
   seo: {
     title: "Come abbiamo costruito l'atlante 3D degli Uffizi con l'AI",

@@ -27,7 +27,13 @@ export default function LabHeroActions({ project, locale = "it" }) {
         </LabButton>
       </div>
       <figure className="mx-auto mt-12 max-w-4xl rounded-3xl bg-white p-2 shadow-[0_40px_80px_-30px_rgba(10,8,80,0.6)] lg:mt-16">
-        <LabVideo media={media} locale={locale} className="block w-full rounded-2xl" />
+        <LabVideo
+          media={media}
+          locale={locale}
+          className="block h-auto w-full"
+          href={atlasUrl}
+          onOpen={() => trackLab("atlante_click", { project: slug, position: "hero_video" })}
+        />
         <figcaption className="flex flex-wrap items-center justify-between gap-2 px-3 pt-3 pb-1 text-left text-sm text-gray-dark">
           <span>{media.caption}</span>
           <span className="rounded-full bg-[#F7F6FE] px-3 py-0.5 text-xs text-blue">

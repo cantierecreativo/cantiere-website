@@ -15,7 +15,14 @@ export default function LabFeatured({ project, heading, locale }) {
         <article className="mt-10 grid overflow-hidden rounded-3xl bg-[#F7F6FE] lg:grid-cols-2">
           <div className="flex items-center p-4 lg:p-8 lg:pr-0">
             <div className="w-full rounded-2xl bg-white p-1.5 shadow-[0_30px_60px_-30px_rgba(10,8,80,0.45)]">
-              <LabVideo media={project.media} locale={locale} className="block h-auto w-full rounded-xl" />
+              <LabVideo
+                media={project.media}
+                locale={locale}
+                className="block h-auto w-full"
+                rounded="rounded-xl"
+                href={project.atlasUrl}
+                onOpen={() => trackLab("atlante_click", { project: project.slug, position: "lab_index_video" })}
+              />
             </div>
           </div>
           <div className="flex flex-col gap-6 p-6 lg:p-10">
