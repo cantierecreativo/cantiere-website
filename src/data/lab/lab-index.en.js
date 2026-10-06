@@ -3,11 +3,11 @@ const labIndexEn = {
   model: "lab_index",
   id: "lab-index",
   slug: "lab",
-  title: "AI makes us fast. Taste makes us different.",
+  title: "AI makes us fast. Taste makes us different. Experience makes us reliable.",
   heroLines: [
     { id: "h1", text: "AI makes us fast." },
     { id: "h2", text: "Taste makes us different." },
-    { id: "h3", text: "That's why our projects don't look machine-made.", accent: true },
+    { id: "h3", text: "Experience makes us reliable.", accent: true },
   ],
   abstract:
     "We use agents and AI at every level. Then we add what AI lacks: an eye for what is beautiful and judgement on what really matters. The Lab collects the products that prove it.",

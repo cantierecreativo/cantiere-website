@@ -31,11 +31,11 @@ const labIndex = {
   model: "lab_index",
   id: "lab-index",
   slug: "lab",
-  title: "L'AI ci rende veloci. Il gusto ci rende diversi.",
+  title: "L'AI ci rende veloci. Il gusto ci rende diversi. L'esperienza ci rende affidabili.",
   heroLines: [
     { id: "h1", text: "L'AI ci rende veloci." },
     { id: "h2", text: "Il gusto ci rende diversi." },
-    { id: "h3", text: "Per questo i nostri progetti non sembrano fatti da una macchina.", accent: true },
+    { id: "h3", text: "L'esperienza ci rende affidabili.", accent: true },
   ],
   abstract:
     "Usiamo agenti e AI a ogni livello. Poi ci mettiamo quello che all'AI manca: l'occhio per ciò che è bello e il giudizio su ciò che serve davvero. Il Lab raccoglie i prodotti che lo dimostrano.",
