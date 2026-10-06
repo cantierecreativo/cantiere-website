@@ -1,7 +1,8 @@
 import { renderHTML } from "lib/utils";
 import Image from "next/image";
 
-export default function HeroBlue({ page, children }) {
+export default function HeroBlue({ page, children, abstractTag = "h2" }) {
+  const AbstractTag = abstractTag;
   const { title, subtitle, abstract, text } = page;
   return (
     <>
@@ -17,9 +18,9 @@ export default function HeroBlue({ page, children }) {
               </h2>
             )}
             {(abstract || text) && (
-              <h2 className="text-md max-w-prose xl:text-lg">
+              <AbstractTag className="text-md max-w-prose xl:text-lg">
                 {renderHTML(abstract || text)}
-              </h2>
+              </AbstractTag>
             )}
           </div>
           {children}

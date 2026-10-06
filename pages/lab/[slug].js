@@ -10,13 +10,14 @@ import LabCta from "components/lab/LabCta";
 import LabJsonLd from "components/lab/LabJsonLd";
 import { getLabProjects, getLabProject, getLabIndex, getLabAlts } from "src/data/lab";
 import { buildSeoTags, getLabSite } from "lib/lab";
+import { resolveLink } from "lib/utils";
 
 export default function LabProject({ locale, site, page }) {
   const project = getLabProject(page.slug, locale);
   return (
     <Layout site={site} locale={locale} page={page} parent={getLabIndex(locale)} headerTxt="white">
       <LabJsonLd project={project} locale={locale} />
-      <HeroBlue page={{ title: project.title, abstract: project.abstract }}>
+      <HeroBlue page={{ title: project.title, abstract: project.abstract }} abstractTag="div">
         <LabHeroActions project={project} locale={locale} />
       </HeroBlue>
       <div className="vertical-spaces !pt-0 lg:!pt-0">
@@ -47,7 +48,7 @@ export async function getStaticProps({ params, locale = "it" }) {
     slug: project.slug,
     title: project.shortTitle,
     alts: getLabAlts(project.id),
-    seo: buildSeoTags(project.seo, locale),
+    seo: buildSeoTags(project.seo, locale, resolveLink(project, locale)),
   };
   return { props: { locale, site, page } };
 }

@@ -16,10 +16,10 @@ const labIndexEn = {
     secondary: { label: "Book a video call" },
   },
   seo: {
-    title: "Cantiere Creativo Lab: AI makes us fast, taste makes us different",
+    title: "Cantiere Creativo Lab: AI projects with taste and experience",
     description:
-      "We use agents and AI at every level, then add an eye for what is beautiful and useful. The Lab collects the products that prove it.",
-    image: "/lab/atlante-uffizi/og-uffizi-atlas-en.jpg",
+      "We use agents and AI at every level, then add taste and experience: an eye for what is beautiful and useful. The Lab shows the projects that prove it.",
+    image: "/lab/og-lab-en.jpg",
   },
   manifesto: {
     eyebrow: "How we work",

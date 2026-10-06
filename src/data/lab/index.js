@@ -44,10 +44,10 @@ const labIndex = {
     secondary: { label: "Prenota una video call" },
   },
   seo: {
-    title: "Cantiere Creativo Lab: l'AI ci rende veloci, il gusto diversi",
+    title: "Cantiere Creativo Lab: progetti AI con gusto ed esperienza",
     description:
-      "Usiamo agenti e AI a ogni livello, poi ci mettiamo l'occhio per ciò che è bello e serve davvero. Nel Lab trovi i prodotti che lo dimostrano.",
-    image: "/lab/atlante-uffizi/og-atlante-uffizi.jpg",
+      "Usiamo agenti e AI a ogni livello, poi ci mettiamo gusto ed esperienza: l'occhio per ciò che è bello e serve davvero. Nel Lab i progetti che lo dimostrano.",
+    image: "/lab/og-lab-it.jpg",
   },
   manifesto: {
     eyebrow: "Come lavoriamo",
