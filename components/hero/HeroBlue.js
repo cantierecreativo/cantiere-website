@@ -13,12 +13,12 @@ export default function HeroBlue({ page, children, abstractTag = "h2" }) {
               {title}
             </h1>
             {subtitle && (
-              <h2 className="text-lg max-w-prose xl:text-2xl">
+              <h2 className="text-lg max-w-prose mx-auto xl:text-2xl">
                 {renderHTML(subtitle)}
               </h2>
             )}
             {(abstract || text) && (
-              <AbstractTag className="text-md max-w-prose xl:text-lg">
+              <AbstractTag className="text-md max-w-prose mx-auto xl:text-lg">
                 {renderHTML(abstract || text)}
               </AbstractTag>
             )}
