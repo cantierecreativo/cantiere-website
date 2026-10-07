@@ -2,8 +2,8 @@
 // Fonti: sessioni dell'agente del 17/09/2026 (orari locali), git log del repo dell'atlante,
 // rapporto di censimento (COVERAGE.md) e verifiche (VERIFICATION.md).
 
-// URL di prova: va aggiornato quando l'atlante sarà sul suo dominio.
-export const ATLAS_URL = "https://atlante-uffizi.netlify.app";
+// Indirizzo pubblico dell'atlante: tutti i link del Lab passano da qui.
+export const ATLAS_URL = "https://mappe-uffizi.cantierecreativo.net";
 
 const atlanteUffizi = {
   model: "lab_project",
