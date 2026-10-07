@@ -16,13 +16,14 @@ function TagsArticle({ locale, site, page, allItems }) {
   );
 }
 
-export async function getStaticPaths() {
-  const response = await fetchData(queries.getAllArticleTags, {
-    locale: "it",
-  });
-  const paths = response.allArticleTags.map(({ slug }) => ({
-    params: { slug },
-  }));
+export async function getStaticPaths({ locales }) {
+  const paths = [];
+  for (const locale of locales) {
+    const response = await fetchData(queries.getAllArticleTags, { locale });
+    paths.push(
+      ...response.allArticleTags.map(({ slug }) => ({ params: { slug }, locale }))
+    );
+  }
   return { paths, fallback: false };
 }
 
@@ -50,11 +51,13 @@ export async function getStaticProps({ params, locale = "it", preview }) {
     preview
   );
 
+  if (!response?.articleTag) return { notFound: true };
+
   const site = await fetchData(queries.site, { locale });
   return {
     props: {
       locale,
-      page: response?.articleTag || null,
+      page: response?.articleTag,
       allItems: { news: news ? news : null },
       site,
     },

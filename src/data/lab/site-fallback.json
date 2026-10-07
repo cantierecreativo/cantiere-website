@@ -1,0 +1,841 @@
+{
+ "site": {
+  "favicon": [
+   {
+    "tag": "link",
+    "content": null,
+    "attributes": {
+     "sizes": "16x16",
+     "type": "image/png",
+     "rel": "icon",
+     "href": "https://www.datocms-assets.com/9862/1765901009-favicon.png?auto=format&h=16&w=16"
+    }
+   },
+   {
+    "tag": "link",
+    "content": null,
+    "attributes": {
+     "sizes": "32x32",
+     "type": "image/png",
+     "rel": "icon",
+     "href": "https://www.datocms-assets.com/9862/1765901009-favicon.png?auto=format&h=32&w=32"
+    }
+   },
+   {
+    "tag": "link",
+    "content": null,
+    "attributes": {
+     "sizes": "96x96",
+     "type": "image/png",
+     "rel": "icon",
+     "href": "https://www.datocms-assets.com/9862/1765901009-favicon.png?auto=format&h=96&w=96"
+    }
+   },
+   {
+    "tag": "link",
+    "content": null,
+    "attributes": {
+     "sizes": "192x192",
+     "type": "image/png",
+     "rel": "icon",
+     "href": "https://www.datocms-assets.com/9862/1765901009-favicon.png?auto=format&h=192&w=192"
+    }
+   }
+  ]
+ },
+ "menu": {
+  "id": "94748216",
+  "model": "menu",
+  "menuFirstLevels": [
+   {
+    "id": "94748202",
+    "mainLabel": "Servizi",
+    "menuItems": [
+     {
+      "id": "aYQnmHMQR3Co446SPdaX3g",
+      "model": "menu_item",
+      "label": "Prodotti digitali",
+      "tag": {
+       "id": "EZXvWJf-T2yVm2pmG5w1VQ",
+       "title": "Web Development"
+      },
+      "link": {
+       "id": "eFF5XvQBTpqVxRa2cd86UA",
+       "model": "service",
+       "slug": "prodotti-digitali",
+       "title": "Prodotti digitali"
+      }
+     },
+     {
+      "id": "EKjL_8gLSjqnex9AywWqQg",
+      "model": "menu_item",
+      "label": "DatoCMS",
+      "tag": {
+       "id": "EZXvWJf-T2yVm2pmG5w1VQ",
+       "title": "Web Development"
+      },
+      "link": {
+       "id": "fF8uzVFjRCyfeHS5IZ6NHQ",
+       "model": "service",
+       "slug": "datocms",
+       "title": "DatoCMS"
+      }
+     },
+     {
+      "id": "dbYkfWvWSDOj6d67rJYudA",
+      "model": "menu_item",
+      "label": "Accessibilità",
+      "tag": {
+       "id": "EZXvWJf-T2yVm2pmG5w1VQ",
+       "title": "Web Development"
+      },
+      "link": {
+       "id": "128508382",
+       "model": "service",
+       "slug": "accessibilita",
+       "title": "Accessibilità"
+      }
+     },
+     {
+      "id": "ZTLLT-WxRXGjQNT2lA4Pcg",
+      "model": "menu_item",
+      "label": "Web Design",
+      "tag": {
+       "id": "680530",
+       "title": "Design"
+      },
+      "link": {
+       "id": "Wqcg95EgRISx6ahCnG0Wow",
+       "model": "service",
+       "slug": "web-design",
+       "title": "Web Design"
+      }
+     },
+     {
+      "id": "dEx8ooHFS2KTx34CCdgumg",
+      "model": "menu_item",
+      "label": "UX/UI",
+      "tag": {
+       "id": "680530",
+       "title": "Design"
+      },
+      "link": {
+       "id": "Fcz47ghpSaCHLS4EBIfl3w",
+       "model": "service",
+       "slug": "ux-ui",
+       "title": "UX/UI"
+      }
+     },
+     {
+      "id": "M9rKeduZQVCzXk-l1KIM0g",
+      "model": "menu_item",
+      "label": "Brand Design",
+      "tag": {
+       "id": "680530",
+       "title": "Design"
+      },
+      "link": {
+       "id": "113593992",
+       "model": "service",
+       "slug": "brand-design",
+       "title": "Brand Design"
+      }
+     },
+     {
+      "id": "HELTRE6hR7izWgKqi0wwtw",
+      "model": "menu_item",
+      "label": "Digital Marketing",
+      "tag": {
+       "id": "740614",
+       "title": "Marketing"
+      },
+      "link": {
+       "id": "1490375",
+       "model": "service",
+       "slug": "servizi-digital-marketing",
+       "title": "Digital Marketing"
+      }
+     },
+     {
+      "id": "FDWEvA68Qo2ZO_iyGFAaSQ",
+      "model": "menu_item",
+      "label": "Ecommerce",
+      "tag": {
+       "id": "EZXvWJf-T2yVm2pmG5w1VQ",
+       "title": "Web Development"
+      },
+      "link": {
+       "id": "L-y3OxKnT-mUoemWT7yesg",
+       "model": "service",
+       "slug": "ecommerce",
+       "title": "Ecommerce"
+      }
+     }
+    ]
+   },
+   {
+    "id": "UgR7R19iTbaWxbHbPI6BrA",
+    "mainLabel": "Settori",
+    "menuItems": [
+     {
+      "id": "XBejXyZCRsiGAa6_-p1bpw",
+      "model": "menu_item",
+      "label": "Pubblica Amministrazione",
+      "tag": null,
+      "link": {
+       "id": "SuL-TyFCSnuyIX5NA2XFMg",
+       "model": "company_service",
+       "slug": "siti-istituzionali-e-digitalizzazione-della-pa",
+       "title": "Siti istituzionali e digitalizzazione della Pubblica Amministrazione"
+      }
+     },
+     {
+      "id": "dKegi0ltS2OYypOIfQHraQ",
+      "model": "menu_item",
+      "label": "Musei e Fondazioni Culturali",
+      "tag": null,
+      "link": {
+       "id": "FGZ4BykRSX-DdTp4fB-nCw",
+       "model": "company_service",
+       "slug": "siti-per-musei-e-servizi-digitalizzazione-beni-culturali",
+       "title": "Siti web per musei e servizi per la digitalizzazione beni culturali"
+      }
+     },
+     {
+      "id": "dvAZYcUwRCWtz2YznyQvSA",
+      "model": "menu_item",
+      "label": "Turismo, Food e  Wine",
+      "tag": null,
+      "link": {
+       "id": "SGcd-xriTKC46kto9bH4tw",
+       "model": "company_service",
+       "slug": "siti-web-per-turismo-food-wine",
+       "title": "Siti web turismo per food & wine e vendita online"
+      }
+     },
+     {
+      "id": "YyMsW-3wTLCh-LUXiJhBfw",
+      "model": "menu_item",
+      "label": "Moda, Lusso e Design",
+      "tag": null,
+      "link": {
+       "id": "dDHL5EjERyqJXHxMOl4mBg",
+       "model": "company_service",
+       "slug": "ecommerce-moda-lusso-design",
+       "title": "Ecommerce Moda, lusso e design per brand fashion"
+      }
+     },
+     {
+      "id": "DMImEDPgShqyBnQ7ZZBhrw",
+      "model": "menu_item",
+      "label": "Aziende e PMI",
+      "tag": null,
+      "link": {
+       "id": "Ho0CDXo6Q82zh2KlAqPxiw",
+       "model": "company_service",
+       "slug": "digitalizzazione-pmi-e-siti-web-per-aziende",
+       "title": "Digitalizzazione PMI: siti e soluzioni digitali per aziende"
+      }
+     },
+     {
+      "id": "GcKI_GCgRhCh4FQ3S4FiEQ",
+      "model": "menu_item",
+      "label": "Eventi e Festival",
+      "tag": null,
+      "link": {
+       "id": "JKZpZyFCTw6kS8slsYcc1w",
+       "model": "company_service",
+       "slug": "piattaforme-eventi-digitali",
+       "title": "Piattaforme eventi digitali per festival e manifestazioni"
+      }
+     }
+    ]
+   },
+   {
+    "id": "Rji5E8L1Souu-neR1SdNJw",
+    "model": "menu_item",
+    "label": "Portfolio",
+    "tag": null,
+    "link": {
+     "id": "684735",
+     "model": "works_index",
+     "slug": "portfolio",
+     "title": "Portfolio"
+    }
+   },
+   {
+    "id": "UGYXH41jReK_glxyJLB72w",
+    "model": "menu_item",
+    "label": "Case studies",
+    "tag": null,
+    "link": {
+     "id": "94748154",
+     "model": "case_studies_index",
+     "slug": "case-studies",
+     "title": "Case studies"
+    }
+   },
+   {
+    "id": "94748213",
+    "mainLabel": "Chi siamo",
+    "menuItems": [
+     {
+      "id": "94748210",
+      "model": "menu_item",
+      "label": "Azienda",
+      "tag": null,
+      "link": {
+       "id": "684784",
+       "model": "about_index",
+       "slug": "chi-siamo",
+       "title": "Il partner digitale specializzato nel design e sviluppo di applicativi web"
+      }
+     },
+     {
+      "id": "aHSo-7-YTaeQ2cGjF7M4mw",
+      "model": "menu_item",
+      "label": "Tecnologie",
+      "tag": null,
+      "link": {
+       "id": "684768",
+       "model": "technologies_index",
+       "slug": "tecnologie",
+       "title": "Tecnologie"
+      }
+     },
+     {
+      "id": "94748212",
+      "model": "menu_item",
+      "label": "Team",
+      "tag": null,
+      "link": {
+       "id": "684868",
+       "model": "team_index",
+       "slug": "team",
+       "title": "Team"
+      }
+     },
+     {
+      "id": "94748211",
+      "model": "menu_item",
+      "label": "Lavora con noi",
+      "tag": null,
+      "link": {
+       "id": "684739",
+       "model": "jobs_index",
+       "slug": "offerte-lavoro",
+       "title": "Cerchiamo capacità di comunicare, lavorare in team e tanta passione!"
+      }
+     },
+     {
+      "id": "afq8ySyfSqOkKtOnKkAjEA",
+      "model": "menu_item",
+      "label": "Blog",
+      "tag": null,
+      "link": {
+       "id": "684954",
+       "model": "articles_index",
+       "slug": "blog",
+       "title": "Il blog di Cantiere"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "footerMenu": {
+  "id": "XRl90oIhQ8mKNd2QyS98Yw",
+  "model": "footer_menu",
+  "menuFirstLevels": [
+   {
+    "id": "MXXYOR2GTf60fNxA9QIW_g",
+    "mainLabel": "Servizi",
+    "menuItems": [
+     {
+      "id": "WRKnByrVSjqhSL-yNGbxDw",
+      "model": "menu_item",
+      "label": "Accessibilità",
+      "tag": null,
+      "link": {
+       "id": "128508382",
+       "model": "service",
+       "slug": "accessibilita",
+       "title": "Accessibilità"
+      }
+     },
+     {
+      "id": "N3qP2t1rTFa5eF7uGHGu3g",
+      "model": "menu_item",
+      "label": "Web Design",
+      "tag": null,
+      "link": {
+       "id": "Wqcg95EgRISx6ahCnG0Wow",
+       "model": "service",
+       "slug": "web-design",
+       "title": "Web Design"
+      }
+     },
+     {
+      "id": "USPCWuWhRX2BCUmjFhXcww",
+      "model": "menu_item",
+      "label": "Digital Marketing",
+      "tag": null,
+      "link": {
+       "id": "1490375",
+       "model": "service",
+       "slug": "servizi-digital-marketing",
+       "title": "Digital Marketing"
+      }
+     },
+     {
+      "id": "Q611tpn5TyuwhlsT7PkYOg",
+      "model": "menu_item",
+      "label": "Brand Design",
+      "tag": null,
+      "link": {
+       "id": "113593992",
+       "model": "service",
+       "slug": "brand-design",
+       "title": "Brand Design"
+      }
+     },
+     {
+      "id": "OYQmCdvBRPyMG4GY3csMVg",
+      "model": "menu_item",
+      "label": "UX / UI",
+      "tag": null,
+      "link": {
+       "id": "Fcz47ghpSaCHLS4EBIfl3w",
+       "model": "service",
+       "slug": "ux-ui",
+       "title": "UX/UI"
+      }
+     },
+     {
+      "id": "Th3Okgq0SSiQUgwUrLO75A",
+      "model": "menu_item",
+      "label": "Prodotti Digitali",
+      "tag": null,
+      "link": {
+       "id": "eFF5XvQBTpqVxRa2cd86UA",
+       "model": "service",
+       "slug": "prodotti-digitali",
+       "title": "Prodotti digitali"
+      }
+     }
+    ]
+   },
+   {
+    "id": "PFQXPviURb2nqg9z9Kx4OQ",
+    "mainLabel": "Servizi per l'azienda",
+    "menuItems": [
+     {
+      "id": "DvqXl3PzTru-BqLVyk4Cfg",
+      "model": "menu_item",
+      "label": "Pubblica amministrazione",
+      "tag": null,
+      "link": {
+       "id": "SuL-TyFCSnuyIX5NA2XFMg",
+       "model": "company_service",
+       "slug": "siti-istituzionali-e-digitalizzazione-della-pa",
+       "title": "Siti istituzionali e digitalizzazione della Pubblica Amministrazione"
+      }
+     }
+    ]
+   },
+   {
+    "id": "Vrt3GDVWQNeM354Vvcz93Q",
+    "mainLabel": "Chi Siamo",
+    "menuItems": [
+     {
+      "id": "Hn0uv5KQS5qEQV9ZOLBDQg",
+      "model": "menu_item",
+      "label": "Azienda",
+      "tag": null,
+      "link": {
+       "id": "684784",
+       "model": "about_index",
+       "slug": "chi-siamo",
+       "title": "Il partner digitale specializzato nel design e sviluppo di applicativi web"
+      }
+     },
+     {
+      "id": "eC_SUCniSlSAWSdC8V9WTw",
+      "model": "menu_item",
+      "label": "Tecnologie",
+      "tag": null,
+      "link": {
+       "id": "684768",
+       "model": "technologies_index",
+       "slug": "tecnologie",
+       "title": "Tecnologie"
+      }
+     },
+     {
+      "id": "WSJV_p-hTeOR8_8Osylb4w",
+      "model": "menu_item",
+      "label": "Il Nostro Team",
+      "tag": null,
+      "link": {
+       "id": "684868",
+       "model": "team_index",
+       "slug": "team",
+       "title": "Team"
+      }
+     },
+     {
+      "id": "UuxX45pxTOqH8vHi4QLZdw",
+      "model": "menu_item",
+      "label": "Finanziamento Piani Welfare",
+      "tag": null,
+      "link": {
+       "id": "cD3CAE-WTyyc0xEN82D1jQ",
+       "model": "method",
+       "slug": "finanziamento-di-piani-di-welfare-aziendale-per-la-conciliazione-vita-lavoro",
+       "title": "Finanziamento di piani di welfare aziendale per la conciliazione vita-lavoro"
+      }
+     }
+    ]
+   },
+   {
+    "id": "LlFVJt4sROqYHk5eQ4uNEg",
+    "model": "menu_item",
+    "label": "Portfolio",
+    "tag": null,
+    "link": {
+     "id": "684735",
+     "model": "works_index",
+     "slug": "portfolio",
+     "title": "Portfolio"
+    }
+   },
+   {
+    "id": "X1lnAoE7T56wkzhW2SXI_w",
+    "model": "menu_item",
+    "label": "Case Studies",
+    "tag": null,
+    "link": {
+     "id": "94748154",
+     "model": "case_studies_index",
+     "slug": "case-studies",
+     "title": "Case studies"
+    }
+   }
+  ]
+ },
+ "worksIndex": {
+  "id": "684735",
+  "model": "works_index",
+  "slug": "portfolio",
+  "title": "Portfolio",
+  "menuLabel": "Portfolio"
+ },
+ "jobsIndex": {
+  "id": "684739",
+  "model": "jobs_index",
+  "slug": "offerte-lavoro",
+  "title": "Cerchiamo capacità di comunicare, lavorare in team e tanta passione!",
+  "menuLabel": "Lavora con noi"
+ },
+ "articlesIndex": {
+  "id": "684954",
+  "model": "articles_index",
+  "slug": "blog",
+  "title": "Il blog di Cantiere",
+  "menuLabel": "Blog"
+ },
+ "solutionsIndex": {
+  "id": "94748091",
+  "model": "solutions_index",
+  "slug": "soluzioni",
+  "title": "Le soluzioni"
+ },
+ "technologiesIndex": {
+  "id": "684768",
+  "model": "technologies_index",
+  "slug": "tecnologie",
+  "title": "Tecnologie",
+  "menuLabel": "Tecnologie"
+ },
+ "caseStudiesIndex": {
+  "id": "94748154",
+  "model": "case_studies_index",
+  "slug": "case-studies",
+  "title": "Case studies",
+  "menuLabel": "Case studies"
+ },
+ "servicesIndex": {
+  "id": "684687",
+  "model": "services_index",
+  "slug": "competenze",
+  "title": "Competenze",
+  "menuLabel": "Competenze"
+ },
+ "aboutIndex": {
+  "id": "684784",
+  "model": "about_index",
+  "slug": "chi-siamo",
+  "title": "Il partner digitale specializzato nel design e sviluppo di applicativi web",
+  "menuLabel": "Chi siamo"
+ },
+ "methodsIndex": {
+  "id": "684817",
+  "model": "methods_index",
+  "slug": "metodo",
+  "title": "Metodo",
+  "menuLabel": "Metodo"
+ },
+ "allSolutions": [
+  {
+   "id": "108987865",
+   "model": "solution",
+   "slug": "composable-wcm",
+   "title": "Composable WCM",
+   "menuLabel": "Composable WCM"
+  },
+  {
+   "id": "110735667",
+   "model": "solution",
+   "slug": "composable-dxp",
+   "title": "Composable DXP",
+   "menuLabel": "Composable DXP "
+  },
+  {
+   "id": "101195857",
+   "model": "solution",
+   "slug": "soluzione-agency",
+   "title": "Agency",
+   "menuLabel": "Agency"
+  },
+  {
+   "id": "110781029",
+   "model": "solution",
+   "slug": "headless-pa",
+   "title": "Headless PA",
+   "menuLabel": "Headless PA"
+  },
+  {
+   "id": "110834301",
+   "model": "solution",
+   "slug": "design-system",
+   "title": "Design System",
+   "menuLabel": "Design System"
+  },
+  {
+   "id": "108981028",
+   "model": "solution",
+   "slug": "blueprint",
+   "title": "Blueprint",
+   "menuLabel": "Blueprint "
+  },
+  {
+   "id": "106357447",
+   "model": "solution",
+   "slug": "digital-strategy",
+   "title": "Digital Strategy ",
+   "menuLabel": "Digital Strategy"
+  },
+  {
+   "id": "110796403",
+   "model": "solution",
+   "slug": "branding-startup",
+   "title": "Branding Startup",
+   "menuLabel": "Branding Startup"
+  }
+ ],
+ "allServices": [
+  {
+   "id": "L-y3OxKnT-mUoemWT7yesg",
+   "model": "service",
+   "slug": "ecommerce",
+   "title": "Ecommerce",
+   "menuLabel": "Ecommerce"
+  },
+  {
+   "id": "eFF5XvQBTpqVxRa2cd86UA",
+   "model": "service",
+   "slug": "prodotti-digitali",
+   "title": "Prodotti digitali",
+   "menuLabel": "Prodotti digitali"
+  },
+  {
+   "id": "fF8uzVFjRCyfeHS5IZ6NHQ",
+   "model": "service",
+   "slug": "datocms",
+   "title": "DatoCMS",
+   "menuLabel": "DatoCMS"
+  },
+  {
+   "id": "128508382",
+   "model": "service",
+   "slug": "accessibilita",
+   "title": "Accessibilità",
+   "menuLabel": "Accessibilità"
+  },
+  {
+   "id": "WP7-s-k_SAarMYPEW4kgiA",
+   "model": "service",
+   "slug": "figma",
+   "title": "Figma Design",
+   "menuLabel": "Figma Design"
+  },
+  {
+   "id": "OYxpzFl0RliMUUKlgq1ELg",
+   "model": "service",
+   "slug": "react-next-js",
+   "title": "React / Next.js",
+   "menuLabel": "React / Next.js"
+  },
+  {
+   "id": "1490375",
+   "model": "service",
+   "slug": "servizi-digital-marketing",
+   "title": "Digital Marketing",
+   "menuLabel": "Digital Marketing"
+  },
+  {
+   "id": "113593992",
+   "model": "service",
+   "slug": "brand-design",
+   "title": "Brand Design",
+   "menuLabel": "Brand Design"
+  },
+  {
+   "id": "Wqcg95EgRISx6ahCnG0Wow",
+   "model": "service",
+   "slug": "web-design",
+   "title": "Web Design",
+   "menuLabel": "Web Design"
+  },
+  {
+   "id": "Fcz47ghpSaCHLS4EBIfl3w",
+   "model": "service",
+   "slug": "ux-ui",
+   "title": "UX/UI",
+   "menuLabel": "UX/UI"
+  }
+ ],
+ "allTechnologies": [
+  {
+   "id": "116067303",
+   "model": "technology",
+   "slug": "datocms",
+   "title": "DatoCMS",
+   "menuLabel": "DatoCMS"
+  },
+  {
+   "id": "116067321",
+   "model": "technology",
+   "slug": "headless",
+   "title": "Headless",
+   "menuLabel": "Headless"
+  },
+  {
+   "id": "128486834",
+   "model": "technology",
+   "slug": "jamstack-mach",
+   "title": "Jamstack e MACH ",
+   "menuLabel": "Jamstack e MACH"
+  },
+  {
+   "id": "684814",
+   "model": "technology",
+   "slug": "sviluppo-con-test",
+   "title": "Codice testato ",
+   "menuLabel": "Codice testato"
+  },
+  {
+   "id": "cpehpXWGQFup21Pr4kHstA",
+   "model": "technology",
+   "slug": "intelligenza-artificiale",
+   "title": "Intelligenza Artificiale",
+   "menuLabel": "Intelligenza Artificiale"
+  },
+  {
+   "id": "116127952",
+   "model": "technology",
+   "slug": "figma-design",
+   "title": "Figma Design",
+   "menuLabel": "Figma Design"
+  },
+  {
+   "id": "IjFcHLqgQJur9jUejCuoBg",
+   "model": "technology",
+   "slug": "react-next-js",
+   "title": "React / Next.js",
+   "menuLabel": "React / Next.js"
+  },
+  {
+   "id": "116067325",
+   "model": "technology",
+   "slug": "astro",
+   "title": "Astro",
+   "menuLabel": "Astro"
+  },
+  {
+   "id": "116067326",
+   "model": "technology",
+   "slug": "shopify",
+   "title": "Shopify",
+   "menuLabel": "Shopify"
+  },
+  {
+   "id": "RjEfCyvXSLWiAHkAJBHfCw",
+   "model": "technology",
+   "slug": "stripe",
+   "title": "Stripe",
+   "menuLabel": "Stripe"
+  }
+ ],
+ "allMethods": [
+  {
+   "id": "115820888",
+   "model": "method",
+   "slug": "full-remote",
+   "title": "Full remote",
+   "menuLabel": "Full remote"
+  },
+  {
+   "id": "115826002",
+   "model": "method",
+   "slug": "async-first",
+   "title": "Async-first",
+   "menuLabel": "Async-first"
+  },
+  {
+   "id": "116067327",
+   "model": "method",
+   "slug": "calm-company",
+   "title": "Calm company",
+   "menuLabel": "Calm company"
+  },
+  {
+   "id": "114581612",
+   "model": "method",
+   "slug": "qualita",
+   "title": "Qualità",
+   "menuLabel": "Qualità"
+  },
+  {
+   "id": "684875",
+   "model": "method",
+   "slug": "come-lavoriamo",
+   "title": "Metodologia Lean/Agile",
+   "menuLabel": "Come lavoriamo"
+  },
+  {
+   "id": "114581620",
+   "model": "method",
+   "slug": "manifesto-etico",
+   "title": "Manifesto Etico ",
+   "menuLabel": "Manifesto Etico"
+  },
+  {
+   "id": "cD3CAE-WTyyc0xEN82D1jQ",
+   "model": "method",
+   "slug": "finanziamento-di-piani-di-welfare-aziendale-per-la-conciliazione-vita-lavoro",
+   "title": "Finanziamento di piani di welfare aziendale per la conciliazione vita-lavoro",
+   "menuLabel": "Finanziamento Welfare"
+  }
+ ]
+}

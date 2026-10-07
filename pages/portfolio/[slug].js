@@ -26,22 +26,26 @@ export default function Work({ locale, site, page }) {
   );
 }
 
-export async function getStaticPaths() {
-  const response = await fetchData(queries.getAllSlugsWorks, { locale: "it" });
-  const paths = response.allWorks.map(({ slug }) => ({
-    params: { slug },
-  }));
+export async function getStaticPaths({ locales }) {
+  const paths = [];
+  for (const locale of locales) {
+    const response = await fetchData(queries.getAllSlugsWorks, { locale });
+    paths.push(
+      ...response.allWorks.map(({ slug }) => ({ params: { slug }, locale }))
+    );
+  }
   return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params, locale = "it", preview }) {
   const { slug } = params;
   const response = await fetchData(queries.getWork, { slug, locale }, preview);
+  if (!response?.work) return { notFound: true };
   const site = await fetchData(queries.site, { locale });
   return {
     props: {
       locale,
-      page: response?.work || null,
+      page: response?.work,
       site,
     },
   };

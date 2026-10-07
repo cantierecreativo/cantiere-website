@@ -38,3 +38,5 @@ yarn-error.log*
 .history
 src/data/all_articles_en.json
 src/data/all_articles_it.json
+# i18n pipeline data (content exports, backups, translations)
+scripts/i18n/data/

@@ -6,7 +6,7 @@ export default function Document() {
   const isStaging = process.env.NEXT_PUBLIC_ENV === "staging";
 
   return (
-    <Html lang="it">
+    <Html>
       <Head>
         <script
           async

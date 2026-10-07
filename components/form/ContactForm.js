@@ -42,7 +42,14 @@ function Multiselect({
   });
 }
 
-export default function ContactForm({ locale, solutions }) {
+export default function ContactForm({
+  locale,
+  solutions,
+  origin,
+  interests,
+  showBudget = true,
+  onSubmitted,
+}) {
   // console.log("solutions", solutions);
 
   const router = useRouter();
@@ -50,7 +57,7 @@ export default function ContactForm({ locale, solutions }) {
   const checkboxClass =
     "h-4 w-4 shrink-0 rounded-full bg-white text-blue accent-blue";
 
-  const aree = [
+  const defaultAree = [
     "Web Design",
     "SEO",
     "Marketing",
@@ -63,7 +70,13 @@ export default function ContactForm({ locale, solutions }) {
     "Branding",
   ];
 
-  const budgets = ["Fino a 5K", "Da 5 a 20K", "Più di 20K"];
+  const aree = interests || defaultAree;
+
+  const budgets = [
+    t("budgetLow", locale),
+    t("budgetMid", locale),
+    t("budgetHigh", locale),
+  ];
 
   const { register, handleSubmit, control } = useForm();
   const [result, setResult] = React.useState("");
@@ -75,6 +88,7 @@ export default function ContactForm({ locale, solutions }) {
     for (const key in data) {
       formData.append(key, data[key]);
     }
+    if (origin) formData.append("Origine", origin);
 
     const res = await fetch(
       "https://hooks.zapier.com/hooks/catch/426384/31gd0se/",
@@ -85,6 +99,7 @@ export default function ContactForm({ locale, solutions }) {
     ).then((res) => res.json());
 
     if (res.status == "success") {
+      if (onSubmitted) onSubmitted();
       // setResult("success");
       router.push("/grazie");
     } else {
@@ -100,7 +115,7 @@ export default function ContactForm({ locale, solutions }) {
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="pb-8 lg:pb-12">
-          <div className="text-xl font-bold">Sono interessato a:</div>
+          <div className="text-xl font-bold">{t("interestedIn", locale)}</div>
           <div className="flex flex-wrap gap-2 mt-4">
             <Controller
               control={control}
@@ -117,30 +132,32 @@ export default function ContactForm({ locale, solutions }) {
           </div>
         </div>
 
-        <div className="pb-8">
-          <div className="text-xl font-bold">
-            Pensavo ad un budget intorno a:
+        {showBudget && (
+          <div className="pb-8">
+            <div className="text-xl font-bold">
+              {t("budgetAround", locale)}
+            </div>
+            <div className="flex flex-wrap mt-4 gap-2">
+              <Controller
+                control={control}
+                name="Budget"
+                render={({ field: { onChange, onBlur, value, ref } }) => (
+                  <Multiselect
+                    items={budgets}
+                    onSelect={onChange}
+                    onRemove={onChange}
+                    selectedValues={value}
+                    variantOnSize
+                    multiple={false}
+                  />
+                )}
+              />
+            </div>
           </div>
-          <div className="flex flex-wrap mt-4 gap-2">
-            <Controller
-              control={control}
-              name="Budget"
-              render={({ field: { onChange, onBlur, value, ref } }) => (
-                <Multiselect
-                  items={budgets}
-                  onSelect={onChange}
-                  onRemove={onChange}
-                  selectedValues={value}
-                  variantOnSize
-                  multiple={false}
-                />
-              )}
-            />
-          </div>
-        </div>
+        )}
 
         <div className="xl:w-1/2 pt-6">
-          <div className="text-xl font-bold">Le mie info sono:</div>
+          <div className="text-xl font-bold">{t("myInfo", locale)}</div>
           <div className="py-8">
             <div>
               <label htmlFor="fullName" className="label">
@@ -161,7 +178,7 @@ export default function ContactForm({ locale, solutions }) {
           <div className="pb-8">
             <div>
               <label htmlFor="email" className="label">
-                Email *
+                {t("formEmail", locale)}
               </label>
             </div>
             <input
@@ -178,7 +195,7 @@ export default function ContactForm({ locale, solutions }) {
           <div className="pb-8">
             <div>
               <label htmlFor="phone" className="label">
-                Numero di telefono
+                {t("phoneNumber", locale)}
               </label>
             </div>
             <input
@@ -186,7 +203,7 @@ export default function ContactForm({ locale, solutions }) {
               type="text"
               name="phone"
               id="phone"
-              placeholder="Telefono"
+              placeholder={t("phone", locale)}
               required={false}
               autoComplete="tel"
               {...register("Telefono")}
@@ -200,7 +217,7 @@ export default function ContactForm({ locale, solutions }) {
               </label>
             </div>
             <small>
-              Scrivici una nota o parlaci brevemente del tuo progetto.
+              {t("formNote", locale)}
             </small>
             <textarea
               type="text"
@@ -218,7 +235,7 @@ export default function ContactForm({ locale, solutions }) {
           <fieldset
             className="mt-9 pt-4 flex pr-2 lg:pt-0 lg:mb-6"
             role="group"
-            aria-label={t("formPrivacyFieldsetLabel")}
+            aria-label={t("formPrivacyFieldsetLabel", locale)}
           >
             <legend className="sr-only">
               {t("formPrivacyFieldsetLabel", locale)}

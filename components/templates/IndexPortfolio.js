@@ -8,6 +8,7 @@ import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Image as DatoImage } from "react-datocms";
 import Image from "next/image";
+import t from "lib/locales";
 
 export default function IndexPortfolio({ locale, page, works }) {
   const { scrollY } = useScroll();
@@ -94,7 +95,7 @@ export default function IndexPortfolio({ locale, page, works }) {
               transition={{ duration: 0.5 }}
             >
               <div className="uppercase text-center font-bold tracking-wider">
-                I nostri lavori
+                {t("ourWorks", locale)}
               </div>
               <h1 className="xl:text-5xl text-black md:text-4xl font-bold max-w-prose lg:block lg:pr-0 z-20 text-2xl">
                 {page.title}
@@ -112,7 +113,7 @@ export default function IndexPortfolio({ locale, page, works }) {
                       onChange={handleFilterChange}
                       className="border border-black/10 p-2 appearance-none inline-block w-auto cursor-pointer px-6 pr-12 rounded-[24px] bg-white/80 backdrop-blur-sm uppercase font-bold text-sm"
                     >
-                      <option value="">Filtra i progetti per categoria</option>
+                      <option value="">{t("filterByCategory", locale)}</option>
                       {uniqueCategories.map((cat) => (
                         <option key={cat.id} value={cat.slug}>
                           {cat.title}
@@ -122,10 +123,10 @@ export default function IndexPortfolio({ locale, page, works }) {
                   </div>
                   <Link
                     className="hidden md:block underline-offset-4 hover:underline rounded-[24px] bg-white/80 backdrop-blur-sm p-2 px-6 uppercase font-bold text-sm"
-                    title="Cacella i filtri"
+                    title={t("clearFilters", locale)}
                     href={"/portfolio"}
                   >
-                    Vedi Tutti
+                    {t("seeAll", locale)}
                   </Link>
                 </div>
               )}
