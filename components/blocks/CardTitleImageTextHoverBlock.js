@@ -40,7 +40,7 @@ export default function CardTitleImageTextHover({ data, showNumbers, l, n }) {
                 {data.title}
               </h2>
             )}
-            {data.link && <Button bg="blue" />}
+            {data.link && <Button bg="blueWhite" />}
           </div>
         </div>
       </InternalLink>

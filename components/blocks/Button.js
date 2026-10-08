@@ -5,7 +5,6 @@ export default function Button({
   bg,
   big = false,
   reverse = false,
-  icon = "white",
 }) {
   const colorButton = {
     blue: "after:bg-blue border-blue fill-white group-hover:fill-blue group-hover:after:top-full after:bottom-0",
@@ -46,11 +45,10 @@ export default function Button({
           <div
             className={`${colorButton[bg]} px-5 cursor-pointer rounded-full py-2 border duration-300 after:z-0 after:absolute after:left-0 after:right-0 after:top-0 relative after:duration-300 overflow-hidden`}
           >
+            {/* No fill on the icon: it inherits the variant colors (fill-* / group-hover:fill-*) set above. */}
             <Icon
               name="arrow"
-              className={`${
-                reverse ? "rotate-180" : ""
-              } z-10 relative fill-${icon} ${icon === "white" ? "group-hover:fill-blue" : ""}`}
+              className={`${reverse ? "rotate-180" : ""} z-10 relative`}
               size="22"
             />
           </div>

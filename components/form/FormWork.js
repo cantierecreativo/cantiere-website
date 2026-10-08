@@ -178,7 +178,7 @@ export default function FormWork({ page, openPosition, locale, position }) {
       <button type="submit" className="group">
         <div className="flex flex-row items-center pt-9 lg:pt-0">
           <p className="pr-6">{t("formSend", locale)}</p>
-          <Button icon="black" bg="white" />
+          <Button bg="white" />
         </div>
       </button>
       <FormMessage status={result} locale={locale} />
