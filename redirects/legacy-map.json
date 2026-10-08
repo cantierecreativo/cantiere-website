@@ -1,0 +1,274 @@
+[
+ {
+  "source": "/blog/2014/01/23/sognando-su-flowdock",
+  "destination": "/blog/2014-01-23-sognando-su-flowdock"
+ },
+ {
+  "source": "/blog/2014/03/14/gioie-e-dolori-del-testing",
+  "destination": "/blog/2014-03-14-gioie-e-dolori-del-testing"
+ },
+ {
+  "source": "/blog/2014/03/29/sito-opera-duomo-online",
+  "destination": "/blog/2014-03-29-sito-opera-duomo-online"
+ },
+ {
+  "source": "/blog/2014/04/10/unit-e-integration-test",
+  "destination": "/blog/2014-04-10-unit-e-integration-test"
+ },
+ {
+  "source": "/blog/2015/01/29/classificazione-automatica",
+  "destination": "/blog/2015-01-29-classificazione-automatica"
+ },
+ {
+  "source": "/en/blog/2015/08/24/machine-learning-automatic-classification",
+  "destination": "/en/blog/2015-08-24-machine-learning-automatic-classification"
+ },
+ {
+  "source": "/blog/2015/02/10/alternate-sitemap",
+  "destination": "/blog/2015-02-10-alternate-sitemap"
+ },
+ {
+  "source": "/en/blog/2015/09/12/alternate-sitemap",
+  "destination": "/en/blog/2015-09-12-alternate-sitemap"
+ },
+ {
+  "source": "/blog/2015/02/13/sviluppo-con-angularjs",
+  "destination": "/blog/2015-02-13-sviluppo-con-angularjs"
+ },
+ {
+  "source": "/en/blog/2015/09/20/our-criticisms-of-angularjs",
+  "destination": "/en/blog/2015-09-20-our-criticisms-of-angularjs"
+ },
+ {
+  "source": "/blog/2015/03/27/to-test-or-not-to-test",
+  "destination": "/blog/2015-03-27-to-test-or-not-to-test"
+ },
+ {
+  "source": "/en/blog/2015/09/24/how-to-sell-test-development",
+  "destination": "/en/blog/2015-09-24-how-to-sell-test-development"
+ },
+ {
+  "source": "/blog/2015/04/19/fiware-hackathlon-italiano",
+  "destination": "/blog/2015-04-19-fiware-hackathlon-italiano"
+ },
+ {
+  "source": "/en/blog/2015/04/19/italian-fiware-hackathlon",
+  "destination": "/en/blog/2015-04-19-italian-fiware-hackathlon"
+ },
+ {
+  "source": "/blog/2015/04/24/ecommerce-forum",
+  "destination": "/blog/2015-04-24-ecommerce-forum"
+ },
+ {
+  "source": "/en/blog/2015/04/24/ecommerce-forum",
+  "destination": "/en/blog/2015-04-24-ecommerce-forum"
+ },
+ {
+  "source": "/blog/2015/05/29/nuova-legge-cookie",
+  "destination": "/blog/2015-05-29-nuova-legge-cookie"
+ },
+ {
+  "source": "/blog/2015/08/28/dato-cms-static-website",
+  "destination": "/blog/2015-08-28-dato-cms-static-website"
+ },
+ {
+  "source": "/en/blog/2015/10/13/dato-cms-static-website",
+  "destination": "/en/blog/2015-10-13-dato-cms-static-website"
+ },
+ {
+  "source": "/blog/2016/02/08/react-newbies-tutorial",
+  "destination": "/blog/2016-02-08-react-newbies-tutorial"
+ },
+ {
+  "source": "/blog/2016/03/07/smart-integration-test",
+  "destination": "/blog/2016-03-07-smart-integration-test"
+ },
+ {
+  "source": "/en/blog/2016/04/11/smart-integration",
+  "destination": "/en/blog/2016-04-11-smart-integration"
+ },
+ {
+  "source": "/blog/2016/04/07/duomo-museo-app-beacon",
+  "destination": "/blog/2016-04-07-duomo-museo-app-beacon"
+ },
+ {
+  "source": "/blog/2016/05/08/https-free-con-letsencrypt",
+  "destination": "/blog/2016-05-08-https-free-con-letsencrypt"
+ },
+ {
+  "source": "/blog/2017/03/16/installare-https-ovunque",
+  "destination": "/blog/2017-03-16-installare-https-ovunque"
+ },
+ {
+  "source": "/blog/2017/06/13/perche-non-useremo-slack",
+  "destination": "/blog/2017-06-13-perche-non-useremo-slack"
+ },
+ {
+  "source": "/blog/2017/06/30/datocms-hardypress",
+  "destination": "/blog/2017-06-30-datocms-hardypress"
+ },
+ {
+  "source": "/blog/2018/10/03/testing-applicazioni-rack",
+  "destination": "/blog/2018-10-03-testing-applicazioni-rack"
+ },
+ {
+  "source": "/en/blog/2015/06/28/amd-requirejs-commonjs-browserify",
+  "destination": "/en/blog/2015-06-28-amd-requirejs-commonjs-browserify"
+ },
+ {
+  "source": "/en/blog/2015/08/26/coffeescript-ecmascript-6-typescript",
+  "destination": "/en/blog/2015-08-26-coffeescript-ecmascript-6-typescript"
+ },
+ {
+  "source": "/en/blog/2015/07/20/css-preprocessors",
+  "destination": "/en/blog/2015-07-20-css-preprocessors"
+ },
+ {
+  "source": "/en/blog/2017/05/24/simple-mail-forwarding",
+  "destination": "/en/blog/2017-05-24-simple-mail-forwarding"
+ },
+ {
+  "source": "/en/blog/2017/03/13/how-to-run-lean-ux-workshop-for-agencies-freelancers",
+  "destination": "/en/blog/2017-03-13-how-to-run-lean-ux-workshop-for-agencies-freelancers"
+ },
+ {
+  "source": "/en/blog/2018/04/09/mastico-the-new-gem-by-lean-panda",
+  "destination": "/en/blog/2018-04-09-mastico-the-new-gem-by-lean-panda"
+ },
+ {
+  "source": "/en/blog/2015/06/15/nodejs-grunt-gulp",
+  "destination": "/en/blog/2015-06-15-nodejs-grunt-gulp"
+ },
+ {
+  "source": "/en/blog/2015/10/04/rubyday-2015-organisation",
+  "destination": "/en/blog/2015-10-04-rubyday-2015-organisation"
+ },
+ {
+  "source": "/en/blog/2014/09/30/ruby-day-2014-our-experience",
+  "destination": "/en/blog/2014-09-30-ruby-day-2014-our-experience"
+ },
+ {
+  "source": "/en/blog/2015/06/05/ruby-node-go-advantages-backend-development",
+  "destination": "/en/blog/2015-06-05-ruby-node-go-advantages-backend-development"
+ },
+ {
+  "source": "/en/blog/2015/05/11/what-when-we-talk-about-startups",
+  "destination": "/en/blog/2015-05-11-what-when-we-talk-about-startups"
+ },
+ {
+  "source": "/en/blog/2019/01/04/create-a-static-website-with-authentication-tutorial-with-react-and-netlify-identity",
+  "destination": "/en/blog/2019-01-04-create-a-static-website-with-authentication-tutorial-with-react-and-netlify-identity"
+ },
+ {
+  "source": "/blog/2014/05/05/di-cosa-parliamo-quando-diciamo-startup",
+  "destination": "/blog/startup-di-cosa-parliamo"
+ },
+ {
+  "source": "/blog/2016/11/02/guida-pratica-test-usabilita-parte-1",
+  "destination": "/blog/guida-pratica-test-usabilita-1"
+ },
+ {
+  "source": "/blog/accessibilita-introduzione-tema-punto-vista",
+  "destination": "/blog/accessibilita-introduzione-tema"
+ },
+ {
+  "source": "/blog/come-abbattere-i-rischi-di-sviluppo-con-il-processo-di-discovery",
+  "destination": "/blog/0-rischi-sviluppo-discovery"
+ },
+ {
+  "source": "/blog/come-creare-landing-page-che-convertono",
+  "destination": "/blog/come-creare-landing-page-convertono"
+ },
+ {
+  "source": "/blog/come-creare-un-nuovo-articolo-con-dato-cms",
+  "destination": "/blog/creare-nuovo-articolo-dato-cms"
+ },
+ {
+  "source": "/blog/come-gestire-la-multilingua-con-dato-cms",
+  "destination": "/blog/gestire-multilingua-dato-cms"
+ },
+ {
+  "source": "/blog/come-progettare-un-esperienza-user-centered",
+  "destination": "/blog/progettare-esperienza-user-centered"
+ },
+ {
+  "source": "/blog/come-sfruttare-al-meglio-la-media-area-di-datocms",
+  "destination": "/blog/sfruttare-media-area-datocms"
+ },
+ {
+  "source": "/blog/cos-e-un-impresa-componibile-e-come-costruirla",
+  "destination": "/blog/impresa-componibile-come-costruirla"
+ },
+ {
+  "source": "/blog/digital-partner-tutto-cio-che-devi-sapere",
+  "destination": "/blog/digital-partner-cosa-sapere"
+ },
+ {
+  "source": "/blog/e-tu-come-ti-relazioni-con-i-tuoi-clienti",
+  "destination": "/blog/come-relazione-clienti"
+ },
+ {
+  "source": "/blog/google-analytics-e-illegale-in-italia-facciamo-chiarezza",
+  "destination": "/blog/analytics-illegale-italia"
+ },
+ {
+  "source": "/blog/il-gdpr-lo-sconosciuto-che-protegge-i-nostri-dati-personali",
+  "destination": "/blog/gdpr-dati-personali"
+ },
+ {
+  "source": "/blog/il-nostro-contributo-al-lavoro-del-team-digitale-italiano",
+  "destination": "/blog/contributo-al-team-digitale-italiano"
+ },
+ {
+  "source": "/blog/perche-next-js-e-la-tecnologia-giusta-per-la-seo",
+  "destination": "/blog/perche-next-js-tecnologia-giusta-seo"
+ },
+ {
+  "source": "/blog/2013/3/22/trello-aumento-produttivita-aziendale",
+  "destination": "/blog/trello-produttivita-aziendale"
+ },
+ {
+  "source": "/case-studies/mitd",
+  "destination": "/case-studies/casestudy-mitd"
+ },
+ {
+  "source": "/servizi/prodotti",
+  "destination": "/servizi/prodotti-digitali"
+ },
+ {
+  "source": "/blog/:y(\\d{4})/:m(\\d{1,2})/:d(\\d{1,2})/:name",
+  "destination": "/blog/:name"
+ },
+ {
+  "source": "/en/blog/:y(\\d{4})/:m(\\d{1,2})/:d(\\d{1,2})/:name",
+  "destination": "/en/blog/:name"
+ },
+ {
+  "source": "/blog/feed.xml",
+  "destination": "/blog"
+ },
+ {
+  "source": "/contatto",
+  "destination": "/contatti"
+ },
+ {
+  "source": "/competenze",
+  "destination": "/servizi"
+ },
+ {
+  "source": "/competenze/:slug",
+  "destination": "/servizi/:slug"
+ },
+ {
+  "source": "/servizi/tecnologie",
+  "destination": "/tecnologie"
+ },
+ {
+  "source": "/servizi/tecnologie/:slug",
+  "destination": "/tecnologie/:slug"
+ },
+ {
+  "source": "/metodo/lean-startup",
+  "destination": "/metodo"
+ }
+]
