@@ -108,7 +108,11 @@
     "otherArticles": "Altri articoli",
     "socialMedia": "Social Media",
     "phoneHours": "Tel: +39 055 5387851 (Lun-Ven, 9-13 e 14-18)",
-    "blog": "Blog"
+    "blog": "Blog",
+    "footerTagline": "Il tuo progetto è a portata di click.",
+    "footerTitle": "Siamo a tua disposizione per parlare",
+    "footerTitleHighlight": "del tuo prossimo progetto",
+    "whereWeAre": "Dove siamo"
   },
   "en": {
     "it": "Ita",
@@ -219,6 +223,10 @@
     "otherArticles": "More articles",
     "socialMedia": "Social media",
     "phoneHours": "Tel: +39 055 5387851 (Mon-Fri, 9am-1pm and 2pm-6pm CET)",
-    "blog": "Blog"
+    "blog": "Blog",
+    "footerTagline": "Your project is just a click away.",
+    "footerTitle": "We're here to talk about",
+    "footerTitleHighlight": "your next project",
+    "whereWeAre": "Where we are"
   }
 }

@@ -99,7 +99,7 @@ export default function Footer({ locale, site }) {
               variants={variants}
             >
               <div className="text-lg lg:text-xl">
-                Il tuo progetto è a portata di click.
+                {t("footerTagline", locale)}
               </div>
             </motion.div>
             <motion.div
@@ -109,8 +109,8 @@ export default function Footer({ locale, site }) {
               variants={variants}
             >
               <div className="text-3xl lg:text-5xl font-bold max-w-3xl mx-auto">
-                Siamo a tua disposizione per parlare{" "}
-                <span className="text-yellow">del tuo prossimo progetto</span>.
+                {t("footerTitle", locale)}{" "}
+                <span className="text-yellow">{t("footerTitleHighlight", locale)}</span>.
               </div>
             </motion.div>
           </div>
@@ -170,9 +170,9 @@ export default function Footer({ locale, site }) {
                   />
                 </svg>
               ),
-              label: "DOVE SIAMO",
+              label: t("whereWeAre", locale).toUpperCase(),
               url: "https://www.google.com/maps/place/Cantiere+Creativo/@43.775825,11.2388014,17z/data=!3m1!4b1!4m6!3m5!1s0x132a512cfd40a6d7:0xab02d55f2e455d26!8m2!3d43.775825!4d11.2413763!16s%2Fg%2F1tlngk7j?entry=tts&shorturl=1",
-              title: "Dove siamo",
+              title: t("whereWeAre", locale),
             })}
           </div>
           <nav className="grid grid-cols-2 md:flex md:gap-4 gap-2 gap-y-8 justify-between pb-6 xl:grid xl:grid-cols-6">
