@@ -112,7 +112,9 @@
     "footerTagline": "Il tuo progetto è a portata di click.",
     "footerTitle": "Siamo a tua disposizione per parlare",
     "footerTitleHighlight": "del tuo prossimo progetto",
-    "whereWeAre": "Dove siamo"
+    "whereWeAre": "Dove siamo",
+    "articles": "Articoli",
+    "accessibility": "Accessibilità"
   },
   "en": {
     "it": "Ita",
@@ -227,6 +229,8 @@
     "footerTagline": "Your project is just a click away.",
     "footerTitle": "We're here to talk about",
     "footerTitleHighlight": "your next project",
-    "whereWeAre": "Where we are"
+    "whereWeAre": "Where we are",
+    "articles": "Articles",
+    "accessibility": "Accessibility"
   }
 }
