@@ -166,6 +166,10 @@ async function collectBlock(block, basePath, repo, uploadDefaults, out) {
 // Spans of the same paragraph get consecutive keys, so the translator sees them in order.
 async function collectDast(node, path, repo, uploadDefaults, put, out) {
   if (node.type === "span") put([...path, "value"], node.value);
+  // Link titles (tooltip / accessible description) live in the link's meta.
+  if ((node.type === "link" || node.type === "itemLink") && node.meta) {
+    node.meta.forEach((m, i) => m.id === "title" && put([...path, "meta", i, "value"], m.value));
+  }
   if ((node.type === "block" || node.type === "inlineBlock") && node.item) {
     await collectBlock(node.item, [...path, "item"], repo, uploadDefaults, out);
   }

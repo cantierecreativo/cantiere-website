@@ -76,7 +76,7 @@ const article = {
         children: [
           { type: "paragraph", children: [{ type: "span", value: "Testo " }, { type: "span", marks: ["strong"], value: "in grassetto" }] },
           { type: "block", item: block("st1", "card", { title: "Card nel testo", text: "", link_url: null, image: null }) },
-          { type: "paragraph", children: [{ type: "link", url: "https://x.it", children: [{ type: "span", value: "link" }] }] },
+          { type: "paragraph", children: [{ type: "link", url: "https://x.it", meta: [{ id: "title", value: "Titolo del link" }], children: [{ type: "span", value: "link" }] }] },
         ],
       },
     },
@@ -87,6 +87,7 @@ assert.deepEqual(Object.keys(stStrings), [
   "body.document.children.0.children.0.value",
   "body.document.children.0.children.1.value",
   "body.document.children.1.item.attributes.title",
+  "body.document.children.2.children.0.meta.0.value",
   "body.document.children.2.children.0.children.0.value",
 ]);
 const stPayload = await localizedPayload(article, types.article, Object.fromEntries(Object.keys(stStrings).map((k) => [k, `EN:${k}`])), repo, () => null);
@@ -95,5 +96,6 @@ assert.equal(stPayload.body.en.document.children[1].item.id, undefined, "EN stru
 assert.equal(stPayload.body.en.document.children[1].item.attributes.title, "EN:body.document.children.1.item.attributes.title");
 assert.equal(stPayload.body.en.document.children[0].children[1].marks[0], "strong", "marks are kept");
 assert.equal(stPayload.body.en.document.children[2].children[0].url, "https://x.it");
+assert.equal(stPayload.body.en.document.children[2].children[0].meta[0].value, "EN:body.document.children.2.children.0.meta.0.value", "link titles are translated");
 assert.equal(article.body.it.document.children[1].item.id, "st1", "source structured text is not mutated");
 console.info("i18n check OK");
