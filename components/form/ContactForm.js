@@ -65,7 +65,7 @@ export default function ContactForm({
     "App",
     "UI/UX",
     "GDPR",
-    "Accessibilitá",
+    t("accessibility", locale),
     "DatoCMS",
     "Branding",
   ];

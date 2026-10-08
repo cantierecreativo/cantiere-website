@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import t from "lib/locales";
 
 const breakpointColumnsObj = {
   default: 2,
@@ -66,7 +67,7 @@ export default function BlogTmp({ locale, page, items, pagination }) {
               transition={{ duration: 0.5 }}
             >
               <div className="uppercase text-center font-bold tracking-wider">
-                Articoli
+                {t("articles", locale)}
               </div>
               <h1 className="xl:text-5xl text-black md:text-4xl font-bold max-w-prose lg:block lg:pr-0 z-20 text-2xl">
                 {page.title}
