@@ -157,11 +157,7 @@ http://cantiere-website-2023.netlify.app/* https://www.cantierecreativo.net/:spl
 /blog/cos-e-un-impresa-componibile-e-come-costruirla/	/blog/impresa-componibile-come-costruirla
 /blog/digital-partner-tutto-cio-che-devi-sapere/	/blog/digital-partner-cosa-sapere
 /blog/perche-next-js-e-la-tecnologia-giusta-per-la-seo/	/blog/perche-next-js-tecnologia-giusta-seo
-/en	/
-/en/* /
-/it/* /
-/en/*/* /
-/it/*/* /
+/it/* /:splat
 
 /portfolio/- /portfolio
 /portfolio/mdt-2018 /portfolio/mdt
