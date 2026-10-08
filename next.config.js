@@ -23,6 +23,7 @@ module.exports = {
     ];
   },
   // Legacy URLs (old blog /blog/YYYY/MM/DD/name, old pages) → current pages. Source of truth: redirects/legacy-map.json
+  // Note: public/_redirects is applied by Netlify before these rules and wins on overlapping URLs.
   async redirects() {
     // With i18n, Next matches unprefixed IT URLs as "/it/...", so IT sources get the default-locale prefix.
     return require("./redirects/legacy-map.json").map((r) => ({
