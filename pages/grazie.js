@@ -2,27 +2,9 @@ import Link from "next/link";
 import Layout from "components/layout/Layout";
 import * as queries from "lib/queries";
 import fetchData from "lib/dato";
-import { useEffect, useState } from "react";
 import t from "lib/locales";
 
-function ThankyouPage({ site }) {
-  const [locale, setLocale] = useState();
-
-  useEffect(() => {
-    const lang = () =>
-      navigator.languages && navigator.languages.length
-        ? navigator.languages[0]
-        : navigator.userLanguage ||
-          navigator.language ||
-          navigator.browserLanguage ||
-          "en";
-    if (lang().indexOf("it") !== -1) {
-      setLocale("it");
-    } else {
-      setLocale("en");
-    }
-  }, []);
-
+function ThankyouPage({ site, locale }) {
   return (
     <Layout site={site} locale={locale} page="404">
       <div className="pt-24 pb-12">

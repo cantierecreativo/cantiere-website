@@ -1,28 +1,13 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import Layout from "components/layout/Layout";
 import * as queries from "lib/queries";
 import fetchData from "lib/dato";
-import { useEffect, useState } from "react";
 import t from "lib/locales";
 
-function Template404({ site }) {
-  const [locale, setLocale] = useState();
-
-  useEffect(() => {
-    const lang = () =>
-      navigator.languages && navigator.languages.length
-        ? navigator.languages[0]
-        : navigator.userLanguage ||
-          navigator.language ||
-          navigator.browserLanguage ||
-          "en";
-    if (lang().indexOf("it") !== -1) {
-      setLocale("it");
-    } else {
-      setLocale("en");
-    }
-  }, []);
-
+function Template404({ site, locale: staticLocale }) {
+  // Next prerenders the 404 in the default locale: once in the browser, follow the locale of the requested URL.
+  const { locale = staticLocale } = useRouter();
   return (
     <Layout site={site} locale={locale} page="404">
       <div className="pt-24 pb-12">
