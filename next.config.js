@@ -22,6 +22,16 @@ module.exports = {
       { source: "/en/industries/:slug", destination: "/en/settori/:slug", locale: false },
     ];
   },
+  // Legacy URLs (old blog /blog/YYYY/MM/DD/name, old pages) → current pages. Source of truth: redirects/legacy-map.json
+  async redirects() {
+    // With i18n, Next matches unprefixed IT URLs as "/it/...", so IT sources get the default-locale prefix.
+    return require("./redirects/legacy-map.json").map((r) => ({
+      source: r.source.startsWith("/en/") ? r.source : `/it${r.source}`,
+      destination: r.destination,
+      statusCode: 301,
+      locale: false,
+    }));
+  },
   async headers() {
     return [
       {

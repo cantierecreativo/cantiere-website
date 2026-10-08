@@ -30,6 +30,16 @@ bun run i18n:import -- --verify
 `--force` rifà traduzioni o import già fatti. Un record modificato nel CMS dopo l'export dà `STALE`:
 riesportare e ripetere solo quell'id.
 
+## Link nei testi EN
+
+```bash
+bun run i18n:links -- --dry-run   # elenca i link interni italiani dentro i testi EN
+bun run i18n:links                # li riscrive verso le pagine EN (solo locale en, blocchi aggiornati in place)
+```
+
+Da rilanciare dopo ogni import: le traduzioni copiano gli URL dall'italiano. Usa `redirects/legacy-map.json`
+per risolvere prima i vecchi URL.
+
 ## Regole
 
 - Si traducono i campi localizzati `string`/`text`, `seo.title`/`seo.description`, `alt`/`title` dei campi file,
