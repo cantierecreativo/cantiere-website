@@ -15,13 +15,12 @@ const seatingConfigurator = {
   dataDate: "2026-10-08",
   atlasUrl: CONFIGURATOR_URL,
   about: { "@type": "Organization", name: "Quinti Sedute", url: "https://quinti.com" },
-  accent: "warm",
   cardMedia: {
     poster: "/lab/configuratore-sedute/card.jpg",
     video: "/lab/configuratore-sedute/card.mp4",
     width: 800,
     height: 800,
-    alt: "The configurator's chairs take turns and rotate: Amelie Lounge, Chance Net, Club, Hanami, Olga and Deep Executive, each in a different fabric",
+    alt: "The Deep Executive rotates and changes upholstery: red leather, then yellow, orange and blue fabrics",
   },
   media: {
     poster: "/lab/configuratore-sedute/configuratore-3d.jpg",
@@ -96,8 +95,8 @@ const seatingConfigurator = {
           "usable with a keyboard and a screen reader, to WCAG 2.2 AA",
         ],
         image: {
-          src: "/lab/configuratore-sedute/realta-aumentata-en.jpg",
-          alt: "A smartphone in augmented reality: the Club armchair in brown bouclé standing on a living room's wooden floor, at real scale",
+          src: "/lab/configuratore-sedute/realta-aumentata.jpg",
+          alt: "Smartphone screenshot in augmented reality: the Hanami in ochre bouclé fabric standing on the wooden floor of a real room, at real scale",
           width: 1200,
           height: 1000,
         },

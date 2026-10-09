@@ -19,13 +19,12 @@ const configuratoreSedute = {
   dataDate: "2026-10-08",
   atlasUrl: CONFIGURATOR_URL,
   about: { "@type": "Organization", name: "Quinti Sedute", url: "https://quinti.com" },
-  accent: "warm",
   cardMedia: {
     poster: "/lab/configuratore-sedute/card.jpg",
     video: "/lab/configuratore-sedute/card.mp4",
     width: 800,
     height: 800,
-    alt: "Le sedute del configuratore si alternano e ruotano: Amelie Lounge, Chance Net, Club, Hanami, Olga e Deep Executive, ognuna in un tessuto diverso",
+    alt: "La Deep Executive ruota e cambia rivestimento: pelle rossa, poi tessuti giallo, arancio e blu",
   },
   media: {
     poster: "/lab/configuratore-sedute/configuratore-3d.jpg",
@@ -103,7 +102,7 @@ const configuratoreSedute = {
         ],
         image: {
           src: "/lab/configuratore-sedute/realta-aumentata.jpg",
-          alt: "Uno smartphone in realtà aumentata: la poltrona Club in bouclé marrone appoggiata sul parquet di un soggiorno, in scala reale",
+          alt: "Schermata dello smartphone in realtà aumentata: la Hanami in tessuto bouclé giallo ocra appoggiata sul parquet di una stanza vera, in scala reale",
           width: 1200,
           height: 1000,
         },

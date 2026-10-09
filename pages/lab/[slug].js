@@ -9,23 +9,16 @@ import LabTools from "components/lab/LabTools";
 import LabChapters from "components/lab/LabChapters";
 import LabCta from "components/lab/LabCta";
 import LabJsonLd from "components/lab/LabJsonLd";
-import { accents } from "components/lab/accents";
 import { getLabProjects, getLabProject, getLabIndex, getLabAlts } from "src/data/lab";
 import { buildSeoTags, getLabSite } from "lib/lab";
 import { resolveLink } from "lib/utils";
 
 export default function LabProject({ locale, site, page }) {
   const project = getLabProject(page.slug, locale);
-  const accent = accents[project.accent];
   return (
-    <Layout site={site} locale={locale} page={page} parent={getLabIndex(locale)} headerTxt={accent ? "black" : "white"}>
+    <Layout site={site} locale={locale} page={page} parent={getLabIndex(locale)} headerTxt="white">
       <LabJsonLd project={project} locale={locale} />
-      <HeroBlue
-        page={{ title: project.title, abstract: project.abstract }}
-        abstractTag="div"
-        bgClassName={accent?.hero}
-        textClassName={accent ? "text-black" : undefined}
-      >
+      <HeroBlue page={{ title: project.title, abstract: project.abstract }} abstractTag="div">
         <LabHeroActions project={project} locale={locale} />
       </HeroBlue>
       <div className="vertical-spaces !pt-0 lg:!pt-0">
