@@ -20,7 +20,7 @@ export default function LabHeroActions({ project, locale = "it" }) {
         </LabButton>
         <LabButton
           href={`#${cta.id}`}
-          variant="ghost"
+          variant={project.accent ? "outline" : "ghost"}
           onClick={() => trackLab("cta_scroll", { project: slug, position: "hero" })}
         >
           {heroActions.secondary.label}

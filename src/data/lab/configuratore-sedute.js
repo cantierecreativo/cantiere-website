@@ -19,6 +19,14 @@ const configuratoreSedute = {
   dataDate: "2026-10-08",
   atlasUrl: CONFIGURATOR_URL,
   about: { "@type": "Organization", name: "Quinti Sedute", url: "https://quinti.com" },
+  accent: "warm",
+  cardMedia: {
+    poster: "/lab/configuratore-sedute/card.jpg",
+    video: "/lab/configuratore-sedute/card.mp4",
+    width: 800,
+    height: 800,
+    alt: "Le sedute del configuratore si alternano e ruotano: Amelie Lounge, Chance Net, Club, Hanami, Olga e Deep Executive, ognuna in un tessuto diverso",
+  },
   media: {
     poster: "/lab/configuratore-sedute/configuratore-3d.jpg",
     video: "/lab/configuratore-sedute/configuratore-3d.mp4",
@@ -49,12 +57,11 @@ const configuratoreSedute = {
     ],
   },
   chapters: {
-    eyebrow: "Il metodo del Lab",
-    title: "Tre frasi, tre prove",
+    eyebrow: "Come l'abbiamo fatto",
+    title: "Veloce da costruire, curato nei dettagli, affidabile da usare",
     items: [
       {
         id: "c-veloci",
-        line: "L'AI ci rende veloci.",
         title: "Dai file CAD al browser in 75 minuti",
         text: "Quinti pubblica schede tecniche e modelli 3D dei suoi prodotti. L'agente (Claude Code) li ha letti, li ha trasformati in modelli leggeri per il web e ha scritto le regole del catalogo: quali opzioni esistono e quali stanno insieme.",
         points: [
@@ -71,7 +78,6 @@ const configuratoreSedute = {
       },
       {
         id: "c-diversi",
-        line: "Il gusto ci rende diversi.",
         title: "Quello che conta lo vede chi prova",
         text: "L'AI fa quello che le chiedi. Accorgersi che qualcosa non va, e decidere come deve essere, resta compito nostro. Provando il configuratore abbiamo notato che i rivestimenti sembravano tutti uguali: ora ogni tessuto ha le sue foto e i suoi colori veri.",
         points: [
@@ -88,8 +94,7 @@ const configuratoreSedute = {
       },
       {
         id: "c-affidabili",
-        line: "L'esperienza ci rende affidabili.",
-        title: "Funziona anche fuori dallo schermo",
+        title: "La provi dove la metterai",
         text: "In realtà aumentata la sedia compare nella stanza in scala reale, quindi le misure devono essere giuste. Abbiamo confrontato ogni modello con la scheda tecnica: nel file l'Amelie Lounge era alta 96 cm, quella vera 81.",
         points: [
           "realtà aumentata su iPhone e Android senza app, anche da Chrome su iPhone",
@@ -97,8 +102,8 @@ const configuratoreSedute = {
           "accessibile da tastiera e con screen reader, secondo le WCAG 2.2 AA",
         ],
         image: {
-          src: "/lab/configuratore-sedute/telefono.jpg",
-          alt: "Il configuratore su smartphone: l'Amelie Lounge in tessuto verde con le misure reali, seduta 36–42 cm e altezza 75–81 cm",
+          src: "/lab/configuratore-sedute/realta-aumentata.jpg",
+          alt: "Uno smartphone in realtà aumentata: la poltrona Club in bouclé marrone appoggiata sul parquet di un soggiorno, in scala reale",
           width: 1200,
           height: 1000,
         },

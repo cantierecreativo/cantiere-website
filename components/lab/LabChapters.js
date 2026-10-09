@@ -1,4 +1,4 @@
-// I tre principi del Lab, ognuno con la prova presa dal progetto: testo e immagine alternati.
+// Capitoli del progetto, ognuno con la sua prova: testo e immagine alternati.
 export default function LabChapters({ chapters }) {
   return (
     <section className="container margin-scroll-standard lg:grid lg:grid-cols-12">
@@ -9,8 +9,7 @@ export default function LabChapters({ chapters }) {
           {chapters.items.map((c, i) => (
             <li key={c.id} className="grid items-center gap-8 md:grid-cols-2 lg:gap-16">
               <div className={i % 2 ? "md:order-2" : undefined}>
-                <p className="text-2xl font-bold text-blue lg:text-3xl">{c.line}</p>
-                <h3 className="mt-4 text-xl font-bold lg:text-2xl">{c.title}</h3>
+                <h3 className="text-2xl font-bold lg:text-3xl">{c.title}</h3>
                 <p className="mt-4 max-w-prose text-lg text-gray-dark">{c.text}</p>
                 <ul className="mt-6 space-y-3">
                   {c.points.map((point) => (

@@ -15,6 +15,14 @@ const seatingConfigurator = {
   dataDate: "2026-10-08",
   atlasUrl: CONFIGURATOR_URL,
   about: { "@type": "Organization", name: "Quinti Sedute", url: "https://quinti.com" },
+  accent: "warm",
+  cardMedia: {
+    poster: "/lab/configuratore-sedute/card.jpg",
+    video: "/lab/configuratore-sedute/card.mp4",
+    width: 800,
+    height: 800,
+    alt: "The configurator's chairs take turns and rotate: Amelie Lounge, Chance Net, Club, Hanami, Olga and Deep Executive, each in a different fabric",
+  },
   media: {
     poster: "/lab/configuratore-sedute/configuratore-3d.jpg",
     video: "/lab/configuratore-sedute/configuratore-3d.mp4",
@@ -43,12 +51,11 @@ const seatingConfigurator = {
     ],
   },
   chapters: {
-    eyebrow: "The Lab method",
-    title: "Three sentences, three proofs",
+    eyebrow: "How we did it",
+    title: "Fast to build, refined in the details, reliable to use",
     items: [
       {
         id: "c-veloci",
-        line: "AI makes us fast.",
         title: "From CAD files to the browser in 75 minutes",
         text: "Quinti publishes spec sheets and 3D models of its products. The agent (Claude Code) read them, turned them into lightweight models for the web and wrote the catalogue rules: which options exist and which go together.",
         points: [
@@ -65,7 +72,6 @@ const seatingConfigurator = {
       },
       {
         id: "c-diversi",
-        line: "Taste sets us apart.",
         title: "What matters shows up when you try it",
         text: "AI does what you ask. Noticing that something is off, and deciding how it should be, is still our job. Trying the configurator we noticed that all the upholsteries looked the same: now every fabric has its own photos and real colours.",
         points: [
@@ -82,8 +88,7 @@ const seatingConfigurator = {
       },
       {
         id: "c-affidabili",
-        line: "Experience makes us reliable.",
-        title: "It works off the screen too",
+        title: "Try it where it will stand",
         text: "In augmented reality the chair appears in the room at real scale, so the measurements have to be right. We checked every model against the spec sheet: in the file the Amelie Lounge was 96 cm tall, the real one is 81.",
         points: [
           "augmented reality on iPhone and Android with no app, Chrome on iPhone included",
@@ -91,8 +96,8 @@ const seatingConfigurator = {
           "usable with a keyboard and a screen reader, to WCAG 2.2 AA",
         ],
         image: {
-          src: "/lab/configuratore-sedute/telefono.jpg",
-          alt: "The configurator on a smartphone: the Amelie Lounge in green fabric with its real measurements, seat 36–42 cm and height 75–81 cm",
+          src: "/lab/configuratore-sedute/realta-aumentata-en.jpg",
+          alt: "A smartphone in augmented reality: the Club armchair in brown bouclé standing on a living room's wooden floor, at real scale",
           width: 1200,
           height: 1000,
         },
