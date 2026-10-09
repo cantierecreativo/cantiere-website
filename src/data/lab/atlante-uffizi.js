@@ -18,6 +18,11 @@ const atlanteUffizi = {
   status: "Online",
   dataDate: "2026-09-17",
   atlasUrl: ATLAS_URL,
+  about: {
+    "@type": "Museum",
+    name: "Galleria degli Uffizi",
+    address: { "@type": "PostalAddress", addressLocality: "Firenze", addressCountry: "IT" },
+  },
   media: {
     poster: "/lab/atlante-uffizi/atlante-3d.jpg",
     video: "/lab/atlante-uffizi/atlante-3d.mp4",

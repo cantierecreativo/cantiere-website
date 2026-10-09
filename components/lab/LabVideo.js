@@ -3,7 +3,7 @@ import t from "lib/locales";
 
 // Video in loop con pausa (WCAG 2.2.2): non parte da solo se l'utente chiede di ridurre il movimento.
 // Con `href` il video diventa un link (in una nuova scheda); il bottone pausa resta fuori dal link.
-export default function LabVideo({ media, locale = "it", className = "", rounded = "rounded-2xl", href, onOpen }) {
+export default function LabVideo({ media, locale = "it", className = "", rounded = "rounded-2xl", href, onOpen, label }) {
   const ref = useRef(null);
   const [playing, setPlaying] = useState(false);
 
@@ -57,7 +57,7 @@ export default function LabVideo({ media, locale = "it", className = "", rounded
         >
           {video}
           <span className="sr-only">
-            {media.alt}. {t("lab_open_atlas", locale)} {t("lab_new_tab", locale)}
+            {media.alt}. {label ?? t("lab_open_atlas", locale)} {t("lab_new_tab", locale)}
           </span>
         </a>
       ) : (

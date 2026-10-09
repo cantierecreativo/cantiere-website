@@ -18,7 +18,7 @@ export default function LabProjectCard({ project, locale }) {
           width={project.media.width}
           height={project.media.height}
           loading="lazy"
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover object-left"
         />
       </div>
       <div className="flex flex-col gap-4 p-6 lg:p-10">

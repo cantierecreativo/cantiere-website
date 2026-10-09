@@ -38,11 +38,7 @@ export default function LabJsonLd({ project, locale = "it" }) {
       inLanguage: "it-IT",
       dateModified: project.dataDate,
       creator: organization,
-      about: {
-        "@type": "Museum",
-        name: "Galleria degli Uffizi",
-        address: { "@type": "PostalAddress", addressLocality: "Firenze", addressCountry: "IT" },
-      },
+      about: project.about,
     },
   ];
   return (

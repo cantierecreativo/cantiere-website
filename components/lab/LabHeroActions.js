@@ -32,6 +32,7 @@ export default function LabHeroActions({ project, locale = "it" }) {
           locale={locale}
           className="block h-auto w-full"
           href={atlasUrl}
+          label={heroActions.primary.label}
           onOpen={() => trackLab("atlante_click", { project: slug, position: "hero_video" })}
         />
         <figcaption className="flex flex-wrap items-center justify-between gap-2 px-3 pt-3 pb-1 text-left text-sm text-gray-dark">
