@@ -29,6 +29,7 @@ const STATIC = {
   "/partners": "/en/partners",
   "/lab": "/en/lab",
   "/lab/atlante-uffizi": "/en/lab/uffizi-atlas",
+  "/lab/configuratore-sedute-3d": "/en/lab/3d-seating-configurator",
 };
 const SITE = /^(https?:\/\/(?:www\.)?cantierecreativo\.net)(\/.*)?$/;
 

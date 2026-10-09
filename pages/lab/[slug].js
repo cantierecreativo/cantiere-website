@@ -6,6 +6,7 @@ import LabFacts from "components/lab/LabFacts";
 import LabHeroActions from "components/lab/LabHeroActions";
 import LabStory from "components/lab/LabStory";
 import LabTools from "components/lab/LabTools";
+import LabChapters from "components/lab/LabChapters";
 import LabCta from "components/lab/LabCta";
 import LabJsonLd from "components/lab/LabJsonLd";
 import { getLabProjects, getLabProject, getLabIndex, getLabAlts } from "src/data/lab";
@@ -22,6 +23,7 @@ export default function LabProject({ locale, site, page }) {
       </HeroBlue>
       <div className="vertical-spaces !pt-0 lg:!pt-0">
         <LabFacts facts={project.facts} />
+        {project.chapters && <LabChapters chapters={project.chapters} />}
         <LabStory story={project.story} />
         <LabTools tools={project.tools} />
       </div>

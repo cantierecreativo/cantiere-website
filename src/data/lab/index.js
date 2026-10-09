@@ -1,12 +1,14 @@
 import atlanteUffizi from "./atlante-uffizi";
 import uffiziAtlas from "./atlante-uffizi.en";
+import configuratoreSedute from "./configuratore-sedute";
+import seatingConfigurator from "./configuratore-sedute.en";
 import labIndexEn from "./lab-index.en";
 
 // Contenuti del Lab per lingua. Lo stesso progetto ha lo stesso `id` in ogni lingua
 // e uno slug tradotto: `alts` collega le versioni per il selettore di lingua e gli hreflang.
 const projectsByLocale = {
-  it: [atlanteUffizi],
-  en: [uffiziAtlas],
+  it: [atlanteUffizi, configuratoreSedute],
+  en: [uffiziAtlas, seatingConfigurator],
 };
 
 export function getLabProjects(locale = "it") {
