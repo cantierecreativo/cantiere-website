@@ -46,7 +46,7 @@ export default function LabVideo({ media, locale = "it", className = "", rounded
   );
 
   return (
-    <div className="group relative h-full">
+    <div className="group relative">
       {href ? (
         <a
           href={href}

@@ -3,7 +3,6 @@ import * as queries from "lib/queries";
 import fetchData from "lib/dato";
 import HeroBlue from "components/hero/HeroBlue";
 import LabFeatured from "components/lab/LabFeatured";
-import LabProjectCard from "components/lab/LabProjectCard";
 import LabManifesto from "components/lab/LabManifesto";
 import LabIndexHeroActions from "components/lab/LabIndexHeroActions";
 import LabIndexCta from "components/lab/LabIndexCta";
@@ -38,16 +37,7 @@ export default function LabIndex({ locale, site, page }) {
       </HeroBlue>
       <div className="vertical-spaces !pt-0 lg:!pt-0">
         <LabManifesto manifesto={labIndex.manifesto} />
-        <LabFeatured project={featured} heading={labIndex.projects} locale={locale} />
-        {others.length > 0 && (
-          <section className="container lg:grid lg:grid-cols-12">
-            <div className="space-y-8 lg:col-span-10 lg:col-start-2">
-              {others.map((p) => (
-                <LabProjectCard key={p.id} project={p} locale={locale} />
-              ))}
-            </div>
-          </section>
-        )}
+        <LabFeatured projects={[featured, ...others]} heading={labIndex.projects} locale={locale} />
       </div>
       <LabIndexCta cta={labIndex.cta} locale={locale} />
       <LabServices services={labIndex.services} locale={locale} />

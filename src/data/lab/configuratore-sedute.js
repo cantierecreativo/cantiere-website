@@ -19,13 +19,6 @@ const configuratoreSedute = {
   dataDate: "2026-10-08",
   atlasUrl: CONFIGURATOR_URL,
   about: { "@type": "Organization", name: "Quinti Sedute", url: "https://quinti.com" },
-  cardMedia: {
-    poster: "/lab/configuratore-sedute/card.jpg",
-    video: "/lab/configuratore-sedute/card.mp4",
-    width: 800,
-    height: 800,
-    alt: "La Deep Executive ruota e cambia rivestimento: pelle rossa, poi tessuti giallo, arancio e blu",
-  },
   media: {
     poster: "/lab/configuratore-sedute/configuratore-3d.jpg",
     video: "/lab/configuratore-sedute/configuratore-3d.mp4",

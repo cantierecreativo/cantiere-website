@@ -15,13 +15,6 @@ const seatingConfigurator = {
   dataDate: "2026-10-08",
   atlasUrl: CONFIGURATOR_URL,
   about: { "@type": "Organization", name: "Quinti Sedute", url: "https://quinti.com" },
-  cardMedia: {
-    poster: "/lab/configuratore-sedute/card.jpg",
-    video: "/lab/configuratore-sedute/card.mp4",
-    width: 800,
-    height: 800,
-    alt: "The Deep Executive rotates and changes upholstery: red leather, then yellow, orange and blue fabrics",
-  },
   media: {
     poster: "/lab/configuratore-sedute/configuratore-3d.jpg",
     video: "/lab/configuratore-sedute/configuratore-3d.mp4",
