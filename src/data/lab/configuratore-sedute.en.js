@@ -5,12 +5,12 @@ const seatingConfigurator = {
   model: "lab_project",
   id: "lab-configuratore-sedute",
   slug: "3d-seating-configurator",
-  title: "The 3D configurator for Quinti seating, online in a day",
+  title: "The 3D configurator for Quinti seating, with real fabrics and the right measurements",
   shortTitle: "3D seating configurator",
   abstract:
-    "An AI agent turned CAD files into a configurator in 75 minutes. We tested it, corrected it and refined it until it was beautiful and reliable. We can do the same with your catalogue.",
+    "An AI agent read the CAD files and wrote the code. We tested it on phones and in augmented reality, and decided what to change: 34 choices, from real fabrics to the right measurements. We can do the same with your catalogue.",
   previewText:
-    "The 3D configurator, with augmented reality, for Quinti seating: built with AI from the manufacturer's CAD files and spec sheets.",
+    "A Cantiere Creativo Lab project: the 3D configurator, with augmented reality, for Quinti seating, built with AI from the 3D models and spec sheets published by the manufacturer.",
   status: "Online",
   dataDate: "2026-10-08",
   atlasUrl: CONFIGURATOR_URL,
@@ -26,7 +26,7 @@ const seatingConfigurator = {
   seo: {
     title: "How we built a 3D seating configurator with AI",
     description:
-      "An AI agent, Quinti's CAD files and our team's choices: how Cantiere Creativo built a 3D configurator with augmented reality in two days.",
+      "An AI agent, Quinti's CAD files and 34 choices by our team: how Cantiere Creativo built a 3D configurator with augmented reality.",
     image: "/lab/configuratore-sedute/og-seating-configurator-en.jpg",
   },
   heroActions: {
@@ -37,18 +37,18 @@ const seatingConfigurator = {
     eyebrow: "The project",
     title: "The configurator in three numbers",
     items: [
-      { id: "f-minuti", number: "75 minutes", label: "from brief to the first chair configurable in 3D" },
+      { id: "f-scelte", number: "34", label: "choices made by our team after the agent's first version" },
+      { id: "f-colori", number: "268", label: "real colours, with photos and codes from the Quinti catalogue" },
       { id: "f-modelli", number: "18", label: "3D models made from CAD files, each under half a megabyte" },
-      { id: "f-scelte", number: "34", label: "choices made by our team after the first version" },
     ],
   },
   chapters: {
     eyebrow: "How we did it",
-    title: "Fast to build, refined in the details, reliable to use",
+    title: "Built with AI, refined by us, reliable to use",
     items: [
       {
         id: "c-veloci",
-        title: "From CAD files to the browser in 75 minutes",
+        title: "From the manufacturer's CAD files to the browser",
         text: "Quinti publishes spec sheets and 3D models of its products. The agent (Claude Code) read them, turned them into lightweight models for the web and wrote the catalogue rules: which options exist and which go together.",
         points: [
           "6 products and 18 3D variants, from the manufacturer's OBJ and FBX files",
@@ -98,19 +98,20 @@ const seatingConfigurator = {
   },
   story: {
     eyebrow: "People and AI",
-    title: "Two days, step by step",
+    title: "The agent builds, we decide",
     text: "The agent writes the code and converts the models. We try it on a phone, in augmented reality and with the real catalogue, and decide what to change.",
     legend: { human: "Us", ai: "AI agent", both: "Us + agent" },
+    // Real step times (7-8/10/2026), not shown on the page: s1 7/10 11:15, s2 11:40, s3 12:28, s4 13:20, s5 16:06, s6 16:22, s7 17:01, s8 8/10 08:29, s9 16:05.
     steps: [
-      { id: "s1", time: "7/10 11:15", who: "human", title: "The brief", text: "We ask for a 3D configurator to offer furniture companies, on Quinti's real catalogue and with augmented reality. No photos: 3D." },
-      { id: "s2", time: "11:40", who: "ai", title: "From CAD files to the web", text: "The agent reads the spec sheet, converts the manufacturer's 3D models into lightweight files for the browser and writes the catalogue rules." },
-      { id: "s3", time: "12:28", who: "ai", title: "The first version", text: "The Deep Executive can be configured: backrest, armrests, upholstery, base and castors." },
-      { id: "s4", time: "13:20", who: "human", title: "More, and better looking", text: "We ask for more products, visual controls and animated changes. The catalogue grows to six chairs." },
-      { id: "s5", time: "16:06", who: "both", title: "Online", text: "We pick the domain and the agent publishes the configurator." },
-      { id: "s6", time: "16:22", who: "human", title: "The AR test", text: "We place a chair in the room: it is bigger than the real one. We check the measurements against the spec sheet and have them corrected." },
-      { id: "s7", time: "17:01", who: "both", title: "Chrome on iPhone too", text: "We notice that on iPhone AR only opens from Safari. The agent builds the model on the server and now it works from every browser." },
-      { id: "s8", time: "8/10 08:29", who: "human", title: "The real fabrics", text: "Changing upholstery, everything looks the same. We choose to use Quinti's real photos and colour codes." },
-      { id: "s9", time: "16:05", who: "human", title: "Our eye", text: "Logo, icons and the order of the home page by UX principles: we decide the final touches ourselves, one by one." },
+      { id: "s1", who: "human", title: "The brief", text: "We ask for a 3D configurator to offer furniture companies, on Quinti's real catalogue and with augmented reality. No photos: 3D." },
+      { id: "s2", who: "ai", title: "From CAD files to the web", text: "The agent reads the spec sheet, converts the manufacturer's 3D models into lightweight files for the browser and writes the catalogue rules." },
+      { id: "s3", who: "ai", title: "The first version", text: "The Deep Executive can be configured: backrest, armrests, upholstery, base and castors." },
+      { id: "s4", who: "human", title: "More, and better looking", text: "We ask for more products, visual controls and animated changes. The catalogue grows to six chairs." },
+      { id: "s5", who: "both", title: "Online", text: "We pick the domain and the agent publishes the configurator." },
+      { id: "s6", who: "human", title: "The AR test", text: "We place a chair in the room: it is bigger than the real one. We check the measurements against the spec sheet and have them corrected." },
+      { id: "s7", who: "both", title: "Chrome on iPhone too", text: "We notice that on iPhone AR only opens from Safari. The agent builds the model on the server and now it works from every browser." },
+      { id: "s8", who: "human", title: "The real fabrics", text: "Changing upholstery, everything looks the same. We choose to use Quinti's real photos and colour codes." },
+      { id: "s9", who: "human", title: "Our eye", text: "Logo, icons and the order of the home page by UX principles: we decide the final touches ourselves, one by one." },
     ],
   },
   tools: {

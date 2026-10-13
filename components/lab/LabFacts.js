@@ -27,6 +27,7 @@ export default function LabFacts({ facts }) {
             </div>
           ))}
         </dl>
+        {facts.note && <p className="mt-8 max-w-4xl text-lg text-gray-dark">{facts.note}</p>}
       </div>
     </section>
   );

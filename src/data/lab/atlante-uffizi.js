@@ -9,7 +9,7 @@ const atlanteUffizi = {
   model: "lab_project",
   id: "lab-atlante-uffizi",
   slug: "atlante-uffizi",
-  title: "L'atlante 3D degli Uffizi, online in un giorno",
+  title: "L'atlante 3D degli Uffizi, sala per sala e opera per opera",
   shortTitle: "Atlante degli Uffizi",
   abstract:
     "Un agente AI ha letto i cataloghi e scritto il codice insieme a noi. Noi abbiamo scelto cosa mostrare e, soprattutto, come mostrarlo. Si può fare anche per te.",
@@ -34,7 +34,7 @@ const atlanteUffizi = {
   seo: {
     title: "Come abbiamo costruito l'atlante 3D degli Uffizi con l'AI",
     description:
-      "Un agente AI, due persone, una giornata per la prima versione. Come Cantiere Creativo ha unito AI e lavoro umano per costruire l'atlante degli Uffizi.",
+      "Un agente AI, due persone e le loro scelte: come Cantiere Creativo ha costruito l'atlante 3D degli Uffizi, solo da fonti pubbliche.",
     image: "/lab/atlante-uffizi/og-atlante-uffizi.jpg",
   },
   heroActions: {
@@ -46,26 +46,28 @@ const atlanteUffizi = {
     title: "L'atlante in tre numeri",
     // Fonti: sessioni dell'agente del 17/09 (brief 10:31, prova su iPad 11:32), COVERAGE.md (1.887 schede, 91 ambienti con opere su 3 piani).
     items: [
-      { id: "f-ora", number: "1 ora", label: "dal brief alla prima versione, provata su iPad" },
       { id: "f-opere", number: "1.887", label: "opere, solo da fonti pubbliche" },
-      { id: "f-sale", number: "91", label: "sale e ambienti navigabili, su 3 piani" },
+      { id: "f-sale", number: "91", label: "sale e ambienti navigabili" },
+      { id: "f-piani", number: "3", label: "piani esplorabili in 3D, anche da telefono" },
     ],
+    note: "Un progetto del nostro Lab, non commissionato dagli Uffizi: abbiamo usato solo le pagine pubbliche del museo e il catalogo del Ministero.",
   },
   story: {
     eyebrow: "Persone e AI",
     title: "L'agente esegue, noi decidiamo",
     text: "Leggere migliaia di schede e scrivere il codice è compito dell'agente. Provare, correggere e scegliere cosa mostrare è compito nostro.",
     legend: { human: "Noi", ai: "Agente AI", both: "Noi + agente" },
+    // Orari reali dei passaggi (17/09/2026), non mostrati in pagina: s1 10:30, s2 10:40, s3 11:05, s4 11:20, s5 11:30, s6 11:50, s7 12:05, s8 14:50, s9 15:20.
     steps: [
-      { id: "s1", time: "10:30", who: "human", title: "Il brief", text: "Chiediamo un atlante 3D di tutti i piani e di tutte le sale, con ogni opera cliccabile e utilizzabile anche da telefono." },
-      { id: "s2", time: "10:40", who: "ai", title: "Il piano e il codice", text: "L'agente prepara il piano, legge le fonti pubbliche e costruisce l'atlante: pianta 3D, sale, schede delle opere." },
-      { id: "s3", time: "11:05", who: "human", title: "Un piano B", text: "Chiediamo che l'atlante funzioni anche sui dispositivi che non gestiscono il 3D." },
-      { id: "s4", time: "11:20", who: "ai", title: "La prima versione", text: "L'agente pubblica la prima versione, pronta da provare." },
-      { id: "s5", time: "11:30", who: "human", title: "La prova su iPad", text: "Proviamo l'atlante su un iPad vero: sale vuote e difetti nel 3D. Lo rimandiamo indietro." },
-      { id: "s6", time: "11:50", who: "human", title: "Tutte le opere, nessuna esclusa", text: "Pretendiamo tutte le opere di tutte le sale. L'agente rilegge le pagine del museo e il catalogo nazionale." },
-      { id: "s7", time: "12:05", who: "human", title: "Solo fonti pubbliche", text: "L'agente chiede un inventario riservato. Rispondiamo: usa le fonti pubbliche. Dove non bastano, lo diciamo chiaramente." },
-      { id: "s8", time: "14:50", who: "both", title: "Online per tutti", text: "Decidiamo di aprire l'atlante a tutti. L'agente lo rende pubblico." },
-      { id: "s9", time: "15:20", who: "human", title: "Il nostro occhio", text: "Chiediamo all'agente di mettere ordine nel progetto. Da qui lo prende in mano il nostro team, che ne ridisegna l'interfaccia." },
+      { id: "s1", who: "human", title: "Il brief", text: "Chiediamo un atlante 3D di tutti i piani e di tutte le sale, con ogni opera cliccabile e utilizzabile anche da telefono." },
+      { id: "s2", who: "ai", title: "Il piano e il codice", text: "L'agente prepara il piano, legge le fonti pubbliche e costruisce l'atlante: pianta 3D, sale, schede delle opere." },
+      { id: "s3", who: "human", title: "Un piano B", text: "Chiediamo che l'atlante funzioni anche sui dispositivi che non gestiscono il 3D." },
+      { id: "s4", who: "ai", title: "La prima versione", text: "L'agente pubblica la prima versione, pronta da provare." },
+      { id: "s5", who: "human", title: "La prova su iPad", text: "Proviamo l'atlante su un iPad vero: sale vuote e difetti nel 3D. Lo rimandiamo indietro." },
+      { id: "s6", who: "human", title: "Tutte le opere, nessuna esclusa", text: "Pretendiamo tutte le opere di tutte le sale. L'agente rilegge le pagine del museo e il catalogo nazionale." },
+      { id: "s7", who: "human", title: "Solo fonti pubbliche", text: "L'agente chiede un inventario riservato. Rispondiamo: usa le fonti pubbliche. Dove non bastano, lo diciamo chiaramente." },
+      { id: "s8", who: "both", title: "Online per tutti", text: "Decidiamo di aprire l'atlante a tutti. L'agente lo rende pubblico." },
+      { id: "s9", who: "human", title: "Il nostro occhio", text: "Chiediamo all'agente di mettere ordine nel progetto. Da qui lo prende in mano il nostro team, che ne ridisegna l'interfaccia." },
     ],
   },
   tools: {
