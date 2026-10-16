@@ -27,7 +27,11 @@ export default function Carousel({ data, pageTitle }) {
 
   return (
     <>
-      <header className="relative overflow-hidden bg-[radial-gradient(circle,_#8281D2_0%,_#3938E0_80%)] pb-[35vh]">
+      {/* Hero compatta: il centro del gradiente (#6766D9) tiene il testo bianco sopra 4.5:1. */}
+      <section
+        aria-label={pageTitle}
+        className="relative overflow-hidden bg-[radial-gradient(circle,_#6766D9_0%,_#3938E0_80%)] pb-[12vh] lg:pb-[16vh]"
+      >
         <motion.div
           style={{ y: y1, rotate: rotate1 }}
           className="absolute top-[15%] right-[12%] w-[10%] aspect-square z-10"
@@ -41,7 +45,7 @@ export default function Carousel({ data, pageTitle }) {
         </motion.div>
         <motion.div
           style={{ y: y2, rotate: rotate2 }}
-          className="absolute top-[50%] left-[-5%] w-[20%] aspect-square z-10"
+          className="absolute top-[50%] left-[-5%] w-[20%] aspect-square z-10 hidden md:block"
         >
           <Icon
             name="star"
@@ -88,9 +92,9 @@ export default function Carousel({ data, pageTitle }) {
           {data.map((slide, i) => {
             const { id, image, title, text } = slide;
             return (
-              <div key={i} className="w-full h-[60vh] md:h-screen max-h-full">
+              <div key={i} className="w-full">
                 <SwiperSlide>
-                  <div className="relative w-full h-[80vh] max-h-full">
+                  <div className="relative w-full h-[64vh] min-h-[420px] md:h-[68vh] max-h-[760px]">
                     {image && (
                       <div className="absolute top-[70px] md:top-[90px] left-0 right-0 bottom-0 overflow-hidden">
                         <DatoImage
@@ -174,18 +178,20 @@ export default function Carousel({ data, pageTitle }) {
           })}
         </Swiper>
         <div
-          className={`absolute bottom-0 h-[20vh] lg:h-[35vh] left-1/2 -translate-x-1/2 w-full top-auto`}
+          aria-hidden="true"
+          className="absolute bottom-0 h-[12vh] lg:h-[16vh] left-1/2 -translate-x-1/2 w-full top-auto"
         >
           <Image
             src="/icons/top-yellow-violet.svg"
             alt="lineHero"
             layout="fill"
             objectFit="cover"
+            objectPosition="top"
             className="w-full h-full"
             aria-hidden="true"
           />
         </div>
-      </header>
+      </section>
     </>
   );
 }

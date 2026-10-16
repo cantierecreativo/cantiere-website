@@ -3,9 +3,9 @@ import Link from "next/link";
 import Icon from "components/layout/Icon";
 import { Fragment } from "react";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { GLASS, FOCUS } from "./glass";
 import { resolveLink, IsActive } from "lib/utils";
 import { withLabMenu } from "lib/lab";
-import Image from "next/legacy/image";
 import t from "lib/locales";
 
 // Helper function to group menu items by tag
@@ -172,39 +172,23 @@ export default function MenuMobile({ site, locale, page }) {
           className="fixed inset-x-0 top-0 transform overflow-hidden transition lg:hidden"
         >
           <div className="relative z-40 h-[100vh] bg-blue">
-            <div className="py-5">
-              <div className="px-6 md:px-10">
-                <div className="flex items-center justify-between lg:justify-start lg:space-x-5">
-                  <div className="hidden lg:block relative h-5 w-[90px] lg:h-12 lg:w-[130px]">
-                    <Image
-                      priority
-                      src="/logos/white.svg"
-                      alt="Logo Cantiere Creativo"
-                      className="w-full h-full"
-                      layout="fill"
+            <div className="py-4">
+              <div className="container-fluid">
+                <div className="flex items-center justify-between gap-3">
+                  <div className={`${GLASS} flex h-11 flex-none items-center px-4`}>
+                    <img
+                      src="/logos/color.svg"
+                      alt={t("logoAlt", locale)}
+                      width="829"
+                      height="300"
+                      className="h-7 w-auto"
                     />
                   </div>
-                  <div
-                    aria-hidden="true"
-                    className="lg:hidden relative h-8 w-40 lg:h-12 md:h-14 md:w-52 lg:w-[130px] flex-none"
+                  <Popover.Button
+                    className={`${GLASS} ${FOCUS} flex h-11 items-center px-5 font-bold text-sm uppercase tracking-wider text-black`}
                   >
-                    <Image
-                      priority
-                      src="/logos/whiteMobile.svg"
-                      alt="Logo Cantiere Creativo"
-                      className="w-full h-full"
-                      objectFit="contain"
-                      objectPosition="left"
-                      layout="fill"
-                    />
-                  </div>
-                  <div className="flex items-center lg:hidden">
-                    <Popover.Button className="inline-flex items-center justify-center text-black">
-                      <div className="border-b-2 border-white pb-1">
-                        <div className="text-white">{t("close", locale)}</div>
-                      </div>
-                    </Popover.Button>
-                  </div>
+                    {t("close", locale)}
+                  </Popover.Button>
                 </div>
               </div>
             </div>
@@ -231,7 +215,7 @@ export default function MenuMobile({ site, locale, page }) {
                       {t("contact-us-label", locale)}
                     </Link>
                   </div>
-                  <LanguageSwitcher page={page} locale={locale} />
+                  <LanguageSwitcher page={page} locale={locale} className="rounded-full bg-white p-1" />
                 </div>
               </div>
             </div>

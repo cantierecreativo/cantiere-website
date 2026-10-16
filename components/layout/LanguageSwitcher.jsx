@@ -1,40 +1,50 @@
 import Link from "next/link";
-import { Fragment } from "react";
 import { resolveLink } from "lib/utils";
 import t from "lib/locales";
+import { FOCUS } from "./glass";
 
-// Accessible name of each language, in that language (the visible text is the short "Eng" / "Ita").
+const LOCALES = ["it", "en"];
+// Nome di ogni lingua nella lingua stessa: lo leggono gli screen reader al posto della sigla.
 const LANGUAGE_NAMES = { it: "Italiano", en: "English" };
 
-function LanguageSwitcher({ page, locale }) {
-  const locales = ["it", "en"];
+const item = "flex min-w-11 items-center justify-center rounded-full px-3 py-2 text-sm font-bold uppercase tracking-wider";
+
+// Selettore IT/EN: la lingua corrente è evidenziata, l'altra è il link alla stessa pagina tradotta.
+function LanguageSwitcher({ page, locale, className = "" }) {
   const alts = page?.alts || [];
+  // Pagina pubblicata in una sola lingua: niente da scegliere.
+  if (alts.length === 1) return null;
   return (
-    <>
-      {locales &&
-        locales.map((l, i) => {
-          const link = alts?.find((alt) => alt.locale === l)?.value || null;
-          if ((alts && alts.length == 1) || locale === l) {
-            return;
-          } else
-            return (
-              <Fragment key={l}>
-                <Link
-                  href={resolveLink(page, l, link)}
-                  locale={l}
-                  hrefLang={l}
-                  lang={l}
-                  aria-label={LANGUAGE_NAMES[l]}
-                  className="bg-white rounded-full text-black px-4 py-2 lg:bg-transparent lg:p-0 lg:text-inherit lg:text-sm xl:text-base"
-                >
-                  <span className="underline-on-hover">
-                    {t(`${l}`, locale)}
-                  </span>
-                </Link>
-              </Fragment>
-            );
-        })}
-    </>
+    <div role="group" aria-label={t("languageSwitch", locale)} className={`flex items-center gap-0.5 ${className}`}>
+      {LOCALES.map((l) => {
+        const label = (
+          <>
+            <span aria-hidden="true">{l}</span>
+            <span className="sr-only">{LANGUAGE_NAMES[l]}</span>
+          </>
+        );
+        if (l === locale) {
+          return (
+            <span key={l} lang={l} aria-current="true" className={`${item} bg-black text-white`}>
+              {label}
+            </span>
+          );
+        }
+        const slug = alts.find((alt) => alt.locale === l)?.value || null;
+        return (
+          <Link
+            key={l}
+            href={resolveLink(page, l, slug)}
+            locale={l}
+            hrefLang={l}
+            lang={l}
+            className={`${item} ${FOCUS} text-black duration-200 hover:bg-black/10`}
+          >
+            {label}
+          </Link>
+        );
+      })}
+    </div>
   );
 }
 

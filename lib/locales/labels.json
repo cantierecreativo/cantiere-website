@@ -114,7 +114,10 @@
     "footerTitleHighlight": "del tuo prossimo progetto",
     "whereWeAre": "Dove siamo",
     "articles": "Articoli",
-    "accessibility": "Accessibilità"
+    "accessibility": "Accessibilità",
+    "mainMenu": "Menu principale",
+    "languageSwitch": "Lingua",
+    "breadcrumbs": "Percorso"
   },
   "en": {
     "it": "Ita",
@@ -231,6 +234,9 @@
     "footerTitleHighlight": "your next project",
     "whereWeAre": "Where we are",
     "articles": "Articles",
-    "accessibility": "Accessibility"
+    "accessibility": "Accessibility",
+    "mainMenu": "Main menu",
+    "languageSwitch": "Language",
+    "breadcrumbs": "Breadcrumb"
   }
 }

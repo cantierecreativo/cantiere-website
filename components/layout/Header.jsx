@@ -3,13 +3,11 @@ import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import MenuMobile from "components/layout/MenuMobile";
 import { resolveLink, IsActive } from "lib/utils";
-import { withLabMenu, CALENDLY_URL } from "lib/lab";
-import Image from "next/legacy/image";
-import { useState, useEffect } from "react";
+import { withLabMenu } from "lib/lab";
 import Icon from "./Icon";
-import ExternalLink from "components/links/ExternalLink";
 import LanguageSwitcher from "components/layout/LanguageSwitcher";
 import t from "lib/locales";
+import { GLASS, FOCUS } from "./glass";
 
 // Helper function to group menu items by tag
 function groupByTag(menuItems) {
@@ -175,207 +173,68 @@ function RenderNavItem(item, locale, scroll, setTriangle, headerTxt) {
 }
 
 function Header(props) {
-  const { locale, site, page, headerTxt, grandParent, parent } = props;
+  const { locale, site, page, headerTxt } = props;
   const navItems = withLabMenu(site.menu.menuFirstLevels);
   const prefix = locale === "it" ? "/" : "/en";
 
-  const [scroll, setScroll] = useState(false);
-  useEffect(() => {
-    const handleScroll = () => {
-      setScroll(window.scrollY > 500);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  let logoSrc = "";
-  let logoSrcMobile = "";
-  let headerClass = "";
-  let setTriangle = "";
-  let setBorder = "";
-  let setMenuMobile = "";
-  let setFillIcon = "";
-
-  if (headerTxt === "white") {
-    logoSrc = scroll ? "/logos/color.svg" : "/logos/white.svg";
-    logoSrcMobile = scroll ? "/logos/color.svg" : "/logos/white.svg";
-  } else if (headerTxt === "black") {
-    logoSrc = "/logos/color.svg";
-    logoSrcMobile = "/logos/color.svg";
-  } else {
-    logoSrc = scroll ? "/logos/color.svg" : "/logos/white.svg";
-    logoSrcMobile = scroll ? "/logos/color.svg" : "/logos/color.svg";
-  }
-
-  setTriangle = "triangle-black";
-
-  if (headerTxt === "white") {
-    setBorder = scroll
-      ? "after:bg-blue text-white group-hover:text-black"
-      : "bg-blue text-black after:bg-white group-hover:text-white";
-  } else setBorder = "after:bg-blue text-white group-hover:text-black";
-
-  if (headerTxt === "white") {
-    setMenuMobile = scroll
-      ? "after:bg-blue text-blue group-hover:text-black"
-      : "text-white after:bg-white group-hover:text-white";
-  } else setMenuMobile = "after:bg-blue text-blue group-hover:text-black";
-
-  if (headerTxt === "white") {
-    setFillIcon = scroll
-      ? "fill-white group-hover:fill-black"
-      : "fill-black group-hover:fill-white";
-  } else setFillIcon = "fill-white group-hover:fill-black";
-
-  if (headerTxt === "white") {
-    headerClass = scroll
-      ? "bg-transparent text-white py-5"
-      : "bg-transparent text-white py-5";
-  } else headerClass = "py-5 bg-transparent text-black";
-
   return (
-    <>
-      <header
-        className={`${headerClass} ${
-          scroll ? "" : ""
-        } fixed top-0 left-0 right-0 z-40 duration-200`}
-      >
-        <Popover className="">
-          <div className="">
-            <div className="container-fluid">
-              <div className="flex items-center justify-between lg:space-x-5 xl:justify-start xl:gap-20 3xl:gap-32">
-                <Link
-                  href={prefix}
-                  key="homepage"
-                  title={t("homepage", locale)}
-                  className="flex items-center"
-                >
-                  <div className="hidden lg:block relative h-5 w-[90px] lg:h-12 lg:w-[130px] flex-none">
-                    <div
-                      className={`absolute inset-0 transition-opacity duration-700 ${
-                        logoSrc === "/logos/white.svg"
-                          ? "opacity-100"
-                          : "opacity-0"
-                      }`}
-                    >
-                      <Image
-                        priority
-                        src="/logos/white.svg"
-                        alt={t("logoAlt", locale)}
-                        layout="fill"
-                      />
-                    </div>
-                    <div
-                      className={`absolute inset-0 transition-opacity duration-700 ${
-                        logoSrc !== "/logos/white.svg"
-                          ? "opacity-100"
-                          : "opacity-0"
-                      }`}
-                    >
-                      <Image
-                        priority
-                        src="/logos/color.svg"
-                        alt={t("logoAlt", locale)}
-                        layout="fill"
-                      />
-                    </div>
+    <header className="fixed top-0 left-0 right-0 z-40 py-4 lg:py-5 text-black">
+      <Popover>
+        <div className="container-fluid">
+          <div className="flex items-center justify-between gap-3 lg:gap-5 xl:justify-start">
+            <Link
+              href={prefix}
+              title={t("homepage", locale)}
+              className={`${GLASS} ${FOCUS} flex h-11 lg:h-12 flex-none items-center px-4 lg:px-5 duration-200 hover:after:bg-white/90`}
+            >
+              <img
+                src="/logos/color.svg"
+                alt={t("logoAlt", locale)}
+                width="829"
+                height="300"
+                className="h-7 lg:h-9 w-auto"
+              />
+            </Link>
+            <Popover.Button
+              className={`${GLASS} ${FOCUS} lg:hidden flex h-11 items-center px-5 font-bold text-sm uppercase tracking-wider`}
+            >
+              {t("menu", locale)}
+            </Popover.Button>
+            <Popover.Group
+              as="nav"
+              aria-label={t("mainMenu", locale)}
+              className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-between lg:gap-5"
+            >
+              <div
+                className={`${GLASS} xl:absolute xl:left-1/2 xl:-translate-x-1/2 flex h-12 items-center justify-center gap-4 px-8`}
+              >
+                {navItems.map((item) => (
+                  <div key={item.id}>
+                    {RenderNavItem(item, locale, false, "triangle-black", headerTxt)}
                   </div>
-                  <div
-                    aria-hidden="true"
-                    className="lg:hidden relative h-8 w-40 lg:h-12 md:h-14 md:w-52 lg:w-[130px] flex-none"
-                  >
-                    <div
-                      className={`absolute inset-0 transition-opacity duration-700 ${
-                        logoSrcMobile === "/logos/white.svg"
-                          ? "opacity-100"
-                          : "opacity-0"
-                      }`}
-                    >
-                      <Image
-                        priority
-                        src="/logos/white.svg"
-                        alt={t("logoAlt", locale)}
-                        layout="fill"
-                        objectFit="contain"
-                        objectPosition="left"
-                      />
-                    </div>
-                    <div
-                      className={`absolute inset-0 transition-opacity duration-700 ${
-                        logoSrcMobile !== "/logos/white.svg"
-                          ? "opacity-100"
-                          : "opacity-0"
-                      }`}
-                    >
-                      <Image
-                        priority
-                        src="/logos/color.svg"
-                        alt={t("logoAlt", locale)}
-                        layout="fill"
-                        objectFit="contain"
-                        objectPosition="left"
-                      />
-                    </div>
-                  </div>
-                </Link>
-                <div className="flex items-center lg:hidden">
-                  <Popover.Button className="inline-flex items-center justify-center">
-                    <div
-                      className={`${setMenuMobile} ${
-                        scroll ? "-translate-y-1" : ""
-                      } underline-default`}
-                    >
-                      <div className="">{t("menu", locale)}</div>
-                    </div>
-                  </Popover.Button>
-                </div>
-                <Popover.Group
-                  as="nav"
-                  className="hidden space-x-8 lg:flex lg:items-center lg:justify-between xl:w-full 3xl:pl-4"
-                >
-                  <div
-                    className={`xl:absolute z-10 xl:left-1/2 xl:-translate-x-1/2 rounded-full px-8 flex gap-4 justify-center items-center self-stretch relative h-full motion-safe:duration-300  text-black top-0 py-2 after:shadow-[0_0_0_1px_#fff_inset] after:absolute after:inset-0 after:rounded-full  after:backdrop-blur-sm after:-z-10 after:bg-white/70 shadow-[0_15px_25px_-15px_rgba(82,81,245,0.25)]`}
-                  >
-                    {navItems.map((item) => (
-                      <div key={item.id}>
-                        {RenderNavItem(
-                          item,
-                          locale,
-                          scroll,
-                          setTriangle,
-                          headerTxt,
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                  <div className="hidden items-center space-x-3 xl:flex xl:space-x-6 xl:absolute xl:right-6">
-                    <LanguageSwitcher page={page} locale={locale} />
-                    <ExternalLink
-                      url={CALENDLY_URL}
-                      className="group"
-                      locale={locale}
-                    >
-                      <div
-                        className={`flex gap-x-2 items-center py-[12px] group duration-300 bg-blue/80 hover:bg-blue rounded-full px-6 uppercase text-sm tracking-wider text-white font-serif font-bold border border-white/10 backdrop-blur-sm`}
-                      >
-                        {t("bookCall", locale)}
-                        <Icon
-                          name="arrow"
-                          className={`z-10 relative`}
-                          size="20"
-                          fill="white"
-                        />
-                      </div>
-                    </ExternalLink>
-                  </div>
-                </Popover.Group>
+                ))}
               </div>
-            </div>
+              <div className={`${GLASS} hidden xl:flex xl:ml-auto items-center gap-1 p-1`}>
+                <LanguageSwitcher page={page} locale={locale} />
+                <Link
+                  href={t("contact-us-url", locale)}
+                  className={`${FOCUS} group flex items-center gap-2 rounded-full bg-blue px-5 py-2.5 font-bold text-sm uppercase tracking-wider text-white duration-200 hover:bg-blue-dark`}
+                >
+                  {t("contact-us-label", locale)}
+                  <Icon
+                    name="arrow"
+                    size="18"
+                    fill="white"
+                    className="motion-safe:duration-200 group-hover:translate-x-0.5"
+                  />
+                </Link>
+              </div>
+            </Popover.Group>
           </div>
-          <MenuMobile site={site} page={page} locale={locale} />
-        </Popover>
-      </header>
-    </>
+        </div>
+        <MenuMobile site={site} page={page} locale={locale} />
+      </Popover>
+    </header>
   );
 }
 
