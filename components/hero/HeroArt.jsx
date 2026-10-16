@@ -6,15 +6,16 @@ import {
   useMotionTemplate,
   useMotionValue,
   useReducedMotion,
-  useSpring,
   useTransform,
 } from "framer-motion";
 import Icon from "components/layout/Icon";
 import Swirl from "./Swirl";
 import LivingWave from "./LivingWave";
 
-// Molto lenta e senza rimbalzo, come richiesto: gli strati scivolano dietro al puntatore.
-const FOLLOW = { duration: 2.4, bounce: 0 };
+// Inseguimento esponenziale: a ogni fotogramma gli strati coprono una frazione della distanza dal
+// bersaglio, quindi andata e ritorno al centro sono sempre continui, senza salti né rimbalzi.
+// TAU è il tempo (s) in cui coprono circa il 63% della distanza: più alto = più lento.
+const TAU = 1.6;
 const POP = { type: "spring", duration: 0.5, bounce: 0.3 };
 const MAX_STARS = 12;
 
@@ -41,10 +42,9 @@ function Layer({ px, py, depth, dx = 1, rotate = 0, className, children }) {
 export default function HeroArt({ sectionRef }) {
   const reduce = useReducedMotion();
   const artRef = useRef(null);
-  const mx = useMotionValue(0);
-  const my = useMotionValue(0);
-  const px = useSpring(mx, FOLLOW);
-  const py = useSpring(my, FOLLOW);
+  const px = useMotionValue(0);
+  const py = useMotionValue(0);
+  const target = useRef({ x: 0, y: 0 });
   const [stars, setStars] = useState([]);
 
   useEffect(() => {
@@ -53,13 +53,26 @@ export default function HeroArt({ sectionRef }) {
     const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
     const move = (e) => {
       const r = section.getBoundingClientRect();
-      mx.set((e.clientX - r.left) / r.width - 0.5);
-      my.set((e.clientY - r.top) / r.height - 0.5);
+      target.current = { x: (e.clientX - r.left) / r.width - 0.5, y: (e.clientY - r.top) / r.height - 0.5 };
     };
     const leave = () => {
-      mx.set(0);
-      my.set(0);
+      target.current = { x: 0, y: 0 };
     };
+    let frame = 0;
+    let last = performance.now();
+    const follow = (now) => {
+      const k = 1 - Math.exp(-Math.min(now - last, 100) / 1000 / TAU);
+      last = now;
+      const { x, y } = target.current;
+      const cx = px.get();
+      const cy = py.get();
+      if (Math.abs(x - cx) > 1e-4 || Math.abs(y - cy) > 1e-4) {
+        px.set(cx + (x - cx) * k);
+        py.set(cy + (y - cy) * k);
+      }
+      frame = requestAnimationFrame(follow);
+    };
+    if (finePointer) frame = requestAnimationFrame(follow);
     const pop = (e) => {
       if (e.target.closest("a, button, input, textarea, select")) return;
       const r = section.getBoundingClientRect();
@@ -79,11 +92,12 @@ export default function HeroArt({ sectionRef }) {
     }
     section.addEventListener("pointerdown", pop);
     return () => {
+      cancelAnimationFrame(frame);
       section.removeEventListener("pointermove", move);
       section.removeEventListener("pointerleave", leave);
       section.removeEventListener("pointerdown", pop);
     };
-  }, [sectionRef, reduce, mx, my]);
+  }, [sectionRef, reduce, px, py]);
 
   // Sequenza: i testi (0.1–0.7s, nelle hero), poi il nastro viola, il ricciolo che si disegna, le stelle una per volta.
   return (
