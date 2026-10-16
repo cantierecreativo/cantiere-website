@@ -292,8 +292,8 @@ http://cantiere-website-2023.netlify.app/* https://www.cantierecreativo.net/:spl
 /blog/gatsby-js-contro-next-js-quale-generatore-di-siti-statici-scegliere/ /blog/gatsby-js-next-js-siti-statici/
 /blog/come-modificare-le-impostazioni-generali-seo-del-tuo-sito-con-datocms/ /blog/impostazioni-generali-seo-datocms
 /case-studies/come-abbiamo-creato-le-mappe-delle-gallerie-degli-uffizi /case-studies/come-creare-mappe-uffizi
-/blog/2014-04-10-unit-e-integration-test//1000 /blog
-/blog/guida-breve-alla-tipografia//1000 /blog
+/blog/2014-04-10-unit-e-integration-test /blog 301!
+/blog/guida-breve-alla-tipografia /blog 301!
 /blog/2016-07-20-come-prenotare-una-degustazione-nelle-cantine-italiane-in-pochi-passaggi/ /blog
 /blog/2017-03-16-installare-https-ovunque/:/heroku.com /blog
 /blog/pandacast-2-come-impostare-un-inserzione-su-facebook-e-instagram/ /blog
