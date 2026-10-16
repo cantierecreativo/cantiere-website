@@ -1,5 +1,5 @@
 import t from "lib/locales";
-import * as dayjs from "dayjs";
+import dayjs from "dayjs";
 import "dayjs/locale/it";
 import { useRouter } from "next/router";
 import allArticlesIt from "src/data/all_articles_it.json";

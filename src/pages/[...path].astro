@@ -1,0 +1,38 @@
+---
+// Tutte le pagine del sito. Ogni vista in views/ porta i suoi getStaticPaths/getStaticProps
+// scritti per Next: qui si chiamano per entrambe le lingue e si rende la vista come isola React.
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageView from "../PageView.jsx";
+import { pathFor, isDynamic } from "../routes.js";
+
+export async function getStaticPaths() {
+  // Astro esegue getStaticPaths isolata dal resto del file: le costanti stanno qui dentro.
+  const LOCALES = ["it", "en"];
+  const NOT_PAGES = ["404"];
+  const modules = import.meta.glob("../../views/**/*.jsx", { eager: true });
+  const byPath = new Map();
+  for (const [file, mod] of Object.entries(modules)) {
+    const view = file.replace("../../views/", "").replace(/\.jsx$/, "");
+    if (NOT_PAGES.includes(view)) continue;
+    const entries = mod.getStaticPaths
+      ? (await mod.getStaticPaths({ locales: LOCALES })).paths
+      : LOCALES.map((locale) => ({ params: {}, locale }));
+    for (const { params, locale } of entries) {
+      const path = pathFor(view, locale, params);
+      const taken = byPath.get(path);
+      if (taken && !isDynamic(taken.props.view)) continue;
+      byPath.set(path, { params: { path: path.slice(1) || undefined }, props: { view, locale, params, path } });
+    }
+  }
+  return [...byPath.values()];
+}
+
+const { view, locale, params, path } = Astro.props;
+const load = import.meta.glob("../../views/**/*.jsx")[`../../views/${view}.jsx`];
+const { props, notFound } = await (await load()).getStaticProps({ params, locale });
+if (notFound) return new Response(null, { status: 404 });
+---
+
+<BaseLayout locale={locale} site={props.site} page={props.page} noindex={view.startsWith("blog/tags/")}>
+  <PageView client:load view={view} locale={locale} path={path} props={props} />
+</BaseLayout>

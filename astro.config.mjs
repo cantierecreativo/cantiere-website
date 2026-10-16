@@ -23,6 +23,7 @@ export default defineConfig({
       alias: {
         "next/link": r("./src/shims/link.jsx"),
         "next/image": r("./src/shims/image.jsx"),
+        "next/legacy/image": r("./src/shims/image.jsx"),
         "next/head": r("./src/shims/head.jsx"),
         "next/router": r("./src/shims/router.jsx"),
         "next/navigation": r("./src/shims/router.jsx"),

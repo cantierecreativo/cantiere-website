@@ -53,10 +53,6 @@ function Article({ locale, site, page, articles }) {
 }
 
 export async function getStaticPaths({ locales }) {
-  if (process.env.NEXT_PUBLIC_ENV === "development") {
-    return { paths: [], fallback: "blocking" };
-  }
-
   return {
     paths: locales.flatMap((locale) =>
       getAllArticles(locale).map(({ slug }) => ({ params: { slug }, locale }))

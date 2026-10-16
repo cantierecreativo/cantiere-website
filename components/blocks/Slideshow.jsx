@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { InView } from "react-intersection-observer";
-import DatoImage from "react-datocms/image";
+import { Image as DatoImage } from "react-datocms/image";
 import {
   Autoplay,
   A11y,

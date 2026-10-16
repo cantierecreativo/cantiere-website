@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { StructuredText } from "react-datocms/structured-text";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 
 const closeIcon = (
   <span className="flex-none">
