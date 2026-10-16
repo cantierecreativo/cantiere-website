@@ -30,7 +30,7 @@ export default function HeroBlue({ page, children, abstractTag = "h2", locale = 
       <div className="container grid items-center gap-10 pt-28 pb-8 md:pt-36 lg:grid-cols-12 lg:pb-10 xl:pt-40">
         <div className="lg:col-span-7">
           {section && (
-            <nav aria-label={t("breadcrumbs", locale)} className="mb-5">
+            <nav aria-label={t("breadcrumbs", locale)} className="hero-in mb-5 [--i:0]">
               <ol className="flex flex-wrap items-center gap-1 text-sm font-bold uppercase tracking-wider">
                 <li>
                   <Link
@@ -51,19 +51,19 @@ export default function HeroBlue({ page, children, abstractTag = "h2", locale = 
           )}
           <h1
             id="hero-title"
-            className={`text-balance font-bold leading-[1.02] tracking-[-0.025em] ${
+            className={`hero-in text-balance font-bold tracking-[-0.025em] [--i:1] ${
               typeof title === "string" && title.length > 60
-                ? "text-3xl md:text-4xl xl:text-5xl"
-                : "text-[2.5rem] md:text-5xl xl:text-6xl"
+                ? "text-3xl/[0.95] md:text-4xl/[0.95] xl:text-5xl/[0.95]"
+                : "text-[2.5rem]/[0.92] md:text-5xl/[0.92] xl:text-6xl/[0.9]"
             }`}
           >
             {title}
           </h1>
           {subtitle && (
-            <h2 className="mt-5 max-w-2xl text-balance text-xl leading-snug md:text-2xl">{renderHTML(subtitle)}</h2>
+            <h2 className="hero-in mt-5 max-w-2xl text-balance text-xl leading-snug md:text-2xl [--i:2]">{renderHTML(subtitle)}</h2>
           )}
           {(abstract || text) && (
-            <AbstractTag className="mt-5 max-w-xl text-pretty text-base leading-relaxed md:text-lg">
+            <AbstractTag className="hero-in mt-5 max-w-xl text-pretty text-base leading-relaxed md:text-lg [--i:3]">
               {renderHTML(abstract || text)}
             </AbstractTag>
           )}
@@ -73,7 +73,7 @@ export default function HeroBlue({ page, children, abstractTag = "h2", locale = 
           <HeroArt sectionRef={ref} />
         </div>
       </div>
-      <Wave className="h-14 md:h-20 xl:h-24" />
+      <Wave className="h-auto" />
     </section>
   );
 }

@@ -86,7 +86,7 @@ export default function HeroArt({ sectionRef }) {
   return (
     <>
       <Layer px={px} py={py} depth={0.25} className="left-1/2 top-[38%] -z-10 w-[220%] -translate-x-1/2 md:top-1/2 md:w-[115%] md:-translate-y-1/2">
-        <img src="/icons/stroke1Violet.svg" alt="" className="w-full" />
+        <img src="/icons/stroke1Violet.svg" alt="" className="hero-drift w-full" />
       </Layer>
 
       <div ref={artRef} className="relative mx-auto aspect-square w-full max-w-[300px] sm:max-w-[380px] lg:max-w-[440px]">
@@ -94,10 +94,10 @@ export default function HeroArt({ sectionRef }) {
           <Swirl className="h-full w-full" />
         </Layer>
         <Layer px={px} py={py} depth={1.3} rotate={40} className="right-[4%] top-[2%] h-[20%] w-[20%]">
-          <Icon name="star" size="100%" fill="yellow" className="h-full w-full" />
+          <Icon name="star" size="100%" fill="yellow" className="hero-pop h-full w-full [--i:6]" />
         </Layer>
         <Layer px={px} py={py} depth={1.8} rotate={-60} className="bottom-[10%] left-[2%] h-[11%] w-[11%]">
-          <Icon name="star" size="100%" fill="yellow" className="h-full w-full" />
+          <Icon name="star" size="100%" fill="yellow" className="hero-pop h-full w-full [--i:8]" />
         </Layer>
       </div>
 

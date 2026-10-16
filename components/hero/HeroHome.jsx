@@ -16,16 +16,16 @@ export default function HeroHome({ page }) {
     >
       <div className="container grid items-center gap-10 pt-28 pb-8 md:pt-36 lg:grid-cols-12 lg:pb-10 xl:pt-40">
         <div className="lg:col-span-7">
-          <h1 id="hero-title" className="mb-5 text-sm font-bold uppercase tracking-wider">
+          <h1 id="hero-title" className="hero-in mb-5 text-sm font-bold uppercase tracking-wider [--i:0]">
             {page.title}
           </h1>
           {slide && (
             <>
-              <p className="text-balance font-bold text-[2.75rem] leading-[0.98] tracking-[-0.03em] md:text-6xl xl:text-7xl">
+              <p className="hero-in text-balance font-bold text-[2.75rem]/[0.9] tracking-[-0.03em] md:text-6xl/[0.9] xl:text-7xl/[0.9] [--i:1]">
                 {slide.title}
               </p>
               {slide.text && (
-                <div className="mt-6 max-w-xl text-pretty text-lg leading-relaxed md:text-xl">{renderHTML(slide.text)}</div>
+                <div className="hero-in mt-6 max-w-xl text-pretty text-lg leading-relaxed md:text-xl [--i:2]">{renderHTML(slide.text)}</div>
               )}
             </>
           )}
@@ -34,7 +34,7 @@ export default function HeroHome({ page }) {
           <HeroArt sectionRef={ref} />
         </div>
       </div>
-      <Wave below="#8f87f0" className="h-14 md:h-20 xl:h-24" />
+      <Wave below="#8f87f0" className="h-auto" />
     </section>
   );
 }
