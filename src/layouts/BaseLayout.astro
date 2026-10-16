@@ -3,6 +3,7 @@
 import "../../styles/globals.css";
 import MetaTags from "components/layout/MetaTags";
 import t from "lib/locales";
+import { draft } from "lib/dato";
 
 const { locale, site, page, noindex = false } = Astro.props;
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_2;
@@ -55,7 +56,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     {page && <MetaTags site={site} page={page} locale={locale} />}
-    {noindex && <meta name="robots" content="noindex" />}
+    {(noindex || draft) && <meta name="robots" content="noindex" />}
     {
       IUBENDA_SITE_ID && !isStaging && (
         <>

@@ -3,7 +3,8 @@
 // scritti per Next: qui si chiamano per entrambe le lingue e si rende la vista come isola React.
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageView from "../PageView.jsx";
-import { pathFor, isDynamic } from "../routes.js";
+import { pathFor, isDynamic } from "../routes.mjs";
+import { draft } from "lib/dato";
 
 export async function getStaticPaths() {
   // Astro esegue getStaticPaths isolata dal resto del file: le costanti stanno qui dentro.
@@ -29,7 +30,7 @@ export async function getStaticPaths() {
 
 const { view, locale, params, path } = Astro.props;
 const load = import.meta.glob("../../views/**/*.jsx")[`../../views/${view}.jsx`];
-const { props, notFound } = await (await load()).getStaticProps({ params, locale });
+const { props, notFound } = await (await load()).getStaticProps({ params, locale, preview: draft });
 if (notFound) return new Response(null, { status: 404 });
 ---
 

@@ -18,7 +18,7 @@ nel browser arrivano solo le variabili elencate in `PUBLIC_ENV` di `astro.config
 
 - `views/` sono le pagine (ex `pages/` di Next): ogni file esporta il componente e i suoi `getStaticPaths`/`getStaticProps`.
 - `src/pages/[...path].astro` li chiama per IT ed EN e rende la vista come unica isola React (`src/PageView.jsx`).
-- Gli URL vengono da `src/routes.js`: IT senza prefisso, EN sotto `/en` con i segmenti tradotti (`EN_SEGMENTS`).
+- Gli URL vengono da `src/routes.mjs`: IT senza prefisso, EN sotto `/en` con i segmenti tradotti (`EN_SEGMENTS`).
 - `src/shims/` sostituisce le API di Next (`next/link`, `next/image`, `next/head`, `next/router`, `next/dynamic`).
 - Meta, GTM e Iubenda stanno in `src/layouts/BaseLayout.astro`.
 - Redirect: `public/_redirects` più `redirects/legacy-map.json`, uniti da `scripts/redirects.mjs` dopo la build.

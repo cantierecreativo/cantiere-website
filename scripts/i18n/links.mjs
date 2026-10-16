@@ -9,7 +9,7 @@ const { ids, dryRun } = parseArgs();
 const { client, repo, environment } = getClient();
 const legacy = JSON.parse(fs.readFileSync("redirects/legacy-map.json", "utf8"));
 
-// IT segment -> [EN segment, model whose slug follows]. Keep in sync with EN_SEGMENTS in src/routes.js.
+// IT segment -> [EN segment, model whose slug follows]. Keep in sync with EN_SEGMENTS in src/routes.mjs.
 const SECTIONS = {
   servizi: ["services", "service"],
   soluzioni: ["solutions", "solution"],

@@ -1,5 +1,5 @@
 import { test, expect } from "bun:test";
-import { pathFor } from "./routes.js";
+import { pathFor } from "./routes.mjs";
 
 test("URL IT ed EN come nel sito Next", () => {
   expect(pathFor("index", "it")).toBe("/");

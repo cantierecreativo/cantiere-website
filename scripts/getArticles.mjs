@@ -111,7 +111,8 @@ async function allArticles(locale = "it") {
   let skip = 0;
   let condition = true;
   while (condition) {
-    const { allArticles } = await fetchData(query, { locale, skip });
+    // Nel deploy di preview anche le bozze, come le altre pagine (lib/dato.js).
+    const { allArticles } = await fetchData(query, { locale, skip }, process.env.DATOCMS_DRAFT === "true");
     list.push(...allArticles);
     skip += 100;
     if (allArticles.length <= 0) {

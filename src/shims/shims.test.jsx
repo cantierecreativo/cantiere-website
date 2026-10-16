@@ -22,4 +22,6 @@ test("push resta nella lingua corrente, come Next con i18n", () => {
   expect(localize("/en?x=1", "en")).toBe("/en?x=1");
   expect(localize("/english", "en")).toBe("/en/english");
   expect(localize("?page=2", "en")).toBe("?page=2");
+  expect(localize("/", "en")).toBe("/en");
+  expect(localize(undefined, "en")).toBe(undefined);
 });

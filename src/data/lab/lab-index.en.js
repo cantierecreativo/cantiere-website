@@ -58,14 +58,14 @@ const labIndexEn = {
         id: "srv-agenti",
         title: "Agents for your business",
         text: "We build AI agents that work inside your tools: they answer, fill in, sort requests and update content. You set the rules, we make them reliable.",
-        href: "/tecnologie/intelligenza-artificiale",
+        href: "/en/technologies/artificial-intelligence",
         linkLabel: "See how",
       },
       {
         id: "srv-prototipi",
         title: "Rapid prototypes, then refined",
         text: "We turn your idea into a working prototype in a few days. You try it, we fix it together and refine it into the final product.",
-        href: "/soluzioni/blueprint",
+        href: "/en/solutions/blueprint",
         linkLabel: "See the method",
       },
       {
