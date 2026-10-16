@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import fetchData from "lib/dato";
 import PostContent from "components/PostContent";
 import SectionProjects from "components/sections/SectionProjects";
-import Slideshow from "components/blocks/Slideshow";
+import HeroHome from "components/hero/HeroHome";
 import SectionHighlightsProjects from "components/sections/SectionHighlightsProjects";
 import Image from "next/image";
 
@@ -19,10 +19,10 @@ export default function Home({ locale, site, page }) {
   const x2 = useTransform(scrollYProgress, [0, 1], [0, 250]);
   const x3 = useTransform(scrollYProgress, [0, 1], [0, -250]);
 
-  const { mainBlocks, carousel, whiteBlocks } = page;
+  const { mainBlocks, whiteBlocks } = page;
   return (
     <Layout site={site} locale={locale} page={page} headerTxt="white">
-      {carousel && <Slideshow data={carousel} pageTitle={page.title} />}
+      <HeroHome page={page} locale={locale} />
       <div
         ref={containerRef}
         className="bg-[#8F87F0] text-white relative overflow-hidden pb-40 md:pb-80"

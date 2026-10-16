@@ -117,7 +117,8 @@
     "accessibility": "Accessibilità",
     "mainMenu": "Menu principale",
     "languageSwitch": "Lingua",
-    "breadcrumbs": "Percorso"
+    "breadcrumbs": "Percorso",
+    "caseStudiesCta": "Guarda i case study"
   },
   "en": {
     "it": "Ita",
@@ -237,6 +238,7 @@
     "accessibility": "Accessibility",
     "mainMenu": "Main menu",
     "languageSwitch": "Language",
-    "breadcrumbs": "Breadcrumb"
+    "breadcrumbs": "Breadcrumb",
+    "caseStudiesCta": "See our case studies"
   }
 }
