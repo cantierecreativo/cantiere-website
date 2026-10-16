@@ -93,19 +93,20 @@ export default function HeroArt({ sectionRef }) {
       </Layer>
 
       {/* Stelle nelle posizioni e dimensioni della grafica originale della home. */}
-      <Layer px={px} py={py} depth={1.4} rotate={50} className="right-[12%] top-[15%] hidden aspect-square w-[10%] md:block">
+      <Layer px={px} py={py} depth={1.4} rotate={50} className="right-[12%] top-[15%] hidden aspect-square w-[10%] lg:block">
         <div className="hero-pop h-full w-full" style={{ "--d": "2.4s" }}>
           <Icon name="star" size="100%" fill="yellow" className="h-full w-full" />
         </div>
       </Layer>
-      <Layer px={px} py={py} depth={1.9} dx={0.15} rotate={-60} className="-left-[5%] top-[50%] hidden aspect-square w-[20%] md:block">
+      <Layer px={px} py={py} depth={1.9} dx={0.15} rotate={-60} className="-left-[5%] top-[50%] hidden aspect-square w-[20%] lg:block">
         <div className="hero-pop h-full w-full" style={{ "--d": "2.7s" }}>
           <Icon name="star" size="100%" fill="yellow" className="h-full w-full" />
         </div>
       </Layer>
 
       {/* Ricciolo in basso a destra, come nell'originale, ma grande. */}
-      <div className="relative mx-auto aspect-square w-full max-w-[420px] lg:absolute lg:right-[3%] lg:bottom-[14%] lg:w-[34vw] lg:max-w-[560px]">
+      {/* Sotto lg il ricciolo sta a destra sotto il testo e scende sopra l'onda: non allunga la hero. */}
+      <div className="relative z-10 -mb-[18vw] -mt-2 ml-auto aspect-square w-[46%] max-w-[320px] sm:w-[36%] lg:absolute lg:bottom-[14%] lg:right-[3%] lg:m-0 lg:w-[34vw] lg:max-w-[560px]">
         <Layer px={px} py={py} depth={0.7} className="inset-0">
           <Swirl className="h-full w-full" style={{ "--d": "1.1s" }} />
         </Layer>

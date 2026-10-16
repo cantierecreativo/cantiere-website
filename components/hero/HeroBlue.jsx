@@ -62,7 +62,7 @@ export default function HeroBlue({ page, children, abstractTag = "h2", locale = 
             {title}
           </h1>
           {subtitle && (
-            <h2 className="hero-in mt-5 max-w-2xl text-balance text-xl leading-snug md:text-2xl [--d:0.5s]">{renderHTML(subtitle)}</h2>
+            <h2 className="hero-in mt-4 max-w-2xl text-balance text-lg leading-snug sm:text-xl md:mt-5 md:text-2xl [--d:0.5s]">{renderHTML(subtitle)}</h2>
           )}
           {(abstract || text) && (
             <AbstractTag className="hero-in mt-5 max-w-xl text-pretty text-base leading-relaxed md:text-lg [--d:0.7s]">

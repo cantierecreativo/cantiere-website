@@ -21,11 +21,11 @@ export default function HeroHome({ page }) {
         <div className="relative z-10 lg:col-span-7">
           {slide && (
             <>
-              <h1 id="hero-title" className="hero-in text-balance font-bold text-[2.75rem]/[0.9] tracking-[-0.03em] md:text-6xl/[0.9] xl:text-7xl/[0.9] [--d:0.15s]">
+              <h1 id="hero-title" className="hero-in text-balance font-bold text-[2.25rem]/[0.95] tracking-[-0.03em] sm:text-[2.75rem]/[0.9] md:text-6xl/[0.9] xl:text-7xl/[0.9] [--d:0.15s]">
                 {slide.title}
               </h1>
               {slide.text && (
-                <div className="hero-in mt-6 max-w-xl text-pretty text-lg leading-relaxed md:text-xl [--d:0.4s]">{renderHTML(slide.text)}</div>
+                <div className="hero-in mt-5 max-w-xl text-pretty text-[1.0625rem] leading-relaxed md:mt-6 md:text-xl [--d:0.4s]">{renderHTML(slide.text)}</div>
               )}
             </>
           )}
