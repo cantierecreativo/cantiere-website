@@ -11,6 +11,7 @@ import {
 } from "framer-motion";
 import Icon from "components/layout/Icon";
 import Swirl from "./Swirl";
+import LivingWave from "./LivingWave";
 
 // Molla "Apple-style" della skill animate: insegue il puntatore senza scatti.
 const FOLLOW = { duration: 0.5, bounce: 0.2 };
@@ -33,9 +34,9 @@ function Layer({ px, py, depth, rotate = 0, className, children }) {
   );
 }
 
-// La grafica originale delle hero (tratto viola, ricciolo rosa, stelle gialle) resa viva:
-// il ricciolo si disegna all'apertura, gli strati seguono il puntatore in profondità,
-// un click o un tocco sulla hero fa spuntare una stella. Con riduci movimento resta tutto fermo.
+// La grafica originale delle hero (nastro viola, ricciolo rosa, stelle gialle) resa viva: entra in sequenza,
+// il nastro cambia forma di continuo, gli strati seguono il puntatore in profondità, un click o un tocco
+// fa spuntare una stella. Con riduci movimento resta tutto fermo.
 export default function HeroArt({ sectionRef }) {
   const reduce = useReducedMotion();
   const artRef = useRef(null);
@@ -83,21 +84,32 @@ export default function HeroArt({ sectionRef }) {
     };
   }, [sectionRef, reduce, mx, my]);
 
+  // Sequenza: i testi (0.1–0.7s, nelle hero), poi il nastro viola, il ricciolo che si disegna, le stelle una per volta.
   return (
     <>
-      <Layer px={px} py={py} depth={0.25} className="left-1/2 top-[38%] -z-10 w-[220%] -translate-x-1/2 md:top-1/2 md:w-[115%] md:-translate-y-1/2">
-        <img src="/icons/stroke1Violet.svg" alt="" className="hero-drift w-full" />
+      <Layer px={px} py={py} depth={0.25} className="inset-x-0 top-[40%] -z-10 h-[42%] lg:top-[8%] lg:h-[78%]">
+        <LivingWave className="hero-fade h-full w-full" style={{ "--d": "0.9s" }} />
       </Layer>
 
-      <div ref={artRef} className="relative mx-auto aspect-square w-full max-w-[300px] sm:max-w-[380px] lg:max-w-[440px]">
-        <Layer px={px} py={py} depth={0.6} className="inset-[6%]">
-          <Swirl className="h-full w-full" />
+      <Layer px={px} py={py} depth={1.6} rotate={-50} className="-left-[4%] top-[58%] hidden aspect-square w-[11vw] max-w-[170px] md:block">
+        <div className="hero-pop h-full w-full" style={{ "--d": "2.9s" }}>
+            <Icon name="star" size="100%" fill="yellow" className="h-full w-full" />
+          </div>
+      </Layer>
+
+      <div className="relative mx-auto aspect-square w-full max-w-[420px] lg:absolute lg:right-[3%] lg:top-[13%] lg:w-[44vw] lg:max-w-[680px]">
+        <Layer px={px} py={py} depth={0.6} className="inset-0">
+          <Swirl className="h-full w-full" style={{ "--d": "1.1s" }} />
         </Layer>
-        <Layer px={px} py={py} depth={1.3} rotate={40} className="right-[4%] top-[2%] h-[20%] w-[20%]">
-          <Icon name="star" size="100%" fill="yellow" className="hero-pop h-full w-full [--i:6]" />
+        <Layer px={px} py={py} depth={1.3} rotate={40} className="-right-[2%] -top-[4%] h-[26%] w-[26%]">
+          <div className="hero-pop h-full w-full" style={{ "--d": "2.4s" }}>
+            <Icon name="star" size="100%" fill="yellow" className="h-full w-full" />
+          </div>
         </Layer>
-        <Layer px={px} py={py} depth={1.8} rotate={-60} className="bottom-[10%] left-[2%] h-[11%] w-[11%]">
-          <Icon name="star" size="100%" fill="yellow" className="hero-pop h-full w-full [--i:8]" />
+        <Layer px={px} py={py} depth={1.9} rotate={-70} className="bottom-[6%] left-[4%] h-[14%] w-[14%]">
+          <div className="hero-pop h-full w-full" style={{ "--d": "2.65s" }}>
+            <Icon name="star" size="100%" fill="yellow" className="h-full w-full" />
+          </div>
         </Layer>
       </div>
 

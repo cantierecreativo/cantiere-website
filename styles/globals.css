@@ -458,9 +458,9 @@ strong {
     0 0 60px rgba(228, 255, 134, 0.2);
 }
 
-/* Hero (components/hero): entrate in sequenza, ricciolo che si disegna, tratto viola sempre in movimento.
+/* Hero (components/hero): entrate in sequenza, ricciolo che si disegna.
    Animazioni CSS e non JS: partono prima che React sia pronto e il contenuto non resta mai invisibile.
-   --i è la posizione nella sequenza. Con riduci movimento resta solo una breve dissolvenza. */
+   --d è il ritardo di ogni elemento nella sequenza. Con riduci movimento resta solo una breve dissolvenza. */
 @keyframes hero-in {
   from { opacity: 0; transform: translate3d(0, 24px, 0); }
   to { opacity: 1; transform: none; }
@@ -473,33 +473,20 @@ strong {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-@keyframes hero-drift {
-  0%, 100% { transform: translate3d(-3%, 0, 0) rotate(0deg); }
-  50% { transform: translate3d(3%, -4%, 0) rotate(-2deg); }
-}
 @keyframes swirl-draw {
   from { stroke-dashoffset: 1; }
   to { stroke-dashoffset: 0; }
 }
 .hero-in, .hero-pop, .hero-fade {
   animation: hero-fade 0.3s ease both;
-  animation-delay: calc(var(--i, 0) * 60ms);
 }
 @media (prefers-reduced-motion: no-preference) {
-  .hero-in {
-    animation: hero-in 0.8s cubic-bezier(0.23, 1, 0.32, 1) both;
-    animation-delay: calc(var(--i, 0) * 90ms + 100ms);
-  }
-  .hero-pop {
-    animation: hero-pop 0.7s cubic-bezier(0.23, 1, 0.32, 1) both;
-    animation-delay: calc(var(--i, 0) * 90ms + 100ms);
-  }
-  .hero-drift {
-    animation: hero-fade 1.2s ease 0.2s both, hero-drift 18s cubic-bezier(0.77, 0, 0.175, 1) 1.4s infinite;
-  }
+  .hero-in { animation: hero-in 0.7s cubic-bezier(0.23, 1, 0.32, 1) var(--d, 0s) both; }
+  .hero-pop { animation: hero-pop 0.7s cubic-bezier(0.23, 1, 0.32, 1) var(--d, 0s) both; }
+  .hero-fade { animation: hero-fade 1s ease var(--d, 0s) both; }
   .swirl-draw {
     stroke-dasharray: 1;
     stroke-dashoffset: 1;
-    animation: swirl-draw 1.6s cubic-bezier(0.23, 1, 0.32, 1) 0.5s forwards;
+    animation: swirl-draw 1.4s cubic-bezier(0.23, 1, 0.32, 1) var(--d, 1.1s) forwards;
   }
 }

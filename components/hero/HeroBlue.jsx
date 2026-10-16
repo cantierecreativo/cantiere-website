@@ -28,9 +28,9 @@ export default function HeroBlue({ page, children, abstractTag = "h2", locale = 
       className="relative isolate overflow-hidden bg-[radial-gradient(120%_90%_at_15%_10%,_#6766D9_0%,_#3938E0_55%,_#2f2ed0_100%)] text-white"
     >
       <div className="container grid items-center gap-10 pt-28 pb-8 md:pt-36 lg:grid-cols-12 lg:pb-10 xl:pt-40">
-        <div className="lg:col-span-7">
+        <div className="relative z-10 lg:col-span-7">
           {section && (
-            <nav aria-label={t("breadcrumbs", locale)} className="hero-in mb-5 [--i:0]">
+            <nav aria-label={t("breadcrumbs", locale)} className="hero-in mb-5 [--d:0.1s]">
               <ol className="flex flex-wrap items-center gap-1 text-sm font-bold uppercase tracking-wider">
                 <li>
                   <Link
@@ -51,7 +51,7 @@ export default function HeroBlue({ page, children, abstractTag = "h2", locale = 
           )}
           <h1
             id="hero-title"
-            className={`hero-in text-balance font-bold tracking-[-0.025em] [--i:1] ${
+            className={`hero-in text-balance font-bold tracking-[-0.025em] [--d:0.3s] ${
               typeof title === "string" && title.length > 60
                 ? "text-3xl/[0.95] md:text-4xl/[0.95] xl:text-5xl/[0.95]"
                 : "text-[2.5rem]/[0.92] md:text-5xl/[0.92] xl:text-6xl/[0.9]"
@@ -60,10 +60,10 @@ export default function HeroBlue({ page, children, abstractTag = "h2", locale = 
             {title}
           </h1>
           {subtitle && (
-            <h2 className="hero-in mt-5 max-w-2xl text-balance text-xl leading-snug md:text-2xl [--i:2]">{renderHTML(subtitle)}</h2>
+            <h2 className="hero-in mt-5 max-w-2xl text-balance text-xl leading-snug md:text-2xl [--d:0.5s]">{renderHTML(subtitle)}</h2>
           )}
           {(abstract || text) && (
-            <AbstractTag className="hero-in mt-5 max-w-xl text-pretty text-base leading-relaxed md:text-lg [--i:3]">
+            <AbstractTag className="hero-in mt-5 max-w-xl text-pretty text-base leading-relaxed md:text-lg [--d:0.7s]">
               {renderHTML(abstract || text)}
             </AbstractTag>
           )}
