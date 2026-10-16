@@ -112,7 +112,7 @@ export default function HeroArt({ sectionRef }) {
           <Icon name="star" size="100%" fill="yellow" className="h-full w-full" />
         </div>
       </Layer>
-      <Layer px={px} py={py} depth={1.9} dx={0.15} rotate={-60} className="-left-[5%] top-[50%] hidden aspect-square w-[20%] lg:block">
+      <Layer px={px} py={py} depth={1.9} dx={0.15} rotate={-60} className="-left-[5%] top-[36%] hidden aspect-square w-[20%] lg:block">
         <div className="hero-pop h-full w-full" style={{ "--d": "2.7s" }}>
           <Icon name="star" size="100%" fill="yellow" className="h-full w-full" />
         </div>
