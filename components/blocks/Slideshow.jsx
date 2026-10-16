@@ -16,6 +16,7 @@ import "swiper/css/effect-fade";
 import "swiper/css/bundle";
 import { cleanFileName } from "lib/utils";
 import Icon from "../layout/Icon";
+import Wave from "components/hero/Wave";
 
 export default function Carousel({ data, pageTitle }) {
   const { scrollY } = useScroll();
@@ -30,11 +31,11 @@ export default function Carousel({ data, pageTitle }) {
       {/* Hero compatta: il centro del gradiente (#6766D9) tiene il testo bianco sopra 4.5:1. */}
       <section
         aria-label={pageTitle}
-        className="relative overflow-hidden bg-[radial-gradient(circle,_#6766D9_0%,_#3938E0_80%)] pb-[12vh] lg:pb-[16vh]"
+        className="relative overflow-hidden bg-[radial-gradient(circle_at_50%_40%,_#6766D9_0%,_#3938E0_75%)]"
       >
         <motion.div
           style={{ y: y1, rotate: rotate1 }}
-          className="absolute top-[15%] right-[12%] w-[10%] aspect-square z-10"
+          className="absolute top-[16%] right-[10%] w-[9%] md:w-[6%] aspect-square z-10"
         >
           <Icon
             name="star"
@@ -45,7 +46,7 @@ export default function Carousel({ data, pageTitle }) {
         </motion.div>
         <motion.div
           style={{ y: y2, rotate: rotate2 }}
-          className="absolute top-[50%] left-[-5%] w-[20%] aspect-square z-10 hidden md:block"
+          className="absolute top-[46%] left-[-3%] w-[11%] aspect-square z-10 hidden md:block"
         >
           <Icon
             name="star"
@@ -56,7 +57,7 @@ export default function Carousel({ data, pageTitle }) {
         </motion.div>
         <motion.div
           style={{ y: y3 }}
-          className={`absolute bottom-[20%] w-[40%] lg:w-[20%] aspect-[1/1] left-auto right-[-1%] z-10`}
+          className="absolute bottom-[14%] w-[22%] lg:w-[12%] aspect-[1/1] left-auto right-[2%] z-10"
         >
           <Image
             src="/icons/heroRight.svg"
@@ -94,7 +95,7 @@ export default function Carousel({ data, pageTitle }) {
             return (
               <div key={i} className="w-full">
                 <SwiperSlide>
-                  <div className="relative w-full h-[64vh] min-h-[420px] md:h-[68vh] max-h-[760px]">
+                  <div className="relative w-full h-[58vh] min-h-[400px] md:h-[62vh] max-h-[680px]">
                     {image && (
                       <div className="absolute top-[70px] md:top-[90px] left-0 right-0 bottom-0 overflow-hidden">
                         <DatoImage
@@ -177,20 +178,7 @@ export default function Carousel({ data, pageTitle }) {
             );
           })}
         </Swiper>
-        <div
-          aria-hidden="true"
-          className="absolute bottom-0 h-[12vh] lg:h-[16vh] left-1/2 -translate-x-1/2 w-full top-auto"
-        >
-          <Image
-            src="/icons/top-yellow-violet.svg"
-            alt="lineHero"
-            layout="fill"
-            objectFit="cover"
-            objectPosition="top"
-            className="w-full h-full"
-            aria-hidden="true"
-          />
-        </div>
+        <Wave below="#8f87f0" className="h-14 md:h-20 xl:h-24" />
       </section>
     </>
   );

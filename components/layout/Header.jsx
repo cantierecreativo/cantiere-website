@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Fragment } from "react";
+import { Fragment, useRef } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import MenuMobile from "components/layout/MenuMobile";
 import { resolveLink, IsActive } from "lib/utils";
@@ -8,6 +8,7 @@ import Icon from "./Icon";
 import LanguageSwitcher from "components/layout/LanguageSwitcher";
 import t from "lib/locales";
 import { GLASS, FOCUS } from "./glass";
+import { useBackdropTone } from "./backdropTone";
 
 // Helper function to group menu items by tag
 function groupByTag(menuItems) {
@@ -177,23 +178,53 @@ function Header(props) {
   const navItems = withLabMenu(site.menu.menuFirstLevels);
   const prefix = locale === "it" ? "/" : "/en";
 
+  // Il logo segue lo sfondo che ha sotto: bianco sul blu, sul viola e sulle foto (con ombra), a colori sul chiaro.
+  const headerRef = useRef(null);
+  const logoRef = useRef(null);
+  const tone = useBackdropTone(
+    logoRef,
+    headerRef,
+    headerTxt === "black" ? "light" : "dark",
+  );
+  const white = tone !== "light";
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 py-4 lg:py-5 text-black">
+    <header
+      ref={headerRef}
+      className="fixed top-0 left-0 right-0 z-40 py-4 lg:py-5 text-black"
+    >
       <Popover>
         <div className="container-fluid">
           <div className="flex items-center justify-between gap-3 lg:gap-5 xl:justify-start">
             <Link
               href={prefix}
               title={t("homepage", locale)}
-              className={`${GLASS} ${FOCUS} flex h-11 lg:h-12 flex-none items-center px-4 lg:px-5 duration-200 hover:after:bg-white/90`}
+              className={`${FOCUS} block flex-none rounded-md`}
             >
-              <img
-                src="/logos/color.svg"
-                alt={t("logoAlt", locale)}
-                width="829"
-                height="300"
-                className="h-7 lg:h-9 w-auto"
-              />
+              <span
+                ref={logoRef}
+                className="relative block h-9 w-[100px] lg:h-12 lg:w-[133px]"
+              >
+                <img
+                  src="/logos/white.svg"
+                  alt={t("logoAlt", locale)}
+                  width="840"
+                  height="300"
+                  className={`absolute inset-0 h-full w-auto motion-safe:transition-[opacity,filter] motion-safe:duration-500 ${white ? "opacity-100" : "opacity-0"} ${
+                    tone === "image"
+                      ? "drop-shadow-[0_1px_6px_rgba(5,14,57,0.45)]"
+                      : ""
+                  }`}
+                />
+                <img
+                  src="/logos/color.svg"
+                  alt=""
+                  aria-hidden="true"
+                  width="829"
+                  height="300"
+                  className={`absolute inset-0 h-full w-auto motion-safe:transition-opacity motion-safe:duration-500 ${white ? "opacity-0" : "opacity-100"}`}
+                />
+              </span>
             </Link>
             <Popover.Button
               className={`${GLASS} ${FOCUS} lg:hidden flex h-11 items-center px-5 font-bold text-sm uppercase tracking-wider`}
@@ -210,11 +241,19 @@ function Header(props) {
               >
                 {navItems.map((item) => (
                   <div key={item.id}>
-                    {RenderNavItem(item, locale, false, "triangle-black", headerTxt)}
+                    {RenderNavItem(
+                      item,
+                      locale,
+                      false,
+                      "triangle-black",
+                      headerTxt,
+                    )}
                   </div>
                 ))}
               </div>
-              <div className={`${GLASS} hidden xl:flex xl:ml-auto items-center gap-1 p-1`}>
+              <div
+                className={`${GLASS} hidden xl:flex xl:ml-auto items-center gap-1 p-1`}
+              >
                 <LanguageSwitcher page={page} locale={locale} />
                 <Link
                   href={t("contact-us-url", locale)}

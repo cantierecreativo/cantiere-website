@@ -175,15 +175,13 @@ export default function MenuMobile({ site, locale, page }) {
             <div className="py-4">
               <div className="container-fluid">
                 <div className="flex items-center justify-between gap-3">
-                  <div className={`${GLASS} flex h-11 flex-none items-center px-4`}>
-                    <img
-                      src="/logos/color.svg"
-                      alt={t("logoAlt", locale)}
-                      width="829"
-                      height="300"
-                      className="h-7 w-auto"
-                    />
-                  </div>
+                  <img
+                    src="/logos/white.svg"
+                    alt={t("logoAlt", locale)}
+                    width="840"
+                    height="300"
+                    className="h-9 w-auto"
+                  />
                   <Popover.Button
                     className={`${GLASS} ${FOCUS} flex h-11 items-center px-5 font-bold text-sm uppercase tracking-wider text-black`}
                   >
@@ -215,7 +213,11 @@ export default function MenuMobile({ site, locale, page }) {
                       {t("contact-us-label", locale)}
                     </Link>
                   </div>
-                  <LanguageSwitcher page={page} locale={locale} className="rounded-full bg-white p-1" />
+                  <LanguageSwitcher
+                    page={page}
+                    locale={locale}
+                    className="rounded-full bg-white p-1"
+                  />
                 </div>
               </div>
             </div>
