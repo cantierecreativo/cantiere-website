@@ -16,8 +16,9 @@ const PUBLIC_ENV = ["NEXT_PUBLIC_SITE_URL", "NEXT_PUBLIC_ENV", "NEXT_PUBLIC_GTM_
 export default defineConfig({
   site: process.env.NEXT_PUBLIC_SITE_URL || "https://www.cantierecreativo.net",
   trailingSlash: "never",
-  build: { format: "directory" },
-  integrations: [react(), sitemap({ filter: (page) => !page.includes("/blog/tags/") })],
+  // "file": /servizi.html servito come /servizi, senza la slash finale che Netlify aggiungerebbe a una cartella.
+  build: { format: "file" },
+  integrations: [react(), sitemap({ filter: (page) => !page.includes("/blog/tags/") && !/\/404$/.test(page) })],
   vite: {
     resolve: {
       alias: {

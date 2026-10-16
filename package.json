@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "articles": "node scripts/getArticles.mjs",
-    "build": "bun run articles && astro build",
+    "build": "bun run articles && astro build && node scripts/redirects.mjs",
     "preview": "astro preview",
     "test": "bun test src",
     "parity": "node scripts/parity.mjs",

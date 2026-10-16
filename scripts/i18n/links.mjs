@@ -9,7 +9,7 @@ const { ids, dryRun } = parseArgs();
 const { client, repo, environment } = getClient();
 const legacy = JSON.parse(fs.readFileSync("redirects/legacy-map.json", "utf8"));
 
-// IT segment -> [EN segment, model whose slug follows]. Keep in sync with next.config.js rewrites.
+// IT segment -> [EN segment, model whose slug follows]. Keep in sync with EN_SEGMENTS in src/routes.js.
 const SECTIONS = {
   servizi: ["services", "service"],
   soluzioni: ["solutions", "solution"],
@@ -45,7 +45,7 @@ for (const { type, record } of records) {
   if (record.slug?.it && record.slug?.en) enSlug[`${type}:${record.slug.it}`] = record.slug.en;
 }
 
-// Apply the legacy redirect map to an IT path (same matching as next.config.js, enough for these patterns).
+// Apply the legacy redirect map to an IT path (same matching as Netlify _redirects, enough for these patterns).
 function resolveLegacy(path) {
   for (const { source, destination } of legacy) {
     const names = [];
