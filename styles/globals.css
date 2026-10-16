@@ -490,3 +490,22 @@ strong {
     animation: swirl-draw 1.4s cubic-bezier(0.23, 1, 0.32, 1) var(--d, 1.1s) forwards;
   }
 }
+
+/* Bagliori dello sfondo delle hero (components/hero/HeroBackdrop.jsx): moto lento e continuo, sfasato. */
+@keyframes hero-glow-a {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(22%, 18%, 0) scale(1.15); }
+}
+@keyframes hero-glow-b {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1.1); }
+  50% { transform: translate3d(-26%, -12%, 0) scale(0.9); }
+}
+@keyframes hero-glow-c {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-18%, -20%, 0) scale(1.2); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-glow-a { animation: hero-glow-a 22s cubic-bezier(0.77, 0, 0.175, 1) infinite; }
+  .hero-glow-b { animation: hero-glow-b 28s cubic-bezier(0.77, 0, 0.175, 1) infinite; }
+  .hero-glow-c { animation: hero-glow-c 34s cubic-bezier(0.77, 0, 0.175, 1) infinite; }
+}

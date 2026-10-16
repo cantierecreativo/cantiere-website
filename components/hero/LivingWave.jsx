@@ -59,7 +59,7 @@ export default function LivingWave({ className = "", style }) {
 
   return (
     <svg aria-hidden="true" focusable="false" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" className={className} style={style}>
-      <path ref={pathRef} d={wavePath(0)} fill="none" stroke="#A5A0F2" strokeOpacity="0.3" strokeWidth="56" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
+      <path ref={pathRef} d={wavePath(0)} fill="none" stroke="#A5A0F2" strokeOpacity="0.3" strokeLinecap="round" vectorEffect="non-scaling-stroke" style={{ strokeWidth: "clamp(56px, 8vw, 128px)" }} />
     </svg>
   );
 }

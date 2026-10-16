@@ -5,6 +5,7 @@ import t from "lib/locales";
 import { useRef } from "react";
 import HeroArt from "./HeroArt";
 import Wave from "./Wave";
+import HeroBackdrop from "./HeroBackdrop";
 
 // Sezione a cui appartiene la pagina, mostrata nel percorso sopra il titolo.
 const SECTIONS = {
@@ -25,8 +26,9 @@ export default function HeroBlue({ page, children, abstractTag = "h2", locale = 
     <section
       ref={ref}
       aria-labelledby="hero-title"
-      className="relative isolate overflow-hidden bg-[radial-gradient(120%_90%_at_15%_10%,_#6766D9_0%,_#3938E0_55%,_#2f2ed0_100%)] text-white"
+      className="relative isolate overflow-hidden text-white"
     >
+      <HeroBackdrop />
       <div className="container grid items-center gap-10 pt-28 pb-8 md:pt-36 lg:grid-cols-12 lg:pb-10 xl:pt-40">
         <div className="relative z-10 lg:col-span-7">
           {section && (

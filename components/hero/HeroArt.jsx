@@ -13,15 +13,16 @@ import Icon from "components/layout/Icon";
 import Swirl from "./Swirl";
 import LivingWave from "./LivingWave";
 
-// Molla "Apple-style" della skill animate: insegue il puntatore senza scatti.
-const FOLLOW = { duration: 0.5, bounce: 0.2 };
+// Molto lenta e senza rimbalzo, come richiesto: gli strati scivolano dietro al puntatore.
+const FOLLOW = { duration: 2.4, bounce: 0 };
 const POP = { type: "spring", duration: 0.5, bounce: 0.3 };
 const MAX_STARS = 12;
 
 // Uno strato che si sposta col puntatore in proporzione alla sua profondità.
-function Layer({ px, py, depth, rotate = 0, className, children }) {
-  const x = useTransform(px, (v) => v * depth * 60);
-  const y = useTransform(py, (v) => v * depth * 60);
+// dx riduce lo spostamento orizzontale (la stella di sinistra non deve finire sopra il testo).
+function Layer({ px, py, depth, dx = 1, rotate = 0, className, children }) {
+  const x = useTransform(px, (v) => v * depth * dx * 180);
+  const y = useTransform(py, (v) => v * depth * 120);
   const r = useTransform(px, (v) => v * rotate);
   const transform = useMotionTemplate`translate3d(${x}px, ${y}px, 0) rotate(${r}deg)`;
   // Il div esterno posiziona (classi Tailwind, anche translate), quello interno si muove.
@@ -91,25 +92,22 @@ export default function HeroArt({ sectionRef }) {
         <LivingWave className="hero-fade h-full w-full" style={{ "--d": "0.9s" }} />
       </Layer>
 
-      <Layer px={px} py={py} depth={1.6} rotate={-50} className="-left-[4%] top-[58%] hidden aspect-square w-[11vw] max-w-[170px] md:block">
-        <div className="hero-pop h-full w-full" style={{ "--d": "2.9s" }}>
-            <Icon name="star" size="100%" fill="yellow" className="h-full w-full" />
-          </div>
+      {/* Stelle nelle posizioni e dimensioni della grafica originale della home. */}
+      <Layer px={px} py={py} depth={1.4} rotate={50} className="right-[12%] top-[15%] hidden aspect-square w-[10%] md:block">
+        <div className="hero-pop h-full w-full" style={{ "--d": "2.4s" }}>
+          <Icon name="star" size="100%" fill="yellow" className="h-full w-full" />
+        </div>
+      </Layer>
+      <Layer px={px} py={py} depth={1.9} dx={0.15} rotate={-60} className="-left-[5%] top-[50%] hidden aspect-square w-[20%] md:block">
+        <div className="hero-pop h-full w-full" style={{ "--d": "2.7s" }}>
+          <Icon name="star" size="100%" fill="yellow" className="h-full w-full" />
+        </div>
       </Layer>
 
-      <div className="relative mx-auto aspect-square w-full max-w-[420px] lg:absolute lg:right-[3%] lg:top-[13%] lg:w-[44vw] lg:max-w-[680px]">
-        <Layer px={px} py={py} depth={0.6} className="inset-0">
+      {/* Ricciolo in basso a destra, come nell'originale, ma grande. */}
+      <div className="relative mx-auto aspect-square w-full max-w-[420px] lg:absolute lg:right-[3%] lg:bottom-[14%] lg:w-[34vw] lg:max-w-[560px]">
+        <Layer px={px} py={py} depth={0.7} className="inset-0">
           <Swirl className="h-full w-full" style={{ "--d": "1.1s" }} />
-        </Layer>
-        <Layer px={px} py={py} depth={1.3} rotate={40} className="-right-[2%] -top-[4%] h-[26%] w-[26%]">
-          <div className="hero-pop h-full w-full" style={{ "--d": "2.4s" }}>
-            <Icon name="star" size="100%" fill="yellow" className="h-full w-full" />
-          </div>
-        </Layer>
-        <Layer px={px} py={py} depth={1.9} rotate={-70} className="bottom-[6%] left-[4%] h-[14%] w-[14%]">
-          <div className="hero-pop h-full w-full" style={{ "--d": "2.65s" }}>
-            <Icon name="star" size="100%" fill="yellow" className="h-full w-full" />
-          </div>
         </Layer>
       </div>
 
