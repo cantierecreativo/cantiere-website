@@ -18,8 +18,12 @@ export default function LabProject({ locale, site, page }) {
   return (
     <Layout site={site} locale={locale} page={page} parent={getLabIndex(locale)} headerTxt="white">
       <LabJsonLd project={project} locale={locale} />
-      <HeroBlue page={{ title: project.title, abstract: project.abstract }} abstractTag="div">
-        <LabHeroActions project={project} locale={locale} />
+      <HeroBlue
+        page={{ title: project.title, abstract: project.abstract }}
+        abstractTag="div"
+        aside={<LabHeroActions project={project} locale={locale} part="buttons" />}
+      >
+        <LabHeroActions project={project} locale={locale} part="media" />
       </HeroBlue>
       <div className="vertical-spaces !pt-0 lg:!pt-0">
         <LabFacts facts={project.facts} />

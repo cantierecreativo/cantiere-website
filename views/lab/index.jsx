@@ -32,9 +32,8 @@ export default function LabIndex({ locale, site, page }) {
           abstract: labIndex.abstract,
         }}
         abstractTag="div"
-      >
-        <LabIndexHeroActions actions={labIndex.heroActions} locale={locale} />
-      </HeroBlue>
+        aside={<LabIndexHeroActions actions={labIndex.heroActions} locale={locale} />}
+      />
       <div className="vertical-spaces !pt-0 lg:!pt-0">
         <LabManifesto manifesto={labIndex.manifesto} />
         <LabFeatured projects={[featured, ...others]} heading={labIndex.projects} locale={locale} />

@@ -39,7 +39,8 @@ function Layer({ px, py, depth, dx = 1, rotate = 0, className, children }) {
 // La grafica originale delle hero (nastro viola, ricciolo rosa, stelle gialle) resa viva: entra in sequenza,
 // il nastro cambia forma di continuo, gli strati seguono il puntatore in profondità, un click o un tocco
 // fa spuntare una stella. Con riduci movimento resta tutto fermo.
-export default function HeroArt({ sectionRef }) {
+// minimal: solo il nastro viola che cambia forma, per le pagine interne.
+export default function HeroArt({ sectionRef, minimal = false }) {
   const reduce = useReducedMotion();
   const artRef = useRef(null);
   const px = useMotionValue(0);
@@ -90,14 +91,14 @@ export default function HeroArt({ sectionRef }) {
       section.addEventListener("pointermove", move);
       section.addEventListener("pointerleave", leave);
     }
-    section.addEventListener("pointerdown", pop);
+    if (!minimal) section.addEventListener("pointerdown", pop);
     return () => {
       cancelAnimationFrame(frame);
       section.removeEventListener("pointermove", move);
       section.removeEventListener("pointerleave", leave);
       section.removeEventListener("pointerdown", pop);
     };
-  }, [sectionRef, reduce, px, py]);
+  }, [sectionRef, reduce, px, py, minimal]);
 
   // Sequenza: i testi (0.1–0.7s, nelle hero), poi il nastro viola, il ricciolo che si disegna, le stelle una per volta.
   return (
@@ -106,6 +107,8 @@ export default function HeroArt({ sectionRef }) {
         <LivingWave className="hero-fade h-full w-full" style={{ "--d": "0.9s" }} />
       </Layer>
 
+      {!minimal && (
+        <>
       {/* Stelle nelle posizioni e dimensioni della grafica originale della home. */}
       <Layer px={px} py={py} depth={1.4} rotate={50} className="right-[12%] top-[15%] hidden aspect-square w-[10%] lg:block">
         <div className="hero-pop h-full w-full" style={{ "--d": "2.4s" }}>
@@ -125,6 +128,9 @@ export default function HeroArt({ sectionRef }) {
           <Swirl className="h-full w-full" style={{ "--d": "1.1s" }} />
         </Layer>
       </div>
+
+        </>
+      )}
 
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-20 overflow-hidden">
         <AnimatePresence>

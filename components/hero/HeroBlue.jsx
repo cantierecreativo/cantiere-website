@@ -15,9 +15,10 @@ const SECTIONS = {
   case_study: { model: "case_studies_index", label: () => "Case studies" },
 };
 
-// Hero delle pagine interne, stesso modello della home (HeroHome): testo a sinistra, a destra la grafica
-// del sito animata e interattiva (HeroArt). Il centro del gradiente tiene il bianco sopra 4.5:1.
-export default function HeroBlue({ page, children, abstractTag = "h2", locale = "it" }) {
+// Hero delle pagine interne, stesso modello della home (HeroHome): testo a sinistra e il nastro viola
+// che cambia forma (HeroArt minimal), senza stelle né ricciolo. Il centro del gradiente tiene il bianco sopra 4.5:1.
+// aside: contenuto a destra del testo (le azioni del Lab); children: sotto, a tutta larghezza.
+export default function HeroBlue({ page, children, aside, abstractTag = "h2", locale = "it" }) {
   const AbstractTag = abstractTag;
   const { title, subtitle, abstract, text, model } = page;
   const section = SECTIONS[model];
@@ -69,12 +70,11 @@ export default function HeroBlue({ page, children, abstractTag = "h2", locale = 
               {renderHTML(abstract || text)}
             </AbstractTag>
           )}
-          {children}
         </div>
-        <div className="hidden sm:block lg:col-span-5">
-          <HeroArt sectionRef={ref} />
-        </div>
+        {aside && <div className="relative z-10 lg:col-span-5 lg:justify-self-end">{aside}</div>}
+        {children && <div className="relative z-10 lg:col-span-12">{children}</div>}
       </div>
+      <HeroArt sectionRef={ref} minimal />
       <Wave className="h-auto" />
     </section>
   );
