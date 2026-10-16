@@ -2,7 +2,8 @@ import { renderHTML, resolveLink } from "lib/utils";
 import Link from "next/link";
 import Icon from "components/layout/Icon";
 import t from "lib/locales";
-import Swirl from "./Swirl";
+import { useRef } from "react";
+import HeroArt from "./HeroArt";
 import Wave from "./Wave";
 
 // Sezione a cui appartiene la pagina, mostrata nel percorso sopra il titolo.
@@ -13,15 +14,16 @@ const SECTIONS = {
   case_study: { model: "case_studies_index", label: () => "Case studies" },
 };
 
-// Hero delle pagine interne, stesso modello della home (HeroHome): testo a sinistra; a destra il ricciolo
-// che si disegna, la stella e, sui case study, la copertina. Il centro del gradiente tiene il bianco sopra 4.5:1.
+// Hero delle pagine interne, stesso modello della home (HeroHome): testo a sinistra, a destra la grafica
+// del sito animata e interattiva (HeroArt). Il centro del gradiente tiene il bianco sopra 4.5:1.
 export default function HeroBlue({ page, children, abstractTag = "h2", locale = "it" }) {
   const AbstractTag = abstractTag;
   const { title, subtitle, abstract, text, model } = page;
   const section = SECTIONS[model];
-  const cover = page.cover?.responsiveImage;
+  const ref = useRef(null);
   return (
     <section
+      ref={ref}
       aria-labelledby="hero-title"
       className="relative isolate overflow-hidden bg-[radial-gradient(120%_90%_at_15%_10%,_#6766D9_0%,_#3938E0_55%,_#2f2ed0_100%)] text-white"
     >
@@ -67,20 +69,8 @@ export default function HeroBlue({ page, children, abstractTag = "h2", locale = 
           )}
           {children}
         </div>
-        <div className="relative mx-auto hidden aspect-square w-full max-w-[380px] sm:block lg:col-span-5 lg:max-w-[420px]">
-          {cover && (
-            <img
-              src={cover.src}
-              srcSet={cover.srcSet}
-              sizes="(min-width: 1024px) 360px, 60vw"
-              alt={cover.alt || ""}
-              width={cover.width}
-              height={cover.height}
-              className="absolute inset-[10%] h-[80%] w-[80%] rotate-3 rounded-3xl object-cover shadow-[0_24px_40px_-20px_rgba(5,14,57,0.6)]"
-            />
-          )}
-          <Icon name="star" size="100%" fill="yellow" className="pointer-events-none absolute right-[6%] top-0 z-10 h-16 w-16 md:h-20 md:w-20" />
-          <Swirl className={`pointer-events-none absolute z-10 ${cover ? "-bottom-6 -left-[12%] w-[55%]" : "inset-[8%] w-[84%]"}`} />
+        <div className="hidden sm:block lg:col-span-5">
+          <HeroArt sectionRef={ref} />
         </div>
       </div>
       <Wave className="h-14 md:h-20 xl:h-24" />

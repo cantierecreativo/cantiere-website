@@ -22,7 +22,7 @@ export default function Home({ locale, site, page }) {
   const { mainBlocks, whiteBlocks } = page;
   return (
     <Layout site={site} locale={locale} page={page} headerTxt="white">
-      <HeroHome page={page} locale={locale} />
+      <HeroHome page={page} />
       <div
         ref={containerRef}
         className="bg-[#8F87F0] text-white relative overflow-hidden pb-40 md:pb-80"
