@@ -13,7 +13,7 @@ export default function LabHeroActions({
   return (
     <div className="relative z-10">
       {part !== "media" && (
-        <div className="flex flex-wrap gap-4 lg:flex-col lg:items-end">
+        <div className="flex flex-wrap justify-center gap-4">
           <LabButton
             href={atlasUrl}
             external

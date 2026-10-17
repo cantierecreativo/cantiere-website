@@ -3,7 +3,7 @@ import LabButton, { CalendlyButton } from "components/lab/LabButton";
 // Azioni dell'hero dell'indice Lab: i progetti come prova, la call come contatto.
 export default function LabIndexHeroActions({ actions, locale = "it" }) {
   return (
-    <div className="relative z-10 flex flex-wrap gap-4 lg:flex-col lg:items-end">
+    <div className="relative z-10 flex flex-wrap justify-center gap-4">
       <LabButton href={actions.primary.href} size="lg" iconClassName="rotate-90">
         {actions.primary.label}
       </LabButton>

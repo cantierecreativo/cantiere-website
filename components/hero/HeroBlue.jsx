@@ -15,9 +15,9 @@ const SECTIONS = {
   case_study: { model: "case_studies_index", label: () => "Case studies" },
 };
 
-// Hero delle pagine interne, stesso modello della home (HeroHome): testo a sinistra e il nastro viola
+// Hero delle pagine interne, stesso modello della home (HeroHome): testo centrato e il nastro viola
 // che cambia forma (HeroArt minimal), senza stelle né ricciolo. Il centro del gradiente tiene il bianco sopra 4.5:1.
-// aside: contenuto a destra del testo (le azioni del Lab); children: sotto, a tutta larghezza.
+// aside: azioni sotto il testo, centrate (Lab); children: sotto, a tutta larghezza.
 export default function HeroBlue({ page, children, aside, abstractTag = "h2", locale = "it" }) {
   const AbstractTag = abstractTag;
   const { title, subtitle, abstract, text, model } = page;
@@ -31,10 +31,10 @@ export default function HeroBlue({ page, children, aside, abstractTag = "h2", lo
     >
       <HeroBackdrop />
       <div className="container grid items-center gap-10 pt-28 pb-8 md:pt-36 lg:grid-cols-12 lg:pb-10 xl:pt-40">
-        <div className="relative z-10 lg:col-span-7">
+        <div className="relative z-10 mx-auto max-w-4xl text-center lg:col-span-12">
           {section && (
             <nav aria-label={t("breadcrumbs", locale)} className="hero-in mb-5 [--d:0.1s]">
-              <ol className="flex flex-wrap items-center gap-1 text-sm font-bold uppercase tracking-wider">
+              <ol className="flex flex-wrap items-center justify-center gap-1 text-sm font-bold uppercase tracking-wider">
                 <li>
                   <Link
                     href={resolveLink({ model: section.model }, locale)}
@@ -63,15 +63,15 @@ export default function HeroBlue({ page, children, aside, abstractTag = "h2", lo
             {title}
           </h1>
           {subtitle && (
-            <h2 className="hero-in mt-4 max-w-2xl text-balance text-lg leading-snug sm:text-xl md:mt-5 md:text-2xl [--d:0.5s]">{renderHTML(subtitle)}</h2>
+            <h2 className="hero-in mx-auto mt-4 max-w-2xl text-balance text-lg leading-snug sm:text-xl md:mt-5 md:text-2xl [--d:0.5s]">{renderHTML(subtitle)}</h2>
           )}
           {(abstract || text) && (
-            <AbstractTag className="hero-in mt-5 max-w-xl text-pretty text-base leading-relaxed md:text-lg [--d:0.7s]">
+            <AbstractTag className="hero-in mx-auto mt-5 max-w-xl text-pretty text-base leading-relaxed md:text-lg [--d:0.7s]">
               {renderHTML(abstract || text)}
             </AbstractTag>
           )}
         </div>
-        {aside && <div className="relative z-10 lg:col-span-5 lg:justify-self-end">{aside}</div>}
+        {aside && <div className="hero-in relative z-10 flex justify-center lg:col-span-12 [--d:0.85s]">{aside}</div>}
         {children && <div className="relative z-10 lg:col-span-12">{children}</div>}
       </div>
       <HeroArt sectionRef={ref} minimal />
