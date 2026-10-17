@@ -27,10 +27,11 @@ export default function HeroBlue({ page, children, aside, abstractTag = "h2", lo
     <section
       ref={ref}
       aria-labelledby="hero-title"
-      className="relative isolate overflow-hidden text-white"
+      data-hero="blue"
+      className="relative isolate flex min-h-[460px] flex-col overflow-hidden text-white md:min-h-[560px] lg:min-h-[min(82svh,760px)]"
     >
       <HeroBackdrop />
-      <div className="container grid items-center gap-10 pt-28 pb-8 md:pt-36 lg:grid-cols-12 lg:pb-10 xl:pt-40">
+      <div className="container grid flex-1 content-center items-center gap-10 pt-28 pb-8 md:pt-36 lg:grid-cols-12 lg:pb-10 xl:pt-40">
         <div className="relative z-10 mx-auto max-w-4xl text-center lg:col-span-12">
           {section && (
             <nav aria-label={t("breadcrumbs", locale)} className="hero-in mb-5 [--d:0.1s]">

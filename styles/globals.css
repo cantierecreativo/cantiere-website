@@ -97,6 +97,12 @@
     @apply space-y-16 py-20 lg:py-28 xl:py-32 xl:space-y-32 2xl:space-y-36 2xl:py-44 z-10 relative;
   }
 
+  /* Sotto le hero blu l'onda lascia già una fascia bianca: il primo blocco parte più vicino. */
+  [data-hero] + .prose > .vertical-spaces:first-child,
+  [data-hero] + .vertical-spaces {
+    @apply pt-6 lg:pt-10 xl:pt-12 2xl:pt-16;
+  }
+
   .margin-scroll-standard {
     @apply scroll-mt-8 md:scroll-mt-24 lg:scroll-mt-32;
   }

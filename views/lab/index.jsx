@@ -4,7 +4,6 @@ import fetchData from "lib/dato";
 import HeroBlue from "components/hero/HeroBlue";
 import LabFeatured from "components/lab/LabFeatured";
 import LabManifesto from "components/lab/LabManifesto";
-import LabIndexHeroActions from "components/lab/LabIndexHeroActions";
 import LabIndexCta from "components/lab/LabIndexCta";
 import LabServices from "components/lab/LabServices";
 import { getLabProjects, getLabIndex } from "src/data/lab";
@@ -32,7 +31,6 @@ export default function LabIndex({ locale, site, page }) {
           abstract: labIndex.abstract,
         }}
         abstractTag="div"
-        aside={<LabIndexHeroActions actions={labIndex.heroActions} locale={locale} />}
       />
       <div className="vertical-spaces !pt-0 lg:!pt-0">
         <LabManifesto manifesto={labIndex.manifesto} />

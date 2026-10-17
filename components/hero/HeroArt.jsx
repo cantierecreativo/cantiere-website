@@ -123,7 +123,7 @@ export default function HeroArt({ sectionRef, minimal = false }) {
 
       {/* Ricciolo in basso a destra, come nell'originale, ma grande. */}
       {/* Sotto lg il ricciolo sta a destra sotto il testo e scende sopra l'onda: non allunga la hero. */}
-      <div className="relative z-10 -mb-[18vw] -mt-2 ml-auto aspect-square w-[46%] max-w-[320px] sm:w-[36%] lg:absolute lg:bottom-[4%] lg:right-[2%] lg:m-0 lg:w-[30vw] lg:max-w-[500px]">
+      <div className="relative z-10 -mb-[18vw] -mt-2 ml-auto aspect-square w-[46%] max-w-[320px] sm:w-[36%] lg:absolute lg:bottom-0 lg:-right-[2%] lg:m-0 lg:w-[24vw] lg:max-w-[500px] xl:bottom-[2%] xl:w-[28vw]">
         <Layer px={px} py={py} depth={0.7} className="inset-0">
           <Swirl className="h-full w-full" style={{ "--d": "1.1s" }} />
         </Layer>

@@ -18,7 +18,7 @@ export default function HeroHome({ page }) {
     >
       <HeroBackdrop />
       <div className="container grid items-center gap-10 pt-28 pb-8 md:pt-36 lg:grid-cols-12 lg:pb-10 xl:pt-40">
-        <div className="relative z-10 mx-auto max-w-4xl text-center lg:col-span-12 lg:pb-24">
+        <div className="relative z-10 mx-auto max-w-4xl text-center lg:col-span-12">
           {slide && (
             <>
               <h1 id="hero-title" className="hero-in text-balance font-bold text-[2.25rem]/[0.95] tracking-[-0.03em] sm:text-[2.75rem]/[0.9] md:text-6xl/[0.9] xl:text-7xl/[0.9] [--d:0.15s]">

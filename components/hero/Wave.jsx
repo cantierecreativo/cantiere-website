@@ -9,7 +9,7 @@ export default function Wave({ below = "#ffffff", className = "" }) {
       aria-hidden="true"
       focusable="false"
       viewBox="0 0 1512 275.58"
-      className={`block w-full ${className}`}
+      className={`-mb-px block w-full ${className}`}
     >
       <path fill={below} d={BELOW} />
       <path fill="#E4FF86" d={RIBBON} />
