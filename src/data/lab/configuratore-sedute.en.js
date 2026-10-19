@@ -97,7 +97,7 @@ const seatingConfigurator = {
   },
   story: {
     eyebrow: "People and AI",
-    title: "The agent builds, we decide",
+    title: "The agent writes the code, we try the chair in the living room",
     text: "The agent writes the code and converts the models. We try it on a phone, in augmented reality and with the real catalogue, and decide what to change.",
     legend: { human: "Us", ai: "AI agent", both: "Us + agent" },
     // Real step times (7-8/10/2026), not shown on the page: s1 7/10 11:15, s2 11:40, s3 12:28, s4 13:20, s5 16:06, s6 16:22, s7 17:01, s8 8/10 08:29, s9 16:05.

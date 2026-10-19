@@ -103,7 +103,7 @@ const configuratoreSedute = {
   },
   story: {
     eyebrow: "Persone e AI",
-    title: "L'agente costruisce, noi decidiamo",
+    title: "L'agente scrive il codice, noi proviamo la sedia in salotto",
     text: "L'agente scrive il codice e converte i modelli. Noi lo proviamo su telefono, in realtà aumentata e con il catalogo vero, e decidiamo cosa cambiare.",
     legend: { human: "Noi", ai: "Agente AI", both: "Noi + agente" },
     // Orari reali dei passaggi (7-8/10/2026), non mostrati in pagina: s1 7/10 11:15, s2 11:40, s3 12:28, s4 13:20, s5 16:06, s6 16:22, s7 17:01, s8 8/10 08:29, s9 16:05.
