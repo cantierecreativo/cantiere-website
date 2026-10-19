@@ -3,12 +3,14 @@
   src: url("/fonts/basicSans.woff2") format("woff2");
   font-style: normal;
   font-weight: normal;
+  font-display: swap;
 }
 @font-face {
   font-family: "Geist";
   src: url("/fonts/geist.woff2") format("woff2");
   font-style: normal;
   font-weight: normal;
+  font-display: swap;
 }
 
 @tailwind base;

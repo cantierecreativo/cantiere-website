@@ -8,6 +8,9 @@ export default function Document() {
   return (
     <Html>
       <Head>
+        {/* I due font del sito servono già nella prima schermata: si scaricano subito, senza aspettare il CSS. */}
+        <link rel="preload" href="/fonts/geist.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/basicSans.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <script
           async
           src="https://s.widgetwhats.com/wwwa.js"
