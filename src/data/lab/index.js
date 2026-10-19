@@ -2,12 +2,14 @@ import atlanteUffizi from "./atlante-uffizi";
 import uffiziAtlas from "./atlante-uffizi.en";
 import configuratoreSedute from "./configuratore-sedute";
 import seatingConfigurator from "./configuratore-sedute.en";
+import guidaBoboli from "./guida-boboli";
+import cacciaBoboli from "./caccia-boboli";
 import labIndexEn from "./lab-index.en";
 
 // Contenuti del Lab per lingua. Lo stesso progetto ha lo stesso `id` in ogni lingua
 // e uno slug tradotto: `alts` collega le versioni per il selettore di lingua e gli hreflang.
 const projectsByLocale = {
-  it: [atlanteUffizi, configuratoreSedute],
+  it: [atlanteUffizi, configuratoreSedute, guidaBoboli, cacciaBoboli],
   en: [uffiziAtlas, seatingConfigurator],
 };
 
