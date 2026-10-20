@@ -1,8 +1,8 @@
 import Head from "next/head";
 import { resolveLink } from "lib/utils";
-import { SITE_URL } from "lib/lab";
+import { SITE_URL, ORGANIZATION } from "lib/lab";
 
-// Dati strutturati dell'indice Lab: raccolta di progetti, breadcrumb ed elenco dei progetti.
+// Dati strutturati dell'AI Lab: raccolta di progetti, organizzazione, breadcrumb ed elenco dei progetti.
 export default function LabIndexJsonLd({ labIndex, projects, locale = "it" }) {
   const home = `${SITE_URL}${locale === "it" ? "" : `/${locale}`}`;
   const url = `${SITE_URL}${resolveLink({ model: labIndex.model, slug: null }, locale)}`;
@@ -14,18 +14,25 @@ export default function LabIndexJsonLd({ labIndex, projects, locale = "it" }) {
       name: labIndex.seo.title,
       description: labIndex.seo.description,
       inLanguage: locale === "en" ? "en" : "it-IT",
-      isPartOf: { "@type": "WebSite", name: "Cantiere Creativo", url: SITE_URL },
-      publisher: { "@type": "Organization", name: "Cantiere Creativo", url: SITE_URL },
+      isPartOf: { "@type": "WebSite", name: "Cantiere Creativo", url: SITE_URL, publisher: { "@id": ORGANIZATION["@id"] } },
+      publisher: { "@id": ORGANIZATION["@id"] },
+      breadcrumb: { "@id": `${url}#breadcrumb` },
+      mainEntity: { "@id": `${url}#projects` },
     },
+    ORGANIZATION,
     {
       "@type": "BreadcrumbList",
+      "@id": `${url}#breadcrumb`,
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: home },
-        { "@type": "ListItem", position: 2, name: "Lab", item: url },
+        { "@type": "ListItem", position: 2, name: labIndex.menuLabel, item: url },
       ],
     },
     {
       "@type": "ItemList",
+      "@id": `${url}#projects`,
+      name: labIndex.projects.title,
+      numberOfItems: projects.length,
       itemListElement: projects.map((p, i) => ({
         "@type": "ListItem",
         position: i + 1,

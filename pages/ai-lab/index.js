@@ -22,6 +22,10 @@ export default function LabIndex({ locale, site, page }) {
         page={{
           title: (
             <>
+              <span className="mb-4 block text-sm font-bold uppercase tracking-wider text-white/80 md:text-base">
+                {labIndex.eyebrow}
+                <span className="sr-only">:</span>{" "}
+              </span>
               {labIndex.heroLines.map((l) => (
                 <span key={l.id} className={`block text-balance ${l.accent ? "mt-2 text-yellow" : ""}`}>
                   {l.text}{" "}

@@ -34,28 +34,31 @@ export function getLabIndex(locale = "it") {
 const labIndex = {
   model: "lab_index",
   id: "lab-index",
-  slug: "lab",
+  slug: "ai-lab",
+  menuLabel: "AI Lab",
   title: "L'AI ci rende veloci. Il gusto ci rende diversi. L'esperienza ci rende affidabili.",
+  // Etichetta in testa all'H1: porta la keyword «AI Lab» senza toccare i tre versi.
+  eyebrow: "AI Lab di Cantiere Creativo",
   heroLines: [
     { id: "h1", text: "L'AI ci rende veloci." },
     { id: "h2", text: "Il gusto ci rende diversi." },
     { id: "h3", text: "L'esperienza ci rende affidabili.", accent: true },
   ],
   abstract:
-    "Usiamo agenti e AI a ogni livello. Poi ci mettiamo quello che all'AI manca: l'occhio per ciò che è bello e il giudizio su ciò che serve davvero. Il Lab raccoglie i prodotti che lo dimostrano.",
+    "Usiamo agenti e AI per sviluppare prodotti digitali. Poi ci mettiamo quello che all'AI manca: l'occhio per ciò che è bello e il giudizio su ciò che serve. Il Lab raccoglie i progetti nati così.",
   heroActions: {
     primary: { label: "Guarda i progetti", href: "#progetti" },
     secondary: { label: "Prenota una video call" },
   },
   seo: {
-    title: "Cantiere Creativo Lab: progetti AI con gusto ed esperienza",
+    title: "AI Lab: progetti digitali con l'AI | Cantiere Creativo",
     description:
-      "Usiamo agenti e AI a ogni livello, poi ci mettiamo gusto ed esperienza: l'occhio per ciò che è bello e serve davvero. Nel Lab i progetti che lo dimostrano.",
+      "AI Lab è il laboratorio di Cantiere Creativo: sperimentiamo l'AI per sviluppare prodotti digitali, con il controllo creativo e tecnico del team.",
     image: "/lab/og-lab-it.jpg",
   },
   manifesto: {
     eyebrow: "Come lavoriamo",
-    title: "Niente pilota automatico.",
+    title: "Niente pilota automatico: così lavoriamo con l'AI",
     items: [
       {
         id: "mf-ai",
@@ -77,7 +80,7 @@ const labIndex = {
   projects: {
     id: "progetti",
     eyebrow: "I progetti",
-    title: "La prova è quello che costruiamo",
+    title: "La prova: i progetti che abbiamo costruito con l'AI",
     text: "Ogni progetto del Lab nasce così: veloce grazie all'AI, rifinito dalle nostre scelte.",
   },
   services: {
@@ -111,7 +114,7 @@ const labIndex = {
   },
   cta: {
     title: "Ti piace come lavoriamo?",
-    text: "Il prossimo progetto del Lab può essere il tuo. Raccontaci cosa hai in mente.",
+    text: "Lo stesso metodo, sul tuo progetto. Raccontaci cosa hai in mente.",
     callLabel: "Prenota una video call",
   },
 };

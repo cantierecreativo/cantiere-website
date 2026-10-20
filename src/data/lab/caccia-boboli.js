@@ -27,8 +27,8 @@ const cacciaBoboli = {
     video: "/lab/caccia-boboli/caccia-dettagli.mp4",
     width: 1780,
     height: 1108,
-    alt: "La caccia ai dettagli: Bobo presenta le tre missioni, la mappa si ingrandisce sul gatto che dorme sul tetto della Limonaia, poi il quiz e il primo pezzo del puzzle",
-    caption: "Il gioco online: il primo dettaglio trovato e il suo quiz",
+    alt: "La caccia ai dettagli: dalla copertina con le missioni alla ranocchia trovata nella Vasca dell'Isola, poi il quiz, il puzzle completato, la missione compiuta che apre la successiva e l'attestato con il nome del bambino",
+    caption: "Il gioco online: quiz, puzzle, missioni e attestato",
   },
   seo: {
     title: "Come abbiamo trasformato la mappa di Boboli in un gioco per bambini con l'AI",

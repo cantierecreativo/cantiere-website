@@ -26,12 +26,21 @@ module.exports = {
   // Note: public/_redirects is applied by Netlify before these rules and wins on overlapping URLs.
   async redirects() {
     // With i18n, Next matches unprefixed IT URLs as "/it/...", so IT sources get the default-locale prefix.
-    return require("./redirects/legacy-map.json").map((r) => ({
+    const legacy = require("./redirects/legacy-map.json").map((r) => ({
       source: r.source.startsWith("/en/") ? r.source : `/it${r.source}`,
       destination: r.destination,
       statusCode: 301,
       locale: false,
     }));
+    // The Lab moved from /lab to /ai-lab (Oct 2026). Only page URLs: the media under /lab/... (public/lab) stay where they are,
+    // so the project slug must be a single segment without dots.
+    const lab = [
+      { source: "/it/lab", destination: "/ai-lab" },
+      { source: "/it/lab/:slug([a-z0-9-]+)", destination: "/ai-lab/:slug" },
+      { source: "/en/lab", destination: "/en/ai-lab" },
+      { source: "/en/lab/:slug([a-z0-9-]+)", destination: "/en/ai-lab/:slug" },
+    ].map((r) => ({ ...r, statusCode: 301, locale: false }));
+    return [...lab, ...legacy];
   },
   async headers() {
     return [
