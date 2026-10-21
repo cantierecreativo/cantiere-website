@@ -9,7 +9,7 @@ import LabJsonLd from "components/lab/LabJsonLd";
 export default function LabProject({ locale, site, page }) {
   return (
     <Layout site={site} locale={locale} page={page} parent={site.labIndex} headerTxt="white">
-      <LabJsonLd project={page} locale={locale} />
+      <LabJsonLd project={page} labIndex={site.labIndex} locale={locale} />
       <HeroBlue
         page={{ title: page.title, abstract: page.abstract }}
         abstractTag="div"

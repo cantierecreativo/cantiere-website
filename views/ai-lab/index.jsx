@@ -15,6 +15,10 @@ export default function LabIndex({ locale, site, page }) {
         page={{
           title: (
             <>
+              <span className="mb-4 block text-sm font-bold uppercase tracking-wider text-white/80 md:text-base">
+                {page.eyebrow}
+                <span className="sr-only">:</span>{" "}
+              </span>
               {lines.map((line, i) => (
                 <span key={i} className={`block text-balance ${i > 0 && i === lines.length - 1 ? "mt-2 text-yellow" : ""}`}>
                   {line}{" "}

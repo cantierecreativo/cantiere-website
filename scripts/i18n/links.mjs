@@ -27,9 +27,9 @@ const STATIC = {
   "/chi-siamo/offerte-lavoro": "/en/about/job-positions",
   "/contatti": "/en/contact-us",
   "/partners": "/en/partners",
-  "/lab": "/en/lab",
-  "/lab/atlante-uffizi": "/en/lab/uffizi-atlas",
-  "/lab/configuratore-sedute-3d": "/en/lab/3d-seating-configurator",
+  "/ai-lab": "/en/ai-lab",
+  "/ai-lab/atlante-uffizi": "/en/ai-lab/uffizi-atlas",
+  "/ai-lab/configuratore-sedute-3d": "/en/ai-lab/3d-seating-configurator",
 };
 const SITE = /^(https?:\/\/(?:www\.)?cantierecreativo\.net)(\/.*)?$/;
 

@@ -2,28 +2,31 @@
 const labIndexEn = {
   model: "lab_index",
   id: "lab-index",
-  slug: "lab",
+  slug: "ai-lab",
+  menuLabel: "AI Lab",
   title: "AI makes us fast. Taste makes us different. Experience makes us reliable.",
+  // Label at the top of the H1: carries the "AI Lab" keyword without touching the three lines.
+  eyebrow: "Cantiere Creativo AI Lab",
   heroLines: [
     { id: "h1", text: "AI makes us fast." },
     { id: "h2", text: "Taste makes us different." },
     { id: "h3", text: "Experience makes us reliable.", accent: true },
   ],
   abstract:
-    "We use agents and AI at every level. Then we add what AI lacks: an eye for what is beautiful and judgement on what really matters. The Lab collects the products that prove it.",
+    "We use agents and AI to build digital products. Then we add what AI lacks: an eye for what is beautiful and judgement on what is needed. The Lab collects the projects built this way.",
   heroActions: {
     primary: { label: "See the projects", href: "#projects" },
     secondary: { label: "Book a video call" },
   },
   seo: {
-    title: "Cantiere Creativo Lab: AI projects with taste and experience",
+    title: "AI Lab: digital products built with AI | Cantiere Creativo",
     description:
-      "We use agents and AI at every level, then add taste and experience: an eye for what is beautiful and useful. The Lab shows the projects that prove it.",
+      "AI Lab is Cantiere Creativo's lab: we experiment with AI to build digital products, with our team in creative and technical control.",
     image: "/lab/og-lab-en.jpg",
   },
   manifesto: {
     eyebrow: "How we work",
-    title: "No autopilot.",
+    title: "No autopilot: how we work with AI",
     items: [
       {
         id: "mf-ai",
@@ -45,7 +48,7 @@ const labIndexEn = {
   projects: {
     id: "projects",
     eyebrow: "The projects",
-    title: "The proof is what we build",
+    title: "The proof: the projects we built with AI",
     text: "Every Lab project starts the same way: fast thanks to AI, refined by our choices.",
   },
   services: {
@@ -58,14 +61,14 @@ const labIndexEn = {
         id: "srv-agenti",
         title: "Agents for your business",
         text: "We build AI agents that work inside your tools: they answer, fill in, sort requests and update content. You set the rules, we make them reliable.",
-        href: "/en/technologies/artificial-intelligence",
+        href: "/tecnologie/intelligenza-artificiale",
         linkLabel: "See how",
       },
       {
         id: "srv-prototipi",
         title: "Rapid prototypes, then refined",
         text: "We turn your idea into a working prototype in a few days. You try it, we fix it together and refine it into the final product.",
-        href: "/en/solutions/blueprint",
+        href: "/soluzioni/blueprint",
         linkLabel: "See the method",
       },
       {
@@ -79,7 +82,7 @@ const labIndexEn = {
   },
   cta: {
     title: "Like the way we work?",
-    text: "Your project could be the next one in the Lab. Tell us what you have in mind.",
+    text: "The same method, on your project. Tell us what you have in mind.",
     callLabel: "Book a video call",
   },
 };

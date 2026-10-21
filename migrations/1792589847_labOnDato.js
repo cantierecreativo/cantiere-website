@@ -54,7 +54,9 @@ module.exports = async (client) => {
     api_key: 'lab_project',
     sortable: true,
     draft_mode_active: true,
-    hint: 'Una pagina sotto /lab. L\'ordine della lista è l\'ordine nell\'indice del Lab.',
+    // Un progetto può esistere solo in italiano (es. Boboli): niente pagina EN.
+    all_locales_required: false,
+    hint: 'Una pagina sotto /ai-lab. L\'ordine della lista è l\'ordine nell\'indice del Lab.',
   });
 
   const labCard = await block('Lab: card', 'lab_card', { title: str('Titolo'), text: txt('Testo') });
@@ -66,7 +68,7 @@ module.exports = async (client) => {
     image: image('Immagine'),
   });
   const labStep = await block('Lab: passaggio', 'lab_step', {
-    time: str('Ora', { extra: { hint: 'Es. "11:30" o "7/10 11:15"' } }),
+    time: str('Ora', { optional: true, extra: { hint: 'Facoltativa: senza ora i passaggi si numerano 01, 02…' } }),
     who: enumStr('Chi', [
       { label: 'Noi', value: 'human' },
       { label: 'Agente AI', value: 'ai' },
@@ -110,7 +112,11 @@ module.exports = async (client) => {
     show_links: { label: 'Mostra i link', field_type: 'boolean', hint: 'Spento: le card restano senza link (pagine dei servizi non ancora pronte).' },
     items: blocks('Servizi', [labService]),
   });
-  const labFacts = await block('Lab: numeri', 'lab_facts_block', { ...heading, items: blocks('Numeri', [labFact]) });
+  const labFacts = await block('Lab: numeri', 'lab_facts_block', {
+    ...heading,
+    items: blocks('Numeri', [labFact]),
+    note: txt('Nota', 'Sotto i numeri, facoltativa.', { optional: true }),
+  });
   const labChapters = await block('Lab: capitoli', 'lab_chapters_block', { ...heading, items: blocks('Capitoli', [labChapter]) });
   const labStory = await block('Lab: racconto', 'lab_story_block', { ...heading, text: txt('Testo'), steps: blocks('Passaggi', [labStep]) });
   const labContact = await block('Lab: contatto e form', 'lab_contact_block', {
@@ -158,8 +164,10 @@ module.exports = async (client) => {
   await client.itemTypes.update(labProject, { title_field: created.short_title });
 
   const labIndex = await model(
-    { name: 'Lab: indice', api_key: 'lab_index', singleton: true, hint: 'La pagina /lab.' },
+    { name: 'Lab: indice', api_key: 'lab_index', singleton: true, hint: 'La pagina /ai-lab.' },
     {
+      eyebrow: { ...str('Occhiello del titolo', { extra: { hint: 'Sopra le frasi del titolo, dentro l\'H1.' } }), ...loc },
+      menu_label: { ...str('Etichetta nel menu e nelle briciole'), ...loc },
       title: { ...str('Titolo', { extra: { hint: 'Ogni frase va a capo; l\'ultima è evidenziata.' } }), ...loc },
       abstract: { ...txt('Sommario'), ...loc },
       seo: { label: 'SEO', field_type: 'seo', ...loc },
@@ -194,7 +202,12 @@ module.exports = async (client) => {
 
   async function projectSections(p) {
     const s = [
-      b(labFacts, { eyebrow: p.facts.eyebrow, title: p.facts.title, items: p.facts.items.map((f) => b(labFact, { number: f.number, label: f.label })) }),
+      b(labFacts, {
+        eyebrow: p.facts.eyebrow,
+        title: p.facts.title,
+        items: p.facts.items.map((f) => b(labFact, { number: f.number, label: f.label })),
+        note: p.facts.note ?? null,
+      }),
     ];
     if (p.chapters) {
       s.push(
@@ -214,7 +227,7 @@ module.exports = async (client) => {
         eyebrow: p.story.eyebrow,
         title: p.story.title,
         text: p.story.text,
-        steps: p.story.steps.map((st) => b(labStep, { time: st.time, who: st.who, title: st.title, text: st.text })),
+        steps: p.story.steps.map((st) => b(labStep, { time: st.time ?? null, who: st.who, title: st.title, text: st.text })),
       }),
       b(labCards, {
         eyebrow: p.tools.eyebrow,
@@ -241,8 +254,10 @@ module.exports = async (client) => {
   // Lo stesso progetto ha lo stesso `id` statico in ogni lingua.
   const projectIds = {};
   for (const it of getLabProjects('it')) {
-    const p = Object.fromEntries(LOCALES.map((l) => [l, getLabProjects(l).find((x) => x.id === it.id)]));
-    const pick = (fn) => Object.fromEntries(LOCALES.map((l) => [l, fn(p[l])]));
+    const locales = LOCALES.filter((l) => getLabProjects(l).some((x) => x.id === it.id));
+    const p = Object.fromEntries(locales.map((l) => [l, getLabProjects(l).find((x) => x.id === it.id)]));
+    const pick = (fn) => Object.fromEntries(locales.map((l) => [l, fn(p[l])]));
+    const byProjectLocale = async (fn) => Object.fromEntries(await Promise.all(locales.map(async (l) => [l, await fn(l)])));
     const record = await client.items.create({
       item_type: labProject,
       title: pick((x) => x.title),
@@ -254,13 +269,13 @@ module.exports = async (client) => {
       project_url: it.atlasUrl,
       data_date: it.dataDate,
       about: JSON.stringify(it.about),
-      poster: await byLocale((l) => file(p[l].media.poster, p[l].media.alt)),
+      poster: await byProjectLocale((l) => file(p[l].media.poster, p[l].media.alt)),
       video: await file(it.media.video),
       video_caption: pick((x) => x.media.caption),
       primary_label: pick((x) => x.heroActions.primary.label),
       secondary_label: pick((x) => x.heroActions.secondary.label),
-      seo: await byLocale((l) => seo(p[l].seo)),
-      sections: await byLocale((l) => projectSections(p[l])),
+      seo: await byProjectLocale((l) => seo(p[l].seo)),
+      sections: await byProjectLocale((l) => projectSections(p[l])),
     });
     await client.items.publish(record);
     projectIds[it.id] = record.id;
@@ -277,7 +292,7 @@ module.exports = async (client) => {
     serviceLinks[item.id] = m ? await findBySlug(m[1] === 'tecnologie' ? 'technology' : 'solution', m[2]) : null;
   }
 
-  const indexSections = (x) => [
+  const indexSections = (x, l) => [
     b(labCards, {
       eyebrow: x.manifesto.eyebrow,
       title: x.manifesto.title,
@@ -289,7 +304,7 @@ module.exports = async (client) => {
       eyebrow: x.projects.eyebrow,
       title: x.projects.title,
       text: x.projects.text,
-      projects: getLabProjects('it').map((p) => projectIds[p.id]),
+      projects: getLabProjects(l).map((p) => projectIds[p.id]),
     }),
     b(labCallCta, { title: x.cta.title, text: x.cta.text, call_label: x.cta.callLabel }),
     b(labServices, {
@@ -305,15 +320,17 @@ module.exports = async (client) => {
   const pickIx = (fn) => Object.fromEntries(LOCALES.map((l) => [l, fn(ix[l])]));
   const labIndexRecord = await client.items.create({
     item_type: labIndex,
+    eyebrow: pickIx((x) => x.eyebrow),
+    menu_label: pickIx((x) => x.menuLabel),
     title: pickIx((x) => x.title),
     abstract: pickIx((x) => x.abstract),
     seo: await byLocale((l) => seo(ix[l].seo)),
-    sections: pickIx(indexSections),
+    sections: Object.fromEntries(LOCALES.map((l) => [l, indexSections(ix[l], l)])),
   });
 
   // ---------- Link al Lab ----------
 
-  // Voce "Lab" nel menu principale, dopo "Case studies" (prima la aggiungeva il codice, withLabMenu).
+  // Voce "AI Lab" nel menu principale, dopo "Case studies" (prima la aggiungeva il codice, withLabMenu).
   const [caseStudiesIndex] = await client.items.list({ filter: { type: 'case_studies_index' } });
   const [menu] = await client.items.list({ filter: { type: 'menu' }, nested: true });
   const menuLevels = {};
@@ -321,7 +338,7 @@ module.exports = async (client) => {
     const levels = menu.menu_first_levels[l] || [];
     const after = levels.findIndex((blk) => blk.attributes.link === caseStudiesIndex.id);
     const ids = levels.map((blk) => blk.id);
-    const labItem = b(await client.itemTypes.find('menu_item'), { label: 'Lab', link: labIndexRecord.id, tag: null });
+    const labItem = b(await client.itemTypes.find('menu_item'), { label: ix[l].menuLabel, link: labIndexRecord.id, tag: null });
     const at = after === -1 ? ids.length : after + 1;
     menuLevels[l] = [...ids.slice(0, at), labItem, ...ids.slice(at)];
   }
@@ -343,7 +360,7 @@ module.exports = async (client) => {
         }
         const link = await client.items.find(linkId).catch(() => null);
         const url = link?.url?.[l] ?? '';
-        if (!/^https?:\/\/(www\.)?cantierecreativo\.net(\/en)?\/lab(\/|$)/.test(url)) {
+        if (!/^https?:\/\/(www\.)?cantierecreativo\.net(\/en)?\/(ai-)?lab(\/|$)/.test(url)) {
           blocksByLocale[l].push(blk.id);
           continue;
         }
@@ -351,7 +368,7 @@ module.exports = async (client) => {
           await client.items.create({
             item_type: await client.itemTypes.find('internal_link'),
             label: link.label,
-            related_element: url.includes('/lab/') ? atlasId : labIndexRecord.id,
+            related_element: /\/(ai-)?lab\/./.test(url) ? atlasId : labIndexRecord.id,
             link_contact_form: false,
           })
         ).id;

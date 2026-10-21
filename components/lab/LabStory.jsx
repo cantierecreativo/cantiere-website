@@ -23,10 +23,10 @@ export default function LabStory({ story, locale = "it" }) {
           ))}
         </div>
         <ol className="mt-10 border-l-2 border-violet-dark">
-          {story.steps.map((s) => (
+          {story.steps.map((s, i) => (
             <li key={s.id} className="relative grid gap-2 pb-10 pl-8 last:pb-0 md:grid-cols-[110px_minmax(0,1fr)] md:gap-8 md:pl-10">
               <span aria-hidden="true" className="absolute -left-[9px] top-1.5 h-4 w-4 rounded-full border-2 border-white bg-blue" />
-              <span className="text-xl font-bold text-blue">{s.time}</span>
+              <span className="text-xl font-bold text-blue">{s.time || String(i + 1).padStart(2, "0")}</span>
               <div className="space-y-2">
                 <div className="flex flex-wrap items-center gap-3">
                   <h3 className="text-xl font-bold">{s.title}</h3>

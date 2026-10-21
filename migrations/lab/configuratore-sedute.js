@@ -1,4 +1,4 @@
-// Contenuti statici della pagina Lab del configuratore 3D delle sedute Quinti.
+// Contenuti statici della pagina Lab del configuratore 3D di sedute.
 // Fonti: sessione dell'agente del 7/10/2026 (brief 11:14, ora locale), git log del repo
 // cantierecreativo/configuratore-sedute-3d, context/07-iterazioni.md e 05-decisions.md.
 
@@ -9,28 +9,27 @@ const configuratoreSedute = {
   model: "lab_project",
   id: "lab-configuratore-sedute",
   slug: "configuratore-sedute-3d",
-  title: "Il configuratore 3D delle sedute Quinti, online in un giorno",
+  title: "Il configuratore 3D di sedute, con i tessuti veri e le misure giuste",
   shortTitle: "Configuratore sedute 3D",
   abstract:
-    "Un agente AI ha trasformato i file CAD in un configuratore in 75 minuti. Noi l'abbiamo provato, corretto e rifinito finché non è diventato bello e affidabile. Si può fare anche con il tuo catalogo.",
+    "Un agente AI ha letto i file CAD e scritto il codice. Noi l'abbiamo provato su telefono e in realtà aumentata, e abbiamo deciso cosa cambiare: 34 scelte, dai tessuti veri alle misure giuste. Si può fare anche con il tuo catalogo.",
   previewText:
-    "Il configuratore 3D, con realtà aumentata, delle sedute Quinti: costruito con l'AI sui file CAD e sulle schede tecniche del produttore.",
+    "Un progetto del Lab di Cantiere Creativo: il configuratore 3D, con realtà aumentata, di un catalogo di sedute, costruito con l'AI sui modelli 3D e sulle schede tecniche pubblicati dal produttore.",
   status: "Online",
   dataDate: "2026-10-08",
   atlasUrl: CONFIGURATOR_URL,
-  about: { "@type": "Organization", name: "Quinti Sedute", url: "https://quinti.com" },
   media: {
     poster: "/lab/configuratore-sedute/configuratore-3d.jpg",
     video: "/lab/configuratore-sedute/configuratore-3d.mp4",
     width: 1780,
     height: 1108,
-    alt: "Il configuratore della Deep Executive: la sedia cambia rivestimento e colore, poi si gira di lato",
-    caption: "Il configuratore online: la Deep Executive cambia rivestimento",
+    alt: "Il configuratore della poltrona direzionale: la sedia cambia rivestimento e colore, poi si gira di lato",
+    caption: "Il configuratore online: la poltrona direzionale cambia rivestimento",
   },
   seo: {
     title: "Come abbiamo costruito un configuratore 3D di sedute con l'AI",
     description:
-      "Un agente AI, i file CAD di Quinti e le scelte del nostro team: come Cantiere Creativo ha costruito in due giorni un configuratore 3D con realtà aumentata.",
+      "Un agente AI, i file CAD di un produttore di sedute e 34 scelte del nostro team: come Cantiere Creativo ha costruito un configuratore 3D con realtà aumentata.",
     image: "/lab/configuratore-sedute/og-configuratore-sedute.jpg",
   },
   heroActions: {
@@ -43,19 +42,19 @@ const configuratoreSedute = {
     // Fonti: brief alle 11:14 e prima versione configurabile alle 12:28 del 7/10; 18 GLB in public/models,
     // il più pesante 0,45 MB; 34 iterazioni in context/07-iterazioni.md.
     items: [
-      { id: "f-minuti", number: "75 minuti", label: "dal brief alla prima sedia configurabile in 3D" },
+      { id: "f-scelte", number: "34", label: "scelte del nostro team dopo la prima versione dell'agente" },
+      { id: "f-colori", number: "268", label: "colori reali, con foto e codici del catalogo del produttore" },
       { id: "f-modelli", number: "18", label: "modelli 3D ricavati dai file CAD, ognuno sotto il mezzo megabyte" },
-      { id: "f-scelte", number: "34", label: "scelte del nostro team dopo la prima versione" },
     ],
   },
   chapters: {
     eyebrow: "Come l'abbiamo fatto",
-    title: "Veloce da costruire, curato nei dettagli, affidabile da usare",
+    title: "Costruito con l'AI, rifinito da noi, affidabile da usare",
     items: [
       {
         id: "c-veloci",
-        title: "Dai file CAD al browser in 75 minuti",
-        text: "Quinti pubblica schede tecniche e modelli 3D dei suoi prodotti. L'agente (Claude Code) li ha letti, li ha trasformati in modelli leggeri per il web e ha scritto le regole del catalogo: quali opzioni esistono e quali stanno insieme.",
+        title: "Dai file CAD del produttore al browser",
+        text: "Il produttore pubblica schede tecniche e modelli 3D dei suoi prodotti. L'agente (Claude Code) li ha letti, li ha trasformati in modelli leggeri per il web e ha scritto le regole del catalogo: quali opzioni esistono e quali stanno insieme.",
         points: [
           "6 prodotti e 18 varianti 3D, dai file OBJ e FBX del produttore",
           "modelli leggeri, che si caricano anche da telefono",
@@ -63,7 +62,7 @@ const configuratoreSedute = {
         ],
         image: {
           src: "/lab/configuratore-sedute/prodotti.jpg",
-          alt: "Le sei sedute Quinti del configuratore in 3D: Deep Executive, Chance Net, Hanami, Club, Amelie Lounge e Olga",
+          alt: "Le sei sedute del configuratore in 3D: tre poltrone da ufficio, una poltrona, una seduta lounge girevole e una sedia",
           width: 1200,
           height: 1000,
         },
@@ -73,13 +72,13 @@ const configuratoreSedute = {
         title: "Quello che conta lo vede chi prova",
         text: "L'AI fa quello che le chiedi. Accorgersi che qualcosa non va, e decidere come deve essere, resta compito nostro. Provando il configuratore abbiamo notato che i rivestimenti sembravano tutti uguali: ora ogni tessuto ha le sue foto e i suoi colori veri.",
         points: [
-          "268 colori reali, con foto e codici del catalogo Quinti",
+          "268 colori reali, con foto e codici del catalogo del produttore",
           "34 scelte del team dopo la prima versione, dall'animazione della home alle icone",
           "l'ordine della home rivisto secondo i principi di UX",
         ],
         image: {
           src: "/lab/configuratore-sedute/prima-dopo.jpg",
-          alt: "La stessa poltrona Club due volte: a sinistra con un colore piatto, a destra con la foto del tessuto bouclé, che ne mostra la trama",
+          alt: "La stessa poltrona due volte: a sinistra con un colore piatto, a destra con la foto del tessuto bouclé, che ne mostra la trama",
           width: 1200,
           height: 1000,
         },
@@ -87,7 +86,7 @@ const configuratoreSedute = {
       {
         id: "c-affidabili",
         title: "La provi dove la metterai",
-        text: "In realtà aumentata la sedia compare nella stanza in scala reale, quindi le misure devono essere giuste. Abbiamo confrontato ogni modello con la scheda tecnica: nel file l'Amelie Lounge era alta 96 cm, quella vera 81.",
+        text: "In realtà aumentata la sedia compare nella stanza in scala reale, quindi le misure devono essere giuste. Abbiamo confrontato ogni modello con la scheda tecnica: nel file la seduta lounge era alta 96 cm, quella vera 81.",
         points: [
           "realtà aumentata su iPhone e Android senza app, anche da Chrome su iPhone",
           "misure reali sul modello, a portata di dito",
@@ -95,7 +94,7 @@ const configuratoreSedute = {
         ],
         image: {
           src: "/lab/configuratore-sedute/realta-aumentata.jpg",
-          alt: "Schermata dello smartphone in realtà aumentata: la Hanami in tessuto bouclé giallo ocra appoggiata sul parquet di una stanza vera, in scala reale",
+          alt: "Schermata dello smartphone in realtà aumentata: una seduta in tessuto bouclé giallo ocra appoggiata sul parquet di una stanza vera, in scala reale",
           width: 1200,
           height: 1000,
         },
@@ -104,19 +103,20 @@ const configuratoreSedute = {
   },
   story: {
     eyebrow: "Persone e AI",
-    title: "Due giorni, passo per passo",
+    title: "L'agente scrive il codice, noi proviamo la sedia in salotto",
     text: "L'agente scrive il codice e converte i modelli. Noi lo proviamo su telefono, in realtà aumentata e con il catalogo vero, e decidiamo cosa cambiare.",
     legend: { human: "Noi", ai: "Agente AI", both: "Noi + agente" },
+    // Orari reali dei passaggi (7-8/10/2026), non mostrati in pagina: s1 7/10 11:15, s2 11:40, s3 12:28, s4 13:20, s5 16:06, s6 16:22, s7 17:01, s8 8/10 08:29, s9 16:05.
     steps: [
-      { id: "s1", time: "7/10 11:15", who: "human", title: "Il brief", text: "Chiediamo un configuratore 3D da proporre alle aziende di arredo, sul catalogo vero di Quinti e con la realtà aumentata. Niente foto: il 3D." },
-      { id: "s2", time: "11:40", who: "ai", title: "Dai file CAD al web", text: "L'agente legge la scheda tecnica, converte i modelli 3D del produttore in file leggeri per il browser e scrive le regole del catalogo." },
-      { id: "s3", time: "12:28", who: "ai", title: "La prima versione", text: "La Deep Executive è configurabile: schienale, braccioli, rivestimento, base e ruote." },
-      { id: "s4", time: "13:20", who: "human", title: "Di più, e più bello", text: "Chiediamo più prodotti, comandi visivi e cambi animati. Il catalogo passa a sei sedute." },
-      { id: "s5", time: "16:06", who: "both", title: "Online", text: "Decidiamo il dominio e l'agente pubblica il configuratore." },
-      { id: "s6", time: "16:22", who: "human", title: "La prova in AR", text: "Mettiamo una seduta nella stanza: è più grande del vero. Confrontiamo le misure con la scheda tecnica e le facciamo correggere." },
-      { id: "s7", time: "17:01", who: "both", title: "Anche su Chrome per iPhone", text: "Notiamo che su iPhone l'AR si apre solo da Safari. L'agente prepara il modello sul server e ora funziona da ogni browser." },
-      { id: "s8", time: "8/10 08:29", who: "human", title: "I tessuti veri", text: "Cambiando rivestimento sembra tutto uguale. Scegliamo di usare le foto e i codici colore reali di Quinti." },
-      { id: "s9", time: "16:05", who: "human", title: "Il nostro occhio", text: "Logo, icone e ordine della home secondo i principi di UX: le ultime rifiniture le decidiamo noi, una per una." },
+      { id: "s1", who: "human", title: "Il brief", text: "Chiediamo un configuratore 3D da proporre alle aziende di arredo, sul catalogo vero di un produttore di sedute e con la realtà aumentata. Niente foto: il 3D." },
+      { id: "s2", who: "ai", title: "Dai file CAD al web", text: "L'agente legge la scheda tecnica, converte i modelli 3D del produttore in file leggeri per il browser e scrive le regole del catalogo." },
+      { id: "s3", who: "ai", title: "La prima versione", text: "La poltrona direzionale è configurabile: schienale, braccioli, rivestimento, base e ruote." },
+      { id: "s4", who: "human", title: "Di più, e più bello", text: "Chiediamo più prodotti, comandi visivi e cambi animati. Il catalogo passa a sei sedute." },
+      { id: "s5", who: "both", title: "Online", text: "Decidiamo il dominio e l'agente pubblica il configuratore." },
+      { id: "s6", who: "human", title: "La prova in AR", text: "Mettiamo una seduta nella stanza: è più grande del vero. Confrontiamo le misure con la scheda tecnica e le facciamo correggere." },
+      { id: "s7", who: "both", title: "Anche su Chrome per iPhone", text: "Notiamo che su iPhone l'AR si apre solo da Safari. L'agente prepara il modello sul server e ora funziona da ogni browser." },
+      { id: "s8", who: "human", title: "I tessuti veri", text: "Cambiando rivestimento sembra tutto uguale. Scegliamo di usare le foto e i codici colore reali del produttore." },
+      { id: "s9", who: "human", title: "Il nostro occhio", text: "Logo, icone e ordine della home secondo i principi di UX: le ultime rifiniture le decidiamo noi, una per una." },
     ],
   },
   tools: {
