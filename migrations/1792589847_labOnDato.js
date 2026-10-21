@@ -40,10 +40,10 @@ module.exports = async (client) => {
     validators: { ...required, required_alt_title: { alt: true, title: false }, extension: { predefined_list: 'image' } },
   });
   const blocks = (label, types, extra = {}) => ({ label, field_type: 'rich_text', validators: { rich_text_blocks: { item_types: types.map((t) => t.id) } }, ...extra });
-  const enumStr = (label, options) => ({
+  const enumStr = (label, options, opts = {}) => ({
     label,
     field_type: 'string',
-    validators: { ...required, enum: { values: options.map((o) => o.value) } },
+    validators: { ...(opts.optional ? {} : required), enum: { values: options.map((o) => o.value) } },
     appearance: { editor: 'string_radio_group', parameters: { radios: options }, addons: [] },
   });
   const block = (name, api_key, fields) => model({ name, api_key, modular_block: true }, fields);
@@ -140,7 +140,21 @@ module.exports = async (client) => {
     project_status: { ...str('Stato', { extra: { hint: 'Es. "Online"' } }), ...loc },
     project_url: { ...str('Indirizzo del progetto online'), validators: { ...required, format: { predefined_pattern: 'url' } } },
     data_date: { label: 'Data dei dati', field_type: 'date', validators: required, hint: 'Per i dati strutturati (dateModified).' },
-    about: { label: 'Soggetto (schema.org)', field_type: 'json', hint: 'Oggetto JSON-LD "about" del progetto.' },
+    // Il soggetto reale del progetto, per i dati strutturati (schema.org "about"): non si vede in pagina.
+    about_type: {
+      ...enumStr(
+        'Tipo del soggetto',
+        [
+          { label: 'Museo', value: 'Museum' },
+          { label: 'Parco o giardino', value: 'Park' },
+          { label: 'Luogo', value: 'Place' },
+          { label: 'Azienda o ente', value: 'Organization' },
+        ],
+        { optional: true }
+      ),
+      hint: 'Per Google: di cosa parla il progetto. Facoltativo.',
+    },
+    about_name: { ...str('Nome del soggetto', { optional: true, extra: { hint: 'Es. "Galleria degli Uffizi". Senza nome il soggetto non viene dichiarato.' } }) },
     poster: { ...image('Anteprima del video'), ...loc },
     video: { label: 'Video', field_type: 'file', validators: { ...required, extension: { predefined_list: 'video' } } },
     video_caption: { ...str('Didascalia del video'), ...loc },
@@ -268,7 +282,8 @@ module.exports = async (client) => {
       project_status: pick((x) => x.status),
       project_url: it.atlasUrl,
       data_date: it.dataDate,
-      about: JSON.stringify(it.about),
+      about_type: it.about?.['@type'] ?? null,
+      about_name: it.about?.name ?? null,
       poster: await byProjectLocale((l) => file(p[l].media.poster, p[l].media.alt)),
       video: await file(it.media.video),
       video_caption: pick((x) => x.media.caption),

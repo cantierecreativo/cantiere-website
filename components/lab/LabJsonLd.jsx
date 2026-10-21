@@ -36,7 +36,7 @@ export default function LabJsonLd({ project, labIndex, locale = "it" }) {
       inLanguage: "it-IT",
       dateModified: project.dataDate,
       creator: { "@id": ORGANIZATION["@id"] },
-      about: project.about,
+      about: project.aboutName ? { "@type": project.aboutType || "Thing", name: project.aboutName } : undefined,
     },
   ];
   return (
