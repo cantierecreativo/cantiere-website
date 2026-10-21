@@ -226,14 +226,14 @@ function Header(props) {
               </span>
             </Link>
             <Popover.Button
-              className={`${GLASS} ${FOCUS} lg:hidden flex h-11 items-center px-5 font-bold text-sm uppercase tracking-wider`}
+              className={`${GLASS} ${FOCUS} xl:hidden flex h-11 items-center px-5 font-bold text-sm uppercase tracking-wider`}
             >
               {t("menu", locale)}
             </Popover.Button>
             <Popover.Group
               as="nav"
               aria-label={t("mainMenu", locale)}
-              className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-between lg:gap-5"
+              className="hidden xl:flex xl:flex-1 xl:items-center xl:justify-between xl:gap-5"
             >
               <div
                 className={`${GLASS} xl:absolute xl:left-1/2 xl:-translate-x-1/2 flex h-12 items-center justify-center gap-4 px-8`}
@@ -251,7 +251,7 @@ function Header(props) {
                 ))}
               </div>
               <div
-                className={`${GLASS} hidden xl:flex xl:ml-auto items-center gap-1 p-1`}
+                className={`${GLASS} flex ml-auto items-center gap-1 p-1`}
               >
                 <LanguageSwitcher page={page} locale={locale} />
                 <Link

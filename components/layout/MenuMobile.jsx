@@ -168,7 +168,7 @@ export default function MenuMobile({ site, locale, page }) {
       >
         <Popover.Panel
           focus
-          className="fixed inset-x-0 top-0 transform overflow-hidden transition lg:hidden"
+          className="fixed inset-x-0 top-0 transform overflow-hidden transition xl:hidden"
         >
           <div className="relative z-40 h-[100vh] bg-blue">
             <div className="py-4">
