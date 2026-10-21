@@ -1,3 +1,5 @@
+import { lines } from "lib/lab";
+
 // Capitoli del progetto, ognuno con la sua prova: testo e immagine alternati.
 export default function LabChapters({ chapters }) {
   return (
@@ -12,7 +14,7 @@ export default function LabChapters({ chapters }) {
                 <h3 className="text-2xl font-bold lg:text-3xl">{c.title}</h3>
                 <p className="mt-4 max-w-prose text-lg text-gray-dark">{c.text}</p>
                 <ul className="mt-6 space-y-3">
-                  {c.points.map((point) => (
+                  {lines(c.points).map((point) => (
                     <li key={point} className="flex gap-3 text-base lg:text-lg">
                       <span aria-hidden="true" className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-blue" />
                       <span>{point}</span>
@@ -23,7 +25,7 @@ export default function LabChapters({ chapters }) {
               <figure className="overflow-hidden rounded-3xl bg-[#F7F6FE]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={c.image.src}
+                  src={c.image.url}
                   alt={c.image.alt}
                   width={c.image.width}
                   height={c.image.height}

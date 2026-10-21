@@ -5,7 +5,6 @@ import { Fragment } from "react";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { GLASS, FOCUS } from "./glass";
 import { resolveLink, IsActive } from "lib/utils";
-import { withLabMenu } from "lib/lab";
 import t from "lib/locales";
 
 // Helper function to group menu items by tag
@@ -155,7 +154,7 @@ function RenderMobileNavItem(item, locale) {
 }
 
 export default function MenuMobile({ site, locale, page }) {
-  const navItems = withLabMenu(site.menu.menuFirstLevels);
+  const navItems = site.menu.menuFirstLevels;
   return (
     <>
       <Transition

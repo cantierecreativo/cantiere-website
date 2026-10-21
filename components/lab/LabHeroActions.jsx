@@ -1,7 +1,7 @@
 import LabButton from "components/lab/LabButton";
 import LabVideo from "components/lab/LabVideo";
 import t from "lib/locales";
-import { trackLab } from "lib/lab";
+import { trackLab, labMedia } from "lib/lab";
 
 // Bottoni (part="buttons", a destra del testo) e anteprima (part="media", sotto) dell'oggetto, dentro HeroBlue.
 export default function LabHeroActions({
@@ -9,13 +9,14 @@ export default function LabHeroActions({
   locale = "it",
   part = "all",
 }) {
-  const { atlasUrl, media, cta, slug, heroActions } = project;
+  const { projectUrl, slug, primaryLabel, secondaryLabel } = project;
+  const media = labMedia(project);
   return (
     <div className="relative z-10">
       {part !== "media" && (
         <div className="flex flex-wrap justify-center gap-4">
           <LabButton
-            href={atlasUrl}
+            href={projectUrl}
             external
             locale={locale}
             iconClassName="-rotate-45"
@@ -23,16 +24,16 @@ export default function LabHeroActions({
               trackLab("atlante_click", { project: slug, position: "hero" })
             }
           >
-            {heroActions.primary.label}
+            {primaryLabel}
           </LabButton>
           <LabButton
-            href={`#${cta.id}`}
+            href={`#${t("lab_contact_anchor", locale)}`}
             variant="ghost"
             onClick={() =>
               trackLab("cta_scroll", { project: slug, position: "hero" })
             }
           >
-            {heroActions.secondary.label}
+            {secondaryLabel}
           </LabButton>
         </div>
       )}
@@ -42,8 +43,8 @@ export default function LabHeroActions({
             media={media}
             locale={locale}
             className="block h-auto w-full"
-            href={atlasUrl}
-            label={heroActions.primary.label}
+            href={projectUrl}
+            label={primaryLabel}
             onOpen={() =>
               trackLab("atlante_click", {
                 project: slug,

@@ -3,7 +3,6 @@ import { Fragment, useRef } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import MenuMobile from "components/layout/MenuMobile";
 import { resolveLink, IsActive } from "lib/utils";
-import { withLabMenu } from "lib/lab";
 import Icon from "./Icon";
 import LanguageSwitcher from "components/layout/LanguageSwitcher";
 import t from "lib/locales";
@@ -175,7 +174,7 @@ function RenderNavItem(item, locale, scroll, setTriangle, headerTxt) {
 
 function Header(props) {
   const { locale, site, page, headerTxt } = props;
-  const navItems = withLabMenu(site.menu.menuFirstLevels);
+  const navItems = site.menu.menuFirstLevels;
   const prefix = locale === "it" ? "/" : "/en";
 
   // Il logo segue lo sfondo che ha sotto: bianco sul blu, sul viola e sulle foto (con ombra), a colori sul chiaro.

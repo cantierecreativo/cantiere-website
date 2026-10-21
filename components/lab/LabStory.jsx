@@ -1,3 +1,5 @@
+import t from "lib/locales";
+
 // La giornata del progetto: chi ha fatto cosa, persone e agente AI.
 const badge = {
   human: "bg-yellow text-black",
@@ -5,7 +7,8 @@ const badge = {
   both: "bg-violet text-black",
 };
 
-export default function LabStory({ story }) {
+export default function LabStory({ story, locale = "it" }) {
+  const legend = Object.fromEntries(Object.keys(badge).map((k) => [k, t(`lab_who_${k}`, locale)]));
   return (
     <section className="container margin-scroll-standard lg:grid lg:grid-cols-12">
       <div className="lg:col-span-10 lg:col-start-2">
@@ -13,7 +16,7 @@ export default function LabStory({ story }) {
         <h2 className="mt-4 max-w-4xl text-3xl font-bold md:text-4xl xl:text-5xl">{story.title}</h2>
         <p className="mt-6 max-w-prose text-lg lg:text-xl">{story.text}</p>
         <div className="mt-8 flex flex-wrap gap-3 text-sm font-bold uppercase" aria-hidden="true">
-          {Object.entries(story.legend).map(([key, label]) => (
+          {Object.entries(legend).map(([key, label]) => (
             <span key={key} className={`rounded-full px-3 py-1 ${badge[key]}`}>
               {label}
             </span>
@@ -28,7 +31,7 @@ export default function LabStory({ story }) {
                 <div className="flex flex-wrap items-center gap-3">
                   <h3 className="text-xl font-bold">{s.title}</h3>
                   <span className={`rounded-full px-3 py-0.5 text-xs font-bold uppercase ${badge[s.who]}`}>
-                    {story.legend[s.who]}
+                    {legend[s.who]}
                   </span>
                 </div>
                 <p className="max-w-prose text-base text-gray-dark lg:text-lg">{s.text}</p>

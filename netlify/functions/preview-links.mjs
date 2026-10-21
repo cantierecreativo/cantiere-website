@@ -11,6 +11,8 @@ const VIEWS = {
   articles_index: "blog/index",
   case_study: "case-studies/[slug]",
   case_studies_index: "case-studies/index",
+  lab_project: "lab/[slug]",
+  lab_index: "lab/index",
   about_index: "chi-siamo/index",
   job: "chi-siamo/offerte-lavoro/[slug]",
   jobs_index: "chi-siamo/offerte-lavoro/index",

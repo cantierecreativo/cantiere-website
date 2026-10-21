@@ -1,5 +1,5 @@
 // English content of the Lab page for the Uffizi atlas. Same facts and sources as the Italian version.
-import { ATLAS_URL } from "./atlante-uffizi";
+import { ATLAS_URL } from "./atlante-uffizi.js";
 
 const uffiziAtlas = {
   model: "lab_project",

@@ -1,8 +1,8 @@
-import atlanteUffizi from "./atlante-uffizi";
-import uffiziAtlas from "./atlante-uffizi.en";
-import configuratoreSedute from "./configuratore-sedute";
-import seatingConfigurator from "./configuratore-sedute.en";
-import labIndexEn from "./lab-index.en";
+import atlanteUffizi from "./atlante-uffizi.js";
+import uffiziAtlas from "./atlante-uffizi.en.js";
+import configuratoreSedute from "./configuratore-sedute.js";
+import seatingConfigurator from "./configuratore-sedute.en.js";
+import labIndexEn from "./lab-index.en.js";
 
 // Contenuti del Lab per lingua. Lo stesso progetto ha lo stesso `id` in ogni lingua
 // e uno slug tradotto: `alts` collega le versioni per il selettore di lingua e gli hreflang.

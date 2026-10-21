@@ -1,5 +1,6 @@
 import Link from "next/link";
 import t from "lib/locales";
+import { resolveLink } from "lib/utils";
 import { trackLab, CALENDLY_URL } from "lib/lab";
 
 const cardClass =
@@ -29,11 +30,11 @@ export default function LabServices({ services, locale = "it" }) {
           <h2 className="mt-4 max-w-4xl text-balance text-3xl font-bold md:text-4xl xl:text-5xl">{services.title}</h2>
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             {services.items.map((item) =>
-              services.showLinks === false ? (
+              !services.showLinks || (!item.videocall && !item.link) ? (
                 <div key={item.id} className="flex flex-col gap-4 rounded-3xl bg-[#F7F6FE] p-6 lg:p-8">
                   <CardBody item={item} showLink={false} />
                 </div>
-              ) : item.call ? (
+              ) : item.videocall ? (
                 <a
                   key={item.id}
                   href={CALENDLY_URL}
@@ -46,7 +47,7 @@ export default function LabServices({ services, locale = "it" }) {
                   <span className="sr-only">{t("lab_new_tab", locale)}</span>
                 </a>
               ) : (
-                <Link key={item.id} href={item.href} className={cardClass}>
+                <Link key={item.id} href={resolveLink(item.link, locale)} className={cardClass}>
                   <CardBody item={item} />
                 </Link>
               )

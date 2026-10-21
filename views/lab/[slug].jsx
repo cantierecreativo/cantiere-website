@@ -2,59 +2,38 @@ import Layout from "components/layout/Layout";
 import * as queries from "lib/queries";
 import fetchData from "lib/dato";
 import HeroBlue from "components/hero/HeroBlue";
-import LabFacts from "components/lab/LabFacts";
 import LabHeroActions from "components/lab/LabHeroActions";
-import LabStory from "components/lab/LabStory";
-import LabTools from "components/lab/LabTools";
-import LabChapters from "components/lab/LabChapters";
-import LabCta from "components/lab/LabCta";
+import LabSections from "components/lab/LabSections";
 import LabJsonLd from "components/lab/LabJsonLd";
-import { getLabProjects, getLabProject, getLabIndex, getLabAlts } from "src/data/lab";
-import { buildSeoTags, getLabSite } from "lib/lab";
-import { resolveLink } from "lib/utils";
 
 export default function LabProject({ locale, site, page }) {
-  const project = getLabProject(page.slug, locale);
   return (
-    <Layout site={site} locale={locale} page={page} parent={getLabIndex(locale)} headerTxt="white">
-      <LabJsonLd project={project} locale={locale} />
+    <Layout site={site} locale={locale} page={page} parent={site.labIndex} headerTxt="white">
+      <LabJsonLd project={page} locale={locale} />
       <HeroBlue
-        page={{ title: project.title, abstract: project.abstract }}
+        page={{ title: page.title, abstract: page.abstract }}
         abstractTag="div"
-        aside={<LabHeroActions project={project} locale={locale} part="buttons" />}
+        aside={<LabHeroActions project={page} locale={locale} part="buttons" />}
       >
-        <LabHeroActions project={project} locale={locale} part="media" />
+        <LabHeroActions project={page} locale={locale} part="media" />
       </HeroBlue>
-      <div className="vertical-spaces !pt-0 lg:!pt-0">
-        <LabFacts facts={project.facts} />
-        {project.chapters && <LabChapters chapters={project.chapters} />}
-        <LabStory story={project.story} />
-        <LabTools tools={project.tools} />
-      </div>
-      <LabCta locale={locale} project={project} />
+      <LabSections sections={page.sections} locale={locale} project={page} />
     </Layout>
   );
 }
 
 export async function getStaticPaths({ locales }) {
-  const paths = locales.flatMap((locale) =>
-    getLabProjects(locale).map(({ slug }) => ({ params: { slug }, locale }))
-  );
+  const paths = [];
+  for (const locale of locales) {
+    const response = await fetchData(queries.getAllLabProjectSlugs, { locale });
+    paths.push(...response.allLabProjects.map(({ slug }) => ({ params: { slug }, locale })));
+  }
   return { paths, fallback: false };
 }
 
-export async function getStaticProps({ params, locale = "it" }) {
-  const project = getLabProject(params.slug, locale);
-  if (!project) return { notFound: true };
-  const site = await getLabSite(fetchData, queries.site, locale);
-  // Solo i campi che Layout, MetaTags, Header e LanguageSwitcher leggono da `page`.
-  const page = {
-    model: project.model,
-    id: project.id,
-    slug: project.slug,
-    title: project.shortTitle,
-    alts: getLabAlts(project.id),
-    seo: buildSeoTags(project.seo, locale, resolveLink(project, locale)),
-  };
-  return { props: { locale, site, page } };
+export async function getStaticProps({ params, locale = "it", preview }) {
+  const response = await fetchData(queries.getLabProject, { slug: params.slug, locale }, preview);
+  if (!response.labProject) return { notFound: true };
+  const site = await fetchData(queries.site, { locale });
+  return { props: { locale, site, page: response.labProject } };
 }

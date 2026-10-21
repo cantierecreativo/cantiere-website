@@ -2,55 +2,38 @@ import Layout from "components/layout/Layout";
 import * as queries from "lib/queries";
 import fetchData from "lib/dato";
 import HeroBlue from "components/hero/HeroBlue";
-import LabFeatured from "components/lab/LabFeatured";
-import LabManifesto from "components/lab/LabManifesto";
-import LabIndexCta from "components/lab/LabIndexCta";
-import LabServices from "components/lab/LabServices";
-import { getLabProjects, getLabIndex } from "src/data/lab";
-import { buildSeoTags, getLabSite } from "lib/lab";
-import { resolveLink } from "lib/utils";
+import LabSections from "components/lab/LabSections";
 import LabIndexJsonLd from "components/lab/LabIndexJsonLd";
 
 export default function LabIndex({ locale, site, page }) {
-  const labIndex = getLabIndex(locale);
-  const [featured, ...others] = getLabProjects(locale);
+  // Ogni frase del titolo va a capo, l'ultima è evidenziata.
+  const lines = page.title.split(/(?<=\.)\s+/);
   return (
     <Layout site={site} locale={locale} page={page} headerTxt="white">
-      <LabIndexJsonLd labIndex={labIndex} projects={[featured, ...others]} locale={locale} />
+      <LabIndexJsonLd page={page} locale={locale} />
       <HeroBlue
         page={{
           title: (
             <>
-              {labIndex.heroLines.map((l) => (
-                <span key={l.id} className={`block text-balance ${l.accent ? "mt-2 text-yellow" : ""}`}>
-                  {l.text}{" "}
+              {lines.map((line, i) => (
+                <span key={i} className={`block text-balance ${i > 0 && i === lines.length - 1 ? "mt-2 text-yellow" : ""}`}>
+                  {line}{" "}
                 </span>
               ))}
             </>
           ),
-          abstract: labIndex.abstract,
+          abstract: page.abstract,
         }}
         abstractTag="div"
       />
-      <div className="vertical-spaces !pt-0 lg:!pt-0">
-        <LabManifesto manifesto={labIndex.manifesto} />
-        <LabFeatured projects={[featured, ...others]} heading={labIndex.projects} locale={locale} />
-      </div>
-      <LabIndexCta cta={labIndex.cta} locale={locale} />
-      <LabServices services={labIndex.services} locale={locale} />
+      <LabSections sections={page.sections} locale={locale} />
     </Layout>
   );
 }
 
-export async function getStaticProps({ locale = "it" }) {
-  const labIndex = getLabIndex(locale);
-  const site = await getLabSite(fetchData, queries.site, locale);
-  const page = {
-    model: labIndex.model,
-    id: labIndex.id,
-    slug: null,
-    title: labIndex.title,
-    seo: buildSeoTags(labIndex.seo, locale, resolveLink({ model: labIndex.model, slug: null }, locale)),
-  };
-  return { props: { locale, site, page } };
+export async function getStaticProps({ locale = "it", preview }) {
+  const response = await fetchData(queries.getLabIndex, { locale }, preview);
+  if (!response.labIndex) return { notFound: true };
+  const site = await fetchData(queries.site, { locale });
+  return { props: { locale, site, page: response.labIndex } };
 }

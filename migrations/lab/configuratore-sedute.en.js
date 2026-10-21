@@ -1,5 +1,5 @@
 // English content of the Lab page for the 3D seating configurator. Same facts and sources as the Italian version.
-import { CONFIGURATOR_URL } from "./configuratore-sedute";
+import { CONFIGURATOR_URL } from "./configuratore-sedute.js";
 
 const seatingConfigurator = {
   model: "lab_project",

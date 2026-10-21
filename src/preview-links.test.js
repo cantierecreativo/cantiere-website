@@ -11,6 +11,8 @@ test("link pubblicato e bozza con gli URL del sito", () => {
   ]);
   expect(previewLinks(req("homepage", null, "it"), env)[0].url).toBe("https://www.cantierecreativo.net/");
   expect(previewLinks(req("services_index", null, "en"), env)[0].url).toBe("https://www.cantierecreativo.net/en/services");
+  expect(previewLinks(req("lab_project", { it: "atlante-uffizi", en: "uffizi-atlas" }, "en"), env)[0].url).toBe("https://www.cantierecreativo.net/en/lab/uffizi-atlas");
+  expect(previewLinks(req("lab_index", null, "it"), env)[0].url).toBe("https://www.cantierecreativo.net/lab");
 });
 
 test("niente link per modelli sconosciuti, slug mancanti o senza deploy di bozza", () => {
