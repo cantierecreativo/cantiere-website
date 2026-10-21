@@ -2,6 +2,9 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import t from "lib/locales";
 import FormMessage from "components/form/FormMessage";
+import { netlifyForm, NetlifyHiddenFields, submitNetlifyForm } from "components/form/netlify";
+
+const FORM_NAME = "candidature";
 import Button from "components/blocks/Button";
 import Link from "next/link";
 
@@ -19,21 +22,9 @@ export default function FormWork({ page, openPosition, locale, position }) {
 
   const onSubmit = async (data) => {
     setResult("sending");
-    const formData = new FormData();
+    const sent = await submitNetlifyForm(FORM_NAME, data).catch(() => false);
 
-    for (const key in data) {
-      formData.append(key, data[key]);
-    }
-
-    const res = await fetch(
-      "https://hooks.zapier.com/hooks/catch/426384/31g14dx/",
-      {
-        method: "POST",
-        body: formData,
-      },
-    ).then((res) => res.json());
-
-    if (res.status == "success") {
+    if (sent) {
       setResult("success");
     } else {
       setResult("error");
@@ -43,20 +34,21 @@ export default function FormWork({ page, openPosition, locale, position }) {
   return (
     <form
       className="lg:grid lg:grid-cols-2 bg-violet-custom p-12 rounded-xl lg:gap-x-10 xl:col-span-10 xl:col-start-2 xl:my-16 relative"
+      {...netlifyForm(FORM_NAME)}
       onSubmit={handleSubmit(onSubmit)}
     >
+      <NetlifyHiddenFields name={FORM_NAME} register={register} />
       <div className="pb-8">
         <label htmlFor="name" className={labelClass}>
           {t("formName", locale)}
         </label>
         <input
           type="text"
-          name="name"
           id="name"
           placeholder={t("formName", locale)}
           required={true}
           className={inputClass}
-          {...register("Nome")}
+          {...register("nome")}
         />
       </div>
       <div className="pb-8">
@@ -65,12 +57,11 @@ export default function FormWork({ page, openPosition, locale, position }) {
         </label>
         <input
           type="text"
-          name="surname"
           id="surname"
           placeholder={t("formSurname", locale)}
           required={true}
           className={inputClass}
-          {...register("Cognome")}
+          {...register("cognome")}
         />
       </div>
       <div className="pb-8">
@@ -79,12 +70,11 @@ export default function FormWork({ page, openPosition, locale, position }) {
         </label>
         <input
           type="email"
-          name="email"
           id="email"
           placeholder={t("formEmail", locale)}
           required={true}
           className={inputClass}
-          {...register("Email")}
+          {...register("email")}
         />
       </div>
       <div className="pb-8">
@@ -93,26 +83,24 @@ export default function FormWork({ page, openPosition, locale, position }) {
         </label>
         <input
           type="text"
-          name="profile"
           id="profile"
           placeholder={t("formProfile", locale)}
           required={false}
           className={inputClass}
           readOnly={position ? true : false}
           value={position ? position : null}
-          {...register("Profilo")}
+          {...register("profilo")}
         />
       </div>
       <div aria-hidden="true" className="hidden">
         <input
           type="text"
-          name="openPosition"
           id="openPosition"
           required={true}
           className={inputClass}
           value={openPosition}
           readOnly={true}
-          {...register("Posizione Aperta?")}
+          {...register("posizione")}
         />
       </div>
       <div className="pb-8 lg:col-span-2">
@@ -121,7 +109,6 @@ export default function FormWork({ page, openPosition, locale, position }) {
         </label>
         <input
           type="url"
-          name="link"
           id="link"
           placeholder={t("formLink", locale)}
           required={true}
@@ -135,12 +122,11 @@ export default function FormWork({ page, openPosition, locale, position }) {
         </label>
         <textarea
           type="text"
-          name="message"
           id="message"
           placeholder={t("formTalk", locale)}
           required={true}
           className={`${inputClass} h-20`}
-          {...register("Messaggio")}
+          {...register("messaggio")}
         />
       </div>
       <div className="text-xs py-1 lg:col-span-2">
@@ -157,9 +143,10 @@ export default function FormWork({ page, openPosition, locale, position }) {
         <input
           id="privacyCheckbox"
           type="checkbox"
-          value=""
+          value="sì"
           required={true}
           className={checkboxClass}
+          {...register("privacy")}
         />
         <label htmlFor="privacyCheckbox" className="ml-2 text-xs">
           {t("formPrivacyPolicy", locale)}

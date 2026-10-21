@@ -2,6 +2,9 @@ import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import t from "lib/locales";
 import FormMessage from "components/form/FormMessage";
+import { netlifyForm, NetlifyHiddenFields, submitNetlifyForm } from "components/form/netlify";
+
+const FORM_NAME = "contatti";
 import Link from "next/link";
 import Icon from "components/layout/Icon";
 import { useRouter } from "next/router";
@@ -50,8 +53,6 @@ export default function ContactForm({
   showBudget = true,
   onSubmitted,
 }) {
-  // console.log("solutions", solutions);
-
   const router = useRouter();
 
   const checkboxClass =
@@ -83,22 +84,9 @@ export default function ContactForm({
 
   const onSubmit = async (data) => {
     setResult("sending");
-    const formData = new FormData();
+    const sent = await submitNetlifyForm(FORM_NAME, { ...data, origine: origin }).catch(() => false);
 
-    for (const key in data) {
-      formData.append(key, data[key]);
-    }
-    if (origin) formData.append("Origine", origin);
-
-    const res = await fetch(
-      "https://hooks.zapier.com/hooks/catch/426384/31gd0se/",
-      {
-        method: "POST",
-        body: formData,
-      }
-    ).then((res) => res.json());
-
-    if (res.status == "success") {
+    if (sent) {
       if (onSubmitted) onSubmitted();
       // setResult("success");
       router.push("/grazie");
@@ -112,14 +100,20 @@ export default function ContactForm({
       <form
         id="contact-form"
         className="pt-4 lg:pt-0 relative"
+        {...netlifyForm(FORM_NAME)}
         onSubmit={handleSubmit(onSubmit)}
       >
+        <NetlifyHiddenFields name={FORM_NAME} register={register} />
+        {/* Campi scelti con i bottoni o dalla pagina: nell'HTML solo perché Netlify li registri al deploy. */}
+        <input type="hidden" name="servizio" />
+        <input type="hidden" name="budget" />
+        <input type="hidden" name="origine" />
         <div className="pb-8 lg:pb-12">
           <div className="text-xl font-bold">{t("interestedIn", locale)}</div>
           <div className="flex flex-wrap gap-2 mt-4">
             <Controller
               control={control}
-              name="Servizio"
+              name="servizio"
               render={({ field: { onChange, onBlur, value, ref } }) => (
                 <Multiselect
                   items={aree}
@@ -140,7 +134,7 @@ export default function ContactForm({
             <div className="flex flex-wrap mt-4 gap-2">
               <Controller
                 control={control}
-                name="Budget"
+                name="budget"
                 render={({ field: { onChange, onBlur, value, ref } }) => (
                   <Multiselect
                     items={budgets}
@@ -167,12 +161,11 @@ export default function ContactForm({
             <input
               className="form-input input mt-2 p-4  rounded-md border-2 border-gray-300 block w-full "
               type="text"
-              name="fullName"
               id="fullName"
               placeholder={t("formFullName", locale)}
               required={true}
               autoComplete="name"
-              {...register("Nome & Cognome")}
+              {...register("nome")}
             />
           </div>
           <div className="pb-8">
@@ -184,12 +177,11 @@ export default function ContactForm({
             <input
               className="form-input input mt-2 p-4  rounded-md border-2 border-gray-300 block w-full"
               type="email"
-              name="email"
               id="email"
               placeholder={t("formEmail", locale)}
               required={true}
               autoComplete="email"
-              {...register("Email")}
+              {...register("email")}
             />
           </div>
           <div className="pb-8">
@@ -201,12 +193,11 @@ export default function ContactForm({
             <input
               className="form-input input mt-2 p-4  rounded-md border-2 border-gray-300 block w-full"
               type="text"
-              name="phone"
               id="phone"
               placeholder={t("phone", locale)}
               required={false}
               autoComplete="tel"
-              {...register("Telefono")}
+              {...register("telefono")}
             />
           </div>
 
@@ -221,12 +212,11 @@ export default function ContactForm({
             </small>
             <textarea
               type="text"
-              name="message"
               id="message"
               placeholder={t("formMessage", locale)}
               required={true}
               className="form-input input mt-2 p-2  rounded-md border-2 border-gray-300 block w-full h-24"
-              {...register("Messaggio")}
+              {...register("messaggio")}
             />
           </div>
           <div className="text-xs py-1">
@@ -243,9 +233,10 @@ export default function ContactForm({
             <input
               id="privacyCheckbox"
               type="checkbox"
-              value=""
+              value="sì"
               required={true}
               className={checkboxClass}
+              {...register("privacy")}
             />
             <label htmlFor="privacyCheckbox" className="ml-2 text-xs">
               {t("formPrivacyPolicy", locale)}
