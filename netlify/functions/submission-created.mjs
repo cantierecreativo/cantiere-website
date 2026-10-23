@@ -3,9 +3,10 @@
 // La mail di notifica non passa da qui: è l'hook email nativo di Netlify, quindi arriva anche se questa funzione fallisce.
 
 // Dove finisce ogni form su Basecamp: progetto (bucket) e colonna della card table. Non sono segreti.
+const BASECAMP_ACCOUNT_ID = 4213406;
 export const DESTINATIONS = {
-  contatti: { project: null, column: null }, // Sales Cycle → Primo contatto
-  candidature: { project: null, column: null }, // Cantiere Creativo candidature - hr → In triage
+  contatti: { project: 31844045, column: 5906094105 }, // Cantiere Sales Cycle → Primo Contatto
+  candidature: { project: 38583156, column: 7678025930 }, // Cantiere Creativo - candidature - hr → Triage
 };
 const BREVO_LIST_ID = null; // lista "Cantiere Newsletter"
 
@@ -68,7 +69,7 @@ async function createCard(formName, data) {
   const dest = DESTINATIONS[formName];
   if (!dest?.project || !dest?.column) return;
   const token = await basecampToken();
-  const url = `https://3.basecampapi.com/${process.env.BASECAMP_ACCOUNT_ID}/buckets/${dest.project}/card_tables/lists/${dest.column}/cards.json`;
+  const url = `https://3.basecampapi.com/${BASECAMP_ACCOUNT_ID}/buckets/${dest.project}/card_tables/lists/${dest.column}/cards.json`;
   const res = await fetch(url, {
     method: "POST",
     headers: {
