@@ -11,7 +11,7 @@ export const DESTINATIONS = {
 const BREVO_LIST_ID = 2; // lista della newsletter su Brevo
 
 // Risposta automatica a chi si candida. Il mittente deve essere verificato su Brevo; le risposte del candidato arrivano qui.
-const SENDER = { name: "Cantiere Creativo", email: "f.giovannetti@cantierecreativo.net" };
+export const SENDER = { name: "Cantiere Creativo", email: "f.giovannetti@cantierecreativo.net" };
 const APPLICANT_REPLY = {
   it: {
     subject: "Abbiamo ricevuto la tua candidatura",
@@ -29,7 +29,7 @@ const APPLICANT_REPLY = {
   },
 };
 
-const escape = (value) =>
+export const escape = (value) =>
   String(value ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 
 const LABELS = {
