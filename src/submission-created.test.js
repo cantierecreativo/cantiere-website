@@ -34,3 +34,7 @@ test("risposta al candidato: lingua della pagina, nome escapato, mittente verifi
   expect(applicantReply({ email: "x@example.com", lingua: "en" }).subject).toBe("We've received your application");
   expect(applicantReply({ email: "x@example.com" }).subject).toBe("Abbiamo ricevuto la tua candidatura");
 });
+
+test("candidatura spontanea: niente riga 'Posizione aperta: false'", () => {
+  expect(buildCard("candidature", { nome: "Ada", posizione: "false" }).content).not.toContain("Posizione aperta");
+});

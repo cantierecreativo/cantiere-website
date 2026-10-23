@@ -8,7 +8,7 @@ export const DESTINATIONS = {
   contatti: { project: 31844045, column: 5906094105 }, // Cantiere Sales Cycle → Primo Contatto
   candidature: { project: 38583156, column: 7678025930 }, // Cantiere Creativo - candidature - hr → Triage
 };
-const BREVO_LIST_ID = null; // lista della newsletter, da scegliere su Brevo
+const BREVO_LIST_ID = 2; // lista della newsletter su Brevo
 
 // Risposta automatica a chi si candida. Il mittente deve essere verificato su Brevo; le risposte del candidato arrivano qui.
 const SENDER = { name: "Cantiere Creativo", email: "f.giovannetti@cantierecreativo.net" };
@@ -63,7 +63,8 @@ export function buildCard(formName, data) {
       ? [`${data.nome ?? ""} ${data.cognome ?? ""}`.trim(), data.profilo].filter(Boolean).join(" — ")
       : [data.nome, services].filter(Boolean).join(" — ");
   const rows = LABELS[formName]
-    .filter(([key]) => data[key])
+    // "false" è il valore della posizione aperta per le candidature spontanee: non serve in card.
+    .filter(([key]) => data[key] && data[key] !== "false")
     .map(([key, label]) => {
       const value = key === "servizio" ? services : data[key];
       const html = escape(value).replace(/\r?\n/g, "<br>");
