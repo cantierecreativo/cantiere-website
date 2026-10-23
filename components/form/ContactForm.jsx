@@ -252,6 +252,18 @@ export default function ContactForm({
               </Link>
             </label>
           </fieldset>
+          <div className="flex pr-2 mt-4 lg:mb-6">
+            <input
+              id="newsletterCheckbox"
+              type="checkbox"
+              value="sì"
+              className={checkboxClass}
+              {...register("newsletter")}
+            />
+            <label htmlFor="newsletterCheckbox" className="ml-2 text-xs">
+              {t("formNewsletter", locale)}
+            </label>
+          </div>
           <div className="flex mt-10 bg-blue border border-black group rounded-md justify-between after:bg-white after:absolute after:top-0 after:left-0 after:right-0 after:h-0 after:duration-300 hover:after:h-full relative ">
             {!result && (
               <button
