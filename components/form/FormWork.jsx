@@ -38,6 +38,8 @@ export default function FormWork({ page, openPosition, locale, position }) {
       onSubmit={handleSubmit(onSubmit)}
     >
       <NetlifyHiddenFields name={FORM_NAME} register={register} />
+      {/* La lingua sceglie il testo della risposta automatica al candidato. */}
+      <input type="hidden" value={locale} {...register("lingua")} />
       <div className="pb-8">
         <label htmlFor="name" className={labelClass}>
           {t("formName", locale)}

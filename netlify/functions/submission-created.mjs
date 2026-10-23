@@ -8,7 +8,26 @@ export const DESTINATIONS = {
   contatti: { project: 31844045, column: 5906094105 }, // Cantiere Sales Cycle → Primo Contatto
   candidature: { project: 38583156, column: 7678025930 }, // Cantiere Creativo - candidature - hr → Triage
 };
-const BREVO_LIST_ID = null; // lista "Cantiere Newsletter"
+const BREVO_LIST_ID = null; // lista della newsletter, da scegliere su Brevo
+
+// Risposta automatica a chi si candida. Il mittente deve essere verificato su Brevo; le risposte del candidato arrivano qui.
+const SENDER = { name: "Cantiere Creativo", email: "f.giovannetti@cantierecreativo.net" };
+const APPLICANT_REPLY = {
+  it: {
+    subject: "Abbiamo ricevuto la tua candidatura",
+    body: (nome) => `<p>Ciao ${nome},</p>
+<p>grazie per la tua candidatura a Cantiere Creativo: l'abbiamo ricevuta e la leggeremo con attenzione.</p>
+<p>Se il tuo profilo è in linea con quello che cerchiamo, ti scriveremo per fissare un primo colloquio. Se nel frattempo vuoi aggiungere qualcosa, per esempio il tuo portfolio o il CV, puoi rispondere a questa email.</p>
+<p>A presto,<br>il team di Cantiere Creativo</p>`,
+  },
+  en: {
+    subject: "We've received your application",
+    body: (nome) => `<p>Hi ${nome},</p>
+<p>thank you for applying to Cantiere Creativo: we've received your application and will read it carefully.</p>
+<p>If your profile matches what we're looking for, we'll get in touch to arrange a first interview. If you'd like to add anything in the meantime, such as your portfolio or CV, just reply to this email.</p>
+<p>Speak soon,<br>the Cantiere Creativo team</p>`,
+  },
+};
 
 const escape = (value) =>
   String(value ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
@@ -31,6 +50,7 @@ const LABELS = {
     ["profilo", "Profilo"],
     ["posizione", "Posizione aperta"],
     ["link", "Link"],
+    ["lingua", "Lingua"],
     ["messaggio", "Messaggio"],
   ],
 };
@@ -93,13 +113,38 @@ async function subscribeNewsletter(data) {
   if (!res.ok) throw new Error(`Brevo: ${res.status} ${await res.text()}`);
 }
 
+// Conferma di ricezione al candidato, nella lingua della pagina da cui ha scritto.
+export function applicantReply(data) {
+  const text = APPLICANT_REPLY[data.lingua] || APPLICANT_REPLY.it;
+  return {
+    sender: SENDER,
+    replyTo: SENDER,
+    to: [{ email: data.email, name: `${data.nome ?? ""} ${data.cognome ?? ""}`.trim() || undefined }],
+    subject: text.subject,
+    htmlContent: text.body(escape(data.nome || "")),
+  };
+}
+
+async function replyToApplicant(data) {
+  if (!data.email) return;
+  const res = await fetch("https://api.brevo.com/v3/smtp/email", {
+    method: "POST",
+    headers: { "api-key": process.env.BREVO_API_KEY, "Content-Type": "application/json", Accept: "application/json" },
+    body: JSON.stringify(applicantReply(data)),
+  });
+  if (!res.ok) throw new Error(`Brevo risposta al candidato: ${res.status} ${await res.text()}`);
+}
+
 export default async (req) => {
   const { payload } = await req.json();
   const formName = payload?.form_name;
   const data = payload?.data ?? {};
   if (!LABELS[formName]) return new Response("form ignorato");
   // Le due azioni sono indipendenti: un errore su Brevo non deve bloccare la card, e viceversa.
-  const results = await Promise.allSettled([createCard(formName, data), formName === "contatti" ? subscribeNewsletter(data) : null]);
+  const results = await Promise.allSettled([
+    createCard(formName, data),
+    formName === "contatti" ? subscribeNewsletter(data) : replyToApplicant(data),
+  ]);
   const errors = results.filter((r) => r.status === "rejected").map((r) => r.reason.message);
   if (errors.length) {
     console.error(errors.join("\n"));

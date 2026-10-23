@@ -23,3 +23,14 @@ test("card delle candidature: nome, cognome e profilo; link cliccabile", () => {
   expect(card.content).toContain('<a href="https://example.com/cv">');
   expect(buildCard("candidature", {}).title).toBe("Nuovo invio dal sito");
 });
+
+test("risposta al candidato: lingua della pagina, nome escapato, mittente verificato", async () => {
+  const { applicantReply } = await import("../netlify/functions/submission-created.mjs");
+  const it = applicantReply({ nome: "Ada<", cognome: "Lovelace", email: "ada@example.com", lingua: "it" });
+  expect(it.subject).toBe("Abbiamo ricevuto la tua candidatura");
+  expect(it.htmlContent).toContain("Ciao Ada&lt;,");
+  expect(it.to).toEqual([{ email: "ada@example.com", name: "Ada< Lovelace" }]);
+  expect(it.sender.email).toBe("f.giovannetti@cantierecreativo.net");
+  expect(applicantReply({ email: "x@example.com", lingua: "en" }).subject).toBe("We've received your application");
+  expect(applicantReply({ email: "x@example.com" }).subject).toBe("Abbiamo ricevuto la tua candidatura");
+});
