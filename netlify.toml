@@ -4,3 +4,6 @@
 
 [build.environment]
   NODE_VERSION = "22"
+  # ID pubblici (finiscono comunque nell'HTML): GTM parte solo dopo il consenso Iubenda.
+  NEXT_PUBLIC_GTM_2 = "KS7L68HM"
+  NEXT_PUBLIC_IUBENDA_SITE_ID = "54109"
