@@ -1,6 +1,6 @@
 # Cantiere Creativo — sito
 
-Astro (statico) con i componenti React del sito e i contenuti da DatoCMS. Il Lab (`src/data/lab`) vive fuori da Dato.
+Astro (statico) con i componenti React del sito e i contenuti da DatoCMS. Il Lab è su Dato: contenuti e media iniziali in `migrations/lab`.
 
 ```bash
 bun install
