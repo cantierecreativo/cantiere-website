@@ -88,9 +88,9 @@ export default function NumbersBlock({ record }) {
                         </span>
                       </p>
 
-                      <h1 className="text-6xl leading-[63px] text-center">
+                      <p className="text-6xl leading-[63px] text-center">
                         <span className="text-5xl font-bold">{number}</span>
-                      </h1>
+                      </p>
                     </div>
                   </motion.div>
                 ))}
