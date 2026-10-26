@@ -11,7 +11,7 @@ ANTHROPIC_API_KEY=...
 TRANSLATE_MODEL=...        # opzionale, default claude-opus-5-5
 ```
 
-L'environment è `NEXT_PUBLIC_DATO_ENV` (oggi `version-25`). Gli script rifiutano di partire se è vuoto.
+L'environment è `NEXT_PUBLIC_DATO_ENV` (oggi `version-26`). Gli script rifiutano di partire se è vuoto.
 
 ## Ordine
 
