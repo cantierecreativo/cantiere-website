@@ -3,12 +3,22 @@ import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import { fileURLToPath } from "node:url";
+import { readFileSync } from "node:fs";
 import dotenv from "dotenv";
 
 // In locale le variabili stanno in .env.local (come per scripts/); su Netlify arrivano dall'ambiente.
 dotenv.config({ path: ".env.local", quiet: true });
 
 const r = (p) => fileURLToPath(new URL(p, import.meta.url));
+
+// Pagine che esistono ma sono reindirizzate con forza (regole "301!"): fuori dalla sitemap.
+const forcedRedirects = new Set(
+  readFileSync(r("./public/_redirects"), "utf8")
+    .split("\n")
+    .map((line) => line.trim().split(/\s+/))
+    .filter(([from, , status]) => from?.startsWith("/") && status?.endsWith("!"))
+    .map(([from]) => from.replace(/\/$/, ""))
+);
 
 // Le sole variabili che possono finire nel browser. Il token Dato resta lato server.
 const PUBLIC_ENV = ["NEXT_PUBLIC_SITE_URL", "NEXT_PUBLIC_ENV", "NEXT_PUBLIC_GTM_2", "NEXT_PUBLIC_IUBENDA_SITE_ID"];
@@ -18,7 +28,13 @@ export default defineConfig({
   trailingSlash: "never",
   // "file": /servizi.html servito come /servizi, senza la slash finale che Netlify aggiungerebbe a una cartella.
   build: { format: "file" },
-  integrations: [react(), sitemap({ filter: (page) => !page.includes("/blog/tags/") && !/\/404$/.test(page) })],
+  integrations: [
+    react(),
+    sitemap({
+      filter: (page) =>
+        !page.includes("/blog/tags/") && !/\/404$/.test(page) && !forcedRedirects.has(new URL(page).pathname.replace(/\/$/, "")),
+    }),
+  ],
   vite: {
     resolve: {
       alias: {
