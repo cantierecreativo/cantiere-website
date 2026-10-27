@@ -10,5 +10,5 @@ await views.preload(["../views/404.jsx"]);
 ---
 
 <BaseLayout locale={locale} site={props.site} noindex>
-  <PageView client:load view="404" locale={locale} path={locale === "it" ? "/404" : "/en/404"} props={props} />
+  <PageView client:idle view="404" locale={locale} path={locale === "it" ? "/404" : "/en/404"} props={props} />
 </BaseLayout>

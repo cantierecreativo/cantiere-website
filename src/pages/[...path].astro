@@ -38,5 +38,5 @@ await Promise.all([views.preload([`../views/${view}.jsx`]), blocks.preload()]);
 ---
 
 <BaseLayout locale={locale} site={props.site} page={props.page} noindex={view.startsWith("blog/tags/")}>
-  <PageView client:load view={view} locale={locale} path={path} props={props} />
+  <PageView client:idle view={view} locale={locale} path={path} props={props} />
 </BaseLayout>
