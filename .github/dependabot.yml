@@ -1,0 +1,8 @@
+# Dependabot controlla le dipendenze vere del sito (bun.lock) e propone gli aggiornamenti di sicurezza.
+version: 2
+updates:
+  - package-ecosystem: "bun"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
