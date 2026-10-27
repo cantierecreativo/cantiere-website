@@ -1,6 +1,8 @@
 ---
 // Quello che in Next stava in pages/_document.js e pages/_app.js: head, GTM, Iubenda, CSS globale.
 import "../../styles/globals.css";
+// CSS dei caroselli Splide qui e non nei componenti: caricati a richiesta, il loro CSS arriverebbe dopo l'HTML.
+import "@splidejs/splide/css/core";
 import MetaTags from "components/layout/MetaTags";
 import t from "lib/locales";
 import { draft } from "lib/dato";

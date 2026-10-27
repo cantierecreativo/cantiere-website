@@ -1,11 +1,12 @@
 ---
 // Pagina 404 nella lingua richiesta; Netlify la serve da /404 e /en/404 (vedi public/_redirects).
 import BaseLayout from "../layouts/BaseLayout.astro";
-import PageView from "../PageView.jsx";
+import PageView, { views } from "../PageView.jsx";
 import { getStaticProps } from "views/404";
 
 const { locale } = Astro.props;
 const { props } = await getStaticProps({ locale });
+await views.preload(["../views/404.jsx"]);
 ---
 
 <BaseLayout locale={locale} site={props.site} noindex>

@@ -1,19 +1,47 @@
-import ImageBlock from "components/blocks/ImageBlock";
-import VideoBlock from "components/blocks/VideoBlock";
-import PartnerBlock from "components/blocks/PartnerBlock";
-import RowsIconTextBlock from "components/blocks/RowsIconTextBlock";
-import DoubleCtaBlock from "components/blocks/DoubleCtaBlock";
-import BannerBlock from "components/blocks/BannerBlock";
-import CardsBlock from "components/blocks/CardsBlock";
-import CardImageBlock from "components/blocks/CardImageBlock";
-import ArticleLinkBlock from "components/blocks/ArticleLinkBlock";
-import TitleTextBlock from "components/blocks/TitleTextBlock";
-import ImageDoubleBlock from "components/blocks/ImageDoubleBlock";
-import NumbersBlock from "components/blocks/NumbersBlock";
-import TextForm from "components/blocks/TextForm";
-import Quote from "components/blocks/Quote";
-import CarouselQuote from "components/blocks/CarouselQuote";
-import FAQBlock from "./blocks/FAQBlock";
+import { parts } from "../src/parts.jsx";
+
+// Ogni blocco è un file JS a sé: la pagina scarica solo quelli che usa (vedi src/parts.jsx).
+export const blocks = parts({
+  ImageBlock: () => import("components/blocks/ImageBlock"),
+  VideoBlock: () => import("components/blocks/VideoBlock"),
+  PartnerBlock: () => import("components/blocks/PartnerBlock"),
+  RowsIconTextBlock: () => import("components/blocks/RowsIconTextBlock"),
+  DoubleCtaBlock: () => import("components/blocks/DoubleCtaBlock"),
+  BannerBlock: () => import("components/blocks/BannerBlock"),
+  CardsBlock: () => import("components/blocks/CardsBlock"),
+  CardImageBlock: () => import("components/blocks/CardImageBlock"),
+  ArticleLinkBlock: () => import("components/blocks/ArticleLinkBlock"),
+  TitleTextBlock: () => import("components/blocks/TitleTextBlock"),
+  ImageDoubleBlock: () => import("components/blocks/ImageDoubleBlock"),
+  NumbersBlock: () => import("components/blocks/NumbersBlock"),
+  TextForm: () => import("components/blocks/TextForm"),
+  Quote: () => import("components/blocks/Quote"),
+  CarouselQuote: () => import("components/blocks/CarouselQuote"),
+  FAQBlock: () => import("./blocks/FAQBlock"),
+});
+
+const BLOCKS = {
+  image_block: "ImageBlock",
+  article_image_block: "ImageBlock",
+  video_block: "VideoBlock",
+  partner_block: "PartnerBlock",
+  double_cta_block: "DoubleCtaBlock",
+  banner_block: "BannerBlock",
+  cards_block: "CardsBlock",
+  card_image_block: "CardImageBlock",
+  article_link_block: "ArticleLinkBlock",
+  text_block: "TitleTextBlock",
+  article_text_block: "TitleTextBlock",
+  header_block: "TitleTextBlock",
+  title_text_block: "TitleTextBlock",
+  image_double_block: "ImageDoubleBlock",
+  numbers_block: "NumbersBlock",
+  text_form_block: "TextForm",
+  quote: "Quote",
+  rows_icon_text_block: "RowsIconTextBlock",
+  carousel_quote: "CarouselQuote",
+  block_faq: "FAQBlock",
+};
 
 export default function PostContent({
   record,
@@ -22,47 +50,17 @@ export default function PostContent({
   solutions = null,
   textColor = "black",
 }) {
-  // return record.model;
-  switch (record.model) {
-    case "image_block":
-    case "article_image_block":
-      return <ImageBlock record={record} locale={locale} />;
-    case "video_block":
-      return <VideoBlock record={record} locale={locale} />;
-    case "partner_block":
-      return <PartnerBlock record={record} locale={locale} page={page} />;
-    case "double_cta_block":
-      return <DoubleCtaBlock record={record} locale={locale} />;
-    case "banner_block":
-      return <BannerBlock record={record} locale={locale} />;
-    case "cards_block":
-      return <CardsBlock record={record} locale={locale} page={page} />;
-    case "card_image_block":
-      return <CardImageBlock record={record} locale={locale} page={page} />;
-    case "article_link_block":
-      return <ArticleLinkBlock record={record} locale={locale} page={page} />;
-    case "video_block":
-      return <VideoBlock record={record} locale={locale} />;
-    case "text_block":
-    case "article_text_block":
-    case "header_block":
-    case "title_text_block":
-      return (
-        <TitleTextBlock record={record} locale={locale} color={textColor} />
-      );
-    case "image_double_block":
-      return <ImageDoubleBlock record={record} locale={locale} />;
-    case "numbers_block":
-      return <NumbersBlock record={record} locale={locale} />;
-    case "text_form_block":
-      return <TextForm record={record} locale={locale} solutions={solutions} />;
-    case "quote":
-      return <Quote record={record} locale={locale} solutions={solutions} />;
-    case "rows_icon_text_block":
-      return <RowsIconTextBlock record={record} locale={locale} />;
-    case "carousel_quote":
-      return <CarouselQuote record={record} locale={locale} />;
-    case "block_faq":
-      return <FAQBlock record={record} locale={locale} />;
-  }
+  const name = BLOCKS[record.model];
+  if (!name) return null;
+  // Ogni blocco riceve gli stessi props che aveva prima: quelli in più li ignora.
+  return (
+    <blocks.Part
+      name={name}
+      record={record}
+      locale={locale}
+      page={page}
+      solutions={solutions}
+      color={textColor}
+    />
+  );
 }

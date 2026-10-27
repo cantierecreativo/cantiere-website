@@ -1,5 +1,4 @@
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
-import "@splidejs/splide/css/core";
 import { Image as DatoImage } from "react-datocms";
 import Icon from "components/layout/Icon";
 import { renderHTML } from "lib/utils";

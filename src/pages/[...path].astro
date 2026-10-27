@@ -2,7 +2,8 @@
 // Tutte le pagine del sito. Ogni vista in views/ porta i suoi getStaticPaths/getStaticProps
 // scritti per Next: qui si chiamano per entrambe le lingue e si rende la vista come isola React.
 import BaseLayout from "../layouts/BaseLayout.astro";
-import PageView from "../PageView.jsx";
+import PageView, { views } from "../PageView.jsx";
+import { blocks } from "components/PostContent";
 import { pathFor, isDynamic } from "../routes.mjs";
 import { draft } from "lib/dato";
 
@@ -32,6 +33,8 @@ const { view, locale, params, path } = Astro.props;
 const load = import.meta.glob("../../views/**/*.jsx")[`../../views/${view}.jsx`];
 const { props, notFound } = await (await load()).getStaticProps({ params, locale, preview: draft });
 if (notFound) return new Response(null, { status: 404 });
+// Sul server vista e blocchi devono essere già caricati prima del render (vedi src/parts.jsx).
+await Promise.all([views.preload([`../views/${view}.jsx`]), blocks.preload()]);
 ---
 
 <BaseLayout locale={locale} site={props.site} page={props.page} noindex={view.startsWith("blog/tags/")}>
