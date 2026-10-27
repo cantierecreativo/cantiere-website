@@ -66,7 +66,7 @@ export default function Footer({ locale, site }) {
           <div className="absolute w-[140%] h-[60vh] top-[5%] left-1/2 -translate-x-1/2 -z-0 rotate-12">
             <Image
               src="/icons/stroke1Violet.svg"
-              alt="stroke1Violet"
+              alt=""
               layout="fill"
               objectFit="cover"
               className="w-full h-full"

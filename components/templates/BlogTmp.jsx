@@ -51,7 +51,8 @@ export default function BlogTmp({ locale, page, items, pagination }) {
           <div className="absolute w-[150%] xl:w-[110%] h-[60vh] top-[35%] left-1/2 -translate-x-1/2">
             <Image
               src="/icons/stroke1Violet.svg"
-              alt="stroke1Violet"
+              alt=""
+              priority
               layout="fill"
               objectFit="cover"
               className="w-full h-full"

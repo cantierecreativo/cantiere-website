@@ -22,7 +22,8 @@ export default function HeroPortfolio({ locale, page }) {
           <div className="absolute w-[150%] xl:w-[110%] h-[60vh] top-[30%] left-1/2 -translate-x-1/2">
             <Image
               src="/icons/stroke1Violet.svg"
-              alt="stroke1Violet"
+              alt=""
+              priority
               layout="fill"
               objectFit="cover"
               className="w-full h-full"

@@ -67,7 +67,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       IUBENDA_SITE_ID && !isStaging && (
         <>
           <script is:inline set:html={iubendaConfig} />
-          <script is:inline async src="//cdn.iubenda.com/cs/iubenda_cs.js" />
+          {/* Dopo il load: i ~120 KB di Iubenda non competono con la pagina (LCP mobile). GTM aspetta comunque il consenso. */}
+          <script is:inline>
+            addEventListener("load", () => {
+              const s = document.createElement("script");
+              s.src = "https://cdn.iubenda.com/cs/iubenda_cs.js";
+              document.head.append(s);
+            });
+          </script>
         </>
       )
     }
