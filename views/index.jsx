@@ -8,6 +8,8 @@ import SectionProjects from "components/sections/SectionProjects";
 import HeroHome from "components/hero/HeroHome";
 import SectionHighlightsProjects from "components/sections/SectionHighlightsProjects";
 import Image from "next/image";
+import Head from "next/head";
+import { ORGANIZATION } from "lib/lab";
 
 export default function Home({ locale, site, page }) {
   const containerRef = useRef(null);
@@ -22,6 +24,12 @@ export default function Home({ locale, site, page }) {
   const { mainBlocks, whiteBlocks } = page;
   return (
     <Layout site={site} locale={locale} page={page} headerTxt="white">
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", ...ORGANIZATION }) }}
+        />
+      </Head>
       <HeroHome page={page} />
       <div
         ref={containerRef}
