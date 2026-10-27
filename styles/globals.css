@@ -452,6 +452,23 @@ strong {
   }
 }
 
+/* Blocchi che entrano allo scroll: legati alla posizione nella pagina, senza JS. Nell'HTML sono visibili
+   (prima framer-motion li lasciava a opacity 0 fino all'idratazione, e su mobile ritardava l'LCP di ~2 s).
+   Chi è già nello schermo all'apertura è oltre l'entrata e si vede subito; senza supporto nessuna animazione. */
+@keyframes reveal {
+  from { opacity: 0; transform: translate3d(0, 100px, 0); }
+  to { opacity: 1; transform: none; }
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 25%;
+    }
+  }
+}
+
 /* Bagliori dello sfondo delle hero (components/hero/HeroBackdrop.jsx): moto lento e continuo, sfasato. */
 @keyframes hero-glow-a {
   0%, 100% { transform: translate3d(0, 0, 0) scale(1); }

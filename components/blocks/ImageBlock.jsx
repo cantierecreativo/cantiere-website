@@ -1,23 +1,9 @@
 import { Image as DatoImage } from "react-datocms";
 import { convertToSlug, cleanFileName } from "lib/utils";
-import { motion } from "framer-motion";
 
 export default function ImageBlock({ record }) {
   const { labelMenu, description, image } = record;
   const fallbackAlt = cleanFileName(image.filename);
-  const variants = {
-    offscreen: {
-      opacity: 0,
-      y: 100,
-    },
-    onscreen: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.75,
-      },
-    },
-  };
   return (
     <>
       <div
@@ -27,11 +13,7 @@ export default function ImageBlock({ record }) {
         <div className="grid lg:grid-cols-12">
           <div className="lg:col-start-2 lg:col-span-10">
             {image.responsiveImage ? (
-              <motion.div
-                initial="offscreen"
-                whileInView="onscreen"
-                viewport={{ once: true }}
-                variants={variants}
+              <div className="reveal"
               >
                 <DatoImage
                   className="rounded-xl xl:rounded-[24px]"
@@ -42,7 +24,7 @@ export default function ImageBlock({ record }) {
                   objectFit="contain"
                   objectPosition="left"
                 />
-              </motion.div>
+              </div>
             ) : (
               "Da sostituire l'svg!"
             )}

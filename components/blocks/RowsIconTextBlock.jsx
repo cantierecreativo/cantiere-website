@@ -3,23 +3,9 @@ import { Image as DatoImage } from "react-datocms";
 import InternalLink from "../links/InternalLink";
 import t from "lib/locales";
 import Image from "next/legacy/image";
-import { motion } from "framer-motion";
 
 export default function RowsIconTextBlock({ locale, record }) {
   const { title, text, rows, labelMenu, dark } = record;
-  const variants = {
-    offscreen: {
-      opacity: 0,
-      y: 100,
-    },
-    onscreen: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.75,
-      },
-    },
-  };
 
   return (
     <section
@@ -33,35 +19,23 @@ export default function RowsIconTextBlock({ locale, record }) {
       <div className="container margin-scroll-standard lg:grid lg:grid-cols-12">
         <div className="lg:col-span-10 lg:col-start-2">
           <h2 className="text-3xl md:text-2xl lg:text-4xl max-w-prose font-bold">
-            <motion.div
-              initial="offscreen"
-              whileInView="onscreen"
-              viewport={{ once: true }}
-              variants={variants}
+            <div className="reveal"
             >
               {title}
-            </motion.div>
+            </div>
           </h2>
           {text && (
-            <motion.div
-              initial="offscreen"
-              whileInView="onscreen"
-              viewport={{ once: true }}
-              variants={variants}
+            <div className="reveal"
             >
               <h3 className="lg:text-lg max-w-prose py-8 pt-6 xl:pb-20">
                 {renderHTML(text)}
               </h3>
-            </motion.div>
+            </div>
           )}
           <div className="grid gap-4 mt-6 border-b border-white">
             {rows.map((r) => {
               return (
-                <motion.div
-                  initial="offscreen"
-                  whileInView="onscreen"
-                  viewport={{ once: true }}
-                  variants={variants}
+                <div className="reveal"
                   key={r.id}
                 >
                   <div className="grid gap-6 py-6 md:py-10 lg:py-16 border-t border-base md:grid-cols-3">
@@ -93,7 +67,7 @@ export default function RowsIconTextBlock({ locale, record }) {
                       )}
                     </div>
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>

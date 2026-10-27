@@ -55,11 +55,8 @@ export default function IndexTmp({ locale, page, items, pagination }) {
         </motion.div>
         <div className="relative w-full h-[100vh] max-h-full z-0">
           <div className="h-[70%] w-full absolute z-20 flex flex-col justify-center items-center">
-            <motion.div
-              className="container px-8 lg:px-10 text-center space-y-4 xl:space-y-6"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
+            <div
+              className="hero-fade container px-8 lg:px-10 text-center space-y-4 xl:space-y-6"
             >
               <h1 className="xl:text-5xl text-black md:text-4xl font-bold max-w-prose lg:block lg:pr-0 z-20 text-2xl">
                 {page.title}
@@ -94,7 +91,7 @@ export default function IndexTmp({ locale, page, items, pagination }) {
                   </Link>
                 </div>
               )}
-            </motion.div>
+            </div>
           </div>
         </div>
       </header>

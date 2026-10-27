@@ -29,19 +29,6 @@ export default function SectionHighlightsProjects({ page, locale, site }) {
   const x1 = useTransform(scrollYProgress, [0, 1], [400, -400]);
   const x2 = useTransform(scrollYProgress, [0, 1], [-600, 200]);
   const rot = useTransform(scrollYProgress, [0, 1], [0, 20]);
-  const variants = {
-    offscreen: {
-      opacity: 0,
-      y: 100,
-    },
-    onscreen: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.75,
-      },
-    },
-  };
 
   return (
     <div className="text-black overflow-hidden relative">
@@ -77,13 +64,9 @@ export default function SectionHighlightsProjects({ page, locale, site }) {
         <div className="pb-12 md:pb-24 grid md:grid-cols-2 gap-12">
           {page.highlightProjects.map((p, i) => {
             return (
-              <motion.div
-                initial="offscreen"
-                whileInView="onscreen"
-                viewport={{ once: true }}
-                variants={variants}
+              <div
                 key={p.id}
-                className={`${
+                className={`reveal ${
                   i === 2 ? "md:col-span-2" : ""
                 } block relative rounded-[36px] overflow-hidden bg-white border-black/15 border`}
               >
@@ -116,7 +99,7 @@ export default function SectionHighlightsProjects({ page, locale, site }) {
                     </h3>
                   </div>
                 </InternalLink>
-              </motion.div>
+              </div>
             );
           })}
         </div>

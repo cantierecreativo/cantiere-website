@@ -7,27 +7,10 @@ import InternalLink from "components/links/InternalLink";
 import SocialList from "components/blocks/SocialList";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-const variants = {
-  offscreen: {
-    opacity: 0,
-    y: 100,
-  },
-  onscreen: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.75,
-    },
-  },
-};
 
 function FooterButton({ icon, label, url, title }) {
   return (
-    <motion.div
-      initial="offscreen"
-      whileInView="onscreen"
-      viewport={{ once: true }}
-      variants={variants}
+    <div className="reveal"
     >
       <Link href={url} title={title} className="group">
         <div className="rounded-full px-9 lg:px-16 py-5 lg:py-10 flex gap-2 lg:gap-8 justify-center items-center relative bg-[#fefffa] hover:bg-gray-200 motion-safe:duration-500 ">
@@ -41,7 +24,7 @@ function FooterButton({ icon, label, url, title }) {
           </div>
         </div>
       </Link>
-    </motion.div>
+    </div>
   );
 }
 
@@ -92,27 +75,19 @@ export default function Footer({ locale, site }) {
         </motion.div>
         <div className="container py-6 pt-8 xl:pt-16 z-0 relative">
           <div className="text-center space-y-6">
-            <motion.div
-              initial="offscreen"
-              whileInView="onscreen"
-              viewport={{ once: true }}
-              variants={variants}
+            <div className="reveal"
             >
               <div className="text-lg lg:text-xl">
                 {t("footerTagline", locale)}
               </div>
-            </motion.div>
-            <motion.div
-              initial="offscreen"
-              whileInView="onscreen"
-              viewport={{ once: true }}
-              variants={variants}
+            </div>
+            <div className="reveal"
             >
               <div className="text-3xl lg:text-5xl font-bold max-w-3xl mx-auto">
                 {t("footerTitle", locale)}{" "}
                 <span className="text-yellow">{t("footerTitleHighlight", locale)}</span>.
               </div>
-            </motion.div>
+            </div>
           </div>
           <div className="flex flex-wrap gap-4 lg:gap-9 items-start relative py-12 md:py-24 justify-center">
             {FooterButton({

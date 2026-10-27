@@ -51,11 +51,8 @@ export default function HeroHp({ locale, page }) {
           )}
 
           <div className="h-[80%] w-full absolute z-20 flex flex-col justify-center items-center">
-            <motion.div
-              className="container px-8 lg:px-10 text-center space-y-4 xl:space-y-6"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
+            <div
+              className="hero-fade container px-8 lg:px-10 text-center space-y-4 xl:space-y-6"
             >
               <div className="uppercase text-center font-bold tracking-wider">
                 {menuLabel}
@@ -66,7 +63,7 @@ export default function HeroHp({ locale, page }) {
               <h2 className="text-lg max-w-prose lg:block lg:pr-0 z-20 xl:text-xl mx-auto">
                 {renderHTML(abstract)}
               </h2>
-            </motion.div>
+            </div>
           </div>
         </div>
         <div

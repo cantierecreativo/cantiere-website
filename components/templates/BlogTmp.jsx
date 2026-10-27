@@ -60,11 +60,8 @@ export default function BlogTmp({ locale, page, items, pagination }) {
         </motion.div>
         <div className="relative w-full h-[100vh] max-h-full z-20">
           <div className="h-[60%] w-full absolute z-20 flex flex-col justify-center items-center">
-            <motion.div
-              className="container px-8 lg:px-10 text-center space-y-4 xl:space-y-6"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
+            <div
+              className="hero-fade container px-8 lg:px-10 text-center space-y-4 xl:space-y-6"
             >
               <div className="uppercase text-center font-bold tracking-wider">
                 {t("articles", locale)}
@@ -102,7 +99,7 @@ export default function BlogTmp({ locale, page, items, pagination }) {
                   </Link>
                 </div>
               )}
-            </motion.div>
+            </div>
           </div>
         </div>
       </header>

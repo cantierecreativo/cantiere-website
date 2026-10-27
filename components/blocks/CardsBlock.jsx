@@ -5,21 +5,7 @@ import CardTextImageBlock from "./CardTextImageBlock";
 import CardBlock from "./CardBlock";
 import CardTitleImageTextHover from "./CardTitleImageTextHoverBlock";
 import CardTitleImageText from "./CardTitleImageText";
-import { motion } from "framer-motion";
 
-const variants = {
-  offscreen: {
-    opacity: 0,
-    y: 100,
-  },
-  onscreen: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.75,
-    },
-  },
-};
 
 function WhichCard({ c, showNumbers = false, l, n = null, inLine }) {
   if (!c || !c.model) return;
@@ -53,11 +39,7 @@ function RenderCards(cards, showNumbers, l, inLine) {
     <div className="grid gap-4 md:grid-cols-2 xl:gap-8 lg:grid-cols-3 xl:col-span-10 lg:col-span-12 xl:col-start-2">
       {cards.map((c, n) => {
         return (
-          <motion.div
-            initial="offscreen"
-            whileInView="onscreen"
-            viewport={{ once: true }}
-            variants={variants}
+          <div className="reveal"
             key={c.id}
           >
             <WhichCard
@@ -67,7 +49,7 @@ function RenderCards(cards, showNumbers, l, inLine) {
               n={n}
               inLine={inLine}
             />
-          </motion.div>
+          </div>
         );
       })}
     </div>
@@ -91,11 +73,7 @@ export default function CardsBlock({ locale, record, page }) {
         >
           {cards.map((c, n) => {
             return (
-              <motion.div
-                initial="offscreen"
-                whileInView="onscreen"
-                viewport={{ once: true }}
-                variants={variants}
+              <div className="reveal"
                 key={c.id}
               >
                 <WhichCard
@@ -105,7 +83,7 @@ export default function CardsBlock({ locale, record, page }) {
                   n={n}
                   inLine={inLine}
                 />
-              </motion.div>
+              </div>
             );
           })}
         </div>

@@ -1,5 +1,4 @@
 import { convertToSlug } from "lib/utils";
-import { motion } from "framer-motion";
 
 export default function TitleTextBlock({ locale, record, color = "black" }) {
   const { title, left = true, text, labelMenu } = record;
@@ -9,19 +8,6 @@ export default function TitleTextBlock({ locale, record, color = "black" }) {
     white: "text-white",
   };
 
-  const variants = {
-    offscreen: {
-      opacity: 0,
-      y: 100,
-    },
-    onscreen: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.75,
-      },
-    },
-  };
 
   return (
     <>
@@ -36,36 +22,24 @@ export default function TitleTextBlock({ locale, record, color = "black" }) {
             } ${left ? "" : "text-center"}`}
           >
             {record.label && (
-              <motion.div
-                initial="offscreen"
-                whileInView="onscreen"
-                viewport={{ once: true }}
-                variants={variants}
+              <div className="reveal"
               >
                 <label className="text-lg xl:text-xl max-w-prose">
                   {record.label}
                 </label>
-              </motion.div>
+              </div>
             )}
             {title && (
-              <motion.div
-                initial="offscreen"
-                whileInView="onscreen"
-                viewport={{ once: true }}
-                variants={variants}
+              <div className="reveal"
               >
                 <h2
                   className="xl:text-5xl max-w-prose text-2xl font-bold title"
                   dangerouslySetInnerHTML={{ __html: title }}
                 />
-              </motion.div>
+              </div>
             )}
             {text && (
-              <motion.div
-                initial="offscreen"
-                whileInView="onscreen"
-                viewport={{ once: true }}
-                variants={variants}
+              <div className="reveal"
               >
                 <div className="xl:text-xl">
                   <div
@@ -75,7 +49,7 @@ export default function TitleTextBlock({ locale, record, color = "black" }) {
                     dangerouslySetInnerHTML={{ __html: text }}
                   />
                 </div>
-              </motion.div>
+              </div>
             )}
           </div>
         </div>
