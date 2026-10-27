@@ -246,7 +246,9 @@ export default function ContactForm({
                   "cookiePolicyId",
                   locale
                 )}`}
-                className="iubenda-nostyle no-brand iubenda-embed iubenda-noiframe duration-200 underline font-extra-bold"
+                target="_blank"
+                rel="noopener"
+                className="duration-200 underline font-extra-bold"
               >
                 {"Privacy Policy"}*
               </Link>

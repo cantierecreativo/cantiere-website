@@ -236,7 +236,9 @@ export default function Footer({ locale, site }) {
                     locale,
                   )}`}
                   title={`${t("externaLink", locale)} Privacy Policy`}
-                  className="iubenda-nostyle no-brand iubenda-embed iubenda-noiframe duration-200 hover:underline underline-offset-2"
+                  target="_blank"
+                  rel="noopener"
+                  className="duration-200 hover:underline underline-offset-2"
                 >
                   Privacy Policy
                 </Link>
@@ -247,7 +249,9 @@ export default function Footer({ locale, site }) {
                     locale,
                   )}/cookie-policy`}
                   title={`${t("externaLink", locale)} Cookie Policy`}
-                  className="iubenda-nostyle no-brand iubenda-embed iubenda-noiframe duration-200 hover:underline underline-offset-2"
+                  target="_blank"
+                  rel="noopener"
+                  className="duration-200 hover:underline underline-offset-2"
                 >
                   Cookie Policy
                 </Link>
@@ -259,7 +263,7 @@ export default function Footer({ locale, site }) {
                   )}`}
                   target="_blank"
                   title={t("privacyPreferences", locale)}
-                  className="iubenda-cs-preferences-link iubenda-nostyle no-brand iubenda-embed iubenda-noiframe duration-200 hover:underline underline-offset-2"
+                  className="iubenda-cs-preferences-link duration-200 hover:underline underline-offset-2"
                 >
                   {t("privacyPreferences", locale)}
                 </Link>
