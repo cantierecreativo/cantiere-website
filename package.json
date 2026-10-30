@@ -25,7 +25,7 @@
     "@tailwindcss/line-clamp": "^0.4.4",
     "astro": "^7",
     "dayjs": "^1.11.7",
-    "dotenv": "^16.4.7",
+    "dotenv": "^18.0.9",
     "embla-carousel-autoplay": "^8.0.0-rc19",
     "embla-carousel-react": "^8.0.0-rc19",
     "framer-motion": "^10.16.16",
