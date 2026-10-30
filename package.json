@@ -16,7 +16,7 @@
     "i18n:links": "node scripts/i18n/links.mjs"
   },
   "dependencies": {
-    "@astrojs/react": "^7.1.0",
+    "@astrojs/react": "^7.1.1",
     "@astrojs/sitemap": "^3.7.4",
     "@datocms/cda-client": "^0.3.2",
     "@headlessui/react": "^1.7.13",
@@ -33,7 +33,7 @@
     "react-datocms": "^7.2.2",
     "react-dom": "18.2.0",
     "react-frame-component": "^5.2.6",
-    "react-hook-form": "^7.43.9",
+    "react-hook-form": "^7.91.0",
     "react-intersection-observer": "^9.5.3",
     "react-masonry-css": "^1.0.16",
     "react-player": "2.12.0",
