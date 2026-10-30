@@ -31,6 +31,7 @@ test("risposta al candidato: lingua della pagina, nome escapato, mittente verifi
   expect(it.htmlContent).toContain("Ciao Ada&lt;,");
   expect(it.to).toEqual([{ email: "ada@example.com", name: "Ada< Lovelace" }]);
   expect(it.sender.email).toBe("f.giovannetti@cantierecreativo.net");
+  expect(it.replyTo.email).toBe("e.guerrini@cantierecreativo.net");
   expect(applicantReply({ email: "x@example.com", lingua: "en" }).subject).toBe("We've received your application");
   expect(applicantReply({ email: "x@example.com" }).subject).toBe("Abbiamo ricevuto la tua candidatura");
 });

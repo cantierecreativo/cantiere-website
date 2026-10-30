@@ -10,8 +10,9 @@ export const DESTINATIONS = {
 };
 const BREVO_LIST_ID = 2; // lista della newsletter su Brevo
 
-// Risposta automatica a chi si candida. Il mittente deve essere verificato su Brevo; le risposte del candidato arrivano qui.
+// Risposta automatica a chi si candida. Il mittente deve essere verificato su Brevo; le risposte del candidato vanno a REPLY_TO.
 export const SENDER = { name: "Cantiere Creativo", email: "f.giovannetti@cantierecreativo.net" };
+export const REPLY_TO = { name: "Cantiere Creativo", email: "e.guerrini@cantierecreativo.net" };
 const APPLICANT_REPLY = {
   it: {
     subject: "Abbiamo ricevuto la tua candidatura",
@@ -119,7 +120,7 @@ export function applicantReply(data) {
   const text = APPLICANT_REPLY[data.lingua] || APPLICANT_REPLY.it;
   return {
     sender: SENDER,
-    replyTo: SENDER,
+    replyTo: REPLY_TO,
     to: [{ email: data.email, name: `${data.nome ?? ""} ${data.cognome ?? ""}`.trim() || undefined }],
     subject: text.subject,
     htmlContent: text.body(escape(data.nome || "")),
