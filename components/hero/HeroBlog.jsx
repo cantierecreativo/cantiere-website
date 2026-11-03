@@ -53,7 +53,9 @@ export default function HeroBlog({ locale, page }) {
                 <div className="flex items-center gap-2 flex-wrap gap-y-4">
                   {author.image && (
                     <DatoImage
-                      className="rounded-full w-[50px] h-[50px]"
+                      className="rounded-full shrink-0"
+                      // lo style inline di react-datocms (width:100%, max-width:60px) batte le classi w-/h-: la misura va qui
+                      style={{ width: 50, height: 50 }}
                       data={author.image.responsiveImage}
                       alt={
                         author.image.responsiveImage.alt ||
