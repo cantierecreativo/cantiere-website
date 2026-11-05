@@ -61,8 +61,10 @@ export default defineConfig({
         "src/data": r("./src/data"),
       },
     },
-    define: Object.fromEntries(
-      PUBLIC_ENV.map((k) => [`process.env.${k}`, JSON.stringify(process.env[k] ?? "")])
-    ),
+    define: {
+      ...Object.fromEntries(PUBLIC_ENV.map((k) => [`process.env.${k}`, JSON.stringify(process.env[k] ?? "")])),
+      // Fissata alla build: su Netlify la variabile esiste solo in fase di build, non nella funzione della preview.
+      "process.env.DATOCMS_DRAFT": JSON.stringify(process.env.DATOCMS_DRAFT ?? ""),
+    },
   },
 });
