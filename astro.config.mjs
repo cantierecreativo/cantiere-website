@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
+import netlify from "@astrojs/netlify";
 import sitemap from "@astrojs/sitemap";
 import { fileURLToPath } from "node:url";
 import { readFileSync } from "node:fs";
@@ -23,7 +24,12 @@ const forcedRedirects = new Set(
 // Le sole variabili che possono finire nel browser. Il token Dato resta lato server.
 const PUBLIC_ENV = ["NEXT_PUBLIC_SITE_URL", "NEXT_PUBLIC_ENV", "NEXT_PUBLIC_GTM_2", "NEXT_PUBLIC_IUBENDA_SITE_ID"];
 
+// La preview delle bozze (staging, DATOCMS_DRAFT=true) rende le pagine a richiesta: le modifiche salvate
+// in Dato si vedono subito, senza aspettare una build. La produzione resta tutta statica.
+const draft = process.env.DATOCMS_DRAFT === "true";
+
 export default defineConfig({
+  ...(draft && { output: "server", adapter: netlify() }),
   site: process.env.NEXT_PUBLIC_SITE_URL || "https://www.cantierecreativo.net",
   trailingSlash: "never",
   // "file": /servizi.html servito come /servizi, senza la slash finale che Netlify aggiungerebbe a una cartella.

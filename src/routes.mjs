@@ -25,3 +25,21 @@ export function pathFor(view, locale, params = {}) {
 
 // Le viste con un parametro ([slug]) cedono alle viste statiche con lo stesso URL, come in Next.
 export const isDynamic = (view) => view.includes("[");
+
+// Inverso di pathFor, per la preview renderizzata a richiesta: "/en/services/web" → { view: "servizi/[slug]", locale: "en", params: { slug: "web" } }.
+// Come in Next le viste statiche vincono su quelle con [slug]; se lo slug non esiste lo dice poi getStaticProps (notFound).
+export function matchPath(path, views) {
+  path = path.replace(/(.)\/$/, "$1");
+  const locale = path === "/en" || path.startsWith("/en/") ? "en" : "it";
+  const ordered = [...views].sort((a, b) => isDynamic(a) - isDynamic(b));
+  for (const view of ordered) {
+    const [pre, post] = pathFor(view, locale, { slug: "\0" }).split("\0");
+    if (post === undefined) {
+      if (pre === path) return { view, locale, params: {} };
+      continue;
+    }
+    const slug = path.startsWith(pre) && path.endsWith(post) ? path.slice(pre.length, path.length - post.length) : "";
+    if (slug && !slug.includes("/")) return { view, locale, params: { slug } };
+  }
+  return null;
+}

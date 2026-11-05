@@ -4,7 +4,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageView, { views } from "../PageView.jsx";
 import { blocks } from "components/PostContent";
-import { pathFor, isDynamic } from "../routes.mjs";
+import { pathFor, isDynamic, matchPath } from "../routes.mjs";
 import { draft } from "lib/dato";
 
 export async function getStaticPaths() {
@@ -29,10 +29,19 @@ export async function getStaticPaths() {
   return [...byPath.values()];
 }
 
-const { view, locale, params, path } = Astro.props;
-const load = import.meta.glob("../../views/**/*.jsx")[`../../views/${view}.jsx`];
-const { props, notFound } = await (await load()).getStaticProps({ params, locale, preview: draft });
-if (notFound) return new Response(null, { status: 404 });
+const loaders = import.meta.glob("../../views/**/*.jsx");
+// Build statica: la pagina arriva da getStaticPaths. Preview (DATOCMS_DRAFT, rendering a richiesta):
+// la vista si ricava dall'URL e i dati si leggono da Dato a ogni richiesta, bozze comprese.
+const path = Astro.props.path ?? "/" + (Astro.params.path ?? "");
+const match = Astro.props.view
+  ? Astro.props
+  : matchPath(path, Object.keys(loaders).map((f) => f.replace("../../views/", "").replace(/\.jsx$/, "")).filter((v) => v !== "404"));
+const notFoundPage = path.startsWith("/en/") || path === "/en" ? "/en/404" : "/404";
+if (!match) return Astro.rewrite(notFoundPage);
+const { view, locale, params } = match;
+const { props, notFound } = await (await loaders[`../../views/${view}.jsx`]()).getStaticProps({ params, locale, preview: draft });
+if (notFound) return draft ? Astro.rewrite(notFoundPage) : new Response(null, { status: 404 });
+if (draft) Astro.response.headers.set("Cache-Control", "no-store");
 // Sul server vista e blocchi devono essere già caricati prima del render (vedi src/parts.jsx).
 await Promise.all([views.preload([`../views/${view}.jsx`]), blocks.preload()]);
 ---

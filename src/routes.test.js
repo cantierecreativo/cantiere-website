@@ -1,5 +1,5 @@
 import { test, expect } from "bun:test";
-import { pathFor } from "./routes.mjs";
+import { pathFor, matchPath } from "./routes.mjs";
 
 test("URL IT ed EN come nel sito Next", () => {
   expect(pathFor("index", "it")).toBe("/");
@@ -13,4 +13,19 @@ test("URL IT ed EN come nel sito Next", () => {
   expect(pathFor("blog/tags/[slug]", "en", { slug: "ai" })).toBe("/en/blog/tags/ai");
   expect(pathFor("[slug]", "it", { slug: "servizi-web" })).toBe("/servizi-web");
   expect(pathFor("[slug]", "en", { slug: "servizi" })).toBe("/en/servizi");
+});
+
+test("matchPath: dall'URL alla vista, per la preview a richiesta", () => {
+  const views = ["index", "[slug]", "contatti", "blog/index", "blog/[slug]", "blog/tags/[slug]", "servizi/[slug]", "chi-siamo/offerte-lavoro/[slug]"];
+  expect(matchPath("/", views)).toEqual({ view: "index", locale: "it", params: {} });
+  expect(matchPath("/en", views)).toEqual({ view: "index", locale: "en", params: {} });
+  expect(matchPath("/contatti", views)).toEqual({ view: "contatti", locale: "it", params: {} });
+  expect(matchPath("/en/contact-us", views)).toEqual({ view: "contatti", locale: "en", params: {} });
+  expect(matchPath("/blog", views).view).toBe("blog/index");
+  expect(matchPath("/blog/nuovo/", views)).toEqual({ view: "blog/[slug]", locale: "it", params: { slug: "nuovo" } });
+  expect(matchPath("/blog/tags/ai", views)).toEqual({ view: "blog/tags/[slug]", locale: "it", params: { slug: "ai" } });
+  expect(matchPath("/en/services/web", views)).toEqual({ view: "servizi/[slug]", locale: "en", params: { slug: "web" } });
+  expect(matchPath("/en/about/job-positions/dev", views).view).toBe("chi-siamo/offerte-lavoro/[slug]");
+  expect(matchPath("/una-landing", views)).toEqual({ view: "[slug]", locale: "it", params: { slug: "una-landing" } });
+  expect(matchPath("/a/b/c", views)).toBe(null);
 });
