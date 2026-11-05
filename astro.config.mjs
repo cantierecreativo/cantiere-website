@@ -42,6 +42,9 @@ export default defineConfig({
     }),
   ],
   vite: {
+    // Nella funzione della preview si impacchettano le dipendenze: alcune (es. @splidejs/react-splide)
+    // sono CommonJS e Node non ne risolve gli export nominati.
+    ...(draft && { ssr: { noExternal: true } }),
     resolve: {
       alias: {
         "next/link": r("./src/shims/link.jsx"),
